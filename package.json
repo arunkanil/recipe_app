@@ -1,12 +1,12 @@
 {
-  "name": "cart-into-car",
+  "name": "jewelv3.0",
   "version": "2.11.1",
   "description": "Cart into Car",
   "author": {
     "name": "Arun K Anil",
     "github": "https://https://github.com/arunkanil"
   },
-  "homepage": "https://arunkanil.github.io/cart-into-car/",
+  "homepage": "https://arunkanil.github.io/jewelv3.0/",
   "scripts": {
     "ng": "ng",
     "postinstall": "ngcc --properties es2015 browser module main --first-only",

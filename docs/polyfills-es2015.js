@@ -1123,8 +1123,8 @@ $({ target: 'Reflect', stat: true, sham: !FREEZING }, {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Projects\Angular Apps\Jewel_V2.0\src\polyfills.ts */"hN/g");
-module.exports = __webpack_require__(/*! F:\Projects\Angular Apps\Jewel_V2.0\node_modules\@angular-devkit\build-angular\src\webpack\jit-polyfills.js */"rZy+");
+__webpack_require__(/*! F:\Projects\jewelv2.0\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! F:\Projects\jewelv2.0\node_modules\@angular-devkit\build-angular\src\webpack\jit-polyfills.js */"rZy+");
 
 
 /***/ }),

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\Projects\Angular Apps\Jewel_V2.0\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! F:\Projects\jewelv2.0\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -144,38 +144,6 @@ GraphQLModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "4XPS":
-/*!******************************************************!*\
-  !*** ./src/app/views/register/register.component.ts ***!
-  \******************************************************/
-/*! exports provided: RegisterComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_register_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./register.component.html */ "bVw4");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-
-
-
-let RegisterComponent = class RegisterComponent {
-    constructor() { }
-};
-RegisterComponent.ctorParameters = () => [];
-RegisterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
-        selector: 'app-dashboard',
-        template: _raw_loader_register_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], RegisterComponent);
-
-
-
-/***/ }),
-
 /***/ "8gg5":
 /*!**********************************************!*\
   !*** ./src/app/views/error/404.component.ts ***!
@@ -290,11 +258,15 @@ let DefaultLayoutComponent = class DefaultLayoutComponent {
         this.router = router;
         this.authenticationService = authenticationService;
         this.sidebarMinimized = false;
-        this.navItems = _nav__WEBPACK_IMPORTED_MODULE_5__["navItems"];
+        this.navItems = _nav__WEBPACK_IMPORTED_MODULE_5__["navItems"].filter((item) => item.role == localStorage.getItem("user_type") || item.role == "");
         this.authenticationService.currentUser.subscribe((x) => (this.currentUser = x));
+        console.log("constructor", this.currentUser.user.UserType);
     }
+    ;
     toggleMinimize(e) {
+        var _a;
         this.sidebarMinimized = e;
+        console.log((_a = this.currentUser.user) === null || _a === void 0 ? void 0 : _a.UserType);
     }
     logout() {
         this.authenticationService.logout();
@@ -639,11 +611,31 @@ const CustomersQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
       NameOfMother
       MarriageDate
       MarriageMonth
+      kp_caller_assigned {
+        email
+        username
+      }
       tele_caller_contact {
         Name
         id
       }
       created_at
+      FieldReport {
+        id
+        FinancialBackground
+        QtyOfGold
+        PreferredWeddingSet
+        PlanningForReplacementAfterWedding
+        OldGoldExchangeQty
+        NoCostEmiRequired
+        EmiTenure
+        EmiIntervals
+        TokenAdvance
+        RateAdvance
+        EnquiriesFromOthers
+        AdvancePaidToOtherJewellery
+        NumberOfNewMarriageAddress
+      }
       Address {
         id
         HouseName
@@ -668,12 +660,20 @@ const CustomersQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
   }
 `;
 const CustomersFilterQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
-  query ($is_verified: Boolean, $kp_caller_assigned_null: Boolean, $kp_id:ID) {
+  query (
+    $is_verified: Boolean
+    $kp_caller_assigned_null: Boolean
+    $kp_id: ID
+    $MarriageMonth_null: Boolean
+    $MarriageDate_null: Boolean
+  ) {
     customers(
       where: {
         is_verified: $is_verified
         kp_caller_assigned_null: $kp_caller_assigned_null
-        kp_caller_assigned : $kp_id
+        kp_caller_assigned: $kp_id
+        MarriageDate_null: $MarriageDate_null
+        MarriageMonth_null: $MarriageMonth_null
       }
     ) {
       id
@@ -692,6 +692,22 @@ const CustomersFilterQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] 
         id
       }
       created_at
+      FieldReport {
+        id
+        FinancialBackground
+        QtyOfGold
+        PreferredWeddingSet
+        PlanningForReplacementAfterWedding
+        OldGoldExchangeQty
+        NoCostEmiRequired
+        EmiTenure
+        EmiIntervals
+        TokenAdvance
+        RateAdvance
+        EnquiriesFromOthers
+        AdvancePaidToOtherJewellery
+        NumberOfNewMarriageAddress
+      }
       Address {
         id
         HouseName
@@ -729,7 +745,27 @@ const CustomerSingleQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
         Name
         id
       }
+      kp_caller_assigned {
+        email
+        username
+      }
       created_at
+      FieldReport {
+        id
+        FinancialBackground
+        QtyOfGold
+        PreferredWeddingSet
+        PlanningForReplacementAfterWedding
+        OldGoldExchangeQty
+        NoCostEmiRequired
+        EmiTenure
+        EmiIntervals
+        TokenAdvance
+        RateAdvance
+        EnquiriesFromOthers
+        AdvancePaidToOtherJewellery
+        NumberOfNewMarriageAddress
+      }
       Address {
         id
         HouseName
@@ -893,6 +929,21 @@ const SetKpCallerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
           id
           NameOfBride
           NameOfFather
+        }
+      }
+    }
+  }
+`;
+const SetFieldAgentMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
+  mutation ($id: ID!, $cust_id: [ID!]!) {
+    updateUser(input: { where: { id: $id }, data: { customers: $cust_id } }) {
+      user {
+        id
+        customers {
+          NameOfBride
+          id
+          NameOfFather
+          MarriageDate
         }
       }
     }
@@ -1072,6 +1123,16 @@ let DataService = class DataService {
             errorPolicy: "all",
         });
     }
+    SetFieldAgent(id, cust_id) {
+        return this.apollo.mutate({
+            mutation: SetFieldAgentMutation,
+            variables: {
+                id: id,
+                cust_id: cust_id,
+            },
+            errorPolicy: "all",
+        });
+    }
 };
 DataService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
@@ -1085,308 +1146,6 @@ DataService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], DataService);
 
 
-
-/***/ }),
-
-/***/ "RnhZ":
-/*!**************************************************!*\
-  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./af": "K/tc",
-	"./af.js": "K/tc",
-	"./ar": "jnO4",
-	"./ar-dz": "o1bE",
-	"./ar-dz.js": "o1bE",
-	"./ar-kw": "Qj4J",
-	"./ar-kw.js": "Qj4J",
-	"./ar-ly": "HP3h",
-	"./ar-ly.js": "HP3h",
-	"./ar-ma": "CoRJ",
-	"./ar-ma.js": "CoRJ",
-	"./ar-sa": "gjCT",
-	"./ar-sa.js": "gjCT",
-	"./ar-tn": "bYM6",
-	"./ar-tn.js": "bYM6",
-	"./ar.js": "jnO4",
-	"./az": "SFxW",
-	"./az.js": "SFxW",
-	"./be": "H8ED",
-	"./be.js": "H8ED",
-	"./bg": "hKrs",
-	"./bg.js": "hKrs",
-	"./bm": "p/rL",
-	"./bm.js": "p/rL",
-	"./bn": "kEOa",
-	"./bn-bd": "loYQ",
-	"./bn-bd.js": "loYQ",
-	"./bn.js": "kEOa",
-	"./bo": "0mo+",
-	"./bo.js": "0mo+",
-	"./br": "aIdf",
-	"./br.js": "aIdf",
-	"./bs": "JVSJ",
-	"./bs.js": "JVSJ",
-	"./ca": "1xZ4",
-	"./ca.js": "1xZ4",
-	"./cs": "PA2r",
-	"./cs.js": "PA2r",
-	"./cv": "A+xa",
-	"./cv.js": "A+xa",
-	"./cy": "l5ep",
-	"./cy.js": "l5ep",
-	"./da": "DxQv",
-	"./da.js": "DxQv",
-	"./de": "tGlX",
-	"./de-at": "s+uk",
-	"./de-at.js": "s+uk",
-	"./de-ch": "u3GI",
-	"./de-ch.js": "u3GI",
-	"./de.js": "tGlX",
-	"./dv": "WYrj",
-	"./dv.js": "WYrj",
-	"./el": "jUeY",
-	"./el.js": "jUeY",
-	"./en-au": "Dmvi",
-	"./en-au.js": "Dmvi",
-	"./en-ca": "OIYi",
-	"./en-ca.js": "OIYi",
-	"./en-gb": "Oaa7",
-	"./en-gb.js": "Oaa7",
-	"./en-ie": "4dOw",
-	"./en-ie.js": "4dOw",
-	"./en-il": "czMo",
-	"./en-il.js": "czMo",
-	"./en-in": "7C5Q",
-	"./en-in.js": "7C5Q",
-	"./en-nz": "b1Dy",
-	"./en-nz.js": "b1Dy",
-	"./en-sg": "t+mt",
-	"./en-sg.js": "t+mt",
-	"./eo": "Zduo",
-	"./eo.js": "Zduo",
-	"./es": "iYuL",
-	"./es-do": "CjzT",
-	"./es-do.js": "CjzT",
-	"./es-mx": "tbfe",
-	"./es-mx.js": "tbfe",
-	"./es-us": "Vclq",
-	"./es-us.js": "Vclq",
-	"./es.js": "iYuL",
-	"./et": "7BjC",
-	"./et.js": "7BjC",
-	"./eu": "D/JM",
-	"./eu.js": "D/JM",
-	"./fa": "jfSC",
-	"./fa.js": "jfSC",
-	"./fi": "gekB",
-	"./fi.js": "gekB",
-	"./fil": "1ppg",
-	"./fil.js": "1ppg",
-	"./fo": "ByF4",
-	"./fo.js": "ByF4",
-	"./fr": "nyYc",
-	"./fr-ca": "2fjn",
-	"./fr-ca.js": "2fjn",
-	"./fr-ch": "Dkky",
-	"./fr-ch.js": "Dkky",
-	"./fr.js": "nyYc",
-	"./fy": "cRix",
-	"./fy.js": "cRix",
-	"./ga": "USCx",
-	"./ga.js": "USCx",
-	"./gd": "9rRi",
-	"./gd.js": "9rRi",
-	"./gl": "iEDd",
-	"./gl.js": "iEDd",
-	"./gom-deva": "qvJo",
-	"./gom-deva.js": "qvJo",
-	"./gom-latn": "DKr+",
-	"./gom-latn.js": "DKr+",
-	"./gu": "4MV3",
-	"./gu.js": "4MV3",
-	"./he": "x6pH",
-	"./he.js": "x6pH",
-	"./hi": "3E1r",
-	"./hi.js": "3E1r",
-	"./hr": "S6ln",
-	"./hr.js": "S6ln",
-	"./hu": "WxRl",
-	"./hu.js": "WxRl",
-	"./hy-am": "1rYy",
-	"./hy-am.js": "1rYy",
-	"./id": "UDhR",
-	"./id.js": "UDhR",
-	"./is": "BVg3",
-	"./is.js": "BVg3",
-	"./it": "bpih",
-	"./it-ch": "bxKX",
-	"./it-ch.js": "bxKX",
-	"./it.js": "bpih",
-	"./ja": "B55N",
-	"./ja.js": "B55N",
-	"./jv": "tUCv",
-	"./jv.js": "tUCv",
-	"./ka": "IBtZ",
-	"./ka.js": "IBtZ",
-	"./kk": "bXm7",
-	"./kk.js": "bXm7",
-	"./km": "6B0Y",
-	"./km.js": "6B0Y",
-	"./kn": "PpIw",
-	"./kn.js": "PpIw",
-	"./ko": "Ivi+",
-	"./ko.js": "Ivi+",
-	"./ku": "JCF/",
-	"./ku.js": "JCF/",
-	"./ky": "lgnt",
-	"./ky.js": "lgnt",
-	"./lb": "RAwQ",
-	"./lb.js": "RAwQ",
-	"./lo": "sp3z",
-	"./lo.js": "sp3z",
-	"./lt": "JvlW",
-	"./lt.js": "JvlW",
-	"./lv": "uXwI",
-	"./lv.js": "uXwI",
-	"./me": "KTz0",
-	"./me.js": "KTz0",
-	"./mi": "aIsn",
-	"./mi.js": "aIsn",
-	"./mk": "aQkU",
-	"./mk.js": "aQkU",
-	"./ml": "AvvY",
-	"./ml.js": "AvvY",
-	"./mn": "lYtQ",
-	"./mn.js": "lYtQ",
-	"./mr": "Ob0Z",
-	"./mr.js": "Ob0Z",
-	"./ms": "6+QB",
-	"./ms-my": "ZAMP",
-	"./ms-my.js": "ZAMP",
-	"./ms.js": "6+QB",
-	"./mt": "G0Uy",
-	"./mt.js": "G0Uy",
-	"./my": "honF",
-	"./my.js": "honF",
-	"./nb": "bOMt",
-	"./nb.js": "bOMt",
-	"./ne": "OjkT",
-	"./ne.js": "OjkT",
-	"./nl": "+s0g",
-	"./nl-be": "2ykv",
-	"./nl-be.js": "2ykv",
-	"./nl.js": "+s0g",
-	"./nn": "uEye",
-	"./nn.js": "uEye",
-	"./oc-lnc": "Fnuy",
-	"./oc-lnc.js": "Fnuy",
-	"./pa-in": "8/+R",
-	"./pa-in.js": "8/+R",
-	"./pl": "jVdC",
-	"./pl.js": "jVdC",
-	"./pt": "8mBD",
-	"./pt-br": "0tRk",
-	"./pt-br.js": "0tRk",
-	"./pt.js": "8mBD",
-	"./ro": "lyxo",
-	"./ro.js": "lyxo",
-	"./ru": "lXzo",
-	"./ru.js": "lXzo",
-	"./sd": "Z4QM",
-	"./sd.js": "Z4QM",
-	"./se": "//9w",
-	"./se.js": "//9w",
-	"./si": "7aV9",
-	"./si.js": "7aV9",
-	"./sk": "e+ae",
-	"./sk.js": "e+ae",
-	"./sl": "gVVK",
-	"./sl.js": "gVVK",
-	"./sq": "yPMs",
-	"./sq.js": "yPMs",
-	"./sr": "zx6S",
-	"./sr-cyrl": "E+lV",
-	"./sr-cyrl.js": "E+lV",
-	"./sr.js": "zx6S",
-	"./ss": "Ur1D",
-	"./ss.js": "Ur1D",
-	"./sv": "X709",
-	"./sv.js": "X709",
-	"./sw": "dNwA",
-	"./sw.js": "dNwA",
-	"./ta": "PeUW",
-	"./ta.js": "PeUW",
-	"./te": "XLvN",
-	"./te.js": "XLvN",
-	"./tet": "V2x9",
-	"./tet.js": "V2x9",
-	"./tg": "Oxv6",
-	"./tg.js": "Oxv6",
-	"./th": "EOgW",
-	"./th.js": "EOgW",
-	"./tk": "Wv91",
-	"./tk.js": "Wv91",
-	"./tl-ph": "Dzi0",
-	"./tl-ph.js": "Dzi0",
-	"./tlh": "z3Vd",
-	"./tlh.js": "z3Vd",
-	"./tr": "DoHr",
-	"./tr.js": "DoHr",
-	"./tzl": "z1FC",
-	"./tzl.js": "z1FC",
-	"./tzm": "wQk9",
-	"./tzm-latn": "tT3J",
-	"./tzm-latn.js": "tT3J",
-	"./tzm.js": "wQk9",
-	"./ug-cn": "YRex",
-	"./ug-cn.js": "YRex",
-	"./uk": "raLr",
-	"./uk.js": "raLr",
-	"./ur": "UpQW",
-	"./ur.js": "UpQW",
-	"./uz": "Loxo",
-	"./uz-latn": "AQ68",
-	"./uz-latn.js": "AQ68",
-	"./uz.js": "Loxo",
-	"./vi": "KSF8",
-	"./vi.js": "KSF8",
-	"./x-pseudo": "/X5v",
-	"./x-pseudo.js": "/X5v",
-	"./yo": "fzPg",
-	"./yo.js": "fzPg",
-	"./zh-cn": "XDpg",
-	"./zh-cn.js": "XDpg",
-	"./zh-hk": "SatO",
-	"./zh-hk.js": "SatO",
-	"./zh-mo": "OmwH",
-	"./zh-mo.js": "OmwH",
-	"./zh-tw": "kOpN",
-	"./zh-tw.js": "kOpN"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "RnhZ";
 
 /***/ }),
 
@@ -1456,117 +1215,96 @@ AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "cUpR");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "SVse");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "s7LF");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "omvX");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-/* harmony import */ var ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-perfect-scrollbar */ "aLe/");
-/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ag-grid-angular */ "YFAK");
-/* harmony import */ var _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @coreui/icons-angular */ "rVqu");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app.component */ "Sy1n");
-/* harmony import */ var _containers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./containers */ "G/4p");
-/* harmony import */ var _views_error_404_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/error/404.component */ "8gg5");
-/* harmony import */ var _views_error_500_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/error/500.component */ "dxhq");
-/* harmony import */ var _views_login_login_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/login/login.component */ "QB/w");
-/* harmony import */ var _views_register_register_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/register/register.component */ "4XPS");
-/* harmony import */ var _coreui_angular__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @coreui/angular */ "Iluq");
-/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./app.routing */ "beVS");
-/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "FE24");
-/* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "2ZVE");
-/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ng2-charts */ "hrfs");
-/* harmony import */ var _graphql_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./graphql.module */ "4KHl");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "SVse");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "s7LF");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser/animations */ "omvX");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "IheW");
+/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ag-grid-angular */ "YFAK");
+/* harmony import */ var _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @coreui/icons-angular */ "rVqu");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "Sy1n");
+/* harmony import */ var _containers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./containers */ "G/4p");
+/* harmony import */ var _views_error_404_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/error/404.component */ "8gg5");
+/* harmony import */ var _views_error_500_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/error/500.component */ "dxhq");
+/* harmony import */ var _views_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/login/login.component */ "QB/w");
+/* harmony import */ var _coreui_angular__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @coreui/angular */ "Iluq");
+/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app.routing */ "beVS");
+/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "FE24");
+/* harmony import */ var _graphql_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./graphql.module */ "4KHl");
+
+// import { BrowserModule } from '@angular/platform-browser';
 
 
 
 
 
+// import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+// import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 
-
-
-
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG = {
-    suppressScrollX: true
-};
+// const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+//   suppressScrollX: true
+// };
 
 // Import containers
 
 
 
 
-
-const APP_CONTAINERS = [
-    _containers__WEBPACK_IMPORTED_MODULE_11__["DefaultLayoutComponent"]
-];
+// const APP_CONTAINERS = [
+//   DefaultLayoutComponent
+// ];
 
 // Import routing module
 
 // Import 3rd party components
 
-
-
+// import { TabsModule } from 'ngx-bootstrap/tabs';
 
 let AppModule = class AppModule {
 };
 AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            ag_grid_angular__WEBPACK_IMPORTED_MODULE_8__["AgGridModule"].withComponents([]),
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
-            _app_routing__WEBPACK_IMPORTED_MODULE_17__["AppRoutingModule"],
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_16__["AppAsideModule"],
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_16__["AppBreadcrumbModule"].forRoot(),
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_16__["AppFooterModule"],
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_16__["AppHeaderModule"],
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_16__["AppSidebarModule"],
-            ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_7__["PerfectScrollbarModule"],
-            ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_18__["BsDropdownModule"].forRoot(),
-            ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_19__["TabsModule"].forRoot(),
-            ng2_charts__WEBPACK_IMPORTED_MODULE_20__["ChartsModule"],
-            _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_9__["IconModule"],
-            _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_9__["IconSetModule"].forRoot(),
-            _graphql_module__WEBPACK_IMPORTED_MODULE_21__["GraphQLModule"],
+            // BrowserModule,
+            ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__["AgGridModule"].withComponents([]),
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
+            _app_routing__WEBPACK_IMPORTED_MODULE_14__["AppRoutingModule"],
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppAsideModule"],
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppBreadcrumbModule"].forRoot(),
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppFooterModule"],
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppHeaderModule"],
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppSidebarModule"],
+            // PerfectScrollbarModule,
+            ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__["BsDropdownModule"].forRoot(),
+            // TabsModule.forRoot(),
+            // IconModule,
+            _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__["IconSetModule"].forRoot(),
+            _graphql_module__WEBPACK_IMPORTED_MODULE_16__["GraphQLModule"],
         ],
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
             // ...APP_CONTAINERS,
-            _views_error_404_component__WEBPACK_IMPORTED_MODULE_12__["P404Component"],
-            _views_error_500_component__WEBPACK_IMPORTED_MODULE_13__["P500Component"],
-            _views_login_login_component__WEBPACK_IMPORTED_MODULE_14__["LoginComponent"],
-            _containers__WEBPACK_IMPORTED_MODULE_11__["DefaultLayoutComponent"],
-            _views_register_register_component__WEBPACK_IMPORTED_MODULE_15__["RegisterComponent"]
+            _views_error_404_component__WEBPACK_IMPORTED_MODULE_10__["P404Component"],
+            _views_error_500_component__WEBPACK_IMPORTED_MODULE_11__["P500Component"],
+            _views_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"],
+            _containers__WEBPACK_IMPORTED_MODULE_9__["DefaultLayoutComponent"],
         ],
         providers: [
             {
-                provide: _angular_common__WEBPACK_IMPORTED_MODULE_3__["LocationStrategy"],
-                useClass: _angular_common__WEBPACK_IMPORTED_MODULE_3__["HashLocationStrategy"]
+                provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["LocationStrategy"],
+                useClass: _angular_common__WEBPACK_IMPORTED_MODULE_2__["HashLocationStrategy"]
             },
-            _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_9__["IconSetService"],
+            _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__["IconSetService"],
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
     })
 ], AppModule);
 
 
-
-/***/ }),
-
-/***/ "bVw4":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/register/register.component.html ***!
-  \**********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"app-body\">\n  <main class=\"main d-flex align-items-center\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-md-6 mx-auto\">\n          <div class=\"card mx-4\">\n            <div class=\"card-body p-4\">\n              <form>\n                <h1>Register</h1>\n                <p class=\"text-muted\">Create your account</p>\n                <div class=\"input-group mb-3\">\n                  <div class=\"input-group-prepend\">\n                    <span class=\"input-group-text\"><i class=\"icon-user\"></i></span>\n                  </div>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Username\" autocomplete=\"username\" required>\n                </div>\n                <div class=\"input-group mb-3\">\n                  <div class=\"input-group-prepend\">\n                    <span class=\"input-group-text\">@</span>\n                  </div>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Email\" autocomplete=\"email\" required>\n                </div>\n                <div class=\"input-group mb-3\">\n                  <div class=\"input-group-prepend\">\n                    <span class=\"input-group-text\"><i class=\"icon-lock\"></i></span>\n                  </div>\n                  <input type=\"password\" class=\"form-control\" placeholder=\"Password\" autocomplete=\"new-password\" required>\n                </div>\n                <div class=\"input-group mb-4\">\n                  <div class=\"input-group-prepend\">\n                    <span class=\"input-group-text\"><i class=\"icon-lock\"></i></span>\n                  </div>\n                  <input type=\"password\" class=\"form-control\" placeholder=\"Repeat password\" autocomplete=\"new-password\" required>\n                </div>\n                <button type=\"button\" class=\"btn btn-block btn-success\">Create Account</button>\n              </form>\n            </div>\n            <div class=\"card-footer p-4\">\n              <div class=\"row\">\n                <div class=\"col-6\">\n                  <button class=\"btn btn-block btn-facebook\" type=\"button\"><span>facebook</span></button>\n                </div>\n                <div class=\"col-6\">\n                  <button class=\"btn btn-block btn-twitter\" type=\"button\"><span>twitter</span></button>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </main>\n</div>\n");
 
 /***/ }),
 
@@ -1588,13 +1326,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_error_404_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/error/404.component */ "8gg5");
 /* harmony import */ var _views_error_500_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/error/500.component */ "dxhq");
 /* harmony import */ var _views_login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/login/login.component */ "QB/w");
-/* harmony import */ var _views_register_register_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/register/register.component */ "4XPS");
-/* harmony import */ var _views_login_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/login/auth.guard */ "nl+3");
+/* harmony import */ var _views_login_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/login/auth.guard */ "nl+3");
 
 
 
 // Import Containers
-
 
 
 
@@ -1628,51 +1364,28 @@ const routes = [
         }
     },
     {
-        path: 'register',
-        component: _views_register_register_component__WEBPACK_IMPORTED_MODULE_7__["RegisterComponent"],
-        data: {
-            title: 'Register Page'
-        }
-    },
-    {
         path: '',
         component: _containers__WEBPACK_IMPORTED_MODULE_3__["DefaultLayoutComponent"],
         data: {
             title: 'Home'
         },
-        canActivate: [_views_login_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]],
+        canActivate: [_views_login_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]],
         children: [
             {
-                path: 'order',
-                loadChildren: () => Promise.all(/*! import() | views-base-base-module */[__webpack_require__.e("default~views-base-base-module~views-buttons-buttons-module~views-notifications-notifications-module~f2976f04"), __webpack_require__.e("common"), __webpack_require__.e("views-base-base-module")]).then(__webpack_require__.bind(null, /*! ./views/base/base.module */ "Cvcy")).then(m => m.BaseModule)
+                path: 'telecaller',
+                loadChildren: () => Promise.all(/*! import() | views-telecaller-telecaller-module */[__webpack_require__.e("default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module"), __webpack_require__.e("views-telecaller-telecaller-module")]).then(__webpack_require__.bind(null, /*! ./views/telecaller/telecaller.module */ "ZTOn")).then(m => m.TelecallerModule)
             },
             {
                 path: 'manager',
-                loadChildren: () => Promise.all(/*! import() | views-theme-theme-module */[__webpack_require__.e("default~views-base-base-module~views-buttons-buttons-module~views-notifications-notifications-module~f2976f04"), __webpack_require__.e("common"), __webpack_require__.e("views-theme-theme-module")]).then(__webpack_require__.bind(null, /*! ./views/theme/theme.module */ "AgMk")).then(m => m.ThemeModule)
+                loadChildren: () => Promise.all(/*! import() | views-manager-manager-module */[__webpack_require__.e("default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module"), __webpack_require__.e("views-manager-manager-module")]).then(__webpack_require__.bind(null, /*! ./views/manager/manager.module */ "5Q6f")).then(m => m.ManagerModule)
             },
             {
                 path: 'kpcaller',
-                loadChildren: () => Promise.all(/*! import() | views-buttons-buttons-module */[__webpack_require__.e("default~views-base-base-module~views-buttons-buttons-module~views-notifications-notifications-module~f2976f04"), __webpack_require__.e("common"), __webpack_require__.e("views-buttons-buttons-module")]).then(__webpack_require__.bind(null, /*! ./views/buttons/buttons.module */ "Reju")).then(m => m.ButtonsModule)
-            },
-            {
-                path: 'charts',
-                loadChildren: () => __webpack_require__.e(/*! import() | views-chartjs-chartjs-module */ "views-chartjs-chartjs-module").then(__webpack_require__.bind(null, /*! ./views/chartjs/chartjs.module */ "Y+KY")).then(m => m.ChartJSModule)
+                loadChildren: () => Promise.all(/*! import() | views-kpcaller-kpcaller-module */[__webpack_require__.e("default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module"), __webpack_require__.e("views-kpcaller-kpcaller-module")]).then(__webpack_require__.bind(null, /*! ./views/kpcaller/kpcaller.module */ "/oiM")).then(m => m.KpCallerModule)
             },
             {
                 path: 'dashboard',
-                loadChildren: () => Promise.all(/*! import() | views-dashboard-dashboard-module */[__webpack_require__.e("default~views-dashboard-dashboard-module~views-widgets-widgets-module"), __webpack_require__.e("views-dashboard-dashboard-module")]).then(__webpack_require__.bind(null, /*! ./views/dashboard/dashboard.module */ "6dU7")).then(m => m.DashboardModule)
-            },
-            {
-                path: 'icons',
-                loadChildren: () => __webpack_require__.e(/*! import() | views-icons-icons-module */ "views-icons-icons-module").then(__webpack_require__.bind(null, /*! ./views/icons/icons.module */ "aPNi")).then(m => m.IconsModule)
-            },
-            {
-                path: 'notifications',
-                loadChildren: () => Promise.all(/*! import() | views-notifications-notifications-module */[__webpack_require__.e("default~views-base-base-module~views-buttons-buttons-module~views-notifications-notifications-module~f2976f04"), __webpack_require__.e("views-notifications-notifications-module")]).then(__webpack_require__.bind(null, /*! ./views/notifications/notifications.module */ "KpDv")).then(m => m.NotificationsModule)
-            },
-            {
-                path: 'widgets',
-                loadChildren: () => Promise.all(/*! import() | views-widgets-widgets-module */[__webpack_require__.e("default~views-dashboard-dashboard-module~views-widgets-widgets-module"), __webpack_require__.e("views-widgets-widgets-module")]).then(__webpack_require__.bind(null, /*! ./views/widgets/widgets.module */ "XVX6")).then(m => m.WidgetsModule)
+                loadChildren: () => __webpack_require__.e(/*! import() | views-dashboard-dashboard-module */ "views-dashboard-dashboard-module").then(__webpack_require__.bind(null, /*! ./views/dashboard/dashboard.module */ "6dU7")).then(m => m.DashboardModule)
             }
         ]
     },
@@ -1706,45 +1419,49 @@ const navItems = [
         name: 'Dashboard',
         url: '/dashboard',
         icon: 'icon-speedometer',
-        badge: {
-            variant: 'info',
-            text: 'NEW'
-        }
+        role: ""
     },
     {
         name: 'Agents',
-        url: '/order/order_processing',
-        icon: 'icon-note'
+        url: '/telecaller/agents',
+        icon: 'icon-note',
+        role: "TELE_CALLER"
     },
     {
         name: 'Customers',
-        url: '/order/ready_for_delivery',
-        icon: 'icon-basket-loaded'
+        url: '/telecaller/customers',
+        icon: 'icon-basket-loaded',
+        role: "TELE_CALLER"
     },
     {
         name: 'Verification',
         url: '/kpcaller/verification',
-        icon: 'icon-cursor'
+        icon: 'icon-cursor',
+        role: "KP_CALLER"
     },
     {
         name: 'Assigned',
         url: '/kpcaller/assigned',
-        icon: 'icon-cursor'
+        icon: 'icon-cursor',
+        role: "KP_CALLER"
     },
     {
         name: 'DNF',
         url: '/kpcaller/dnf',
-        icon: 'icon-cursor'
+        icon: 'icon-cursor',
+        role: "KP_CALLER"
     },
-    // {
-    //   name: 'All Orders',
-    //   url: '/order/all_orders',
-    //   icon: 'icon-notebook'
-    // },
     {
         name: 'Verified List',
         url: '/manager/verified_list',
-        icon: 'icon-phone'
+        icon: 'icon-phone',
+        role: "MANAGER"
+    },
+    {
+        name: 'Customers',
+        url: '/manager/customers',
+        icon: 'icon-basket-loaded',
+        role: "MANAGER"
     },
 ];
 
@@ -1852,7 +1569,7 @@ let AuthGuard = class AuthGuard {
             if (route.data.roles &&
                 route.data.roles.indexOf(currentUser.user.UserType) === -1) {
                 // role not authorised so redirect to home page
-                this.router.navigate(['/']);
+                this.router.navigate(['/500']);
                 console.log('authguard failed');
                 return false;
             }
