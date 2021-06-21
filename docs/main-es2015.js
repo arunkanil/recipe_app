@@ -1030,12 +1030,14 @@ let DataService = class DataService {
         });
     }
     AddComment(id, agent) {
+        let date = new Date();
+        console.log(date.toISOString());
         return this.apollo.mutate({
             mutation: AddCommentMutation,
             variables: {
                 id: id,
                 remarks: agent.RemarksText,
-                date: agent.event_date_time + ":00.000Z",
+                date: new Date().toISOString(),
             },
             errorPolicy: "all",
         });
@@ -1107,7 +1109,7 @@ let DataService = class DataService {
             variables: {
                 id: id,
                 remarks: agent.RemarksText,
-                date: agent.event_date_time + ":00.000Z",
+                date: new Date().toISOString(),
                 is_verified: agent.is_verified,
             },
             errorPolicy: "all",

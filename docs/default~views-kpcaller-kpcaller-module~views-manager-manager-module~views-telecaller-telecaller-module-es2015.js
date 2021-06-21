@@ -4,7 +4,7 @@
 /*!*********************************************!*\
   !*** ./src/app/constants/columnMetadata.ts ***!
   \*********************************************/
-/*! exports provided: filterParams, Months, AgentsColumn, customersColumn */
+/*! exports provided: filterParams, Months, AgentsColumn, customersColumn, dateConverter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13,13 +13,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Months", function() { return Months; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgentsColumn", function() { return AgentsColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "customersColumn", function() { return customersColumn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateConverter", function() { return dateConverter; });
 var filterParams = {
     suppressAndOrCondition: true,
     comparator: function (filterLocalDateAtMidnight, cellValue) {
         var dateAsString = new Date(cellValue).toLocaleDateString("en-IN");
         if (dateAsString == null)
             return -1;
-        var dateParts = dateAsString.split('/');
+        var dateParts = dateAsString.split("/");
         var cellDate = new Date(Number(dateParts[2]), Number(dateParts[1]) - 1, Number(dateParts[0]));
         console.log(cellValue, "ddd", cellDate, "ddd", filterLocalDateAtMidnight);
         if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
@@ -33,7 +34,7 @@ var filterParams = {
         }
     },
     browserDatePicker: true,
-    buttons: ['reset'],
+    buttons: ["reset"],
 };
 const Months = [
     { id: 1, Name: "January" },
@@ -62,10 +63,10 @@ const AgentsColumn = [
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
@@ -74,20 +75,20 @@ const AgentsColumn = [
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
         field: "Email",
         headerName: "E-mail",
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
@@ -95,10 +96,10 @@ const AgentsColumn = [
         headerName: "Contact Number 1",
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
@@ -106,10 +107,10 @@ const AgentsColumn = [
         headerName: "Contact Number 2",
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
@@ -117,10 +118,10 @@ const AgentsColumn = [
         headerName: "Contact Number 3",
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
 ];
@@ -139,10 +140,10 @@ const customersColumn = [
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
@@ -151,7 +152,7 @@ const customersColumn = [
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agDateColumnFilter',
+        filter: "agDateColumnFilter",
         filterParams: filterParams,
     },
     {
@@ -159,10 +160,10 @@ const customersColumn = [
         headerName: "Name of Father",
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
@@ -171,10 +172,10 @@ const customersColumn = [
         sortable: true,
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
@@ -183,10 +184,10 @@ const customersColumn = [
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
     {
@@ -194,13 +195,16 @@ const customersColumn = [
         headerName: "Locality",
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-            filterOptions: ['contains'],
-            buttons: ['reset'],
+            filterOptions: ["contains"],
+            buttons: ["reset"],
         },
     },
 ];
+function dateConverter(date) {
+    return new Date(date);
+}
 
 
 /***/ }),

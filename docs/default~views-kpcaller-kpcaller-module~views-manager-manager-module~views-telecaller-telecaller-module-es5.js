@@ -18,7 +18,7 @@
       !*** ./src/app/constants/columnMetadata.ts ***!
       \*********************************************/
 
-    /*! exports provided: filterParams, Months, AgentsColumn, customersColumn */
+    /*! exports provided: filterParams, Months, AgentsColumn, customersColumn, dateConverter */
 
     /***/
     function nfi(module, __webpack_exports__, __webpack_require__) {
@@ -49,13 +49,19 @@
       __webpack_require__.d(__webpack_exports__, "customersColumn", function () {
         return customersColumn;
       });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "dateConverter", function () {
+        return dateConverter;
+      });
 
       var filterParams = {
         suppressAndOrCondition: true,
         comparator: function comparator(filterLocalDateAtMidnight, cellValue) {
           var dateAsString = new Date(cellValue).toLocaleDateString("en-IN");
           if (dateAsString == null) return -1;
-          var dateParts = dateAsString.split('/');
+          var dateParts = dateAsString.split("/");
           var cellDate = new Date(Number(dateParts[2]), Number(dateParts[1]) - 1, Number(dateParts[0]));
           console.log(cellValue, "ddd", cellDate, "ddd", filterLocalDateAtMidnight);
 
@@ -72,7 +78,7 @@
           }
         },
         browserDatePicker: true,
-        buttons: ['reset']
+        buttons: ["reset"]
       };
       var Months = [{
         id: 1,
@@ -122,10 +128,10 @@
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "group.Name",
@@ -133,49 +139,49 @@
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "Email",
         headerName: "E-mail",
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "Contact_Number_1",
         headerName: "Contact Number 1",
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "Contact_Number_2",
         headerName: "Contact Number 2",
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "Contact_Number_3",
         headerName: "Contact Number 3",
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }];
       var customersColumn = [{
@@ -191,10 +197,10 @@
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "MarriageDate",
@@ -202,17 +208,17 @@
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agDateColumnFilter',
+        filter: "agDateColumnFilter",
         filterParams: filterParams
       }, {
         field: "NameOfFather",
         headerName: "Name of Father",
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "NameOfMother",
@@ -220,10 +226,10 @@
         sortable: true,
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "tele_caller_contact.Name",
@@ -231,23 +237,28 @@
         minWidth: 150,
         resizable: true,
         sortable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }, {
         field: "Address.locality.Name",
         headerName: "Locality",
         minWidth: 150,
         resizable: true,
-        filter: 'agTextColumnFilter',
+        filter: "agTextColumnFilter",
         filterParams: {
-          filterOptions: ['contains'],
-          buttons: ['reset']
+          filterOptions: ["contains"],
+          buttons: ["reset"]
         }
       }];
+
+      function dateConverter(date) {
+        return new Date(date);
+      }
       /***/
+
     },
 
     /***/

@@ -814,12 +814,14 @@
         }, {
           key: "AddComment",
           value: function AddComment(id, agent) {
+            var date = new Date();
+            console.log(date.toISOString());
             return this.apollo.mutate({
               mutation: AddCommentMutation,
               variables: {
                 id: id,
                 remarks: agent.RemarksText,
-                date: agent.event_date_time + ":00.000Z"
+                date: new Date().toISOString()
               },
               errorPolicy: "all"
             });
@@ -911,7 +913,7 @@
               variables: {
                 id: id,
                 remarks: agent.RemarksText,
-                date: agent.event_date_time + ":00.000Z",
+                date: new Date().toISOString(),
                 is_verified: agent.is_verified
               },
               errorPolicy: "all"

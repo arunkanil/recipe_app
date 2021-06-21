@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { ModalDirective } from "ngx-bootstrap/modal";
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
+import { dateConverter } from "../../constants/columnMetadata";
 
 @Component({
   templateUrl: "customerdetail.component.html",
@@ -19,10 +20,11 @@ export class KPCustomerDetailComponent implements OnInit {
   loading = true;
   details: any = [];
   btnLoading = false;
+  dateConverter = dateConverter;
   groups: any = [];
   commentForm = this.fb.group({
     RemarksText: ["", Validators.required],
-    event_date_time: ["", Validators.required],
+    // event_date_time: ["", Validators.required],
     is_verified: [false],
   });
 
