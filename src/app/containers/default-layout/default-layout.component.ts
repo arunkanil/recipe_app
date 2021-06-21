@@ -11,7 +11,7 @@ import { navItems } from "../../_nav";
 export class DefaultLayoutComponent {
   currentUser: User;
   public sidebarMinimized = false;
-  
+  userName = localStorage.getItem("username");
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService

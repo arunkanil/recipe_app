@@ -22,8 +22,8 @@
             <h2>Customer Details</h2>
             <span>
                 <button type="button" class="btn btn-primary" data-toggle="modal" (click)="myModal.show()">
-                Assign to field agent
-            </button>
+                    Assign to field agent
+                </button>
                 <!-- <button type="button" class="btn btn-danger" data-toggle="modal" (click)="deleteModal.show()">
                 Delete
             </button> -->
@@ -94,7 +94,7 @@
                         <div style="display: flex; justify-content: space-between">
                             <h4>Field Report</h4>
                         </div>
-                        <table class="table table-striped">
+                        <table *ngIf="details.FieldReport" class="table table-striped">
                             <tbody>
                                 <tr>
                                     <td>Financial category</td>
@@ -156,6 +156,12 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <div *ngIf="!details.FieldReport" class="card">
+                        <div class="card-body text-center">
+                            No field report found
+                        </div>
+                    </div>
                 </div>
                 <div class="col">
                     <div style="display: flex; justify-content: space-between">
@@ -187,7 +193,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form [formGroup]="agentForm" (ngSubmit)="FormSubmit()">                            
+                        <form [formGroup]="agentForm" (ngSubmit)="FormSubmit()">
                             <div class="form-group">
                                 <label for="group">Field agent</label>
                                 <select class="form-control" id="agent" required ngModel name="agent"
