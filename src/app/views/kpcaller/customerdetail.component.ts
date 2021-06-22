@@ -17,6 +17,7 @@ export class KPCustomerDetailComponent implements OnInit {
   @ViewChild("commentModal") public commentModal: ModalDirective;
 
   id: any;
+  from: boolean = false;
   loading = true;
   details: any = [];
   btnLoading = false;
@@ -32,12 +33,16 @@ export class KPCustomerDetailComponent implements OnInit {
     this.getLists();
     this.activatedRouter.params.subscribe((params) => {
       this.id = params["id"];
+      if(params["from"] === "/kpcaller/verification"){
+        this.from = true;
+      }
     });
     this.dataservice.getSingleCustomer(this.id).valueChanges.subscribe((result: any) => {
       console.log("getSingleCustomer", result.data.customer);
       this.details = result.data.customer;
       this.loading = false;
     });
+    console.log(this.from);
   }
   getLists() {
     this.loading = true;

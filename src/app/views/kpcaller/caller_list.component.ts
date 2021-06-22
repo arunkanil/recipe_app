@@ -63,7 +63,7 @@ export class ButtonsComponent {
   onSelectionChanged(event) {
     var selectedRows = this.gridApi.getSelectedRows();
     console.log(selectedRows);
-    this.router.navigate(["/kpcaller/kp_customer_details",selectedRows[0].id], {
+    this.router.navigate(["/kpcaller/kp_customer_details",selectedRows[0].id,this.router.url], {
       state: { data: selectedRows },
     });
   }

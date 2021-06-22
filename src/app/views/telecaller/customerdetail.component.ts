@@ -40,22 +40,6 @@ export class CustomerDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLists();
-    this.activatedRouter.params.subscribe((params) => {
-      this.id = params["id"];
-    });
-    this.dataservice.getSingleCustomer(this.id).valueChanges.subscribe((result: any) => {
-      console.log("getSingleCustomer", result.data.customer);
-      this.details = result.data.customer;
-      this.agentForm = this.fb.group({
-        name: [this.details.Name, Validators.required],
-        email: [this.details.Email, Validators.required],
-        phone1: [this.details.Contact_Number_1, Validators.required],
-        phone2: [this.details.Contact_Number_2, Validators.required],
-        phone3: [this.details.Contact_Number_3, Validators.required],
-        group: [this.details.group.Name, Validators.required],
-      });
-      this.loading = false;
-    });
   }
   getLists() {
     this.loading = true;
@@ -63,6 +47,25 @@ export class CustomerDetailComponent implements OnInit {
       console.log("getGroups", result.data.groups);
       this.groups = result.data.groups;
     });
+
+    this.activatedRouter.params.subscribe((params) => {
+      this.id = params["id"];
+    });
+    this.dataservice
+      .getSingleCustomer(this.id)
+      .valueChanges.subscribe((result: any) => {
+        console.log("getSingleCustomer", result.data.customer);
+        this.details = result.data.customer;
+        this.agentForm = this.fb.group({
+          name: [this.details.Name, Validators.required],
+          email: [this.details.Email, Validators.required],
+          phone1: [this.details.Contact_Number_1, Validators.required],
+          phone2: [this.details.Contact_Number_2, Validators.required],
+          phone3: [this.details.Contact_Number_3, Validators.required],
+          group: [this.details.group.Name, Validators.required],
+        });
+        this.loading = false;
+      });
   }
   FormSubmit() {
     let resp = {};
@@ -96,21 +99,18 @@ export class CustomerDetailComponent implements OnInit {
         }
       });
   }
-  deleteAgent(){
+  deleteAgent() {
     let resp = {};
-    this.dataservice
-      .DeleteAgent(this.id)
-      .subscribe((result: any) => {
-        resp = result.data;
-        console.log("response", result);
-        if (result.data.deleteTeleCallerContact) {
-          alert("Agent deleted successfully!");
-          this.router.navigate(["/order/order_processing"]);
-          this.deleteModal.hide();
-
-        } else {
-          alert("Failed. Please check again!");
-        }
-      });
+    this.dataservice.DeleteAgent(this.id).subscribe((result: any) => {
+      resp = result.data;
+      console.log("response", result);
+      if (result.data.deleteTeleCallerContact) {
+        alert("Agent deleted successfully!");
+        this.router.navigate(["/order/order_processing"]);
+        this.deleteModal.hide();
+      } else {
+        alert("Failed. Please check again!");
+      }
+    });
   }
 }

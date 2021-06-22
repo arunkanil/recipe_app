@@ -44,7 +44,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'kp_customer_details/:id',
+        path: 'kp_customer_details/:id/:from',
         canActivate: [AuthGuard],
         component: KPCustomerDetailComponent,
         data: {

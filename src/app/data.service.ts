@@ -634,7 +634,7 @@ export class DataService {
       mutation: AddCommentMutation,
       variables: {
         id: id,
-        remarks: agent.RemarksText,
+        remarks:localStorage.getItem("username") +": " + agent.RemarksText,
         date: new Date().toISOString(),
       },
       errorPolicy: "all",
@@ -706,7 +706,7 @@ export class DataService {
       mutation: AddCustomerCommentMutation,
       variables: {
         id: id,
-        remarks: agent.RemarksText,
+        remarks: localStorage.getItem("username") +": " +agent.RemarksText,
         date: new Date().toISOString(),
         is_verified: agent.is_verified,
       },
