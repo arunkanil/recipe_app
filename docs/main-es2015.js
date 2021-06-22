@@ -411,8 +411,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AgentsQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
-  query AgentsQuery {
-    teleCallerContacts {
+  query ($tele_caller_id: String) {
+    teleCallerContacts(where: { assigned_telecaller: $tele_caller_id }) {
       id
       Name
       Contact_Number_1
@@ -935,6 +935,23 @@ const SetKpCallerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
     }
   }
 `;
+const SetTeleCallerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
+  mutation ($id: ID!, $cust_id: [ID!]!) {
+    updateUser(
+      input: { where: { id: $id }, data: { tele_caller_contacts: $cust_id } }
+    ) {
+      user {
+        id
+        tele_caller_contacts {
+          id
+          Name
+          Contact_Number_1
+          Email
+        }
+      }
+    }
+  }
+`;
 const SetFieldAgentMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
   mutation ($id: ID!, $cust_id: [ID!]!) {
     updateUser(input: { where: { id: $id }, data: { customers: $cust_id } }) {
@@ -993,6 +1010,14 @@ let DataService = class DataService {
             query: AgentsQuery,
         });
     }
+    getfilteredAgents(id) {
+        return this.apollo.watchQuery({
+            query: AgentsQuery,
+            variables: {
+                tele_caller_id: id
+            }
+        });
+    }
     getSingleAgent(id) {
         return this.apollo.watchQuery({
             query: AgentsSingleQuery,
@@ -1037,7 +1062,7 @@ let DataService = class DataService {
             mutation: AddCommentMutation,
             variables: {
                 id: id,
-                remarks: agent.RemarksText,
+                remarks: localStorage.getItem("username") + ": " + agent.RemarksText,
                 date: new Date().toISOString(),
             },
             errorPolicy: "all",
@@ -1109,7 +1134,7 @@ let DataService = class DataService {
             mutation: AddCustomerCommentMutation,
             variables: {
                 id: id,
-                remarks: agent.RemarksText,
+                remarks: localStorage.getItem("username") + ": " + agent.RemarksText,
                 date: new Date().toISOString(),
                 is_verified: agent.is_verified,
             },
@@ -1129,6 +1154,16 @@ let DataService = class DataService {
     SetFieldAgent(id, cust_id) {
         return this.apollo.mutate({
             mutation: SetFieldAgentMutation,
+            variables: {
+                id: id,
+                cust_id: cust_id,
+            },
+            errorPolicy: "all",
+        });
+    }
+    SetTeleCaller(id, cust_id) {
+        return this.apollo.mutate({
+            mutation: SetTeleCallerMutation,
             variables: {
                 id: id,
                 cust_id: cust_id,
@@ -1224,30 +1259,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser/animations */ "omvX");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "IheW");
 /* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ag-grid-angular */ "YFAK");
-/* harmony import */ var _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @coreui/icons-angular */ "rVqu");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "Sy1n");
-/* harmony import */ var _containers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./containers */ "G/4p");
-/* harmony import */ var _views_error_404_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/error/404.component */ "8gg5");
-/* harmony import */ var _views_error_500_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/error/500.component */ "dxhq");
-/* harmony import */ var _views_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/login/login.component */ "QB/w");
-/* harmony import */ var _coreui_angular__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @coreui/angular */ "Iluq");
-/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app.routing */ "beVS");
-/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "FE24");
-/* harmony import */ var _graphql_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./graphql.module */ "4KHl");
-
-// import { BrowserModule } from '@angular/platform-browser';
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "Sy1n");
+/* harmony import */ var _containers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./containers */ "G/4p");
+/* harmony import */ var _views_error_404_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/error/404.component */ "8gg5");
+/* harmony import */ var _views_error_500_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/error/500.component */ "dxhq");
+/* harmony import */ var _views_login_login_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/login/login.component */ "QB/w");
+/* harmony import */ var _coreui_angular__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @coreui/angular */ "Iluq");
+/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.routing */ "beVS");
+/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "FE24");
+/* harmony import */ var _graphql_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./graphql.module */ "4KHl");
 
 
 
 
 
-// import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-// import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 
-// const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-//   suppressScrollX: true
-// };
 
 // Import containers
 
@@ -1269,41 +1296,34 @@ let AppModule = class AppModule {
 AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [
-            // BrowserModule,
             ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__["AgGridModule"].withComponents([]),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
-            _app_routing__WEBPACK_IMPORTED_MODULE_14__["AppRoutingModule"],
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppAsideModule"],
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppBreadcrumbModule"].forRoot(),
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppFooterModule"],
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppHeaderModule"],
-            _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppSidebarModule"],
-            // PerfectScrollbarModule,
-            ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__["BsDropdownModule"].forRoot(),
-            // TabsModule.forRoot(),
-            // IconModule,
-            _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__["IconSetModule"].forRoot(),
-            _graphql_module__WEBPACK_IMPORTED_MODULE_16__["GraphQLModule"],
+            _app_routing__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"],
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppAsideModule"],
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppBreadcrumbModule"].forRoot(),
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppFooterModule"],
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppHeaderModule"],
+            _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppSidebarModule"],
+            ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__["BsDropdownModule"].forRoot(),
+            _graphql_module__WEBPACK_IMPORTED_MODULE_15__["GraphQLModule"],
         ],
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
-            // ...APP_CONTAINERS,
-            _views_error_404_component__WEBPACK_IMPORTED_MODULE_10__["P404Component"],
-            _views_error_500_component__WEBPACK_IMPORTED_MODULE_11__["P500Component"],
-            _views_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"],
-            _containers__WEBPACK_IMPORTED_MODULE_9__["DefaultLayoutComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+            _views_error_404_component__WEBPACK_IMPORTED_MODULE_9__["P404Component"],
+            _views_error_500_component__WEBPACK_IMPORTED_MODULE_10__["P500Component"],
+            _views_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"],
+            _containers__WEBPACK_IMPORTED_MODULE_8__["DefaultLayoutComponent"],
         ],
         providers: [
             {
                 provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["LocationStrategy"],
                 useClass: _angular_common__WEBPACK_IMPORTED_MODULE_2__["HashLocationStrategy"]
             },
-            _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__["IconSetService"],
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })
 ], AppModule);
 
@@ -1461,6 +1481,12 @@ const navItems = [
         role: "MANAGER"
     },
     {
+        name: 'Agents List',
+        url: '/manager/agents',
+        icon: 'icon-phone',
+        role: "MANAGER"
+    },
+    {
         name: 'Customers',
         url: '/manager/customers',
         icon: 'icon-basket-loaded',
@@ -1511,7 +1537,7 @@ P500Component = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header [navbarBrandRouterLink]=\"['/dashboard']\" [fixed]=\"true\"\n  [navbarBrandFull]=\"{src: 'assets/img/brand/logo.png',width:200,alt: 'CartIntoCar Logo'}\"\n  [navbarBrandMinimized]=\"{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CartIntoCar Logo'}\"\n  [sidebarToggler]=\"'lg'\">\n  <ul class=\"nav navbar-nav ml-auto\">\n    {{userName}}\n    <li class=\"nav-item dropdown\" dropdown placement=\"bottom right\">\n      <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\n        dropdownToggle (click)=\"false\">\n        <img src=\"assets/img/avatars/6.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" />\n      </a>\n      <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\n        <div class=\"dropdown-header text-center\"><strong>Settings</strong></div>\n        <a class=\"dropdown-item\"><i class=\"fa fa-user\"></i>{{userName}}</a>\n        <div class=\"divider\"></div>\n        <a class=\"dropdown-item\" (click)=\"logout()\"><i class=\"fa fa-lock\"></i> Logout</a>\n      </div>\n    </li>\n  </ul>\n</app-header>\n<div class=\"app-body\">\n  <app-sidebar #appSidebar [fixed]=\"true\" [display]=\"'lg'\" [minimized]=\"sidebarMinimized\"\n    (minimizedChange)=\"toggleMinimize($event)\">\n    <app-sidebar-nav [navItems]=\"navItems\" [perfectScrollbar] [disabled]=\"appSidebar.minimized\"></app-sidebar-nav>\n    <app-sidebar-minimizer></app-sidebar-minimizer>\n  </app-sidebar>\n  <!-- Main content -->\n  <main class=\"main\">\n    <cui-breadcrumb>\n    </cui-breadcrumb>\n    <div class=\"container-fluid\">\n      <router-outlet></router-outlet>\n    </div>\n  </main>\n</div>\n<app-footer>\n  <span><a>Jewel Telecaller</a> &copy; 2021 jewel.</span>\n  <!-- <span class=\"ml-auto\">Powered by <a href=\"https://www.upsquad.in\">upsquad</a></span> -->\n</app-footer>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header [navbarBrandRouterLink]=\"['/dashboard']\" [fixed]=\"true\"\n  [navbarBrandFull]=\"{src: 'assets/img/brand/logo.png',width:200,alt: 'CartIntoCar Logo'}\"\n  [navbarBrandMinimized]=\"{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CartIntoCar Logo'}\"\n  [sidebarToggler]=\"'lg'\">\n  <ul class=\"nav navbar-nav ml-auto\">\n    {{userName}}\n    <li class=\"nav-item dropdown\" dropdown placement=\"bottom right\">\n      <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\n        dropdownToggle (click)=\"false\">\n        <img src=\"assets/img/avatars/6.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" />\n      </a>\n      <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\n        <div class=\"dropdown-header text-center\"><strong>Settings</strong></div>\n        <a class=\"dropdown-item\"><i class=\"fa fa-user\"></i>{{userName}}</a>\n        <div class=\"divider\"></div>\n        <a class=\"dropdown-item\" (click)=\"logout()\"><i class=\"fa fa-lock\"></i> Logout</a>\n      </div>\n    </li>\n  </ul>\n</app-header>\n<div class=\"app-body\">\n  <app-sidebar #appSidebar [fixed]=\"true\" [display]=\"'lg'\" [minimized]=\"sidebarMinimized\"\n    (minimizedChange)=\"toggleMinimize($event)\">\n    <app-sidebar-nav [navItems]=\"navItems\"></app-sidebar-nav>\n    <app-sidebar-minimizer></app-sidebar-minimizer>\n  </app-sidebar>\n  <!-- Main content -->\n  <main class=\"main\">\n    <cui-breadcrumb>\n    </cui-breadcrumb>\n    <div class=\"container-fluid\">\n      <router-outlet></router-outlet>\n    </div>\n  </main>\n</div>\n<app-footer>\n  <span><a>Jewel Telecaller</a> &copy; 2021 jewel.</span>\n  <!-- <span class=\"ml-auto\">Powered by <a href=\"https://www.upsquad.in\">upsquad</a></span> -->\n</app-footer>");
 
 /***/ }),
 

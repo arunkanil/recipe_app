@@ -49,7 +49,7 @@ export class AgentsComponent {
 
   getLists() {
     this.loading = true;
-    this.dataservice.getAgents().valueChanges.subscribe((result: any) => {
+    this.dataservice.getfilteredAgents(localStorage.getItem("uid")).valueChanges.subscribe((result: any) => {
       console.log("getAgents", result.data.teleCallerContacts);
       this.rowData = result.data.teleCallerContacts;
     });

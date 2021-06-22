@@ -1,5 +1,5 @@
 (function () {
-  var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16;
+  var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17;
 
   function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -715,7 +715,7 @@
       /*! apollo-angular */
       "nbgS");
 
-      var AgentsQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  query AgentsQuery {\n    teleCallerContacts {\n      id\n      Name\n      Contact_Number_1\n      Contact_Number_2\n      Contact_Number_3\n      group {\n        Name\n        Description\n      }\n      Email\n    }\n  }\n"])));
+      var AgentsQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  query ($tele_caller_id: String) {\n    teleCallerContacts(where: { assigned_telecaller: $tele_caller_id }) {\n      id\n      Name\n      Contact_Number_1\n      Contact_Number_2\n      Contact_Number_3\n      group {\n        Name\n        Description\n      }\n      Email\n    }\n  }\n"])));
       var AgentsSingleQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  query ($id: ID!) {\n    teleCallerContact(id: $id) {\n      id\n      Name\n      Email\n      group {\n        Name\n        Description\n      }\n      Contact_Number_1\n      Contact_Number_2\n      Contact_Number_3\n      telecaller_remarks {\n        RemarksText\n        CallHistory {\n          event_date_time\n          users_permissions_user {\n            username\n          }\n        }\n      }\n    }\n  }\n"])));
       var AddAgentMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  mutation (\n    $name: String!\n    $group: ID!\n    $email: String!\n    $phone1: Long!\n    $phone2: Long!\n    $phone3: Long!\n  ) {\n    createTeleCallerContact(\n      input: {\n        data: {\n          Name: $name\n          Email: $email\n          Contact_Number_1: $phone1\n          Contact_Number_2: $phone2\n          Contact_Number_3: $phone3\n          group: $group\n        }\n      }\n    ) {\n      teleCallerContact {\n        id\n        Name\n        Contact_Number_1\n        Contact_Number_2\n        Contact_Number_3\n        group {\n          Name\n          Description\n        }\n        Email\n      }\n    }\n  }\n"])));
       var GroupsQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  query GroupsQuery {\n    groups {\n      id\n      Name\n      Description\n    }\n  }\n"])));
@@ -729,8 +729,9 @@
       var AddCustomerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  mutation (\n    $NameOfBride: String!\n    $NameOfFather: String!\n    $NameOfMother: String!\n    $MarriageDate: Date!\n    $MarriageMonth: Int!\n    $tele_caller_contact: ID!\n    $HouseName: String!\n    $Landmark: String!\n    $locality: ID!\n  ) {\n    createCustomer(\n      input: {\n        data: {\n          NameOfBride: $NameOfBride\n          NameOfFather: $NameOfFather\n          NameOfMother: $NameOfMother\n          MarriageDate: $MarriageDate\n          MarriageMonth: $MarriageMonth\n          tele_caller_contact: $tele_caller_contact\n          Address: {\n            HouseName: $HouseName\n            Landmark: $Landmark\n            locality: $locality\n          }\n        }\n      }\n    ) {\n      customer {\n        id\n        NameOfBride\n        NameOfFather\n        NameOfMother\n        MarriageDate\n        MarriageMonth\n        tele_caller_contact {\n          Name\n          id\n        }\n        created_at\n        Address {\n          id\n          HouseName\n          Landmark\n          locality {\n            Name\n          }\n          post_office {\n            Name\n            Pincode\n            district {\n              Name\n            }\n          }\n          GeoLocation {\n            Latitude\n            Longitude\n            GoogleMapURL\n          }\n        }\n      }\n    }\n  }\n"])));
       var AddCustomerCommentMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n  mutation (\n    $id: ID!\n    $remarks: String!\n    $date: DateTime!\n    $is_verified: Boolean\n  ) {\n    updateCustomer(\n      input: {\n        where: { id: $id }\n        data: {\n          TelecallerRemarks: {\n            RemarksText: $remarks\n            CallHistory: { event_date_time: $date }\n          }\n          is_verified: $is_verified\n        }\n      }\n    ) {\n      customer {\n        id\n        is_verified\n        NameOfBride\n        NameOfFather\n        NameOfMother\n        MarriageDate\n        MarriageMonth\n        tele_caller_contact {\n          Name\n          id\n        }\n        created_at\n        Address {\n          id\n          HouseName\n          Landmark\n          locality {\n            Name\n          }\n          post_office {\n            Name\n            Pincode\n            district {\n              Name\n            }\n          }\n          GeoLocation {\n            Latitude\n            Longitude\n            GoogleMapURL\n          }\n        }\n      }\n    }\n  }\n"])));
       var SetKpCallerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n  mutation ($id: ID!, $cust_id: [ID!]!) {\n    updateUser(input: { where: { id: $id }, data: { kp_customer: $cust_id } }) {\n      user {\n        id\n        kp_customer {\n          id\n          NameOfBride\n          NameOfFather\n        }\n      }\n    }\n  }\n"])));
-      var SetFieldAgentMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n  mutation ($id: ID!, $cust_id: [ID!]!) {\n    updateUser(input: { where: { id: $id }, data: { customers: $cust_id } }) {\n      user {\n        id\n        customers {\n          NameOfBride\n          id\n          NameOfFather\n          MarriageDate\n        }\n      }\n    }\n  }\n"])));
-      var UsersQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n  query ($type: String!) {\n    users(where: { UserType: $type }) {\n      id\n      username\n      email\n      role {\n        id\n        name\n        type\n      }\n      UserType\n    }\n  }\n"])));
+      var SetTeleCallerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n  mutation ($id: ID!, $cust_id: [ID!]!) {\n    updateUser(\n      input: { where: { id: $id }, data: { tele_caller_contacts: $cust_id } }\n    ) {\n      user {\n        id\n        tele_caller_contacts {\n          id\n          Name\n          Contact_Number_1\n          Email\n        }\n      }\n    }\n  }\n"])));
+      var SetFieldAgentMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n  mutation ($id: ID!, $cust_id: [ID!]!) {\n    updateUser(input: { where: { id: $id }, data: { customers: $cust_id } }) {\n      user {\n        id\n        customers {\n          NameOfBride\n          id\n          NameOfFather\n          MarriageDate\n        }\n      }\n    }\n  }\n"])));
+      var UsersQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n  query ($type: String!) {\n    users(where: { UserType: $type }) {\n      id\n      username\n      email\n      role {\n        id\n        name\n        type\n      }\n      UserType\n    }\n  }\n"])));
 
       var DataService = /*#__PURE__*/function () {
         function DataService(http, apollo) {
@@ -767,6 +768,16 @@
           value: function getAgents() {
             return this.apollo.watchQuery({
               query: AgentsQuery
+            });
+          }
+        }, {
+          key: "getfilteredAgents",
+          value: function getfilteredAgents(id) {
+            return this.apollo.watchQuery({
+              query: AgentsQuery,
+              variables: {
+                tele_caller_id: id
+              }
             });
           }
         }, {
@@ -821,7 +832,7 @@
               mutation: AddCommentMutation,
               variables: {
                 id: id,
-                remarks: agent.RemarksText,
+                remarks: localStorage.getItem("username") + ": " + agent.RemarksText,
                 date: new Date().toISOString()
               },
               errorPolicy: "all"
@@ -913,7 +924,7 @@
               mutation: AddCustomerCommentMutation,
               variables: {
                 id: id,
-                remarks: agent.RemarksText,
+                remarks: localStorage.getItem("username") + ": " + agent.RemarksText,
                 date: new Date().toISOString(),
                 is_verified: agent.is_verified
               },
@@ -937,6 +948,18 @@
           value: function SetFieldAgent(id, cust_id) {
             return this.apollo.mutate({
               mutation: SetFieldAgentMutation,
+              variables: {
+                id: id,
+                cust_id: cust_id
+              },
+              errorPolicy: "all"
+            });
+          }
+        }, {
+          key: "SetTeleCaller",
+          value: function SetTeleCaller(id, cust_id) {
+            return this.apollo.mutate({
+              mutation: SetTeleCallerMutation,
               variables: {
                 id: id,
                 cust_id: cust_id
@@ -1120,69 +1143,57 @@
       /* harmony import */
 
 
-      var _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! @coreui/icons-angular */
-      "rVqu");
-      /* harmony import */
-
-
-      var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./app.component */
       "Sy1n");
       /* harmony import */
 
 
-      var _containers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _containers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./containers */
       "G/4p");
       /* harmony import */
 
 
-      var _views_error_404_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _views_error_404_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./views/error/404.component */
       "8gg5");
       /* harmony import */
 
 
-      var _views_error_500_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _views_error_500_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./views/error/500.component */
       "dxhq");
       /* harmony import */
 
 
-      var _views_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _views_login_login_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./views/login/login.component */
       "QB/w");
       /* harmony import */
 
 
-      var _coreui_angular__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _coreui_angular__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @coreui/angular */
       "Iluq");
       /* harmony import */
 
 
-      var _app_routing__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _app_routing__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./app.routing */
       "beVS");
       /* harmony import */
 
 
-      var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ngx-bootstrap/dropdown */
       "FE24");
       /* harmony import */
 
 
-      var _graphql_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _graphql_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./graphql.module */
-      "4KHl"); // import { BrowserModule } from '@angular/platform-browser';
-      // import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-      // import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-      // const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-      //   suppressScrollX: true
-      // };
-      // Import containers
+      "4KHl"); // Import containers
       // const APP_CONTAINERS = [
       //   DefaultLayoutComponent
       // ];
@@ -1196,18 +1207,13 @@
       };
 
       AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [// BrowserModule,
-        ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__["AgGridModule"].withComponents([]), _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _app_routing__WEBPACK_IMPORTED_MODULE_14__["AppRoutingModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppAsideModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppBreadcrumbModule"].forRoot(), _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppFooterModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppHeaderModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppSidebarModule"], // PerfectScrollbarModule,
-        ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__["BsDropdownModule"].forRoot(), // TabsModule.forRoot(),
-        // IconModule,
-        _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__["IconSetModule"].forRoot(), _graphql_module__WEBPACK_IMPORTED_MODULE_16__["GraphQLModule"]],
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], // ...APP_CONTAINERS,
-        _views_error_404_component__WEBPACK_IMPORTED_MODULE_10__["P404Component"], _views_error_500_component__WEBPACK_IMPORTED_MODULE_11__["P500Component"], _views_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"], _containers__WEBPACK_IMPORTED_MODULE_9__["DefaultLayoutComponent"]],
+        imports: [ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__["AgGridModule"].withComponents([]), _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _app_routing__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppAsideModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppBreadcrumbModule"].forRoot(), _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppFooterModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppHeaderModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppSidebarModule"], ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__["BsDropdownModule"].forRoot(), _graphql_module__WEBPACK_IMPORTED_MODULE_15__["GraphQLModule"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _views_error_404_component__WEBPACK_IMPORTED_MODULE_9__["P404Component"], _views_error_500_component__WEBPACK_IMPORTED_MODULE_10__["P500Component"], _views_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"], _containers__WEBPACK_IMPORTED_MODULE_8__["DefaultLayoutComponent"]],
         providers: [{
           provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["LocationStrategy"],
           useClass: _angular_common__WEBPACK_IMPORTED_MODULE_2__["HashLocationStrategy"]
-        }, _coreui_icons_angular__WEBPACK_IMPORTED_MODULE_7__["IconSetService"]],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+        }],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
       })], AppModule);
       /***/
     },
@@ -1435,6 +1441,11 @@
         icon: 'icon-phone',
         role: "MANAGER"
       }, {
+        name: 'Agents List',
+        url: '/manager/agents',
+        icon: 'icon-phone',
+        role: "MANAGER"
+      }, {
         name: 'Customers',
         url: '/manager/customers',
         icon: 'icon-basket-loaded',
@@ -1511,7 +1522,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<app-header [navbarBrandRouterLink]=\"['/dashboard']\" [fixed]=\"true\"\n  [navbarBrandFull]=\"{src: 'assets/img/brand/logo.png',width:200,alt: 'CartIntoCar Logo'}\"\n  [navbarBrandMinimized]=\"{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CartIntoCar Logo'}\"\n  [sidebarToggler]=\"'lg'\">\n  <ul class=\"nav navbar-nav ml-auto\">\n    {{userName}}\n    <li class=\"nav-item dropdown\" dropdown placement=\"bottom right\">\n      <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\n        dropdownToggle (click)=\"false\">\n        <img src=\"assets/img/avatars/6.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" />\n      </a>\n      <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\n        <div class=\"dropdown-header text-center\"><strong>Settings</strong></div>\n        <a class=\"dropdown-item\"><i class=\"fa fa-user\"></i>{{userName}}</a>\n        <div class=\"divider\"></div>\n        <a class=\"dropdown-item\" (click)=\"logout()\"><i class=\"fa fa-lock\"></i> Logout</a>\n      </div>\n    </li>\n  </ul>\n</app-header>\n<div class=\"app-body\">\n  <app-sidebar #appSidebar [fixed]=\"true\" [display]=\"'lg'\" [minimized]=\"sidebarMinimized\"\n    (minimizedChange)=\"toggleMinimize($event)\">\n    <app-sidebar-nav [navItems]=\"navItems\" [perfectScrollbar] [disabled]=\"appSidebar.minimized\"></app-sidebar-nav>\n    <app-sidebar-minimizer></app-sidebar-minimizer>\n  </app-sidebar>\n  <!-- Main content -->\n  <main class=\"main\">\n    <cui-breadcrumb>\n    </cui-breadcrumb>\n    <div class=\"container-fluid\">\n      <router-outlet></router-outlet>\n    </div>\n  </main>\n</div>\n<app-footer>\n  <span><a>Jewel Telecaller</a> &copy; 2021 jewel.</span>\n  <!-- <span class=\"ml-auto\">Powered by <a href=\"https://www.upsquad.in\">upsquad</a></span> -->\n</app-footer>";
+      __webpack_exports__["default"] = "<app-header [navbarBrandRouterLink]=\"['/dashboard']\" [fixed]=\"true\"\n  [navbarBrandFull]=\"{src: 'assets/img/brand/logo.png',width:200,alt: 'CartIntoCar Logo'}\"\n  [navbarBrandMinimized]=\"{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CartIntoCar Logo'}\"\n  [sidebarToggler]=\"'lg'\">\n  <ul class=\"nav navbar-nav ml-auto\">\n    {{userName}}\n    <li class=\"nav-item dropdown\" dropdown placement=\"bottom right\">\n      <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\n        dropdownToggle (click)=\"false\">\n        <img src=\"assets/img/avatars/6.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" />\n      </a>\n      <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\n        <div class=\"dropdown-header text-center\"><strong>Settings</strong></div>\n        <a class=\"dropdown-item\"><i class=\"fa fa-user\"></i>{{userName}}</a>\n        <div class=\"divider\"></div>\n        <a class=\"dropdown-item\" (click)=\"logout()\"><i class=\"fa fa-lock\"></i> Logout</a>\n      </div>\n    </li>\n  </ul>\n</app-header>\n<div class=\"app-body\">\n  <app-sidebar #appSidebar [fixed]=\"true\" [display]=\"'lg'\" [minimized]=\"sidebarMinimized\"\n    (minimizedChange)=\"toggleMinimize($event)\">\n    <app-sidebar-nav [navItems]=\"navItems\"></app-sidebar-nav>\n    <app-sidebar-minimizer></app-sidebar-minimizer>\n  </app-sidebar>\n  <!-- Main content -->\n  <main class=\"main\">\n    <cui-breadcrumb>\n    </cui-breadcrumb>\n    <div class=\"container-fluid\">\n      <router-outlet></router-outlet>\n    </div>\n  </main>\n</div>\n<app-footer>\n  <span><a>Jewel Telecaller</a> &copy; 2021 jewel.</span>\n  <!-- <span class=\"ml-auto\">Powered by <a href=\"https://www.upsquad.in\">upsquad</a></span> -->\n</app-footer>";
       /***/
     },
 

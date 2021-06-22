@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ButtonsComponent } from './caller_list.component';
-import { DropdownsComponent } from './dropdowns.component';
-import { BrandButtonsComponent } from './brand-buttons.component';
 import { KPCustomerDetailComponent } from './customerdetail.component';
 import { AuthGuard } from '../login/auth.guard';
 

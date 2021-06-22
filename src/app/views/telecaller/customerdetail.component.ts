@@ -106,7 +106,7 @@ export class CustomerDetailComponent implements OnInit {
       console.log("response", result);
       if (result.data.deleteTeleCallerContact) {
         alert("Agent deleted successfully!");
-        this.router.navigate(["/order/order_processing"]);
+        this.router.navigate(["/telecaller/agents"]);
         this.deleteModal.hide();
       } else {
         alert("Failed. Please check again!");

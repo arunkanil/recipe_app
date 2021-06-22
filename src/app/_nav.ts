@@ -44,6 +44,12 @@ export const navItems: INavData[] = [
     role: "MANAGER"
   },
   {
+    name: 'Agents List',
+    url: '/manager/agents',
+    icon: 'icon-phone',
+    role: "MANAGER"
+  },
+  {
     name: 'Customers',
     url: '/manager/customers',
     icon: 'icon-basket-loaded',

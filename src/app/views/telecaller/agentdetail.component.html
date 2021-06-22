@@ -131,7 +131,7 @@
                 </option>
               </select>
             </div>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <button type="button" class="btn btn-secondary" (click)="myModal.hide()">
               Close
             </button>
             <button type="submit" class="btn btn-primary ml-2" [disabled]="btnLoading || !agentForm.valid">
@@ -167,7 +167,7 @@
               <input type="datetime-local" class="form-control" id="event_date_time" name="event_date_time"
                 formControlName="event_date_time" />
             </div> -->
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <button type="button" class="btn btn-secondary" (click)="commentModal.hide()">
               Close
             </button>
             <button type="submit" class="btn btn-primary ml-2" [disabled]="btnLoading || !commentForm.valid">
@@ -252,7 +252,7 @@
                   </option>
                 </select>
             </div>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <button type="button" class="btn btn-secondary" (click)="customerModal.hide()" >
               Close
             </button>
             <button type="submit" class="btn btn-primary ml-2" [disabled]="btnLoading || !customerForm.valid">

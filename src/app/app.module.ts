@@ -1,17 +1,9 @@
-// import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-// import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-// import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AgGridModule } from 'ag-grid-angular';
-import { IconSetModule, IconSetService } from '@coreui/icons-angular';
-
-// const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-//   suppressScrollX: true
-// };
 
 import { AppComponent } from './app.component';
 // Import containers
@@ -34,7 +26,6 @@ import {
 
 // Import routing module
 import { AppRoutingModule } from './app.routing';
-
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -42,7 +33,6 @@ import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   imports: [
-    // BrowserModule,
     AgGridModule.withComponents([]),
     HttpClientModule,
     FormsModule,
@@ -54,16 +44,11 @@ import { GraphQLModule } from './graphql.module';
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,
-    // PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
-    // TabsModule.forRoot(),
-    // IconModule,
-    IconSetModule.forRoot(),
     GraphQLModule,
   ],
   declarations: [
     AppComponent,
-    // ...APP_CONTAINERS,
     P404Component,
     P500Component,
     LoginComponent,
@@ -74,7 +59,6 @@ import { GraphQLModule } from './graphql.module';
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    IconSetService,
   ],
   bootstrap: [ AppComponent ]
 })

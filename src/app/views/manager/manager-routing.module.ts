@@ -36,6 +36,15 @@ const routes: Routes = [
         }
       },
       {
+        path: 'agents',
+        canActivate: [AuthGuard],
+        component: VerifiedListComponent,
+        data: {
+          roles: 'MANAGER',
+          title: 'Agents List'
+        }
+      },
+      {
         path: 'customer_details/:id',
         canActivate: [AuthGuard],
         component: ManagerCustomerDetailComponent,

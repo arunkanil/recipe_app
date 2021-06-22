@@ -1,7 +1,7 @@
 <div class="animated fadeIn">
   <div class="card">
     <div class="card-header" style="display: flex; justify-content: space-between">
-      <h2>Verified List</h2>
+      <h2>{{routerData.title}}</h2>
       <button type="button" class="btn btn-primary" data-toggle="modal" [disabled]="btnDisabled"
         (click)="myModal.show()">
         Assign to caller
@@ -38,7 +38,7 @@
                   </option>
                 </select>
               </div>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              <button type="button" class="btn btn-secondary" (click)="myModal.hide()">
                 Close
               </button>
               <button type="submit" class="btn btn-primary ml-2" [disabled]="btnLoading || !callerForm.valid">

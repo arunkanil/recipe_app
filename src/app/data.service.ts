@@ -5,8 +5,8 @@ import { environment } from "../environments/environment";
 import { Apollo, gql } from "apollo-angular";
 
 const AgentsQuery = gql`
-  query AgentsQuery {
-    teleCallerContacts {
+  query ($tele_caller_id: String) {
+    teleCallerContacts(where: { assigned_telecaller: $tele_caller_id }) {
       id
       Name
       Contact_Number_1
@@ -529,6 +529,23 @@ const SetKpCallerMutation = gql`
     }
   }
 `;
+const SetTeleCallerMutation = gql`
+  mutation ($id: ID!, $cust_id: [ID!]!) {
+    updateUser(
+      input: { where: { id: $id }, data: { tele_caller_contacts: $cust_id } }
+    ) {
+      user {
+        id
+        tele_caller_contacts {
+          id
+          Name
+          Contact_Number_1
+          Email
+        }
+      }
+    }
+  }
+`;
 const SetFieldAgentMutation = gql`
   mutation ($id: ID!, $cust_id: [ID!]!) {
     updateUser(input: { where: { id: $id }, data: { customers: $cust_id } }) {
@@ -590,6 +607,14 @@ export class DataService {
       query: AgentsQuery,
     });
   }
+  getfilteredAgents(id) {
+    return this.apollo.watchQuery({
+      query: AgentsQuery,
+      variables:{
+        tele_caller_id: id
+      }
+    });
+  }
   getSingleAgent(id) {
     return this.apollo.watchQuery({
       query: AgentsSingleQuery,
@@ -634,7 +659,7 @@ export class DataService {
       mutation: AddCommentMutation,
       variables: {
         id: id,
-        remarks:localStorage.getItem("username") +": " + agent.RemarksText,
+        remarks: localStorage.getItem("username") + ": " + agent.RemarksText,
         date: new Date().toISOString(),
       },
       errorPolicy: "all",
@@ -706,7 +731,7 @@ export class DataService {
       mutation: AddCustomerCommentMutation,
       variables: {
         id: id,
-        remarks: localStorage.getItem("username") +": " +agent.RemarksText,
+        remarks: localStorage.getItem("username") + ": " + agent.RemarksText,
         date: new Date().toISOString(),
         is_verified: agent.is_verified,
       },
@@ -726,6 +751,16 @@ export class DataService {
   SetFieldAgent(id, cust_id) {
     return this.apollo.mutate({
       mutation: SetFieldAgentMutation,
+      variables: {
+        id: id,
+        cust_id: cust_id,
+      },
+      errorPolicy: "all",
+    });
+  }
+  SetTeleCaller(id, cust_id) {
+    return this.apollo.mutate({
+      mutation: SetTeleCallerMutation,
       variables: {
         id: id,
         cust_id: cust_id,
