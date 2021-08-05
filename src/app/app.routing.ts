@@ -6,6 +6,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { AuthGuard } from './views/login/auth.guard';
+import { ExposedFormComponent } from './views/exposed_form/exposed_form.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,13 @@ export const routes: Routes = [
     component: LoginComponent,
     data: {
       title: 'Login Page'
+    }
+  },
+  {
+    path: 'enquiry_form',
+    component: ExposedFormComponent,
+    data: {
+      title: 'WEDDING GOLD PURCHASE SCHEME'
     }
   },
   {

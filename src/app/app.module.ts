@@ -30,6 +30,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { TabsModule } from 'ngx-bootstrap/tabs';
 import { GraphQLModule } from './graphql.module';
+import { ExposedFormComponent } from './views/exposed_form/exposed_form.component';
 
 @NgModule({
   imports: [
@@ -52,6 +53,7 @@ import { GraphQLModule } from './graphql.module';
     P404Component,
     P500Component,
     LoginComponent,
+    ExposedFormComponent,
     DefaultLayoutComponent,
   ],
   providers: [

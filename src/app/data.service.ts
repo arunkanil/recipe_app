@@ -576,6 +576,45 @@ const UsersQuery = gql`
     }
   }
 `;
+const AddCustomerEnquiry = gql `
+mutation(
+  $Name: String!
+  $PhoneNumber: String!
+  $Address: String!
+  $isWeddingPurchase: Boolean!
+  $MarriageDate: Date!
+  $QtyOfGold: Int!
+  $OptNoCostEMI: Boolean!
+  $landmark: String
+) {
+  createEnquiryCustomer(
+    input: {
+      data: {
+        Name: $Name
+        PhoneNumber: $PhoneNumber
+        Address: $Address
+        isWeddingPurchase: $isWeddingPurchase
+        MarriageDate: $MarriageDate
+        QtyOfGold: $QtyOfGold
+        OptNoCostEMI: $OptNoCostEMI
+        landmark: $landmark
+      }
+    }
+  ) {
+    enquiryCustomer {
+      id
+      Name
+      PhoneNumber
+      Address
+      isWeddingPurchase
+      MarriageDate
+      QtyOfGold
+      OptNoCostEMI
+      landmark
+    }
+  }
+}
+`;
 @Injectable({
   providedIn: "root",
 })
@@ -764,6 +803,24 @@ export class DataService {
       variables: {
         id: id,
         cust_id: cust_id,
+      },
+      errorPolicy: "all",
+    });
+  }
+  AddEnquiry(enquiry) {
+    let date = new Date();
+    console.log(date.toISOString());
+    return this.apollo.use('second').mutate({
+      mutation: AddCustomerEnquiry,
+      variables: {
+        Name: enquiry.name,
+        PhoneNumber: enquiry.phone,
+        Address: enquiry.address,
+        isWeddingPurchase: enquiry.marriage_purchase == "true" ? true : false,
+        MarriageDate: enquiry.date,
+        QtyOfGold: parseInt(enquiry.pawan),
+        OptNoCostEMI: enquiry.emi == "true" ? true : false,
+        landmark: enquiry.landmark,
       },
       errorPolicy: "all",
     });
