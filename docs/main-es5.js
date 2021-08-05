@@ -1,5 +1,5 @@
 (function () {
-  var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17;
+  var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18;
 
   function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -156,7 +156,7 @@
       !*** ./src/app/graphql.module.ts ***!
       \***********************************/
 
-    /*! exports provided: createApollo, GraphQLModule */
+    /*! exports provided: createApollo, createNamedApollo, GraphQLModule */
 
     /***/
     function KHl(module, __webpack_exports__, __webpack_require__) {
@@ -168,6 +168,12 @@
 
       __webpack_require__.d(__webpack_exports__, "createApollo", function () {
         return createApollo;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "createNamedApollo", function () {
+        return createNamedApollo;
       });
       /* harmony export (binding) */
 
@@ -239,6 +245,25 @@
         };
       }
 
+      function createNamedApollo(httpLink) {
+        var basic = Object(_apollo_client_link_context__WEBPACK_IMPORTED_MODULE_4__["setContext"])(function (operation, context) {
+          return {
+            headers: {
+              Accept: "charset=utf-8"
+            }
+          };
+        });
+        return {
+          second: {
+            name: "second",
+            link: _apollo_client_core__WEBPACK_IMPORTED_MODULE_3__["ApolloLink"].from([basic, httpLink.create({
+              uri: uri
+            })]),
+            cache: new _apollo_client_core__WEBPACK_IMPORTED_MODULE_3__["InMemoryCache"]()
+          }
+        };
+      }
+
       var GraphQLModule = function GraphQLModule() {
         _classCallCheck(this, GraphQLModule);
       };
@@ -248,6 +273,10 @@
           provide: apollo_angular__WEBPACK_IMPORTED_MODULE_2__["APOLLO_OPTIONS"],
           useFactory: createApollo,
           deps: [apollo_angular_http__WEBPACK_IMPORTED_MODULE_5__["HttpLink"]]
+        }, {
+          provide: apollo_angular__WEBPACK_IMPORTED_MODULE_2__["APOLLO_NAMED_OPTIONS"],
+          deps: [apollo_angular_http__WEBPACK_IMPORTED_MODULE_5__["HttpLink"]],
+          useFactory: createNamedApollo
         }]
       })], GraphQLModule);
       /***/
@@ -395,6 +424,132 @@
     },
 
     /***/
+    "H0P9":
+    /*!**************************************************************!*\
+      !*** ./src/app/views/exposed_form/exposed_form.component.ts ***!
+      \**************************************************************/
+
+    /*! exports provided: ExposedFormComponent */
+
+    /***/
+    function H0P9(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "ExposedFormComponent", function () {
+        return ExposedFormComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _raw_loader_exposed_form_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! raw-loader!./exposed_form.component.html */
+      "NVwR");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      "8Y7J");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/forms */
+      "s7LF");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/router */
+      "iInd");
+      /* harmony import */
+
+
+      var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ../../data.service */
+      "R7Hv");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! rxjs/operators */
+      "kU1M");
+
+      var ExposedFormComponent = /*#__PURE__*/function () {
+        function ExposedFormComponent(dataservice, route, router) {
+          _classCallCheck(this, ExposedFormComponent);
+
+          this.dataservice = dataservice;
+          this.route = route;
+          this.router = router;
+          this.loginForm = {};
+          this.result = {};
+          this.error = "";
+          this.loading = false;
+        }
+
+        _createClass(ExposedFormComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
+          }
+        }, {
+          key: "onSubmit",
+          value: function onSubmit() {
+            var _this2 = this;
+
+            this.loginForm = this.usForm.value;
+            console.log(this.loginForm);
+            this.loading = true;
+            this.dataservice.AddEnquiry(this.loginForm).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["first"])()).subscribe(function (data) {
+              _this2.loading = false;
+              alert(data.message);
+            }, function (error) {
+              _this2.error = error;
+              _this2.loading = false;
+              console.log(error);
+              alert(error.error.message);
+            });
+          }
+        }]);
+
+        return ExposedFormComponent;
+      }();
+
+      ExposedFormComponent.ctorParameters = function () {
+        return [{
+          type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+        }];
+      };
+
+      ExposedFormComponent.propDecorators = {
+        usForm: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"],
+          args: ["usForm"]
+        }]
+      };
+      ExposedFormComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        selector: "app-dashboard",
+        template: _raw_loader_exposed_form_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])], ExposedFormComponent);
+      /***/
+    },
+
+    /***/
     "JPqG":
     /*!***********************************************************************!*\
       !*** ./src/app/containers/default-layout/default-layout.component.ts ***!
@@ -452,7 +607,7 @@
 
       var DefaultLayoutComponent = /*#__PURE__*/function () {
         function DefaultLayoutComponent(router, authenticationService) {
-          var _this2 = this;
+          var _this3 = this;
 
           _classCallCheck(this, DefaultLayoutComponent);
 
@@ -464,7 +619,7 @@
             return item.role == localStorage.getItem("user_type") || item.role == "";
           });
           this.authenticationService.currentUser.subscribe(function (x) {
-            return _this2.currentUser = x;
+            return _this3.currentUser = x;
           });
           console.log("constructor", this.currentUser.user.UserType);
         }
@@ -520,6 +675,26 @@
 
 
       __webpack_exports__["default"] = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-6\">\n        <div class=\"clearfix\">\n          <h1 class=\"float-left display-3 mr-4\">500</h1>\n          <h4 class=\"pt-3\">Houston, we have a problem!</h4>\n          <p class=\"text-muted\">The page you are looking for is temporarily unavailable.</p>\n        </div>\n        <div class=\"input-prepend input-group\">\n          <div class=\"input-group-prepend\">\n            <span class=\"input-group-text\"><i class=\"fa fa-search\"></i></span>\n          </div>\n          <input id=\"prependedInput\" class=\"form-control\" size=\"16\" type=\"text\" placeholder=\"What are you looking for?\">\n          <span class=\"input-group-append\">\n            <button class=\"btn btn-info\" type=\"button\">Search</button>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+      /***/
+    },
+
+    /***/
+    "NVwR":
+    /*!******************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/exposed_form/exposed_form.component.html ***!
+      \******************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function NVwR(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"container\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <h2>WEDDING GOLD PURCHASE SCHEME</h2>\n      </div>\n      <div class=\"card-body\">\n        <form #usForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"shopName\"><strong>Name / പേര്</strong></label>\n              <input type=\"text\" class=\"form-control\" id=\"name\" name=\"name\" required ngModel placeholder=\"Enter your name here\">\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"phone\"><strong>Customer contact number / ഫോൺ നമ്പർ</strong></label>\n              <input type=\"tel\" class=\"form-control\" id=\"phone\" name=\"phone\" ngModel required placeholder=\"Enter your phone number here\">\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"address\"><strong>Address / അഡ്രസ് </strong></label>\n            <input type=\"text\" class=\"form-control\" id=\"address\" name=\"address\" required ngModel placeholder=\"Enter your address here\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"landmark\"><strong>Landmark </strong></label>\n            <input type=\"text\" class=\"form-control\" id=\"landmark\" name=\"landmark\" required ngModel placeholder=\"Enter your nearest landmark here\">\n          </div>\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-4\">\n              <label for=\"marriage_purchase\"><strong>വിവാഹ പർച്ചേസ് ?</strong></label>\n              <select class=\"form-control\" id=\"marriage_purchase\" name=\"marriage_purchase\" required ngModel aria-label=\"Default select example\">\n                <option selected value=\"true\">Yes</option>\n                <option value=\"false\">No</option>\n              </select>\n            </div>\n            <div class=\"form-group col-md-4\">\n              <label for=\"pincode\"><strong>വിവാഹ തീയതി</strong></label>\n              <input type=\"date\" class=\"form-control\" ngModel id=\"date\" name=\"date\">\n            </div>\n            <div class=\"form-group col-md-4\">\n              <label for=\"pawan\"><strong>ആവിശ്യം ഉള്ള പവൻ</strong></label>\n              <select class=\"form-control\" id=\"pawan\" name=\"pawan\" required ngModel aria-label=\"Default select example\">\n                <option value=\"5\">5 പവൻ</option>\n                <option value=\"10\">10 പവൻ</option>\n                <option value=\"15\">15 പവൻ</option>\n                <option value=\"20\">20 പവൻ</option>\n                <option value=\"25\">25 പവൻ</option>\n                <option value=\"30\">30 പവൻ</option>\n                <option value=\">30\">30 പവനിൽ കൂടുതൽ </option>\n              </select>\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"pincode\"><strong>വിവാഹ ആവശ്യത്തിനുള്ള പലിശ രഹിത വായ്‌പ പദ്ധതിയിൽ അംഗം ആകാൻ താല്പര്യം?</strong></label>\n            <select class=\"form-control\" id=\"emi\" name=\"emi\" required ngModel aria-label=\"Default select example\">\n              <option selected value=\"true\">Yes</option>\n              <option value=\"false\">No</option>\n            </select>\n          </div>\n          <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>";
       /***/
     },
 
@@ -617,20 +792,20 @@
         }, {
           key: "onSubmit",
           value: function onSubmit() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.loginForm = this.usForm.value;
             console.log(this.loginForm);
             this.loading = true;
             this.authenticationService.login(this.loginForm).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["first"])()).subscribe(function (data) {
-              _this3.loading = false;
+              _this4.loading = false;
 
-              _this3.router.navigate([_this3.returnUrl]);
+              _this4.router.navigate([_this4.returnUrl]);
 
               alert(data.message);
             }, function (error) {
-              _this3.error = error;
-              _this3.loading = false;
+              _this4.error = error;
+              _this4.loading = false;
               console.log(error);
               alert(error.error.message);
             });
@@ -732,6 +907,7 @@
       var SetTeleCallerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n  mutation ($id: ID!, $cust_id: [ID!]!) {\n    updateUser(\n      input: { where: { id: $id }, data: { tele_caller_contacts: $cust_id } }\n    ) {\n      user {\n        id\n        tele_caller_contacts {\n          id\n          Name\n          Contact_Number_1\n          Email\n        }\n      }\n    }\n  }\n"])));
       var SetFieldAgentMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n  mutation ($id: ID!, $cust_id: [ID!]!) {\n    updateUser(input: { where: { id: $id }, data: { customers: $cust_id } }) {\n      user {\n        id\n        customers {\n          NameOfBride\n          id\n          NameOfFather\n          MarriageDate\n        }\n      }\n    }\n  }\n"])));
       var UsersQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n  query ($type: String!) {\n    users(where: { UserType: $type }) {\n      id\n      username\n      email\n      role {\n        id\n        name\n        type\n      }\n      UserType\n    }\n  }\n"])));
+      var AddCustomerEnquiry = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"](_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["\nmutation(\n  $Name: String!\n  $PhoneNumber: String!\n  $Address: String!\n  $isWeddingPurchase: Boolean!\n  $MarriageDate: Date!\n  $QtyOfGold: Int!\n  $OptNoCostEMI: Boolean!\n  $landmark: String\n) {\n  createEnquiryCustomer(\n    input: {\n      data: {\n        Name: $Name\n        PhoneNumber: $PhoneNumber\n        Address: $Address\n        isWeddingPurchase: $isWeddingPurchase\n        MarriageDate: $MarriageDate\n        QtyOfGold: $QtyOfGold\n        OptNoCostEMI: $OptNoCostEMI\n        landmark: $landmark\n      }\n    }\n  ) {\n    enquiryCustomer {\n      id\n      Name\n      PhoneNumber\n      Address\n      isWeddingPurchase\n      MarriageDate\n      QtyOfGold\n      OptNoCostEMI\n      landmark\n    }\n  }\n}\n"])));
 
       var DataService = /*#__PURE__*/function () {
         function DataService(http, apollo) {
@@ -967,6 +1143,26 @@
               errorPolicy: "all"
             });
           }
+        }, {
+          key: "AddEnquiry",
+          value: function AddEnquiry(enquiry) {
+            var date = new Date();
+            console.log(date.toISOString());
+            return this.apollo.use('second').mutate({
+              mutation: AddCustomerEnquiry,
+              variables: {
+                Name: enquiry.name,
+                PhoneNumber: enquiry.phone,
+                Address: enquiry.address,
+                isWeddingPurchase: enquiry.marriage_purchase == "true" ? true : false,
+                MarriageDate: enquiry.date,
+                QtyOfGold: parseInt(enquiry.pawan),
+                OptNoCostEMI: enquiry.emi == "true" ? true : false,
+                landmark: enquiry.landmark
+              },
+              errorPolicy: "all"
+            });
+          }
         }]);
 
         return DataService;
@@ -1193,7 +1389,13 @@
 
       var _graphql_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./graphql.module */
-      "4KHl"); // Import containers
+      "4KHl");
+      /* harmony import */
+
+
+      var _views_exposed_form_exposed_form_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      /*! ./views/exposed_form/exposed_form.component */
+      "H0P9"); // Import containers
       // const APP_CONTAINERS = [
       //   DefaultLayoutComponent
       // ];
@@ -1208,7 +1410,7 @@
 
       AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__["AgGridModule"].withComponents([]), _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _app_routing__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppAsideModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppBreadcrumbModule"].forRoot(), _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppFooterModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppHeaderModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppSidebarModule"], ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__["BsDropdownModule"].forRoot(), _graphql_module__WEBPACK_IMPORTED_MODULE_15__["GraphQLModule"]],
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _views_error_404_component__WEBPACK_IMPORTED_MODULE_9__["P404Component"], _views_error_500_component__WEBPACK_IMPORTED_MODULE_10__["P500Component"], _views_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"], _containers__WEBPACK_IMPORTED_MODULE_8__["DefaultLayoutComponent"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _views_error_404_component__WEBPACK_IMPORTED_MODULE_9__["P404Component"], _views_error_500_component__WEBPACK_IMPORTED_MODULE_10__["P500Component"], _views_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"], _views_exposed_form_exposed_form_component__WEBPACK_IMPORTED_MODULE_16__["ExposedFormComponent"], _containers__WEBPACK_IMPORTED_MODULE_8__["DefaultLayoutComponent"]],
         providers: [{
           provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["LocationStrategy"],
           useClass: _angular_common__WEBPACK_IMPORTED_MODULE_2__["HashLocationStrategy"]
@@ -1290,7 +1492,13 @@
 
       var _views_login_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./views/login/auth.guard */
-      "nl+3"); // Import Containers
+      "nl+3");
+      /* harmony import */
+
+
+      var _views_exposed_form_exposed_form_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! ./views/exposed_form/exposed_form.component */
+      "H0P9"); // Import Containers
 
 
       var routes = [{
@@ -1314,6 +1522,12 @@
         component: _views_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
         data: {
           title: 'Login Page'
+        }
+      }, {
+        path: 'enquiry_form',
+        component: _views_exposed_form_exposed_form_component__WEBPACK_IMPORTED_MODULE_8__["ExposedFormComponent"],
+        data: {
+          title: 'WEDDING GOLD PURCHASE SCHEME'
         }
       }, {
         path: '',
