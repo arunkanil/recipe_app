@@ -26,6 +26,8 @@ export class ManagerCustomerComponent {
     NameOfFather: ["", Validators.required],
     NameOfMother: ["", Validators.required],
     MarriageDate: ["", Validators.required],
+    ContactNumber_1: ["", Validators.required],
+    ContactNumber_2: ["", Validators.required],
     MarriageMonth: ["", Validators.required],
     tele_caller_contact: ["", Validators.required],
     HouseName: ["", Validators.required],

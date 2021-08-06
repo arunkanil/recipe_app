@@ -43,13 +43,13 @@ export class LoginComponent {
         (data) => {
           this.loading = false;
           this.router.navigate([this.returnUrl]);
-          alert(data.message);
+          alert("Login successful");
         },
         (error) => {
           this.error = error;
           this.loading = false;
-          console.log(error);
-          alert(error.error.message);
+          console.log(error.error.message[0].messages[0].message);
+          alert(error.error.message[0].messages[0].message);
         }
       );
   }

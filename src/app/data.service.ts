@@ -205,6 +205,8 @@ const CustomersQuery = gql`
       NameOfFather
       NameOfMother
       MarriageDate
+      ContactNumber_1
+      ContactNumber_2
       MarriageMonth
       kp_caller_assigned {
         email
@@ -277,6 +279,8 @@ const CustomersFilterQuery = gql`
       NameOfFather
       NameOfMother
       MarriageDate
+      ContactNumber_1
+      ContactNumber_2
       MarriageMonth
       kp_caller_assigned {
         email
@@ -334,6 +338,8 @@ const CustomerSingleQuery = gql`
       NameOfBride
       NameOfFather
       NameOfMother
+      ContactNumber_1
+      ContactNumber_2
       MarriageDate
       MarriageMonth
       tele_caller_contact {
@@ -399,6 +405,8 @@ const AddCustomerMutation = gql`
     $NameOfBride: String!
     $NameOfFather: String!
     $NameOfMother: String!
+    $ContactNumber_1: String!
+    $ContactNumber_2: String!
     $MarriageDate: Date!
     $MarriageMonth: Int!
     $tele_caller_contact: ID!
@@ -414,6 +422,8 @@ const AddCustomerMutation = gql`
           NameOfMother: $NameOfMother
           MarriageDate: $MarriageDate
           MarriageMonth: $MarriageMonth
+          ContactNumber_1: $ContactNumber_1
+          ContactNumber_2: $ContactNumber_2
           tele_caller_contact: $tele_caller_contact
           Address: {
             HouseName: $HouseName
@@ -430,6 +440,8 @@ const AddCustomerMutation = gql`
         NameOfMother
         MarriageDate
         MarriageMonth
+        ContactNumber_1
+        ContactNumber_2
         tele_caller_contact {
           Name
           id
@@ -576,44 +588,44 @@ const UsersQuery = gql`
     }
   }
 `;
-const AddCustomerEnquiry = gql `
-mutation(
-  $Name: String!
-  $PhoneNumber: String!
-  $Address: String!
-  $isWeddingPurchase: Boolean!
-  $MarriageDate: Date!
-  $QtyOfGold: Int!
-  $OptNoCostEMI: Boolean!
-  $landmark: String
-) {
-  createEnquiryCustomer(
-    input: {
-      data: {
-        Name: $Name
-        PhoneNumber: $PhoneNumber
-        Address: $Address
-        isWeddingPurchase: $isWeddingPurchase
-        MarriageDate: $MarriageDate
-        QtyOfGold: $QtyOfGold
-        OptNoCostEMI: $OptNoCostEMI
-        landmark: $landmark
+const AddCustomerEnquiry = gql`
+  mutation (
+    $Name: String!
+    $PhoneNumber: String!
+    $Address: String!
+    $isWeddingPurchase: Boolean!
+    $MarriageDate: Date!
+    $QtyOfGold: Int!
+    $OptNoCostEMI: Boolean!
+    $landmark: String
+  ) {
+    createEnquiryCustomer(
+      input: {
+        data: {
+          Name: $Name
+          PhoneNumber: $PhoneNumber
+          Address: $Address
+          isWeddingPurchase: $isWeddingPurchase
+          MarriageDate: $MarriageDate
+          QtyOfGold: $QtyOfGold
+          OptNoCostEMI: $OptNoCostEMI
+          landmark: $landmark
+        }
+      }
+    ) {
+      enquiryCustomer {
+        id
+        Name
+        PhoneNumber
+        Address
+        isWeddingPurchase
+        MarriageDate
+        QtyOfGold
+        OptNoCostEMI
+        landmark
       }
     }
-  ) {
-    enquiryCustomer {
-      id
-      Name
-      PhoneNumber
-      Address
-      isWeddingPurchase
-      MarriageDate
-      QtyOfGold
-      OptNoCostEMI
-      landmark
-    }
   }
-}
 `;
 @Injectable({
   providedIn: "root",
@@ -649,9 +661,9 @@ export class DataService {
   getfilteredAgents(id) {
     return this.apollo.watchQuery({
       query: AgentsQuery,
-      variables:{
-        tele_caller_id: id
-      }
+      variables: {
+        tele_caller_id: id,
+      },
     });
   }
   getSingleAgent(id) {
@@ -759,6 +771,8 @@ export class DataService {
         MarriageMonth: parseInt(Customer.MarriageMonth),
         tele_caller_contact: Customer.tele_caller_contact,
         HouseName: Customer.HouseName,
+        ContactNumber_1: Customer.ContactNumber_1,
+        ContactNumber_2: Customer.ContactNumber_2,
         Landmark: Customer.Landmark,
         locality: Customer.locality,
       },
@@ -810,7 +824,7 @@ export class DataService {
   AddEnquiry(enquiry) {
     let date = new Date();
     console.log(date.toISOString());
-    return this.apollo.use('second').mutate({
+    return this.apollo.use("second").mutate({
       mutation: AddCustomerEnquiry,
       variables: {
         Name: enquiry.name,
