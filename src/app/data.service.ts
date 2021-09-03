@@ -103,6 +103,17 @@ const localitiesQuery = gql`
     }
   }
 `;
+const postOfficesQuery = gql `
+query {
+  postOffices {
+    id
+    Name
+    Pincode
+    district {
+      Name
+    }
+  }
+}`;
 const UpdateAgentMutation = gql`
   mutation (
     $id: ID!
@@ -205,8 +216,8 @@ const CustomersQuery = gql`
       NameOfFather
       NameOfMother
       MarriageDate
-      ContactNumber_1
-      ContactNumber_2
+      Contact_Number_1
+      Contact_Number_2
       MarriageMonth
       kp_caller_assigned {
         email
@@ -251,6 +262,7 @@ const CustomersQuery = gql`
           Latitude
           Longitude
           GoogleMapURL
+          GoogleMapPlusCode
         }
       }
     }
@@ -261,6 +273,7 @@ const CustomersFilterQuery = gql`
     $is_verified: Boolean
     $kp_caller_assigned_null: Boolean
     $kp_id: ID
+    $added_by_user: ID
     $MarriageMonth_null: Boolean
     $MarriageDate_null: Boolean
   ) {
@@ -271,6 +284,7 @@ const CustomersFilterQuery = gql`
         kp_caller_assigned: $kp_id
         MarriageDate_null: $MarriageDate_null
         MarriageMonth_null: $MarriageMonth_null
+        added_by_user: $added_by_user
       }
     ) {
       id
@@ -279,11 +293,15 @@ const CustomersFilterQuery = gql`
       NameOfFather
       NameOfMother
       MarriageDate
-      ContactNumber_1
-      ContactNumber_2
+      Contact_Number_1
+      Contact_Number_2
       MarriageMonth
       kp_caller_assigned {
         email
+        username
+      }
+      added_by_user {
+        id
         username
       }
       tele_caller_contact {
@@ -325,6 +343,7 @@ const CustomersFilterQuery = gql`
           Latitude
           Longitude
           GoogleMapURL
+          GoogleMapPlusCode
         }
       }
     }
@@ -338,8 +357,8 @@ const CustomerSingleQuery = gql`
       NameOfBride
       NameOfFather
       NameOfMother
-      ContactNumber_1
-      ContactNumber_2
+      Contact_Number_1
+      Contact_Number_2
       MarriageDate
       MarriageMonth
       tele_caller_contact {
@@ -385,6 +404,7 @@ const CustomerSingleQuery = gql`
           Latitude
           Longitude
           GoogleMapURL
+          GoogleMapPlusCode
         }
       }
       TelecallerRemarks {
@@ -405,14 +425,16 @@ const AddCustomerMutation = gql`
     $NameOfBride: String!
     $NameOfFather: String!
     $NameOfMother: String!
-    $ContactNumber_1: String!
-    $ContactNumber_2: String!
+    $Contact_Number_1: String!
+    $Contact_Number_2: String!
     $MarriageDate: Date!
     $MarriageMonth: Int!
     $tele_caller_contact: ID!
     $HouseName: String!
     $Landmark: String!
     $locality: ID!
+    $added_by_user: ID!
+    $post_office: ID
   ) {
     createCustomer(
       input: {
@@ -422,13 +444,15 @@ const AddCustomerMutation = gql`
           NameOfMother: $NameOfMother
           MarriageDate: $MarriageDate
           MarriageMonth: $MarriageMonth
-          ContactNumber_1: $ContactNumber_1
-          ContactNumber_2: $ContactNumber_2
+          Contact_Number_1: $Contact_Number_1
+          Contact_Number_2: $Contact_Number_2
           tele_caller_contact: $tele_caller_contact
+          added_by_user: $added_by_user
           Address: {
             HouseName: $HouseName
             Landmark: $Landmark
             locality: $locality
+            post_office: $post_office
           }
         }
       }
@@ -440,8 +464,8 @@ const AddCustomerMutation = gql`
         NameOfMother
         MarriageDate
         MarriageMonth
-        ContactNumber_1
-        ContactNumber_2
+        Contact_Number_1
+        Contact_Number_2
         tele_caller_contact {
           Name
           id
@@ -592,37 +616,40 @@ const AddCustomerEnquiry = gql`
   mutation (
     $Name: String!
     $PhoneNumber: String!
-    $Address: String!
     $isWeddingPurchase: Boolean!
     $MarriageDate: Date!
     $QtyOfGold: Int!
     $OptNoCostEMI: Boolean!
-    $landmark: String
+    $HouseName: String!
+    $Landmark: String!
+    $PostOfficeNumber: Long!
   ) {
-    createEnquiryCustomer(
+    createCustomerEnquiry(
       input: {
         data: {
           Name: $Name
           PhoneNumber: $PhoneNumber
-          Address: $Address
           isWeddingPurchase: $isWeddingPurchase
           MarriageDate: $MarriageDate
           QtyOfGold: $QtyOfGold
           OptNoCostEMI: $OptNoCostEMI
-          landmark: $landmark
+          HouseName: $HouseName
+          Landmark: $Landmark
+          PostOfficeNumber: $PostOfficeNumber
         }
       }
     ) {
-      enquiryCustomer {
+      customerEnquiry {
         id
         Name
         PhoneNumber
-        Address
         isWeddingPurchase
         MarriageDate
         QtyOfGold
         OptNoCostEMI
-        landmark
+        HouseName
+        Landmark
+        PostOfficeNumber
       }
     }
   }
@@ -735,6 +762,11 @@ export class DataService {
       query: localitiesQuery,
     });
   }
+  getPostOffices() {
+    return this.apollo.watchQuery({
+      query: postOfficesQuery,
+    });
+  }
   getCustomers() {
     return this.apollo.watchQuery({
       query: CustomersQuery,
@@ -771,10 +803,12 @@ export class DataService {
         MarriageMonth: parseInt(Customer.MarriageMonth),
         tele_caller_contact: Customer.tele_caller_contact,
         HouseName: Customer.HouseName,
-        ContactNumber_1: Customer.ContactNumber_1,
-        ContactNumber_2: Customer.ContactNumber_2,
+        Contact_Number_1: Customer.Contact_Number_1,
+        Contact_Number_2: Customer.Contact_Number_2,
         Landmark: Customer.Landmark,
         locality: Customer.locality,
+        post_office: Customer.Post_office,
+        added_by_user: localStorage.getItem("uid"),
       },
       errorPolicy: "all",
     });
@@ -829,12 +863,13 @@ export class DataService {
       variables: {
         Name: enquiry.name,
         PhoneNumber: enquiry.phone,
-        Address: enquiry.address,
         isWeddingPurchase: enquiry.marriage_purchase == "true" ? true : false,
         MarriageDate: enquiry.date,
         QtyOfGold: parseInt(enquiry.pawan),
         OptNoCostEMI: enquiry.emi == "true" ? true : false,
-        landmark: enquiry.landmark,
+        HouseName: enquiry.HouseName,
+        Landmark: enquiry.Landmark,
+        PostOfficeNumber: enquiry.PostOfficeNumber,
       },
       errorPolicy: "all",
     });

@@ -124,6 +124,86 @@ export const AgentsColumn = [
   //   cellRenderer: ActionRenderer,
   // },
 ];
+export const DNFcustomersColumn = [
+  {
+    field: "id",
+    headerName: "ID",
+    checkboxSelection: true,
+    headerCheckboxSelection: true,
+    resizable: true,
+    sortable: true,
+  },
+  {
+    field: "NameOfBride",
+    headerName: "Name Of Bride",
+    minWidth: 150,
+    resizable: true,
+    sortable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+  },
+  {
+    field: "Contact_Number_1",
+    headerName: "Contact Number 1",
+    minWidth: 150,
+    resizable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+  },
+  {
+    field: "NameOfFather",
+    headerName: "Name of Father",
+    resizable: true,
+    sortable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+    // width : "auto"
+  },
+  {
+    field: "NameOfMother",
+    headerName: "Name of Mother",
+    sortable: true,
+    minWidth: 150,
+    resizable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+  },
+  {
+    field: "tele_caller_contact.Name",
+    headerName: "Agent",
+    minWidth: 150,
+    resizable: true,
+    sortable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+  },
+  {
+    field: "Address.locality.Name",
+    headerName: "Locality",
+    minWidth: 150,
+    resizable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+  },
+];
 export const customersColumn = [
   {
     field: "id",
@@ -132,6 +212,11 @@ export const customersColumn = [
     headerCheckboxSelection: true,
     resizable: true,
     sortable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
   },
   {
     field: "NameOfBride",
@@ -202,7 +287,21 @@ export const customersColumn = [
     },
   },
 ];
-
+export const customerColumnsWithKpCaller = [
+  ...customersColumn,
+  {
+    field: "kp_caller_assigned.username",
+    headerName: "KP Caller",
+    minWidth: 150,
+    resizable: true,
+    sortable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+  },
+];
 export function dateConverter(date) {
   return new Date(date);
 }

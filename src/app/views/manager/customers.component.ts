@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { ModalDirective } from "ngx-bootstrap/modal";
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
-import { customersColumn,Months } from "../../constants/columnMetadata";
+import { customerColumnsWithKpCaller,Months } from "../../constants/columnMetadata";
 
 @Component({
   templateUrl: "customers.component.html",
@@ -15,7 +15,7 @@ export class ManagerCustomerComponent {
     private router: Router,
     private fb: FormBuilder
   ) {
-    this.columnDefs = [...customersColumn];
+    this.columnDefs = [...customerColumnsWithKpCaller];
     this.Months = [...Months];
     this.rowSelection = "single";
   }
@@ -26,8 +26,8 @@ export class ManagerCustomerComponent {
     NameOfFather: ["", Validators.required],
     NameOfMother: ["", Validators.required],
     MarriageDate: ["", Validators.required],
-    ContactNumber_1: ["", Validators.required],
-    ContactNumber_2: ["", Validators.required],
+    Contact_Number_1: ["", Validators.required],
+    Contact_Number_2: ["", Validators.required],
     MarriageMonth: ["", Validators.required],
     tele_caller_contact: ["", Validators.required],
     HouseName: ["", Validators.required],

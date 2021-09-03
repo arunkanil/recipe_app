@@ -29,75 +29,98 @@
         </div>
         <div class="modal-body">
           <form [formGroup]="customerForm" (ngSubmit)="FormSubmit()">
-            <div class="form-group">
-              <label for="name">Name of Bride</label>
-              <input type="text" class="form-control" id="NameOfBride" name="NameOfBride" formControlName="NameOfBride"
-                placeholder="Enter bride's name" />
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="name">Name of Bride</label>
+                  <input type="text" class="form-control" id="NameOfBride" name="NameOfBride"
+                    formControlName="NameOfBride" placeholder="Enter bride's name" />
+                </div>
+                <div class="form-group">
+                  <label for="name">Name of Father</label>
+                  <input type="text" class="form-control" id="NameOfFather" name="NameOfFather"
+                    formControlName="NameOfFather" placeholder="Enter father's name" />
+                </div>
+                <div class="form-group">
+                  <label for="name">Name of Mother</label>
+                  <input type="text" class="form-control" id="NameOfMother" name="NameOfMother"
+                    formControlName="NameOfMother" placeholder="Enter mother's name" />
+                </div>
+                <div class="form-group">
+                  <label for="name">Contact number 1</label>
+                  <input type="text" class="form-control" id="Contact_Number_1" name="Contact_Number_1"
+                    formControlName="Contact_Number_1" placeholder="Enter primary contact number" />
+                </div>
+                <div class="form-group">
+                  <label for="name">Contact number 2</label>
+                  <input type="text" class="form-control" id="Contact_Number_2" name="Contact_Number_2"
+                    formControlName="Contact_Number_2" placeholder="Enter secondary contact number" />
+                </div>
+                <div class="form-group">
+                  <label for="Post_office">Post office</label>
+                  <!-- <input type="text" class="form-control" id="locality" name="locality" formControlName="locality"
+                    placeholder="Enter locality" /> -->
+                  <select class="form-control" id="Post_office" required ngModel name="Post_office"
+                    formControlName="Post_office">
+                    <option value="" disabled selected hidden>Choose...</option>
+                    <option *ngFor="let item of postoffices" value="{{ item.id }}">
+                      {{ item.Name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="email">Marriage date</label>
+                  <input type="date" class="form-control" id="MarriageDate" name="MarriageDate"
+                    formControlName="MarriageDate" />
+                </div>
+                <div class="form-group">
+                  <label for="group">Marriage month</label>
+                  <select class="form-control" id="MarriageMonth" required ngModel name="MarriageMonth"
+                    formControlName="MarriageMonth">
+                    <option value="" disabled selected hidden>Choose...</option>
+                    <option *ngFor="let item of Months" value="{{ item.id }}">
+                      {{ item.Name }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="group">Agent</label>
+                  <select class="form-control" id="tele_caller_contact" required ngModel name="tele_caller_contact"
+                    formControlName="tele_caller_contact">
+                    <option value="" disabled selected hidden>Choose...</option>
+                    <option *ngFor="let item of agents" value="{{ item.id }}">
+                      {{ item.Name }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="name">House Name</label>
+                  <input type="text" class="form-control" id="HouseName" name="HouseName" formControlName="HouseName"
+                    placeholder="Enter House Name" />
+                </div>
+                <div class="form-group">
+                  <label for="name">Landmark</label>
+                  <input type="text" class="form-control" id="Landmark" name="Landmark" formControlName="Landmark"
+                    placeholder="Enter Landmark" />
+                </div>
+                <div class="form-group">
+                  <label for="locality">Name of locality</label>
+                  <!-- <input type="text" class="form-control" id="locality" name="locality" formControlName="locality"
+                    placeholder="Enter locality" /> -->
+                  <select class="form-control" id="locality" required ngModel name="locality"
+                    formControlName="locality">
+                    <option value="" disabled selected hidden>Choose...</option>
+                    <option *ngFor="let item of localities" value="{{ item.id }}">
+                      {{ item.Name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="name">Name of Father</label>
-              <input type="text" class="form-control" id="NameOfFather" name="NameOfFather"
-                formControlName="NameOfFather" placeholder="Enter father's name" />
-            </div>
-            <div class="form-group">
-              <label for="name">Name of Mother</label>
-              <input type="text" class="form-control" id="NameOfMother" name="NameOfMother"
-                formControlName="NameOfMother" placeholder="Enter mother's name" />
-            </div>
-            <div class="form-group">
-              <label for="name">Contact number 1</label>
-              <input type="text" class="form-control" id="ContactNumber_1" name="ContactNumber_1"
-                formControlName="ContactNumber_1" placeholder="Enter primary contact number" />
-            </div>
-            <div class="form-group">
-              <label for="name">Contact number 2</label>
-              <input type="text" class="form-control" id="ContactNumber_2" name="ContactNumber_2"
-                formControlName="ContactNumber_2" placeholder="Enter secondary contact number" />
-            </div>
-            <div class="form-group">
-              <label for="email">Marriage date</label>
-              <input type="date" class="form-control" id="MarriageDate" name="MarriageDate"
-                formControlName="MarriageDate" />
-            </div>
-            <div class="form-group">
-              <label for="group">Marriage month</label>
-              <select class="form-control" id="MarriageMonth" required ngModel name="MarriageMonth" formControlName="MarriageMonth">
-                <option value="" disabled selected hidden>Choose...</option>
-                <option *ngFor="let item of Months" value="{{ item.id }}">
-                  {{ item.Name }}
-                </option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="group">Agent</label>
-              <select class="form-control" id="tele_caller_contact" required ngModel name="tele_caller_contact" formControlName="tele_caller_contact">
-                <option value="" disabled selected hidden>Choose...</option>
-                <option *ngFor="let item of agents" value="{{ item.id }}">
-                  {{ item.Name }}
-                </option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="name">House Name</label>
-              <input type="text" class="form-control" id="HouseName" name="HouseName"
-                formControlName="HouseName" placeholder="Enter House Name" />
-            </div>
-            <div class="form-group">
-              <label for="name">Landmark</label>
-              <input type="text" class="form-control" id="Landmark" name="Landmark"
-                formControlName="Landmark" placeholder="Enter Landmark" />
-            </div>
-            <div class="form-group">
-              <label for="locality">Name of locality</label>
-              <!-- <input type="text" class="form-control" id="locality" name="locality" formControlName="locality"
-                placeholder="Enter locality" /> -->
-                <select class="form-control" id="locality" required ngModel name="locality" formControlName="locality">
-                  <option value="" disabled selected hidden>Choose...</option>
-                  <option *ngFor="let item of localities" value="{{ item.id }}">
-                    {{ item.Name }}
-                  </option>
-                </select>
-            </div>
+
+
             <button type="button" class="btn btn-secondary" (click)="myModal.hide()">
               Close
             </button>

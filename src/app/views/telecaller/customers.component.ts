@@ -26,13 +26,14 @@ export class CustomersComponent {
     NameOfFather: ["", Validators.required],
     NameOfMother: ["", Validators.required],
     MarriageDate: ["", Validators.required],
-    ContactNumber_1: ["", Validators.required],
-    ContactNumber_2: ["", Validators.required],
+    Contact_Number_1: ["", Validators.required],
+    Contact_Number_2: ["", Validators.required],
     MarriageMonth: ["", Validators.required],
     tele_caller_contact: ["", Validators.required],
     HouseName: ["", Validators.required],
     Landmark: ["", Validators.required],
     locality: ["", Validators.required],
+    Post_office: ["", Validators.required],
   });
   loading = true;
   btnLoading = false;
@@ -42,6 +43,7 @@ export class CustomersComponent {
   rowData: any = [];
   agents: any = [];
   localities: any = [];
+  postoffices: any = [];
   private gridApi;
   private gridColumnApi;
 
@@ -49,14 +51,21 @@ export class CustomersComponent {
     this.getLists();
   }
   getLists() {
+    let filter = {
+      added_by_user: localStorage.getItem("uid")
+    };
     this.loading = true;
-    this.dataservice.getCustomers().valueChanges.subscribe((result: any) => {
+    this.dataservice.getCustomersFilter(filter).valueChanges.subscribe((result: any) => {
       console.log("getCustomers", result.data.customers);
       this.rowData = result.data.customers;
     });
     this.dataservice.getLocalities().valueChanges.subscribe((result: any) => {
       console.log("getLocalities", result.data.localities);
       this.localities = result.data.localities;
+    });
+    this.dataservice.getPostOffices().valueChanges.subscribe((result: any) => {
+      console.log("getPostOffices", result.data.postOffices);
+      this.postoffices = result.data.postOffices;
     });
     this.dataservice.getAgents().valueChanges.subscribe((result: any) => {
       console.log("getAgents", result.data.teleCallerContacts);

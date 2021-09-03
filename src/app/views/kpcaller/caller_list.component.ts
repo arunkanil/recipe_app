@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { DataService } from "../../data.service";
-import { customersColumn } from "../../constants/columnMetadata";
+import { customersColumn,DNFcustomersColumn } from "../../constants/columnMetadata";
 
 @Component({
   templateUrl: 'caller_list.component.html'
@@ -50,6 +50,7 @@ export class ButtonsComponent {
         MarriageDate_null: true,
       };
       this.title = "Date Not Fixed";
+      this.columnDefs = [...DNFcustomersColumn];
     }
     this.dataservice.getCustomersFilter(filter).valueChanges.subscribe((result: any) => {
       console.log("getCustomersFilter", result.data.customers);

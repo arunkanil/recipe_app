@@ -60,11 +60,11 @@
                             </tr>
                             <tr>
                                 <td>Contact number 1</td>
-                                <td>{{ details?.ContactNumber_1 }}</td>
+                                <td>{{ details?.Contact_Number_1 }}</td>
                             </tr>
                             <tr>
                                 <td>Contact number 2</td>
-                                <td>{{ details?.ContactNumber_2 }}</td>
+                                <td>{{ details?.Contact_Number_2 }}</td>
                             </tr>
                             <tr>
                                 <td>Agent</td>
@@ -84,6 +84,26 @@
                                 <td>Locality</td>
                                 <td>{{ details.Address?.locality?.Name }}</td>
                             </tr>
+                            <tr>
+                                <td>Post office</td>
+                                <td>{{ details.Address?.post_office?.Name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Latitude</td>
+                                <td>{{ details.Address?.GeoLocation?.Latitude }}</td>
+                            </tr>
+                            <tr>
+                                <td>Longitude</td>
+                                <td>{{ details.Address?.GeoLocation?.Longitude }}</td>
+                            </tr>
+                            <tr>
+                                <td>Plus code</td>
+                                <td>{{ details.Address?.GeoLocation?.GoogleMapPlusCode }}</td>
+                            </tr>
+                            <!-- <tr>
+                                <td>Map URL</td>
+                                <td>{{ details.Address?.GeoLocation?.GoogleMapURL }}</td>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
