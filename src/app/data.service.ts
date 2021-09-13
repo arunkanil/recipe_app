@@ -385,6 +385,17 @@ const CustomerSingleQuery = gql`
         EnquiriesFromOthers
         AdvancePaidToOtherJewellery
         NumberOfNewMarriageAddress
+        images {
+          name
+          url
+          previewUrl
+        }
+        location{
+          Latitude
+          Longitude
+          GoogleMapURL
+          GoogleMapPlusCode
+        }
       }
       Address {
         id
@@ -435,6 +446,10 @@ const AddCustomerMutation = gql`
     $locality: ID!
     $added_by_user: ID!
     $post_office: ID
+    $Latitude: Float
+    $Longitude: Float
+    $GoogleMapURL: String
+    $GoogleMapPlusCode: String
   ) {
     createCustomer(
       input: {
@@ -453,6 +468,12 @@ const AddCustomerMutation = gql`
             Landmark: $Landmark
             locality: $locality
             post_office: $post_office
+            GeoLocation: {
+              Latitude: $Latitude
+              Longitude: $Longitude
+              GoogleMapURL: $GoogleMapURL
+              GoogleMapPlusCode:$GoogleMapPlusCode
+            }
           }
         }
       }
@@ -809,6 +830,10 @@ export class DataService {
         locality: Customer.locality,
         post_office: Customer.Post_office,
         added_by_user: localStorage.getItem("uid"),
+        Latitude: parseFloat(Customer.Latitude),
+        Longitude: parseFloat(Customer.Longitude),
+        GoogleMapURL: Customer.GoogleMapURL,
+        GoogleMapPlusCode: Customer.GoogleMapPlusCode,
       },
       errorPolicy: "all",
     });

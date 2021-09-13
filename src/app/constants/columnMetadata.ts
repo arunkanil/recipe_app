@@ -209,6 +209,7 @@ export const customersColumn = [
     field: "id",
     headerName: "ID",
     checkboxSelection: true,
+    width: 100,
     headerCheckboxSelection: true,
     resizable: true,
     sortable: true,
@@ -233,15 +234,15 @@ export const customersColumn = [
   {
     field: "MarriageDate",
     headerName: "Marriage Date",
-    minWidth: 150,
+    minWidth: 120,
     resizable: true,
     sortable: true,
     filter: "agDateColumnFilter",
     filterParams: filterParams,
   },
   {
-    field: "NameOfFather",
-    headerName: "Name of Father",
+    field: "Address.HouseName",
+    headerName: "House name",
     resizable: true,
     sortable: true,
     filter: "agTextColumnFilter",
@@ -252,9 +253,33 @@ export const customersColumn = [
     // width : "auto"
   },
   {
-    field: "NameOfMother",
-    headerName: "Name of Mother",
+    field: "Address.Landmark",
+    headerName: "Landmark",
+    resizable: true,
     sortable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+    // width : "auto"
+  },
+  {
+    field: "Address.post_office.Name",
+    headerName: "Post office",
+    sortable: true,
+    minWidth: 150,
+    resizable: true,
+    filter: "agTextColumnFilter",
+    filterParams: {
+      filterOptions: ["contains"],
+      buttons: ["reset"],
+    },
+    cellRenderer: fullNameGetter,
+  },
+  {
+    field: "Address.locality.Name",
+    headerName: "Locality",
     minWidth: 150,
     resizable: true,
     filter: "agTextColumnFilter",
@@ -275,18 +300,16 @@ export const customersColumn = [
       buttons: ["reset"],
     },
   },
-  {
-    field: "Address.locality.Name",
-    headerName: "Locality",
-    minWidth: 150,
-    resizable: true,
-    filter: "agTextColumnFilter",
-    filterParams: {
-      filterOptions: ["contains"],
-      buttons: ["reset"],
-    },
-  },
 ];
+function fullNameGetter(params) {
+  let value =
+    params.data.Address?.post_office?.Name +
+    " " +
+    params.data.Address?.post_office?.Pincode;
+  if (value != "undefined undefined") {
+    return value;
+  } else return "No data";
+}
 export const customerColumnsWithKpCaller = [
   ...customersColumn,
   {

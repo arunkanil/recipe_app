@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../login/auth.guard';
 import { ManagerCustomerDetailComponent } from './customerdetail.component';
 import { ManagerCustomerComponent } from './customers.component';
+import { EnquiriesComponent } from './enquiries.component';
 
 import { VerifiedListComponent } from './verified.component';
 
@@ -42,6 +43,15 @@ const routes: Routes = [
         data: {
           roles: 'MANAGER',
           title: 'Agents List'
+        }
+      },
+      {
+        path: 'enquiries',
+        canActivate: [AuthGuard],
+        component: EnquiriesComponent,
+        data: {
+          roles: 'MANAGER',
+          title: 'Enquiries'
         }
       },
       {

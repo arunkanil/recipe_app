@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NgModule } from '@angular/core';
 import { VerifiedListComponent } from './verified.component';
 
@@ -13,6 +13,7 @@ import { VerifiedListComponent } from './verified.component';
 import { ManagerRoutingModule } from './manager-routing.module';
 import { ManagerCustomerComponent } from './customers.component';
 import { ManagerCustomerDetailComponent } from './customerdetail.component';
+import { EnquiriesComponent } from './enquiries.component';
 
 @NgModule({
   imports: [
@@ -21,12 +22,14 @@ import { ManagerCustomerDetailComponent } from './customerdetail.component';
     ReactiveFormsModule,
     AgGridModule.withComponents([]),
     ModalModule.forRoot(),
-    FormsModule
+    CarouselModule.forRoot(),
+    FormsModule,
   ],
   declarations: [
     VerifiedListComponent,
     ManagerCustomerComponent,
-    ManagerCustomerDetailComponent
+    ManagerCustomerDetailComponent,
+    EnquiriesComponent
   ]
 })
 export class ManagerModule { }

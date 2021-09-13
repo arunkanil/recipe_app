@@ -22,7 +22,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Assign to Caller</h4>
+            <h4 class="modal-title">Assign to {{label}} Caller</h4>
             <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -30,7 +30,7 @@
           <div class="modal-body">
             <form [formGroup]="callerForm" (ngSubmit)="FormSubmit()">
               <div class="form-group">
-                <label for="id">KP Caller</label>
+                <label for="id">{{label}} Caller</label>
                 <select class="form-control" id="id" required ngModel name="group" formControlName="id">
                   <option value="" disabled selected hidden>Choose...</option>
                   <option *ngFor="let item of users" value="{{ item.id }}">

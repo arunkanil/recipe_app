@@ -25,6 +25,7 @@ export class CustomerDetailComponent implements OnInit {
   dateConverter = dateConverter;
   btnLoading = false;
   groups: any = [];
+  maplink: any = "https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=9.676709,76.391153&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed";
   agentForm = this.fb.group({
     name: ["", Validators.required],
     email: ["", Validators.required],
@@ -56,6 +57,13 @@ export class CustomerDetailComponent implements OnInit {
       .valueChanges.subscribe((result: any) => {
         console.log("getSingleCustomer", result.data.customer);
         this.details = result.data.customer;
+        this.maplink =
+          "https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=" +
+          result.data.customer.Address.GeoLocation.Latitude.toString() +
+          "," +" "+
+          result.data.customer.Address.GeoLocation.Longitude.toString() +
+          "&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed";
+        console.log(this.maplink);
         this.agentForm = this.fb.group({
           name: [this.details.Name, Validators.required],
           email: [this.details.Email, Validators.required],

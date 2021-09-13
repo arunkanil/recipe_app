@@ -28,6 +28,7 @@ export class VerifiedListComponent {
     id: ["", Validators.required],
   });
   loading = true;
+  label = "";
   btnLoading = false;
   orders: any = {};
   columnDefs = [];
@@ -60,6 +61,7 @@ export class VerifiedListComponent {
         .valueChanges.subscribe((result: any) => {
           console.log("getUsers", result.data.users);
           this.users = result.data.users;
+          this.label = "Tele "
         });
     } else {
       this.dataservice
@@ -73,6 +75,7 @@ export class VerifiedListComponent {
         .valueChanges.subscribe((result: any) => {
           console.log("getUsers", result.data.users);
           this.users = result.data.users;
+          this.label = "KP "
         });
     }
   }

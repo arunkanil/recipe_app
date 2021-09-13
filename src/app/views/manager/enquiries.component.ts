@@ -3,19 +3,19 @@ import { Router } from "@angular/router";
 import { ModalDirective } from "ngx-bootstrap/modal";
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
-import { customersColumn, Months } from "../../constants/columnMetadata";
+import { customerColumnsWithKpCaller,Months } from "../../constants/columnMetadata";
 
 @Component({
-  templateUrl: "customers.component.html",
+  templateUrl: "enquiries.component.html",
 })
-export class CustomersComponent {
+export class EnquiriesComponent {
   rowSelection: string;
   constructor(
     public dataservice: DataService,
     private router: Router,
     private fb: FormBuilder
   ) {
-    this.columnDefs = [...customersColumn];
+    this.columnDefs = [...customerColumnsWithKpCaller];
     this.Months = [...Months];
     this.rowSelection = "single";
   }
@@ -33,11 +33,6 @@ export class CustomersComponent {
     HouseName: ["", Validators.required],
     Landmark: ["", Validators.required],
     locality: ["", Validators.required],
-    Post_office: ["", Validators.required],
-    Latitude: [""],
-    Longitude: [""],
-    GoogleMapURL: [""],
-    GoogleMapPlusCode: [""],
   });
   loading = true;
   btnLoading = false;
@@ -47,7 +42,6 @@ export class CustomersComponent {
   rowData: any = [];
   agents: any = [];
   localities: any = [];
-  postoffices: any = [];
   private gridApi;
   private gridColumnApi;
 
@@ -55,23 +49,14 @@ export class CustomersComponent {
     this.getLists();
   }
   getLists() {
-    let filter = {
-      added_by_user: localStorage.getItem("uid"),
-    };
     this.loading = true;
-    this.dataservice
-      .getCustomersFilter(filter)
-      .valueChanges.subscribe((result: any) => {
-        console.log("getCustomers", result.data.customers);
-        this.rowData = result.data.customers;
-      });
+    this.dataservice.getCustomers().valueChanges.subscribe((result: any) => {
+      console.log("getCustomers", result.data.customers);
+      this.rowData = result.data.customers;
+    });
     this.dataservice.getLocalities().valueChanges.subscribe((result: any) => {
       console.log("getLocalities", result.data.localities);
       this.localities = result.data.localities;
-    });
-    this.dataservice.getPostOffices().valueChanges.subscribe((result: any) => {
-      console.log("getPostOffices", result.data.postOffices);
-      this.postoffices = result.data.postOffices;
     });
     this.dataservice.getAgents().valueChanges.subscribe((result: any) => {
       console.log("getAgents", result.data.teleCallerContacts);
@@ -85,25 +70,23 @@ export class CustomersComponent {
   onSelectionChanged(event) {
     var selectedRows = this.gridApi.getSelectedRows();
     console.log(selectedRows);
-    this.router.navigate(["/telecaller/customer_details", selectedRows[0].id], {
+    this.router.navigate(["/manager/customer_details",selectedRows[0].id], {
       state: { data: selectedRows },
     });
   }
   FormSubmit() {
     let resp = {};
     console.log(this.customerForm.value);
-    this.dataservice
-      .Addcustomer(this.customerForm.value)
-      .subscribe((result: any) => {
-        resp = result.data;
-        console.log("response", result);
-        if (result.data.createCustomer) {
-          alert("customer added successfully!");
-          this.getLists();
-          this.myModal.hide();
-        } else {
-          alert("Failed. Please check the fields!");
-        }
-      });
+    this.dataservice.Addcustomer(this.customerForm.value).subscribe((result: any) => {
+      resp = result.data;
+      console.log("response", result);
+      if (result.data.createCustomer) {
+        alert("customer added successfully!");
+        this.getLists();
+        this.myModal.hide();
+      } else {
+        alert("Failed. Please check the fields!");
+      }
+    });
   }
 }
