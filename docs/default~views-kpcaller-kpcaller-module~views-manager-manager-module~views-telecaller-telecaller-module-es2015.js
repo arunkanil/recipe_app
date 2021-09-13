@@ -4,7 +4,7 @@
 /*!*********************************************!*\
   !*** ./src/app/constants/columnMetadata.ts ***!
   \*********************************************/
-/*! exports provided: filterParams, Months, AgentsColumn, customersColumn, dateConverter */
+/*! exports provided: filterParams, Months, AgentsColumn, DNFcustomersColumn, customersColumn, customerColumnsWithKpCaller, dateConverter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12,7 +12,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterParams", function() { return filterParams; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Months", function() { return Months; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgentsColumn", function() { return AgentsColumn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DNFcustomersColumn", function() { return DNFcustomersColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "customersColumn", function() { return customersColumn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "customerColumnsWithKpCaller", function() { return customerColumnsWithKpCaller; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateConverter", function() { return dateConverter; });
 var filterParams = {
     suppressAndOrCondition: true,
@@ -125,7 +127,7 @@ const AgentsColumn = [
         },
     },
 ];
-const customersColumn = [
+const DNFcustomersColumn = [
     {
         field: "id",
         headerName: "ID",
@@ -147,13 +149,15 @@ const customersColumn = [
         },
     },
     {
-        field: "MarriageDate",
-        headerName: "Marriage Date",
+        field: "Contact_Number_1",
+        headerName: "Contact Number 1",
         minWidth: 150,
         resizable: true,
-        sortable: true,
-        filter: "agDateColumnFilter",
-        filterParams: filterParams,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
     },
     {
         field: "NameOfFather",
@@ -195,6 +199,126 @@ const customersColumn = [
         headerName: "Locality",
         minWidth: 150,
         resizable: true,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
+    },
+];
+const customersColumn = [
+    {
+        field: "id",
+        headerName: "ID",
+        checkboxSelection: true,
+        width: 100,
+        headerCheckboxSelection: true,
+        resizable: true,
+        sortable: true,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
+    },
+    {
+        field: "NameOfBride",
+        headerName: "Name Of Bride",
+        minWidth: 150,
+        resizable: true,
+        sortable: true,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
+    },
+    {
+        field: "MarriageDate",
+        headerName: "Marriage Date",
+        minWidth: 120,
+        resizable: true,
+        sortable: true,
+        filter: "agDateColumnFilter",
+        filterParams: filterParams,
+    },
+    {
+        field: "Address.HouseName",
+        headerName: "House name",
+        resizable: true,
+        sortable: true,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
+    },
+    {
+        field: "Address.Landmark",
+        headerName: "Landmark",
+        resizable: true,
+        sortable: true,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
+    },
+    {
+        field: "Address.post_office.Name",
+        headerName: "Post office",
+        sortable: true,
+        minWidth: 150,
+        resizable: true,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
+        cellRenderer: fullNameGetter,
+    },
+    {
+        field: "Address.locality.Name",
+        headerName: "Locality",
+        minWidth: 150,
+        resizable: true,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
+    },
+    {
+        field: "tele_caller_contact.Name",
+        headerName: "Agent",
+        minWidth: 150,
+        resizable: true,
+        sortable: true,
+        filter: "agTextColumnFilter",
+        filterParams: {
+            filterOptions: ["contains"],
+            buttons: ["reset"],
+        },
+    },
+];
+function fullNameGetter(params) {
+    var _a, _b, _c, _d;
+    let value = ((_b = (_a = params.data.Address) === null || _a === void 0 ? void 0 : _a.post_office) === null || _b === void 0 ? void 0 : _b.Name) +
+        " " + ((_d = (_c = params.data.Address) === null || _c === void 0 ? void 0 : _c.post_office) === null || _d === void 0 ? void 0 : _d.Pincode);
+    if (value != "undefined undefined") {
+        return value;
+    }
+    else
+        return "No data";
+}
+const customerColumnsWithKpCaller = [
+    ...customersColumn,
+    {
+        field: "kp_caller_assigned.username",
+        headerName: "KP Caller",
+        minWidth: 150,
+        resizable: true,
+        sortable: true,
         filter: "agTextColumnFilter",
         filterParams: {
             filterOptions: ["contains"],

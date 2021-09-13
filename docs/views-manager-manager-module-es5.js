@@ -70,33 +70,45 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var ngx_bootstrap_carousel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ngx-bootstrap/carousel */
+      "Osdn");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/core */
       "8Y7J");
       /* harmony import */
 
 
-      var _verified_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _verified_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./verified.component */
       "Sx+e");
       /* harmony import */
 
 
-      var _manager_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _manager_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./manager-routing.module */
       "SOEm");
       /* harmony import */
 
 
-      var _customers_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _customers_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./customers.component */
       "MPuI");
       /* harmony import */
 
 
-      var _customerdetail_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _customerdetail_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./customerdetail.component */
-      "F9w6"); // Angular
+      "F9w6");
+      /* harmony import */
+
+
+      var _enquiries_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! ./enquiries.component */
+      "EIdz"); // Angular
       // import { TypographyComponent } from './typography.component';
       // Theme Routing
 
@@ -105,10 +117,200 @@
         _classCallCheck(this, ManagerModule);
       };
 
-      ManagerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _manager_routing_module__WEBPACK_IMPORTED_MODULE_7__["ManagerRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], ag_grid_angular__WEBPACK_IMPORTED_MODULE_3__["AgGridModule"].withComponents([]), ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__["ModalModule"].forRoot(), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]],
-        declarations: [_verified_component__WEBPACK_IMPORTED_MODULE_6__["VerifiedListComponent"], _customers_component__WEBPACK_IMPORTED_MODULE_8__["ManagerCustomerComponent"], _customerdetail_component__WEBPACK_IMPORTED_MODULE_9__["ManagerCustomerDetailComponent"]]
+      ManagerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["NgModule"])({
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _manager_routing_module__WEBPACK_IMPORTED_MODULE_8__["ManagerRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], ag_grid_angular__WEBPACK_IMPORTED_MODULE_3__["AgGridModule"].withComponents([]), ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__["ModalModule"].forRoot(), ngx_bootstrap_carousel__WEBPACK_IMPORTED_MODULE_5__["CarouselModule"].forRoot(), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]],
+        declarations: [_verified_component__WEBPACK_IMPORTED_MODULE_7__["VerifiedListComponent"], _customers_component__WEBPACK_IMPORTED_MODULE_9__["ManagerCustomerComponent"], _customerdetail_component__WEBPACK_IMPORTED_MODULE_10__["ManagerCustomerDetailComponent"], _enquiries_component__WEBPACK_IMPORTED_MODULE_11__["EnquiriesComponent"]]
       })], ManagerModule);
+      /***/
+    },
+
+    /***/
+    "EIdz":
+    /*!******************************************************!*\
+      !*** ./src/app/views/manager/enquiries.component.ts ***!
+      \******************************************************/
+
+    /*! exports provided: EnquiriesComponent */
+
+    /***/
+    function EIdz(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "EnquiriesComponent", function () {
+        return EnquiriesComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _raw_loader_enquiries_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! raw-loader!./enquiries.component.html */
+      "m6yf");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      "8Y7J");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/router */
+      "iInd");
+      /* harmony import */
+
+
+      var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! ngx-bootstrap/modal */
+      "LqlI");
+      /* harmony import */
+
+
+      var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ../../data.service */
+      "R7Hv");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/forms */
+      "s7LF");
+      /* harmony import */
+
+
+      var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ../../constants/columnMetadata */
+      "7nfi");
+
+      var EnquiriesComponent = /*#__PURE__*/function () {
+        function EnquiriesComponent(dataservice, router, fb) {
+          _classCallCheck(this, EnquiriesComponent);
+
+          this.dataservice = dataservice;
+          this.router = router;
+          this.fb = fb;
+          this.customerForm = this.fb.group({
+            NameOfBride: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            NameOfFather: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            NameOfMother: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            MarriageDate: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            Contact_Number_1: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            Contact_Number_2: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            MarriageMonth: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            tele_caller_contact: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            HouseName: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            Landmark: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            locality: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
+          });
+          this.loading = true;
+          this.btnLoading = false;
+          this.orders = {};
+          this.columnDefs = [];
+          this.rowData = [];
+          this.agents = [];
+          this.localities = [];
+          this.columnDefs = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["customerColumnsWithKpCaller"]);
+          this.Months = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["Months"]);
+          this.rowSelection = "single";
+        }
+
+        _createClass(EnquiriesComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.getLists();
+          }
+        }, {
+          key: "getLists",
+          value: function getLists() {
+            var _this = this;
+
+            this.loading = true;
+            this.dataservice.getCustomers().valueChanges.subscribe(function (result) {
+              console.log("getCustomers", result.data.customers);
+              _this.rowData = result.data.customers;
+            });
+            this.dataservice.getLocalities().valueChanges.subscribe(function (result) {
+              console.log("getLocalities", result.data.localities);
+              _this.localities = result.data.localities;
+            });
+            this.dataservice.getAgents().valueChanges.subscribe(function (result) {
+              console.log("getAgents", result.data.teleCallerContacts);
+              _this.agents = result.data.teleCallerContacts;
+            });
+          }
+        }, {
+          key: "onGridReady",
+          value: function onGridReady(params) {
+            this.gridApi = params.api;
+            this.gridColumnApi = params.columnApi;
+          }
+        }, {
+          key: "onSelectionChanged",
+          value: function onSelectionChanged(event) {
+            var selectedRows = this.gridApi.getSelectedRows();
+            console.log(selectedRows);
+            this.router.navigate(["/manager/customer_details", selectedRows[0].id], {
+              state: {
+                data: selectedRows
+              }
+            });
+          }
+        }, {
+          key: "FormSubmit",
+          value: function FormSubmit() {
+            var _this2 = this;
+
+            var resp = {};
+            console.log(this.customerForm.value);
+            this.dataservice.Addcustomer(this.customerForm.value).subscribe(function (result) {
+              resp = result.data;
+              console.log("response", result);
+
+              if (result.data.createCustomer) {
+                alert("customer added successfully!");
+
+                _this2.getLists();
+
+                _this2.myModal.hide();
+              } else {
+                alert("Failed. Please check the fields!");
+              }
+            });
+          }
+        }]);
+
+        return EnquiriesComponent;
+      }();
+
+      EnquiriesComponent.ctorParameters = function () {
+        return [{
+          type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        }, {
+          type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]
+        }];
+      };
+
+      EnquiriesComponent.propDecorators = {
+        myModal: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"],
+          args: ["myModal"]
+        }]
+      };
+      EnquiriesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        template: _raw_loader_enquiries_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])], EnquiriesComponent);
       /***/
     },
 
@@ -204,33 +406,33 @@
         _createClass(ManagerCustomerDetailComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this = this;
+            var _this3 = this;
 
             this.getLists();
             this.activatedRouter.params.subscribe(function (params) {
-              _this.id = params["id"];
+              _this3.id = params["id"];
             });
             this.dataservice.getSingleCustomer(this.id).valueChanges.subscribe(function (result) {
               console.log("getSingleCustomer", result.data.customer);
-              _this.details = result.data.customer;
-              _this.loading = false;
+              _this3.details = result.data.customer;
+              _this3.loading = false;
             });
           }
         }, {
           key: "getLists",
           value: function getLists() {
-            var _this2 = this;
+            var _this4 = this;
 
             this.loading = true;
             this.dataservice.getUsers("FIELD_AGENT").valueChanges.subscribe(function (result) {
               console.log("getUsers", result.data.users);
-              _this2.users = result.data.users;
+              _this4.users = result.data.users;
             });
           }
         }, {
           key: "FormSubmit",
           value: function FormSubmit() {
-            var _this3 = this;
+            var _this5 = this;
 
             var resp = {};
             console.log(this.agentForm.value);
@@ -241,7 +443,7 @@
               if (result.data.updateUser) {
                 alert("Field Agent assigned successfully!");
 
-                _this3.myModal.hide();
+                _this5.myModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -250,7 +452,7 @@
         }, {
           key: "CommentSubmit",
           value: function CommentSubmit() {
-            var _this4 = this;
+            var _this6 = this;
 
             var resp = {};
             console.log(this.commentForm.value);
@@ -261,7 +463,7 @@
               if (result.data.updateCustomer) {
                 alert("Comment added successfully!");
 
-                _this4.commentModal.hide();
+                _this6.commentModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -270,7 +472,7 @@
         }, {
           key: "deleteAgent",
           value: function deleteAgent() {
-            var _this5 = this;
+            var _this7 = this;
 
             var resp = {};
             this.dataservice.DeleteAgent(this.id).subscribe(function (result) {
@@ -280,9 +482,9 @@
               if (result.data.deleteTeleCallerContact) {
                 alert("Agent deleted successfully!");
 
-                _this5.router.navigate(["/order/order_processing"]);
+                _this7.router.navigate(["/order/order_processing"]);
 
-                _this5.deleteModal.hide();
+                _this7.deleteModal.hide();
               } else {
                 alert("Failed. Please check again!");
               }
@@ -405,8 +607,8 @@
             NameOfFather: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
             NameOfMother: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
             MarriageDate: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            ContactNumber_1: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            ContactNumber_2: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            Contact_Number_1: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            Contact_Number_2: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
             MarriageMonth: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
             tele_caller_contact: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
             HouseName: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
@@ -420,7 +622,7 @@
           this.rowData = [];
           this.agents = [];
           this.localities = [];
-          this.columnDefs = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["customersColumn"]);
+          this.columnDefs = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["customerColumnsWithKpCaller"]);
           this.Months = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["Months"]);
           this.rowSelection = "single";
         }
@@ -433,20 +635,20 @@
         }, {
           key: "getLists",
           value: function getLists() {
-            var _this6 = this;
+            var _this8 = this;
 
             this.loading = true;
             this.dataservice.getCustomers().valueChanges.subscribe(function (result) {
               console.log("getCustomers", result.data.customers);
-              _this6.rowData = result.data.customers;
+              _this8.rowData = result.data.customers;
             });
             this.dataservice.getLocalities().valueChanges.subscribe(function (result) {
               console.log("getLocalities", result.data.localities);
-              _this6.localities = result.data.localities;
+              _this8.localities = result.data.localities;
             });
             this.dataservice.getAgents().valueChanges.subscribe(function (result) {
               console.log("getAgents", result.data.teleCallerContacts);
-              _this6.agents = result.data.teleCallerContacts;
+              _this8.agents = result.data.teleCallerContacts;
             });
           }
         }, {
@@ -469,7 +671,7 @@
         }, {
           key: "FormSubmit",
           value: function FormSubmit() {
-            var _this7 = this;
+            var _this9 = this;
 
             var resp = {};
             console.log(this.customerForm.value);
@@ -480,9 +682,9 @@
               if (result.data.createCustomer) {
                 alert("customer added successfully!");
 
-                _this7.getLists();
+                _this9.getLists();
 
-                _this7.myModal.hide();
+                _this9.myModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -513,6 +715,1802 @@
         template: _raw_loader_customers_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])], ManagerCustomerComponent);
       /***/
+    },
+
+    /***/
+    "Osdn":
+    /*!********************************************************************************!*\
+      !*** ./node_modules/ngx-bootstrap/carousel/fesm2015/ngx-bootstrap-carousel.js ***!
+      \********************************************************************************/
+
+    /*! exports provided: CarouselComponent, CarouselConfig, CarouselModule, SlideComponent */
+
+    /***/
+    function Osdn(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CarouselComponent", function () {
+        return CarouselComponent;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CarouselConfig", function () {
+        return CarouselConfig;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CarouselModule", function () {
+        return CarouselModule;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "SlideComponent", function () {
+        return SlideComponent;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "8Y7J");
+      /* harmony import */
+
+
+      var ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ngx-bootstrap/utils */
+      "hpHm");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "SVse");
+      /**
+       * @fileoverview added by tsickle
+       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+       */
+
+
+      function CarouselComponent_ol_1_li_1_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CarouselComponent_ol_1_li_1_Template_li_click_0_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7);
+
+            var i_r5 = ctx.index;
+
+            var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+
+            return ctx_r6.selectSlide(i_r5);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var slide_r4 = ctx.$implicit;
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("active", slide_r4.active === true);
+        }
+      }
+
+      function CarouselComponent_ol_1_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ol", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, CarouselComponent_ol_1_li_1_Template, 1, 2, "li", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.indicatorsSlides());
+        }
+      }
+
+      function CarouselComponent_a_4_span_2_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Previous");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+      }
+
+      function CarouselComponent_a_4_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CarouselComponent_a_4_Template_a_click_0_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r10);
+
+            var ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+            return ctx_r9.previousSlide();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "span", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, CarouselComponent_a_4_span_2_Template, 2, 0, "span", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("disabled", ctx_r1.activeSlide === 0 && ctx_r1.noWrap);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.isBs4);
+        }
+      }
+
+      function CarouselComponent_a_5_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CarouselComponent_a_5_Template_a_click_0_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r12);
+
+            var ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+            return ctx_r11.nextSlide();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "span", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Next");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("disabled", ctx_r2.isLast(ctx_r2.activeSlide) && ctx_r2.noWrap);
+        }
+      }
+
+      var _c0 = function _c0(a0) {
+        return {
+          "display": a0
+        };
+      };
+
+      var _c1 = ["*"];
+
+      var CarouselConfig = function CarouselConfig() {
+        _classCallCheck(this, CarouselConfig);
+
+        /* Default interval of auto changing of slides */
+        this.interval = 5000;
+        /* Is loop of auto changing of slides can be paused */
+
+        this.noPause = false;
+        /* Is slides can wrap from the last to the first slide */
+
+        this.noWrap = false;
+        /* Show carousel-indicators */
+
+        this.showIndicators = true;
+        /* Slides can be paused on focus */
+
+        this.pauseOnFocus = false;
+        /* If `true` - carousel indicators indicate slides chunks works ONLY if singleSlideOffset = FALSE */
+
+        this.indicatorsByChunk = false;
+        /* If value more then 1 — carousel works in multilist mode */
+
+        this.itemsPerSlide = 1;
+        /* If `true` — carousel shifts by one element. By default carousel shifts by number
+            of visible elements (itemsPerSlide field) */
+
+        this.singleSlideOffset = false;
+      };
+
+      CarouselConfig.ɵfac = function CarouselConfig_Factory(t) {
+        return new (t || CarouselConfig)();
+      };
+      /** @nocollapse */
+
+
+      CarouselConfig.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
+        factory: function CarouselConfig_Factory() {
+          return new CarouselConfig();
+        },
+        token: CarouselConfig,
+        providedIn: "root"
+      });
+
+      (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CarouselConfig, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+          args: [{
+            providedIn: 'root'
+          }]
+        }], function () {
+          return [];
+        }, null);
+      })();
+
+      if (false) {}
+      /**
+       * @fileoverview added by tsickle
+       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+       */
+
+      /**
+       * Returns the index of the last element in the array where predicate is true, and -1
+       * otherwise.
+       * @template T
+       * @param {?} array The source array to search in
+       * @param {?} predicate find calls predicate once for each element of the array, in descending
+       * order, until it finds one where predicate returns true. If such an element is found,
+       * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.
+       * @return {?}
+       */
+
+
+      function findLastIndex(array, predicate) {
+        /** @type {?} */
+        var l = array.length;
+
+        while (l--) {
+          if (predicate(array[l], l, array)) {
+            return l;
+          }
+        }
+
+        return -1;
+      }
+      /**
+       * @template T
+       * @param {?} array
+       * @param {?} size
+       * @return {?}
+       */
+
+
+      function chunkByNumber(array, size) {
+        /** @type {?} */
+        var out = [];
+        /** @type {?} */
+
+        var n = Math.ceil(array.length / size);
+        /** @type {?} */
+
+        var i = 0;
+
+        while (i < n) {
+          /** @type {?} */
+          var chunk = array.splice(0, i === n - 1 && size < array.length ? array.length : size);
+          out.push(chunk);
+          i++;
+        }
+
+        return out;
+      }
+      /**
+       * @fileoverview added by tsickle
+       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+       */
+
+      /** @enum {number} */
+
+
+      var Direction = {
+        UNKNOWN: 0,
+        NEXT: 1,
+        PREV: 2
+      };
+      Direction[Direction.UNKNOWN] = 'UNKNOWN';
+      Direction[Direction.NEXT] = 'NEXT';
+      Direction[Direction.PREV] = 'PREV';
+      /**
+       * Base element to create carousel
+       */
+
+      var CarouselComponent = /*#__PURE__*/function () {
+        /**
+         * @param {?} config
+         * @param {?} ngZone
+         */
+        function CarouselComponent(config, ngZone) {
+          _classCallCheck(this, CarouselComponent);
+
+          this.ngZone = ngZone;
+          /* If `true` - carousel indicators indicate slides chunks
+               works ONLY if singleSlideOffset = FALSE */
+
+          this.indicatorsByChunk = false;
+          /* If value more then 1 — carousel works in multilist mode */
+
+          this.itemsPerSlide = 1;
+          /* If `true` — carousel shifts by one element. By default carousel shifts by number
+               of visible elements (itemsPerSlide field) */
+
+          this.singleSlideOffset = false;
+          /**
+           * Turn on/off animation. Animation doesn't work for multilist carousel
+           */
+
+          this.isAnimated = false;
+          /**
+           * Will be emitted when active slide has been changed. Part of two-way-bindable [(activeSlide)] property
+           */
+
+          this.activeSlideChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"](false);
+          /**
+           * Will be emitted when active slides has been changed in multilist mode
+           */
+
+          this.slideRangeChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+          /* Index to start display slides from it */
+
+          this.startFromIndex = 0;
+          this._slides = new ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["LinkedList"]();
+          this._currentVisibleSlidesIndex = 0;
+          this.destroyed = false;
+
+          this.getActive =
+          /**
+          * @param {?} slide
+          * @return {?}
+          */
+          function (slide) {
+            return slide.active;
+          };
+
+          this.makeSlidesConsistent =
+          /**
+          * @param {?} slides
+          * @return {?}
+          */
+          function (slides) {
+            slides.forEach(
+            /**
+            * @param {?} slide
+            * @param {?} index
+            * @return {?}
+            */
+            function (slide, index) {
+              return slide.item.order = index;
+            });
+          };
+
+          Object.assign(this, config);
+        }
+        /**
+         * Index of currently displayed slide(started for 0)
+         * @param {?} index
+         * @return {?}
+         */
+
+
+        _createClass(CarouselComponent, [{
+          key: "activeSlide",
+          get:
+          /**
+           * @return {?}
+           */
+          function get() {
+            return this._currentActiveSlide;
+          }
+          /**
+           * Delay of item cycling in milliseconds. If false, carousel won't cycle
+           * automatically.
+           * @return {?}
+           */
+          ,
+          set: function set(index) {
+            if (this.multilist) {
+              return;
+            }
+
+            if (this._slides.length && index !== this._currentActiveSlide) {
+              this._select(index);
+            }
+          }
+        }, {
+          key: "interval",
+          get: function get() {
+            return this._interval;
+          }
+          /**
+           * @param {?} value
+           * @return {?}
+           */
+          ,
+          set: function set(value) {
+            this._interval = value;
+            this.restartTimer();
+          }
+          /**
+           * @return {?}
+           */
+
+        }, {
+          key: "slides",
+          get: function get() {
+            return this._slides.toArray();
+          }
+          /**
+           * @return {?}
+           */
+
+        }, {
+          key: "isBs4",
+          get: function get() {
+            return !Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])();
+          }
+          /**
+           * @return {?}
+           */
+
+        }, {
+          key: "ngAfterViewInit",
+          value: function ngAfterViewInit() {
+            var _this10 = this;
+
+            setTimeout(
+            /**
+            * @return {?}
+            */
+            function () {
+              if (_this10.singleSlideOffset) {
+                _this10.indicatorsByChunk = false;
+              }
+
+              if (_this10.multilist) {
+                _this10._chunkedSlides = chunkByNumber(_this10.mapSlidesAndIndexes(), _this10.itemsPerSlide);
+
+                _this10.selectInitialSlides();
+              }
+            }, 0);
+          }
+          /**
+           * @return {?}
+           */
+
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.destroyed = true;
+          }
+          /**
+           * Adds new slide. If this slide is first in collection - set it as active
+           * and starts auto changing
+           * @param {?} slide
+           * @return {?}
+           */
+
+        }, {
+          key: "addSlide",
+          value: function addSlide(slide) {
+            this._slides.add(slide);
+
+            if (this.multilist && this._slides.length <= this.itemsPerSlide) {
+              slide.active = true;
+            }
+
+            if (!this.multilist && this.isAnimated) {
+              slide.isAnimated = true;
+            }
+
+            if (!this.multilist && this._slides.length === 1) {
+              this._currentActiveSlide = undefined;
+              this.activeSlide = 0;
+              this.play();
+            }
+
+            if (this.multilist && this._slides.length > this.itemsPerSlide) {
+              this.play();
+            }
+          }
+          /**
+           * Removes specified slide. If this slide is active - will roll to another
+           * slide
+           * @param {?} slide
+           * @return {?}
+           */
+
+        }, {
+          key: "removeSlide",
+          value: function removeSlide(slide) {
+            var _this11 = this;
+
+            /** @type {?} */
+            var remIndex = this._slides.indexOf(slide);
+
+            if (this._currentActiveSlide === remIndex) {
+              // removing of active slide
+
+              /** @type {?} */
+              var nextSlideIndex = void 0;
+
+              if (this._slides.length > 1) {
+                // if this slide last - will roll to first slide, if noWrap flag is
+                // FALSE or to previous, if noWrap is TRUE in case, if this slide in
+                // middle of collection, index of next slide is same to removed
+                nextSlideIndex = !this.isLast(remIndex) ? remIndex : this.noWrap ? remIndex - 1 : 0;
+              }
+
+              this._slides.remove(remIndex); // prevents exception with changing some value after checking
+
+
+              setTimeout(
+              /**
+              * @return {?}
+              */
+              function () {
+                _this11._select(nextSlideIndex);
+              }, 0);
+            } else {
+              this._slides.remove(remIndex);
+              /** @type {?} */
+
+
+              var currentSlideIndex = this.getCurrentSlideIndex();
+              setTimeout(
+              /**
+              * @return {?}
+              */
+              function () {
+                // after removing, need to actualize index of current active slide
+                _this11._currentActiveSlide = currentSlideIndex;
+
+                _this11.activeSlideChange.emit(_this11._currentActiveSlide);
+              }, 0);
+            }
+          }
+          /**
+           * @param {?=} force
+           * @return {?}
+           */
+
+        }, {
+          key: "nextSlideFromInterval",
+          value: function nextSlideFromInterval() {
+            var force = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+            this.move(Direction.NEXT, force);
+          }
+          /**
+           * Rolling to next slide
+           * @param {?=} force
+           * @return {?}
+           */
+
+        }, {
+          key: "nextSlide",
+          value: function nextSlide() {
+            var force = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            if (this.isPlaying) {
+              this.restartTimer();
+            }
+
+            this.move(Direction.NEXT, force);
+          }
+          /**
+           * Rolling to previous slide
+           * @param {?=} force
+           * @return {?}
+           */
+
+        }, {
+          key: "previousSlide",
+          value: function previousSlide() {
+            var force = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            if (this.isPlaying) {
+              this.restartTimer();
+            }
+
+            this.move(Direction.PREV, force);
+          }
+          /**
+           * @return {?}
+           */
+
+        }, {
+          key: "getFirstVisibleIndex",
+          value: function getFirstVisibleIndex() {
+            return this.slides.findIndex(this.getActive);
+          }
+          /**
+           * @return {?}
+           */
+
+        }, {
+          key: "getLastVisibleIndex",
+          value: function getLastVisibleIndex() {
+            return findLastIndex(this.slides, this.getActive);
+          }
+          /**
+           * @param {?} direction
+           * @param {?=} force
+           * @return {?}
+           */
+
+        }, {
+          key: "move",
+          value: function move(direction) {
+            var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+            /** @type {?} */
+            var firstVisibleIndex = this.getFirstVisibleIndex();
+            /** @type {?} */
+
+            var lastVisibleIndex = this.getLastVisibleIndex();
+
+            if (this.noWrap) {
+              if (direction === Direction.NEXT && this.isLast(lastVisibleIndex) || direction === Direction.PREV && firstVisibleIndex === 0) {
+                return;
+              }
+            }
+
+            if (!this.multilist) {
+              this.activeSlide = this.findNextSlideIndex(direction, force);
+            } else {
+              this.moveMultilist(direction);
+            }
+          }
+          /**
+           * Swith slides by enter, space and arrows keys
+           * \@internal
+           * @param {?} event
+           * @return {?}
+           */
+
+        }, {
+          key: "keydownPress",
+          value: function keydownPress(event) {
+            // tslint:disable-next-line:deprecation
+            if (event.keyCode === 13 || event.key === 'Enter' || event.keyCode === 32 || event.key === 'Space') {
+              this.nextSlide();
+              event.preventDefault();
+              return;
+            } // tslint:disable-next-line:deprecation
+
+
+            if (event.keyCode === 37 || event.key === 'LeftArrow') {
+              this.previousSlide();
+              return;
+            } // tslint:disable-next-line:deprecation
+
+
+            if (event.keyCode === 39 || event.key === 'RightArrow') {
+              this.nextSlide();
+              return;
+            }
+          }
+          /**
+           * Play on mouse leave
+           * \@internal
+           * @return {?}
+           */
+
+        }, {
+          key: "onMouseLeave",
+          value: function onMouseLeave() {
+            if (!this.pauseOnFocus) {
+              this.play();
+            }
+          }
+          /**
+           * Play on mouse up
+           * \@internal
+           * @return {?}
+           */
+
+        }, {
+          key: "onMouseUp",
+          value: function onMouseUp() {
+            if (!this.pauseOnFocus) {
+              this.play();
+            }
+          }
+          /**
+           * When slides on focus autoplay is stopped(optional)
+           * \@internal
+           * @return {?}
+           */
+
+        }, {
+          key: "pauseFocusIn",
+          value: function pauseFocusIn() {
+            if (this.pauseOnFocus) {
+              this.isPlaying = false;
+              this.resetTimer();
+            }
+          }
+          /**
+           * When slides out of focus autoplay is started
+           * \@internal
+           * @return {?}
+           */
+
+        }, {
+          key: "pauseFocusOut",
+          value: function pauseFocusOut() {
+            this.play();
+          }
+          /**
+           * Rolling to specified slide
+           * @param {?} index
+           * @return {?}
+           */
+
+        }, {
+          key: "selectSlide",
+          value: function selectSlide(index) {
+            if (this.isPlaying) {
+              this.restartTimer();
+            }
+
+            if (!this.multilist) {
+              this.activeSlide = this.indicatorsByChunk ? index * this.itemsPerSlide : index;
+            } else {
+              this.selectSlideRange(this.indicatorsByChunk ? index * this.itemsPerSlide : index);
+            }
+          }
+          /**
+           * Starts a auto changing of slides
+           * @return {?}
+           */
+
+        }, {
+          key: "play",
+          value: function play() {
+            if (!this.isPlaying) {
+              this.isPlaying = true;
+              this.restartTimer();
+            }
+          }
+          /**
+           * Stops a auto changing of slides
+           * @return {?}
+           */
+
+        }, {
+          key: "pause",
+          value: function pause() {
+            if (!this.noPause) {
+              this.isPlaying = false;
+              this.resetTimer();
+            }
+          }
+          /**
+           * Finds and returns index of currently displayed slide
+           * @return {?}
+           */
+
+        }, {
+          key: "getCurrentSlideIndex",
+          value: function getCurrentSlideIndex() {
+            return this._slides.findIndex(this.getActive);
+          }
+          /**
+           * Defines, whether the specified index is last in collection
+           * @param {?} index
+           * @return {?}
+           */
+
+        }, {
+          key: "isLast",
+          value: function isLast(index) {
+            return index + 1 >= this._slides.length;
+          }
+          /**
+           * Defines, whether the specified index is first in collection
+           * @param {?} index
+           * @return {?}
+           */
+
+        }, {
+          key: "isFirst",
+          value: function isFirst(index) {
+            return index === 0;
+          }
+          /**
+           * @return {?}
+           */
+
+        }, {
+          key: "indicatorsSlides",
+          value: function indicatorsSlides() {
+            var _this12 = this;
+
+            return this.slides.filter(
+            /**
+            * @param {?} slide
+            * @param {?} index
+            * @return {?}
+            */
+            function (slide, index) {
+              return !_this12.indicatorsByChunk || index % _this12.itemsPerSlide === 0;
+            });
+          }
+          /**
+           * @private
+           * @return {?}
+           */
+
+        }, {
+          key: "selectInitialSlides",
+          value: function selectInitialSlides() {
+            /** @type {?} */
+            var startIndex = this.startFromIndex <= this._slides.length ? this.startFromIndex : 0;
+            this.hideSlides();
+
+            if (this.singleSlideOffset) {
+              this._slidesWithIndexes = this.mapSlidesAndIndexes();
+
+              if (this._slides.length - startIndex < this.itemsPerSlide) {
+                /** @type {?} */
+                var slidesToAppend = this._slidesWithIndexes.slice(0, startIndex);
+
+                this._slidesWithIndexes = [].concat(_toConsumableArray(this._slidesWithIndexes), _toConsumableArray(slidesToAppend)).slice(slidesToAppend.length).slice(0, this.itemsPerSlide);
+              } else {
+                this._slidesWithIndexes = this._slidesWithIndexes.slice(startIndex, startIndex + this.itemsPerSlide);
+              }
+
+              this._slidesWithIndexes.forEach(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.item.active = true;
+              });
+
+              this.makeSlidesConsistent(this._slidesWithIndexes);
+            } else {
+              this.selectRangeByNestedIndex(startIndex);
+            }
+
+            this.slideRangeChange.emit(this.getVisibleIndexes());
+          }
+          /**
+           * Defines next slide index, depending of direction
+           * @private
+           * @param {?} direction
+           * @param {?} force
+           * @return {?}
+           */
+
+        }, {
+          key: "findNextSlideIndex",
+          value: function findNextSlideIndex(direction, force) {
+            /** @type {?} */
+            var nextSlideIndex = 0;
+
+            if (!force && this.isLast(this.activeSlide) && direction !== Direction.PREV && this.noWrap) {
+              return undefined;
+            }
+
+            switch (direction) {
+              case Direction.NEXT:
+                // if this is last slide, not force, looping is disabled
+                // and need to going forward - select current slide, as a next
+                nextSlideIndex = !this.isLast(this._currentActiveSlide) ? this._currentActiveSlide + 1 : !force && this.noWrap ? this._currentActiveSlide : 0;
+                break;
+
+              case Direction.PREV:
+                // if this is first slide, not force, looping is disabled
+                // and need to going backward - select current slide, as a next
+                nextSlideIndex = this._currentActiveSlide > 0 ? this._currentActiveSlide - 1 : !force && this.noWrap ? this._currentActiveSlide : this._slides.length - 1;
+                break;
+
+              default:
+                throw new Error('Unknown direction');
+            }
+
+            return nextSlideIndex;
+          }
+          /**
+           * @private
+           * @return {?}
+           */
+
+        }, {
+          key: "mapSlidesAndIndexes",
+          value: function mapSlidesAndIndexes() {
+            return this.slides.slice().map(
+            /**
+            * @param {?} slide
+            * @param {?} index
+            * @return {?}
+            */
+            function (slide, index) {
+              return {
+                index: index,
+                item: slide
+              };
+            });
+          }
+          /**
+           * @private
+           * @param {?} index
+           * @return {?}
+           */
+
+        }, {
+          key: "selectSlideRange",
+          value: function selectSlideRange(index) {
+            if (this.isIndexInRange(index)) {
+              return;
+            }
+
+            this.hideSlides();
+
+            if (!this.singleSlideOffset) {
+              this.selectRangeByNestedIndex(index);
+            } else {
+              /** @type {?} */
+              var startIndex = this.isIndexOnTheEdges(index) ? index : index - this.itemsPerSlide + 1;
+              /** @type {?} */
+
+              var endIndex = this.isIndexOnTheEdges(index) ? index + this.itemsPerSlide : index + 1;
+              this._slidesWithIndexes = this.mapSlidesAndIndexes().slice(startIndex, endIndex);
+              this.makeSlidesConsistent(this._slidesWithIndexes);
+
+              this._slidesWithIndexes.forEach(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.item.active = true;
+              });
+            }
+
+            this.slideRangeChange.emit(this.getVisibleIndexes());
+          }
+          /**
+           * @private
+           * @param {?} index
+           * @return {?}
+           */
+
+        }, {
+          key: "selectRangeByNestedIndex",
+          value: function selectRangeByNestedIndex(index) {
+            /** @type {?} */
+            var selectedRange = this._chunkedSlides.map(
+            /**
+            * @param {?} slidesList
+            * @param {?} i
+            * @return {?}
+            */
+            function (slidesList, i) {
+              return {
+                index: i,
+                list: slidesList
+              };
+            }).find(
+            /**
+            * @param {?} slidesList
+            * @return {?}
+            */
+            function (slidesList) {
+              return slidesList.list.find(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.index === index;
+              }) !== undefined;
+            });
+
+            this._currentVisibleSlidesIndex = selectedRange.index;
+
+            this._chunkedSlides[selectedRange.index].forEach(
+            /**
+            * @param {?} slide
+            * @return {?}
+            */
+            function (slide) {
+              slide.item.active = true;
+            });
+          }
+          /**
+           * @private
+           * @param {?} index
+           * @return {?}
+           */
+
+        }, {
+          key: "isIndexOnTheEdges",
+          value: function isIndexOnTheEdges(index) {
+            return index + 1 - this.itemsPerSlide <= 0 || index + this.itemsPerSlide <= this._slides.length;
+          }
+          /**
+           * @private
+           * @param {?} index
+           * @return {?}
+           */
+
+        }, {
+          key: "isIndexInRange",
+          value: function isIndexInRange(index) {
+            if (this.singleSlideOffset) {
+              /** @type {?} */
+              var visibleIndexes = this._slidesWithIndexes.map(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.index;
+              });
+
+              return visibleIndexes.indexOf(index) >= 0;
+            }
+
+            return index <= this.getLastVisibleIndex() && index >= this.getFirstVisibleIndex();
+          }
+          /**
+           * @private
+           * @return {?}
+           */
+
+        }, {
+          key: "hideSlides",
+          value: function hideSlides() {
+            this.slides.forEach(
+            /**
+            * @param {?} slide
+            * @return {?}
+            */
+            function (slide) {
+              return slide.active = false;
+            });
+          }
+          /**
+           * @private
+           * @return {?}
+           */
+
+        }, {
+          key: "isVisibleSlideListLast",
+          value: function isVisibleSlideListLast() {
+            return this._currentVisibleSlidesIndex === this._chunkedSlides.length - 1;
+          }
+          /**
+           * @private
+           * @return {?}
+           */
+
+        }, {
+          key: "isVisibleSlideListFirst",
+          value: function isVisibleSlideListFirst() {
+            return this._currentVisibleSlidesIndex === 0;
+          }
+          /**
+           * @private
+           * @param {?} direction
+           * @return {?}
+           */
+
+        }, {
+          key: "moveSliderByOneItem",
+          value: function moveSliderByOneItem(direction) {
+            /** @type {?} */
+            var firstVisibleIndex;
+            /** @type {?} */
+
+            var lastVisibleIndex;
+            /** @type {?} */
+
+            var indexToHide;
+            /** @type {?} */
+
+            var indexToShow;
+
+            if (this.noWrap) {
+              firstVisibleIndex = this.getFirstVisibleIndex();
+              lastVisibleIndex = this.getLastVisibleIndex();
+              indexToHide = direction === Direction.NEXT ? firstVisibleIndex : lastVisibleIndex;
+              indexToShow = direction !== Direction.NEXT ? firstVisibleIndex - 1 : !this.isLast(lastVisibleIndex) ? lastVisibleIndex + 1 : 0;
+              this._slides.get(indexToHide).active = false;
+              this._slides.get(indexToShow).active = true;
+              /** @type {?} */
+
+              var slidesToReorder = this.mapSlidesAndIndexes().filter(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.item.active;
+              });
+              this.makeSlidesConsistent(slidesToReorder);
+              this.slideRangeChange.emit(this.getVisibleIndexes());
+            } else {
+              /** @type {?} */
+              var displayedIndex;
+              firstVisibleIndex = this._slidesWithIndexes[0].index;
+              lastVisibleIndex = this._slidesWithIndexes[this._slidesWithIndexes.length - 1].index;
+
+              if (direction === Direction.NEXT) {
+                this._slidesWithIndexes.shift();
+
+                displayedIndex = this.isLast(lastVisibleIndex) ? 0 : lastVisibleIndex + 1;
+
+                this._slidesWithIndexes.push({
+                  index: displayedIndex,
+                  item: this._slides.get(displayedIndex)
+                });
+              } else {
+                this._slidesWithIndexes.pop();
+
+                displayedIndex = this.isFirst(firstVisibleIndex) ? this._slides.length - 1 : firstVisibleIndex - 1;
+                this._slidesWithIndexes = [{
+                  index: displayedIndex,
+                  item: this._slides.get(displayedIndex)
+                }].concat(_toConsumableArray(this._slidesWithIndexes));
+              }
+
+              this.hideSlides();
+
+              this._slidesWithIndexes.forEach(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.item.active = true;
+              });
+
+              this.makeSlidesConsistent(this._slidesWithIndexes);
+              this.slideRangeChange.emit(this._slidesWithIndexes.map(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.index;
+              }));
+            }
+          }
+          /**
+           * @private
+           * @param {?} direction
+           * @return {?}
+           */
+
+        }, {
+          key: "moveMultilist",
+          value: function moveMultilist(direction) {
+            if (this.singleSlideOffset) {
+              this.moveSliderByOneItem(direction);
+            } else {
+              this.hideSlides();
+
+              if (this.noWrap) {
+                this._currentVisibleSlidesIndex = direction === Direction.NEXT ? this._currentVisibleSlidesIndex + 1 : this._currentVisibleSlidesIndex - 1;
+              } else {
+                if (direction === Direction.NEXT) {
+                  this._currentVisibleSlidesIndex = this.isVisibleSlideListLast() ? 0 : this._currentVisibleSlidesIndex + 1;
+                } else {
+                  this._currentVisibleSlidesIndex = this.isVisibleSlideListFirst() ? this._chunkedSlides.length - 1 : this._currentVisibleSlidesIndex - 1;
+                }
+              }
+
+              this._chunkedSlides[this._currentVisibleSlidesIndex].forEach(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.item.active = true;
+              });
+
+              this.slideRangeChange.emit(this.getVisibleIndexes());
+            }
+          }
+          /**
+           * @private
+           * @return {?}
+           */
+
+        }, {
+          key: "getVisibleIndexes",
+          value: function getVisibleIndexes() {
+            if (!this.singleSlideOffset) {
+              return this._chunkedSlides[this._currentVisibleSlidesIndex].map(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.index;
+              });
+            } else {
+              return this._slidesWithIndexes.map(
+              /**
+              * @param {?} slide
+              * @return {?}
+              */
+              function (slide) {
+                return slide.index;
+              });
+            }
+          }
+          /**
+           * Sets a slide, which specified through index, as active
+           * @private
+           * @param {?} index
+           * @return {?}
+           */
+
+        }, {
+          key: "_select",
+          value: function _select(index) {
+            if (isNaN(index)) {
+              this.pause();
+              return;
+            }
+
+            if (!this.multilist) {
+              /** @type {?} */
+              var currentSlide = this._slides.get(this._currentActiveSlide);
+
+              if (currentSlide) {
+                currentSlide.active = false;
+              }
+            }
+            /** @type {?} */
+
+
+            var nextSlide = this._slides.get(index);
+
+            if (nextSlide) {
+              this._currentActiveSlide = index;
+              nextSlide.active = true;
+              this.activeSlide = index;
+              this.activeSlideChange.emit(index);
+            }
+          }
+          /**
+           * Starts loop of auto changing of slides
+           * @private
+           * @return {?}
+           */
+
+        }, {
+          key: "restartTimer",
+          value: function restartTimer() {
+            var _this13 = this;
+
+            this.resetTimer();
+            /** @type {?} */
+
+            var interval = +this.interval;
+
+            if (!isNaN(interval) && interval > 0) {
+              this.currentInterval = this.ngZone.runOutsideAngular(
+              /**
+              * @return {?}
+              */
+              function () {
+                return setInterval(
+                /**
+                * @return {?}
+                */
+                function () {
+                  /** @type {?} */
+                  var nInterval = +_this13.interval;
+
+                  _this13.ngZone.run(
+                  /**
+                  * @return {?}
+                  */
+                  function () {
+                    if (_this13.isPlaying && !isNaN(_this13.interval) && nInterval > 0 && _this13.slides.length) {
+                      _this13.nextSlideFromInterval();
+                    } else {
+                      _this13.pause();
+                    }
+                  });
+                }, interval);
+              });
+            }
+          }
+          /**
+           * @return {?}
+           */
+
+        }, {
+          key: "multilist",
+          get: function get() {
+            return this.itemsPerSlide > 1;
+          }
+          /**
+           * Stops loop of auto changing of slides
+           * @private
+           * @return {?}
+           */
+
+        }, {
+          key: "resetTimer",
+          value: function resetTimer() {
+            if (this.currentInterval) {
+              clearInterval(this.currentInterval);
+              this.currentInterval = void 0;
+            }
+          }
+        }]);
+
+        return CarouselComponent;
+      }();
+
+      CarouselComponent.ɵfac = function CarouselComponent_Factory(t) {
+        return new (t || CarouselComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](CarouselConfig), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]));
+      };
+
+      CarouselComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+        type: CarouselComponent,
+        selectors: [["carousel"]],
+        inputs: {
+          indicatorsByChunk: "indicatorsByChunk",
+          itemsPerSlide: "itemsPerSlide",
+          singleSlideOffset: "singleSlideOffset",
+          isAnimated: "isAnimated",
+          startFromIndex: "startFromIndex",
+          activeSlide: "activeSlide",
+          interval: "interval",
+          noWrap: "noWrap",
+          noPause: "noPause",
+          showIndicators: "showIndicators",
+          pauseOnFocus: "pauseOnFocus"
+        },
+        outputs: {
+          activeSlideChange: "activeSlideChange",
+          slideRangeChange: "slideRangeChange"
+        },
+        ngContentSelectors: _c1,
+        decls: 6,
+        vars: 6,
+        consts: [["tabindex", "0", 1, "carousel", "slide", 3, "mouseenter", "mouseleave", "mouseup", "keydown", "focusin", "focusout"], ["class", "carousel-indicators", 4, "ngIf"], [1, "carousel-inner", 3, "ngStyle"], ["class", "left carousel-control carousel-control-prev", "tabindex", "0", "role", "button", 3, "disabled", "click", 4, "ngIf"], ["class", "right carousel-control carousel-control-next", "tabindex", "0", "role", "button", 3, "disabled", "click", 4, "ngIf"], [1, "carousel-indicators"], [3, "active", "click", 4, "ngFor", "ngForOf"], [3, "click"], ["tabindex", "0", "role", "button", 1, "left", "carousel-control", "carousel-control-prev", 3, "click"], ["aria-hidden", "true", 1, "icon-prev", "carousel-control-prev-icon"], ["class", "sr-only", 4, "ngIf"], [1, "sr-only"], ["tabindex", "0", "role", "button", 1, "right", "carousel-control", "carousel-control-next", 3, "click"], ["aria-hidden", "true", 1, "icon-next", "carousel-control-next-icon"]],
+        template: function CarouselComponent_Template(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("mouseenter", function CarouselComponent_Template_div_mouseenter_0_listener() {
+              return ctx.pause();
+            })("mouseleave", function CarouselComponent_Template_div_mouseleave_0_listener() {
+              return ctx.onMouseLeave();
+            })("mouseup", function CarouselComponent_Template_div_mouseup_0_listener() {
+              return ctx.onMouseUp();
+            })("keydown", function CarouselComponent_Template_div_keydown_0_listener($event) {
+              return ctx.keydownPress($event);
+            })("focusin", function CarouselComponent_Template_div_focusin_0_listener() {
+              return ctx.pauseFocusIn();
+            })("focusout", function CarouselComponent_Template_div_focusout_0_listener() {
+              return ctx.pauseFocusOut();
+            });
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, CarouselComponent_ol_1_Template, 2, 1, "ol", 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](3);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, CarouselComponent_a_4_Template, 3, 3, "a", 3);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, CarouselComponent_a_5_Template, 4, 2, "a", 4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          }
+
+          if (rf & 2) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showIndicators && ctx.slides.length > 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](4, _c0, ctx.multilist ? "flex" : "block"));
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.slides.length > 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.slides.length > 1);
+          }
+        },
+        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgStyle"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"]],
+        encapsulation: 2
+      });
+      /** @nocollapse */
+
+      CarouselComponent.ctorParameters = function () {
+        return [{
+          type: CarouselConfig
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]
+        }];
+      };
+
+      CarouselComponent.propDecorators = {
+        noWrap: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        noPause: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        showIndicators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        pauseOnFocus: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        indicatorsByChunk: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        itemsPerSlide: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        singleSlideOffset: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        isAnimated: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        activeSlideChange: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }],
+        slideRangeChange: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }],
+        activeSlide: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        startFromIndex: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        interval: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }]
+      };
+
+      (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CarouselComponent, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+          args: [{
+            selector: 'carousel',
+            template: "<div (mouseenter)=\"pause()\"\n     (mouseleave)=\"onMouseLeave()\"\n     (mouseup)=\"onMouseUp()\"\n     (keydown)=\"keydownPress($event)\"\n     (focusin)=\"pauseFocusIn()\"\n     (focusout)=\"pauseFocusOut()\"\n     class=\"carousel slide\" tabindex=\"0\">\n  <ol class=\"carousel-indicators\" *ngIf=\"showIndicators && slides.length > 1\">\n    <li *ngFor=\"let slide of indicatorsSlides(); let i = index;\"\n        [class.active]=\"slide.active === true\"\n        (click)=\"selectSlide(i)\">\n    </li>\n  </ol>\n  <div class=\"carousel-inner\" [ngStyle]=\"{'display': multilist ? 'flex' : 'block'}\">\n    <ng-content></ng-content>\n  </div>\n  <a class=\"left carousel-control carousel-control-prev\"\n     [class.disabled]=\"activeSlide === 0 && noWrap\"\n     (click)=\"previousSlide()\" *ngIf=\"slides.length > 1\"\n      tabindex=\"0\" role=\"button\">\n    <span class=\"icon-prev carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n    <span *ngIf=\"isBs4\" class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"right carousel-control carousel-control-next\"\n     [class.disabled]=\"isLast(activeSlide) && noWrap\"\n     (click)=\"nextSlide()\" *ngIf=\"slides.length > 1\"\n     tabindex=\"0\" role=\"button\">\n    <span class=\"icon-next carousel-control-next-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n"
+          }]
+        }], function () {
+          return [{
+            type: CarouselConfig
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]
+          }];
+        }, {
+          indicatorsByChunk: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          itemsPerSlide: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          singleSlideOffset: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          isAnimated: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          activeSlideChange: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+          }],
+          slideRangeChange: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+          }],
+          startFromIndex: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          activeSlide: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          interval: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          noWrap: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          noPause: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          showIndicators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          pauseOnFocus: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }]
+        });
+      })();
+
+      if (false) {}
+      /**
+       * @fileoverview added by tsickle
+       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+       */
+
+
+      var SlideComponent = /*#__PURE__*/function () {
+        /**
+         * @param {?} carousel
+         */
+        function SlideComponent(carousel) {
+          _classCallCheck(this, SlideComponent);
+
+          this.itemWidth = '100%';
+          this.order = 0;
+          /**
+           * Wraps element by appropriate CSS classes
+           */
+
+          this.addClass = true;
+          this.carousel = carousel;
+        }
+        /**
+         * Fires changes in container collection after adding a new slide instance
+         * @return {?}
+         */
+
+
+        _createClass(SlideComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.carousel.addSlide(this);
+            this.itemWidth = "".concat(100 / this.carousel.itemsPerSlide, "%");
+          }
+          /**
+           * Fires changes in container collection after removing of this slide instance
+           * @return {?}
+           */
+
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.carousel.removeSlide(this);
+          }
+        }]);
+
+        return SlideComponent;
+      }();
+
+      SlideComponent.ɵfac = function SlideComponent_Factory(t) {
+        return new (t || SlideComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](CarouselComponent));
+      };
+
+      SlideComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+        type: SlideComponent,
+        selectors: [["slide"]],
+        hostVars: 13,
+        hostBindings: function SlideComponent_HostBindings(rf, ctx) {
+          if (rf & 2) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-hidden", !ctx.active);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("width", ctx.itemWidth)("order", ctx.order);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("item", ctx.addClass)("carousel-item", ctx.addClass)("active", ctx.active)("carousel-animation", ctx.isAnimated);
+          }
+        },
+        inputs: {
+          active: "active"
+        },
+        ngContentSelectors: _c1,
+        decls: 2,
+        vars: 2,
+        consts: [[1, "item"]],
+        template: function SlideComponent_Template(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          }
+
+          if (rf & 2) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("active", ctx.active);
+          }
+        },
+        styles: [".carousel-animation[_nghost-%COMP%] {\n       transition: opacity 0.6s ease, visibility 0.6s ease;\n       float: left;\n    }\n    .carousel-animation.active[_nghost-%COMP%] {\n      opacity: 1;\n      visibility: visible;\n    }\n    .carousel-animation[_nghost-%COMP%]:not(.active) {\n      display: block;\n      position: absolute;\n      opacity: 0;\n      visibility: hidden;\n    }"]
+      });
+      /** @nocollapse */
+
+      SlideComponent.ctorParameters = function () {
+        return [{
+          type: CarouselComponent
+        }];
+      };
+
+      SlideComponent.propDecorators = {
+        active: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+          args: ['class.active']
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }],
+        itemWidth: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+          args: ['style.width']
+        }],
+        order: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+          args: ['style.order']
+        }],
+        isAnimated: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+          args: ['class.carousel-animation']
+        }],
+        addClass: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+          args: ['class.item']
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+          args: ['class.carousel-item']
+        }]
+      };
+
+      (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SlideComponent, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+          args: [{
+            selector: 'slide',
+            template: "\n    <div [class.active]=\"active\" class=\"item\">\n      <ng-content></ng-content>\n    </div>\n  ",
+            host: {
+              '[attr.aria-hidden]': '!active'
+            },
+            styles: ["\n    :host.carousel-animation {\n       transition: opacity 0.6s ease, visibility 0.6s ease;\n       float: left;\n    }\n    :host.carousel-animation.active {\n      opacity: 1;\n      visibility: visible;\n    }\n    :host.carousel-animation:not(.active) {\n      display: block;\n      position: absolute;\n      opacity: 0;\n      visibility: hidden;\n    }\n  "]
+          }]
+        }], function () {
+          return [{
+            type: CarouselComponent
+          }];
+        }, {
+          itemWidth: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['style.width']
+          }],
+          order: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['style.order']
+          }],
+          addClass: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['class.item']
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['class.carousel-item']
+          }],
+          active: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['class.active']
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          isAnimated: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
+            args: ['class.carousel-animation']
+          }]
+        });
+      })();
+
+      if (false) {}
+      /**
+       * @fileoverview added by tsickle
+       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+       */
+
+
+      var CarouselModule = /*#__PURE__*/function () {
+        function CarouselModule() {
+          _classCallCheck(this, CarouselModule);
+        }
+
+        _createClass(CarouselModule, null, [{
+          key: "forRoot",
+          value:
+          /**
+           * @return {?}
+           */
+          function forRoot() {
+            return {
+              ngModule: CarouselModule,
+              providers: []
+            };
+          }
+        }]);
+
+        return CarouselModule;
+      }();
+
+      CarouselModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+        type: CarouselModule
+      });
+      CarouselModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+        factory: function CarouselModule_Factory(t) {
+          return new (t || CarouselModule)();
+        },
+        imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]]]
+      });
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CarouselModule, {
+          declarations: function declarations() {
+            return [SlideComponent, CarouselComponent];
+          },
+          imports: function imports() {
+            return [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]];
+          },
+          exports: function exports() {
+            return [SlideComponent, CarouselComponent];
+          }
+        });
+      })();
+
+      (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CarouselModule, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+          args: [{
+            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
+            declarations: [SlideComponent, CarouselComponent],
+            exports: [SlideComponent, CarouselComponent]
+          }]
+        }], null, null);
+      })();
+      /**
+       * @fileoverview added by tsickle
+       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+       */
+
+      /**
+       * @fileoverview added by tsickle
+       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+       */
+      //# sourceMappingURL=ngx-bootstrap-carousel.js.map
+
+      /***/
+
     },
 
     /***/
@@ -573,7 +2571,13 @@
       /* harmony import */
 
 
-      var _verified_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _enquiries_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! ./enquiries.component */
+      "EIdz");
+      /* harmony import */
+
+
+      var _verified_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./verified.component */
       "Sx+e");
 
@@ -588,7 +2592,7 @@
         }, {
           path: 'verified_list',
           canActivate: [_login_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
-          component: _verified_component__WEBPACK_IMPORTED_MODULE_6__["VerifiedListComponent"],
+          component: _verified_component__WEBPACK_IMPORTED_MODULE_7__["VerifiedListComponent"],
           data: {
             roles: 'MANAGER',
             title: 'Verified List'
@@ -604,10 +2608,18 @@
         }, {
           path: 'agents',
           canActivate: [_login_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
-          component: _verified_component__WEBPACK_IMPORTED_MODULE_6__["VerifiedListComponent"],
+          component: _verified_component__WEBPACK_IMPORTED_MODULE_7__["VerifiedListComponent"],
           data: {
             roles: 'MANAGER',
             title: 'Agents List'
+          }
+        }, {
+          path: 'enquiries',
+          canActivate: [_login_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+          component: _enquiries_component__WEBPACK_IMPORTED_MODULE_6__["EnquiriesComponent"],
+          data: {
+            roles: 'MANAGER',
+            title: 'Enquiries'
           }
         }, {
           path: 'customer_details/:id',
@@ -711,6 +2723,7 @@
             id: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]
           });
           this.loading = true;
+          this.label = "";
           this.btnLoading = false;
           this.orders = {};
           this.columnDefs = [];
@@ -738,7 +2751,7 @@
         }, {
           key: "getLists",
           value: function getLists() {
-            var _this8 = this;
+            var _this14 = this;
 
             this.loading = true;
             var filter = {
@@ -749,20 +2762,22 @@
             if (this.route.snapshot.data.title === "Agents List") {
               this.dataservice.getAgents().valueChanges.subscribe(function (result) {
                 console.log("getAgents", result.data.teleCallerContacts);
-                _this8.rowData = result.data.teleCallerContacts;
+                _this14.rowData = result.data.teleCallerContacts;
               });
               this.dataservice.getUsers("TELE_CALLER").valueChanges.subscribe(function (result) {
                 console.log("getUsers", result.data.users);
-                _this8.users = result.data.users;
+                _this14.users = result.data.users;
+                _this14.label = "Tele ";
               });
             } else {
               this.dataservice.getCustomersFilter(filter).valueChanges.subscribe(function (result) {
                 console.log("getCustomersFilter", result.data.customers);
-                _this8.rowData = result.data.customers;
+                _this14.rowData = result.data.customers;
               });
               this.dataservice.getUsers("KP_CALLER").valueChanges.subscribe(function (result) {
                 console.log("getUsers", result.data.users);
-                _this8.users = result.data.users;
+                _this14.users = result.data.users;
+                _this14.label = "KP ";
               });
             }
           }
@@ -793,7 +2808,7 @@
         }, {
           key: "FormSubmit",
           value: function FormSubmit() {
-            var _this9 = this;
+            var _this15 = this;
 
             var resp = {};
             console.log(this.callerForm.value, Array.from(this.selectedRows, function (x) {
@@ -810,9 +2825,9 @@
                 if (result.data.updateUser) {
                   alert("Assigned successfully!");
 
-                  _this9.getLists();
+                  _this15.getLists();
 
-                  _this9.myModal.hide();
+                  _this15.myModal.hide();
                 } else {
                   alert("Failed. Please check the fields!");
                 }
@@ -827,9 +2842,9 @@
                 if (result.data.updateUser) {
                   alert("Assigned successfully!");
 
-                  _this9.getLists();
+                  _this15.getLists();
 
-                  _this9.myModal.hide();
+                  _this15.myModal.hide();
                 } else {
                   alert("Failed. Please check the fields!");
                 }
@@ -881,7 +2896,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n      <h2>{{routerData.title}}</h2>\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" [disabled]=\"btnDisabled\"\n        (click)=\"myModal.show()\">\n        Assign to caller\n      </button>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n            [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n            (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n          </ag-grid-angular>\n        </div>\n      </div>\n    </div>\n    <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n      aria-hidden=\"true\">\n      <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h4 class=\"modal-title\">Assign to Caller</h4>\n            <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n          <div class=\"modal-body\">\n            <form [formGroup]=\"callerForm\" (ngSubmit)=\"FormSubmit()\">\n              <div class=\"form-group\">\n                <label for=\"id\">KP Caller</label>\n                <select class=\"form-control\" id=\"id\" required ngModel name=\"group\" formControlName=\"id\">\n                  <option value=\"\" disabled selected hidden>Choose...</option>\n                  <option *ngFor=\"let item of users\" value=\"{{ item.id }}\">\n                    {{ item.username }}\n                  </option>\n                </select>\n              </div>\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\n                Close\n              </button>\n              <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !callerForm.valid\">\n                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\"\n                  aria-hidden=\"true\"></span>\n                Save changes\n              </button>\n            </form>\n          </div>\n        </div>\n        <!-- /.modal-content -->\n      </div>\n    </div>\n  </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n      <h2>{{routerData.title}}</h2>\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" [disabled]=\"btnDisabled\"\n        (click)=\"myModal.show()\">\n        Assign to caller\n      </button>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n            [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n            (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n          </ag-grid-angular>\n        </div>\n      </div>\n    </div>\n    <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n      aria-hidden=\"true\">\n      <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h4 class=\"modal-title\">Assign to {{label}} Caller</h4>\n            <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n          <div class=\"modal-body\">\n            <form [formGroup]=\"callerForm\" (ngSubmit)=\"FormSubmit()\">\n              <div class=\"form-group\">\n                <label for=\"id\">{{label}} Caller</label>\n                <select class=\"form-control\" id=\"id\" required ngModel name=\"group\" formControlName=\"id\">\n                  <option value=\"\" disabled selected hidden>Choose...</option>\n                  <option *ngFor=\"let item of users\" value=\"{{ item.id }}\">\n                    {{ item.username }}\n                  </option>\n                </select>\n              </div>\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\n                Close\n              </button>\n              <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !callerForm.valid\">\n                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\"\n                  aria-hidden=\"true\"></span>\n                Save changes\n              </button>\n            </form>\n          </div>\n        </div>\n        <!-- /.modal-content -->\n      </div>\n    </div>\n  </div>\n</div>";
       /***/
     },
 
@@ -901,7 +2916,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n    <div bsModal #deleteModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n        aria-hidden=\"true\">\n        <div class=\"modal-dialog modal-dialog-centered modal-sm\">\n            <div class=\"modal-content\">\n                <div class=\"modal-body text-center\">\n                    Do you want to delete this agent?\n                </div>\n                <div class=\"modal-footer justify-content-around\">\n                    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"deleteModal.hide()\">\n                        No! Cancel.\n                    </button>\n                    <button type=\"button\" class=\"btn btn-primary\" (click)=\"deleteAgent()\">\n                        Yes! Delete.\n                    </button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"card\">\n        <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n            <h2>Customer Details</h2>\n            <span>\n                <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\n                    Assign to field agent\n                </button>\n                <!-- <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" (click)=\"deleteModal.show()\">\n                Delete\n            </button> -->\n            </span>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <div class=\"col\">\n                    <div class=\"row\">\n                        <div style=\"display: flex; justify-content: space-between\">\n                            <h4>Basic details</h4>\n                        </div>\n                        <table class=\"table table-striped\">\n                            <tbody>\n                                <tr>\n                                    <td>ID</td>\n                                    <td>{{details?.id}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Bride</td>\n                                    <td>{{details?.NameOfBride}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Father</td>\n                                    <td>{{details?.NameOfFather}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Mother</td>\n                                    <td>{{ details?.NameOfMother }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Marriage Date</td>\n                                    <td>{{ details?.MarriageDate }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Marriage Month</td>\n                                    <td>{{ details?.MarriageMonth }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Contact number 1</td>\n                                    <td>{{ details?.ContactNumber_1 }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Contact number 2</td>\n                                    <td>{{ details?.ContactNumber_2 }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Agent</td>\n                                    <td>\n                                        <span class=\"badge badge-warning\">{{ details.tele_caller_contact?.Name }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>KP Caller</td>\n                                    <td>\n                                        <span class=\"badge badge-primary\">{{ details.kp_caller_assigned?.username\n                                            }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>House Name</td>\n                                    <td>{{ details.Address?.HouseName }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Landmark</td>\n                                    <td>{{ details.Address?.Landmark }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Locality</td>\n                                    <td>{{ details.Address?.locality?.Name }}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <div class=\"row\">\n                        <div style=\"display: flex; justify-content: space-between\">\n                            <h4>Field Report</h4>\n                        </div>\n                        <table *ngIf=\"details.FieldReport\" class=\"table table-striped\">\n                            <tbody>\n                                <tr>\n                                    <td>Financial category</td>\n                                    <td>{{details.FieldReport?.FinancialBackground}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Quantity of intended purchase</td>\n                                    <td>{{details.FieldReport?.QtyOfGold}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Suitable set</td>\n                                    <td>{{details.FieldReport?.PreferredWeddingSet}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether planning to exchange after marriage?</td>\n                                    <td>{{ details.FieldReport?.PlanningForReplacementAfterWedding }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Quantity of old gold for exchange</td>\n                                    <td>{{ details.FieldReport?.OldGoldExchangeQty }}</td>\n                                </tr>\n                                <tr>\n                                    <td>No cost emi needed?</td>\n                                    <td>{{ details.FieldReport?.NoCostEmiRequired }}</td>\n                                </tr>\n                                <tr>\n                                    <td>EMI tenure</td>\n                                    <td>\n                                        <span class=\"badge badge-warning\">{{ details.FieldReport?.EmiTenure }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>Number of repayments</td>\n                                    <td>\n                                        <span class=\"badge badge-primary\">{{ details.FieldReport?.EmiIntervals\n                                            }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>Token advance</td>\n                                    <td>{{ details.FieldReport?.TokenAdvance }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Rate advance</td>\n                                    <td>{{ details.FieldReport?.RateAdvance }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether approached by other jewelleries?</td>\n                                    <td>{{ details.FieldReport?.EnquiriesFromOthers }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Advance paid to other jewellery</td>\n                                    <td>{{ details.FieldReport?.AdvancePaidToOtherJewellery }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether received any fresh leads?</td>\n                                    <td>{{ details.FieldReport?.NumberOfNewMarriageAddress }}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n\n                    <div *ngIf=\"!details.FieldReport\" class=\"card\">\n                        <div class=\"card-body text-center\">\n                            No field report found\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col\">\n                    <div style=\"display: flex; justify-content: space-between\">\n                        <h4>Remarks</h4>\n                    </div>\n                    <div class=\"card\" *ngFor=\"let item of details.TelecallerRemarks\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">{{dateConverter(item.CallHistory?.event_date_time)}}</h5>\n                            <p class=\"card-text\">{{item.RemarksText}}</p>\n                            <span\n                                class=\"badge badge-primary\">{{item.CallHistory.users_permissions_user?.username}}</span>\n                        </div>\n                    </div>\n                    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"commentModal.show()\">\n                        Add Comment\n                    </button>\n                </div>\n            </div>\n\n        </div>\n        <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n            aria-hidden=\"true\">\n            <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                        <h4 class=\"modal-title\">Assign to field Agent</h4>\n                        <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                    </div>\n                    <div class=\"modal-body\">\n                        <form [formGroup]=\"agentForm\" (ngSubmit)=\"FormSubmit()\">\n                            <div class=\"form-group\">\n                                <label for=\"group\">Field agent</label>\n                                <select class=\"form-control\" id=\"agent\" required ngModel name=\"agent\"\n                                    formControlName=\"agent\">\n                                    <option value=\"\" disabled selected hidden>Choose...</option>\n                                    <option *ngFor=\"let item of users\" value=\"{{ item.id }}\">\n                                        {{ item.username }}\n                                    </option>\n                                </select>\n                            </div>\n                            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\n                                Close\n                            </button>\n                            <button type=\"submit\" class=\"btn btn-primary ml-2\"\n                                [disabled]=\"btnLoading || !agentForm.valid\">\n                                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                    aria-hidden=\"true\"></span>\n                                Save changes\n                            </button>\n                        </form>\n                    </div>\n                </div>\n                <!-- /.modal-content -->\n            </div>\n            <!-- /.modal-dialog -->\n        </div>\n        <div bsModal #commentModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\"\n            aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n            <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                        <h4 class=\"modal-title\">Add Comment</h4>\n                        <button type=\"button\" class=\"close\" (click)=\"commentModal.hide()\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                    </div>\n                    <div class=\"modal-body\">\n                        <form [formGroup]=\"commentForm\" (ngSubmit)=\"CommentSubmit()\">\n                            <div class=\"form-group\">\n                                <label for=\"name\">Remarks</label>\n                                <textarea class=\"form-control\" maxlength=\"250\" id=\"RemarksText\" name=\"RemarksText\"\n                                    formControlName=\"RemarksText\" placeholder=\"Enter remarks\"></textarea>\n                            </div>\n                            <!-- <div class=\"form-group\">\n                                <label for=\"email\">Date</label>\n                                <input type=\"datetime-local\" class=\"form-control\" id=\"event_date_time\"\n                                    name=\"event_date_time\" formControlName=\"event_date_time\" />\n                            </div> -->\n                            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"commentModal.hide()\">\n                                Close\n                            </button>\n                            <button type=\"submit\" class=\"btn btn-primary ml-2\"\n                                [disabled]=\"btnLoading || !commentForm.valid\">\n                                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                    aria-hidden=\"true\"></span>\n                                Save changes\n                            </button>\n                        </form>\n                    </div>\n                </div>\n                <!-- /.modal-content -->\n            </div>\n            <!-- /.modal-dialog -->\n        </div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n    <div bsModal #deleteModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n        aria-hidden=\"true\">\n        <div class=\"modal-dialog modal-dialog-centered modal-sm\">\n            <div class=\"modal-content\">\n                <div class=\"modal-body text-center\">\n                    Do you want to delete this agent?\n                </div>\n                <div class=\"modal-footer justify-content-around\">\n                    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"deleteModal.hide()\">\n                        No! Cancel.\n                    </button>\n                    <button type=\"button\" class=\"btn btn-primary\" (click)=\"deleteAgent()\">\n                        Yes! Delete.\n                    </button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"card\">\n        <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n            <h2>Customer Details</h2>\n            <span>\n                <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\n                    Assign to field agent\n                </button>\n                <!-- <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" (click)=\"deleteModal.show()\">\n                Delete\n            </button> -->\n            </span>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <div class=\"col\">\n                    <div class=\"row\">\n                        <div style=\"display: flex; justify-content: space-between\">\n                            <h4>Basic details</h4>\n                        </div>\n                        <table class=\"table table-striped\">\n                            <tbody>\n                                <tr>\n                                    <td>ID</td>\n                                    <td>{{details?.id}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Bride</td>\n                                    <td>{{details?.NameOfBride}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Father</td>\n                                    <td>{{details?.NameOfFather}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Mother</td>\n                                    <td>{{ details?.NameOfMother }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Marriage Date</td>\n                                    <td>{{ details?.MarriageDate }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Marriage Month</td>\n                                    <td>{{ details?.MarriageMonth }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Contact number 1</td>\n                                    <td>{{ details?.Contact_Number_1 }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Contact number 2</td>\n                                    <td>{{ details?.Contact_Number_2 }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Agent</td>\n                                    <td>\n                                        <span class=\"badge badge-warning\">{{ details.tele_caller_contact?.Name }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>KP Caller</td>\n                                    <td>\n                                        <span class=\"badge badge-primary\">{{ details.kp_caller_assigned?.username\n                                            }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>House Name</td>\n                                    <td>{{ details.Address?.HouseName }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Landmark</td>\n                                    <td>{{ details.Address?.Landmark }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Locality</td>\n                                    <td>{{ details.Address?.locality?.Name }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Latitude</td>\n                                    <td>{{ details.Address?.GeoLocation.Latitude }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Longitude</td>\n                                    <td>{{ details.Address?.GeoLocation.Longitude }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Plus code</td>\n                                    <td>{{ details.Address?.GeoLocation?.GoogleMapPlusCode }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Map URL</td>\n                                    <td><a href=\"https://www.google.com/maps/place/6JXRM9GR%2BMF/@{{\n                                          details.Address?.GeoLocation?.Latitude\n                                        }},{{\n                                          details.Address?.GeoLocation?.Longitude\n                                        }},17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d9.6766875!4d76.3911875\"\n                                            target=\"_blank\">Click here to view location</a></td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <div class=\"row\">\n                        <div style=\"display: flex; justify-content: space-between\">\n                            <h4>Field Report</h4>\n                        </div>\n                        <table *ngIf=\"details.FieldReport\" class=\"table table-striped\">\n                            <tbody>\n                                <tr>\n                                    <td>Financial category</td>\n                                    <td>{{details.FieldReport?.FinancialBackground}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Quantity of intended purchase</td>\n                                    <td>{{details.FieldReport?.QtyOfGold}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Suitable set</td>\n                                    <td>{{details.FieldReport?.PreferredWeddingSet}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether planning to exchange after marriage?</td>\n                                    <td>{{ details.FieldReport?.PlanningForReplacementAfterWedding }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Quantity of old gold for exchange</td>\n                                    <td>{{ details.FieldReport?.OldGoldExchangeQty }}</td>\n                                </tr>\n                                <tr>\n                                    <td>No cost emi needed?</td>\n                                    <td>{{ details.FieldReport?.NoCostEmiRequired }}</td>\n                                </tr>\n                                <tr>\n                                    <td>EMI tenure</td>\n                                    <td>\n                                        <span class=\"badge badge-warning\">{{ details.FieldReport?.EmiTenure }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>Number of repayments</td>\n                                    <td>\n                                        <span class=\"badge badge-primary\">{{ details.FieldReport?.EmiIntervals\n                                            }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>Token advance</td>\n                                    <td>{{ details.FieldReport?.TokenAdvance }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Rate advance</td>\n                                    <td>{{ details.FieldReport?.RateAdvance }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether approached by other jewelleries?</td>\n                                    <td>{{ details.FieldReport?.EnquiriesFromOthers }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Advance paid to other jewellery</td>\n                                    <td>{{ details.FieldReport?.AdvancePaidToOtherJewellery }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether received any fresh leads?</td>\n                                    <td>{{ details.FieldReport?.NumberOfNewMarriageAddress }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Captured location</td>\n                                    <td><a href=\"https://www.google.com/maps/place/6JXRM9GR%2BMF/@{{details.FieldReport?.location?.Latitude}},{{details.FieldReport?.location?.Longitude}},17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d9.6766875!4d76.3911875\"\n                                            target=\"_blank\">Click\n                                            here to view location</a></td>\n                                </tr>\n                            </tbody>\n                        </table>\n                        <carousel [interval]=\"2000\">\n                            <slide *ngFor=\"let item of details.FieldReport?.images\">\n                                <img src=\"https://jewel-core.telemarketing.untanglepro.com{{item.url}}\"\n                                    alt=\"First slide\" style=\"display: block; width: 100%;\">\n                                <!-- <div class=\"carousel-caption d-none d-md-block\">\n                                <h3>First slide label</h3>\n                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>\n                              </div> -->\n                            </slide>\n                        </carousel>\n                    </div>\n\n                    <div *ngIf=\"!details.FieldReport\" class=\"card\">\n                        <div class=\"card-body text-center\">\n                            No field report found\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col\">\n                    <div style=\"display: flex; justify-content: space-between\">\n                        <h4>Remarks</h4>\n                    </div>\n                    <div class=\"card\" *ngFor=\"let item of details.TelecallerRemarks\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">{{dateConverter(item.CallHistory?.event_date_time)}}</h5>\n                            <p class=\"card-text\">{{item.RemarksText}}</p>\n                            <span\n                                class=\"badge badge-primary\">{{item.CallHistory.users_permissions_user?.username}}</span>\n                        </div>\n                    </div>\n                    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"commentModal.show()\">\n                        Add Comment\n                    </button>\n                </div>\n            </div>\n\n        </div>\n        <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n            aria-hidden=\"true\">\n            <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                        <h4 class=\"modal-title\">Assign to field Agent</h4>\n                        <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                    </div>\n                    <div class=\"modal-body\">\n                        <form [formGroup]=\"agentForm\" (ngSubmit)=\"FormSubmit()\">\n                            <div class=\"form-group\">\n                                <label for=\"group\">Field agent</label>\n                                <select class=\"form-control\" id=\"agent\" required ngModel name=\"agent\"\n                                    formControlName=\"agent\">\n                                    <option value=\"\" disabled selected hidden>Choose...</option>\n                                    <option *ngFor=\"let item of users\" value=\"{{ item.id }}\">\n                                        {{ item.username }}\n                                    </option>\n                                </select>\n                            </div>\n                            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\n                                Close\n                            </button>\n                            <button type=\"submit\" class=\"btn btn-primary ml-2\"\n                                [disabled]=\"btnLoading || !agentForm.valid\">\n                                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                    aria-hidden=\"true\"></span>\n                                Save changes\n                            </button>\n                        </form>\n                    </div>\n                </div>\n                <!-- /.modal-content -->\n            </div>\n            <!-- /.modal-dialog -->\n        </div>\n        <div bsModal #commentModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\"\n            aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n            <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                        <h4 class=\"modal-title\">Add Comment</h4>\n                        <button type=\"button\" class=\"close\" (click)=\"commentModal.hide()\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                    </div>\n                    <div class=\"modal-body\">\n                        <form [formGroup]=\"commentForm\" (ngSubmit)=\"CommentSubmit()\">\n                            <div class=\"form-group\">\n                                <label for=\"name\">Remarks</label>\n                                <textarea class=\"form-control\" maxlength=\"250\" id=\"RemarksText\" name=\"RemarksText\"\n                                    formControlName=\"RemarksText\" placeholder=\"Enter remarks\"></textarea>\n                            </div>\n                            <!-- <div class=\"form-group\">\n                                <label for=\"email\">Date</label>\n                                <input type=\"datetime-local\" class=\"form-control\" id=\"event_date_time\"\n                                    name=\"event_date_time\" formControlName=\"event_date_time\" />\n                            </div> -->\n                            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"commentModal.hide()\">\n                                Close\n                            </button>\n                            <button type=\"submit\" class=\"btn btn-primary ml-2\"\n                                [disabled]=\"btnLoading || !commentForm.valid\">\n                                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                    aria-hidden=\"true\"></span>\n                                Save changes\n                            </button>\n                        </form>\n                    </div>\n                </div>\n                <!-- /.modal-content -->\n            </div>\n            <!-- /.modal-dialog -->\n        </div>\n    </div>\n</div>";
       /***/
     },
 
@@ -921,7 +2936,27 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n      <h2>Customers</h2>\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\n        New\n      </button>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n            [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n            (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n          </ag-grid-angular>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Add New Customer</h4>\n          <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form [formGroup]=\"customerForm\" (ngSubmit)=\"FormSubmit()\">\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Bride</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfBride\" name=\"NameOfBride\" formControlName=\"NameOfBride\"\n                placeholder=\"Enter bride's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Father</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfFather\" name=\"NameOfFather\"\n                formControlName=\"NameOfFather\" placeholder=\"Enter father's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Mother</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfMother\" name=\"NameOfMother\"\n                formControlName=\"NameOfMother\" placeholder=\"Enter mother's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Contact number 1</label>\n              <input type=\"text\" class=\"form-control\" id=\"ContactNumber_1\" name=\"ContactNumber_1\"\n                formControlName=\"ContactNumber_1\" placeholder=\"Enter primary contact number\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Contact number 2</label>\n              <input type=\"text\" class=\"form-control\" id=\"ContactNumber_2\" name=\"ContactNumber_2\"\n                formControlName=\"ContactNumber_2\" placeholder=\"Enter secondary contact number\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"email\">Marriage date</label>\n              <input type=\"date\" class=\"form-control\" id=\"MarriageDate\" name=\"MarriageDate\"\n                formControlName=\"MarriageDate\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"group\">Marriage month</label>\n              <select class=\"form-control\" id=\"MarriageMonth\" required ngModel name=\"MarriageMonth\" formControlName=\"MarriageMonth\">\n                <option value=\"\" disabled selected hidden>Choose...</option>\n                <option *ngFor=\"let item of Months\" value=\"{{ item.id }}\">\n                  {{ item.Name }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"group\">Agent</label>\n              <select class=\"form-control\" id=\"tele_caller_contact\" required ngModel name=\"tele_caller_contact\" formControlName=\"tele_caller_contact\">\n                <option value=\"\" disabled selected hidden>Choose...</option>\n                <option *ngFor=\"let item of agents\" value=\"{{ item.id }}\">\n                  {{ item.Name }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">House Name</label>\n              <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\"\n                formControlName=\"HouseName\" placeholder=\"Enter House Name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Landmark</label>\n              <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\"\n                formControlName=\"Landmark\" placeholder=\"Enter Landmark\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"locality\">Name of locality</label>\n              <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\n                placeholder=\"Enter locality\" /> -->\n                <select class=\"form-control\" id=\"locality\" required ngModel name=\"locality\" formControlName=\"locality\">\n                  <option value=\"\" disabled selected hidden>Choose...</option>\n                  <option *ngFor=\"let item of localities\" value=\"{{ item.id }}\">\n                    {{ item.Name }}\n                  </option>\n                </select>\n            </div>\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\n              Close\n            </button>\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !customerForm.valid\">\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n              Save changes\n            </button>\n          </form>\n        </div>\n      </div>\n      <!-- /.modal-content -->\n    </div>\n    <!-- /.modal-dialog -->\n  </div>\n  <!-- /.modal -->\n</div>";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n      <h2>Customers</h2>\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\n        New\n      </button>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n            [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n            (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n          </ag-grid-angular>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Add New Customer</h4>\n          <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form [formGroup]=\"customerForm\" (ngSubmit)=\"FormSubmit()\">\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Bride</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfBride\" name=\"NameOfBride\" formControlName=\"NameOfBride\"\n                placeholder=\"Enter bride's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Father</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfFather\" name=\"NameOfFather\"\n                formControlName=\"NameOfFather\" placeholder=\"Enter father's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Mother</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfMother\" name=\"NameOfMother\"\n                formControlName=\"NameOfMother\" placeholder=\"Enter mother's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Contact number 1</label>\n              <input type=\"text\" class=\"form-control\" id=\"Contact_Number_1\" name=\"Contact_Number_1\"\n                formControlName=\"Contact_Number_1\" placeholder=\"Enter primary contact number\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Contact number 2</label>\n              <input type=\"text\" class=\"form-control\" id=\"Contact_Number_2\" name=\"Contact_Number_2\"\n                formControlName=\"Contact_Number_2\" placeholder=\"Enter secondary contact number\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"email\">Marriage date</label>\n              <input type=\"date\" class=\"form-control\" id=\"MarriageDate\" name=\"MarriageDate\"\n                formControlName=\"MarriageDate\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"group\">Marriage month</label>\n              <select class=\"form-control\" id=\"MarriageMonth\" required ngModel name=\"MarriageMonth\" formControlName=\"MarriageMonth\">\n                <option value=\"\" disabled selected hidden>Choose...</option>\n                <option *ngFor=\"let item of Months\" value=\"{{ item.id }}\">\n                  {{ item.Name }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"group\">Agent</label>\n              <select class=\"form-control\" id=\"tele_caller_contact\" required ngModel name=\"tele_caller_contact\" formControlName=\"tele_caller_contact\">\n                <option value=\"\" disabled selected hidden>Choose...</option>\n                <option *ngFor=\"let item of agents\" value=\"{{ item.id }}\">\n                  {{ item.Name }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">House Name</label>\n              <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\"\n                formControlName=\"HouseName\" placeholder=\"Enter House Name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Landmark</label>\n              <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\"\n                formControlName=\"Landmark\" placeholder=\"Enter Landmark\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"locality\">Name of locality</label>\n              <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\n                placeholder=\"Enter locality\" /> -->\n                <select class=\"form-control\" id=\"locality\" required ngModel name=\"locality\" formControlName=\"locality\">\n                  <option value=\"\" disabled selected hidden>Choose...</option>\n                  <option *ngFor=\"let item of localities\" value=\"{{ item.id }}\">\n                    {{ item.Name }}\n                  </option>\n                </select>\n            </div>\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\n              Close\n            </button>\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !customerForm.valid\">\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n              Save changes\n            </button>\n          </form>\n        </div>\n      </div>\n      <!-- /.modal-content -->\n    </div>\n    <!-- /.modal-dialog -->\n  </div>\n  <!-- /.modal -->\n</div>";
+      /***/
+    },
+
+    /***/
+    "m6yf":
+    /*!**********************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/manager/enquiries.component.html ***!
+      \**********************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function m6yf(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\r\n        <h2>Enquiries</h2>\r\n        <!-- <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\r\n          New\r\n        </button> -->\r\n      </div>\r\n      <div class=\"card-body\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12\">\r\n            <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\r\n              [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\r\n              (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n            </ag-grid-angular>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n      aria-hidden=\"true\">\r\n      <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Add New Customer</h4>\r\n            <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\r\n              <span aria-hidden=\"true\">&times;</span>\r\n            </button>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n            <form [formGroup]=\"customerForm\" (ngSubmit)=\"FormSubmit()\">\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">Name of Bride</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"NameOfBride\" name=\"NameOfBride\" formControlName=\"NameOfBride\"\r\n                  placeholder=\"Enter bride's name\" />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">Name of Father</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"NameOfFather\" name=\"NameOfFather\"\r\n                  formControlName=\"NameOfFather\" placeholder=\"Enter father's name\" />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">Name of Mother</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"NameOfMother\" name=\"NameOfMother\"\r\n                  formControlName=\"NameOfMother\" placeholder=\"Enter mother's name\" />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">Contact number 1</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"Contact_Number_1\" name=\"Contact_Number_1\"\r\n                  formControlName=\"Contact_Number_1\" placeholder=\"Enter primary contact number\" />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">Contact number 2</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"Contact_Number_2\" name=\"Contact_Number_2\"\r\n                  formControlName=\"Contact_Number_2\" placeholder=\"Enter secondary contact number\" />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"email\">Marriage date</label>\r\n                <input type=\"date\" class=\"form-control\" id=\"MarriageDate\" name=\"MarriageDate\"\r\n                  formControlName=\"MarriageDate\" />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"group\">Marriage month</label>\r\n                <select class=\"form-control\" id=\"MarriageMonth\" required ngModel name=\"MarriageMonth\" formControlName=\"MarriageMonth\">\r\n                  <option value=\"\" disabled selected hidden>Choose...</option>\r\n                  <option *ngFor=\"let item of Months\" value=\"{{ item.id }}\">\r\n                    {{ item.Name }}\r\n                  </option>\r\n                </select>\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"group\">Agent</label>\r\n                <select class=\"form-control\" id=\"tele_caller_contact\" required ngModel name=\"tele_caller_contact\" formControlName=\"tele_caller_contact\">\r\n                  <option value=\"\" disabled selected hidden>Choose...</option>\r\n                  <option *ngFor=\"let item of agents\" value=\"{{ item.id }}\">\r\n                    {{ item.Name }}\r\n                  </option>\r\n                </select>\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">House Name</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\"\r\n                  formControlName=\"HouseName\" placeholder=\"Enter House Name\" />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">Landmark</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\"\r\n                  formControlName=\"Landmark\" placeholder=\"Enter Landmark\" />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"locality\">Name of locality</label>\r\n                <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\r\n                  placeholder=\"Enter locality\" /> -->\r\n                  <select class=\"form-control\" id=\"locality\" required ngModel name=\"locality\" formControlName=\"locality\">\r\n                    <option value=\"\" disabled selected hidden>Choose...</option>\r\n                    <option *ngFor=\"let item of localities\" value=\"{{ item.id }}\">\r\n                      {{ item.Name }}\r\n                    </option>\r\n                  </select>\r\n              </div>\r\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\r\n                Close\r\n              </button>\r\n              <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !customerForm.valid\">\r\n                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\r\n                Save changes\r\n              </button>\r\n            </form>\r\n          </div>\r\n        </div>\r\n        <!-- /.modal-content -->\r\n      </div>\r\n      <!-- /.modal-dialog -->\r\n    </div>\r\n    <!-- /.modal -->\r\n  </div>";
       /***/
     }
   }]);

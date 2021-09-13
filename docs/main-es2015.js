@@ -410,7 +410,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"animated fadeIn\">\n  <div class=\"container\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <h2>WEDDING GOLD PURCHASE SCHEME</h2>\n      </div>\n      <div class=\"card-body\">\n        <form #usForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"shopName\"><strong>Name / പേര്</strong></label>\n              <input type=\"text\" class=\"form-control\" id=\"name\" name=\"name\" required ngModel placeholder=\"Enter your name here\">\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"phone\"><strong>Customer contact number / ഫോൺ നമ്പർ</strong></label>\n              <input type=\"tel\" class=\"form-control\" id=\"phone\" name=\"phone\" ngModel required placeholder=\"Enter your phone number here\">\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"address\"><strong>Address / അഡ്രസ് </strong></label>\n            <input type=\"text\" class=\"form-control\" id=\"address\" name=\"address\" required ngModel placeholder=\"Enter your address here\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"landmark\"><strong>Landmark </strong></label>\n            <input type=\"text\" class=\"form-control\" id=\"landmark\" name=\"landmark\" required ngModel placeholder=\"Enter your nearest landmark here\">\n          </div>\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-4\">\n              <label for=\"marriage_purchase\"><strong>വിവാഹ പർച്ചേസ് ?</strong></label>\n              <select class=\"form-control\" id=\"marriage_purchase\" name=\"marriage_purchase\" required ngModel aria-label=\"Default select example\">\n                <option selected value=\"true\">Yes</option>\n                <option value=\"false\">No</option>\n              </select>\n            </div>\n            <div class=\"form-group col-md-4\">\n              <label for=\"pincode\"><strong>വിവാഹ തീയതി</strong></label>\n              <input type=\"date\" class=\"form-control\" ngModel id=\"date\" name=\"date\">\n            </div>\n            <div class=\"form-group col-md-4\">\n              <label for=\"pawan\"><strong>ആവിശ്യം ഉള്ള പവൻ</strong></label>\n              <select class=\"form-control\" id=\"pawan\" name=\"pawan\" required ngModel aria-label=\"Default select example\">\n                <option value=\"5\">5 പവൻ</option>\n                <option value=\"10\">10 പവൻ</option>\n                <option value=\"15\">15 പവൻ</option>\n                <option value=\"20\">20 പവൻ</option>\n                <option value=\"25\">25 പവൻ</option>\n                <option value=\"30\">30 പവൻ</option>\n                <option value=\">30\">30 പവനിൽ കൂടുതൽ </option>\n              </select>\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"pincode\"><strong>വിവാഹ ആവശ്യത്തിനുള്ള പലിശ രഹിത വായ്‌പ പദ്ധതിയിൽ അംഗം ആകാൻ താല്പര്യം?</strong></label>\n            <select class=\"form-control\" id=\"emi\" name=\"emi\" required ngModel aria-label=\"Default select example\">\n              <option selected value=\"true\">Yes</option>\n              <option value=\"false\">No</option>\n            </select>\n          </div>\n          <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"animated fadeIn\">\n  <div class=\"container\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <h2>WEDDING GOLD PURCHASE SCHEME</h2>\n      </div>\n      <div class=\"card-body\">\n        <form #usForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"shopName\"><strong>Name / പേര്</strong></label>\n              <input type=\"text\" class=\"form-control\" id=\"name\" name=\"name\" required ngModel placeholder=\"Enter your name here\">\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"phone\"><strong>Customer contact number / ഫോൺ നമ്പർ</strong></label>\n              <input type=\"tel\" class=\"form-control\" id=\"phone\" name=\"phone\" ngModel required placeholder=\"Enter your phone number here\">\n            </div>\n          </div>\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"HouseName\"><strong>House Name / വീട്ടുപേര് </strong></label>\n              <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\" required ngModel placeholder=\"Enter your house Name here\">\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"PostOfficeNumber\"><strong>Post Office number / പോസ്റ്റ് ഓഫീസ് നമ്പർ</strong></label>\n              <input type=\"number\" class=\"form-control\" id=\"PostOfficeNumber\" name=\"PostOfficeNumber\" ngModel required placeholder=\"Enter your Post Office Number here\">\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"Landmark\"><strong>Landmark </strong></label>\n            <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\" required ngModel placeholder=\"Enter your nearest landmark here\">\n          </div>\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-4\">\n              <label for=\"marriage_purchase\"><strong>വിവാഹ പർച്ചേസ് ?</strong></label>\n              <select class=\"form-control\" id=\"marriage_purchase\" name=\"marriage_purchase\" required ngModel aria-label=\"Default select example\">\n                <option selected value=\"true\">Yes</option>\n                <option value=\"false\">No</option>\n              </select>\n            </div>\n            <div class=\"form-group col-md-4\">\n              <label for=\"pincode\"><strong>വിവാഹ തീയതി</strong></label>\n              <input type=\"date\" class=\"form-control\" ngModel id=\"date\" name=\"date\">\n            </div>\n            <div class=\"form-group col-md-4\">\n              <label for=\"pawan\"><strong>ആവിശ്യം ഉള്ള പവൻ</strong></label>\n              <select class=\"form-control\" id=\"pawan\" name=\"pawan\" required ngModel aria-label=\"Default select example\">\n                <option value=\"5\">5 പവൻ</option>\n                <option value=\"10\">10 പവൻ</option>\n                <option value=\"15\">15 പവൻ</option>\n                <option value=\"20\">20 പവൻ</option>\n                <option value=\"25\">25 പവൻ</option>\n                <option value=\"30\">30 പവൻ</option>\n                <option value=\">30\">30 പവനിൽ കൂടുതൽ </option>\n              </select>\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"pincode\"><strong>വിവാഹ ആവശ്യത്തിനുള്ള പലിശ രഹിത വായ്‌പ പദ്ധതിയിൽ അംഗം ആകാൻ താല്പര്യം?</strong></label>\n            <select class=\"form-control\" id=\"emi\" name=\"emi\" required ngModel aria-label=\"Default select example\">\n              <option selected value=\"true\">Yes</option>\n              <option value=\"false\">No</option>\n            </select>\n          </div>\n          <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -619,6 +619,17 @@ const localitiesQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
     }
   }
 `;
+const postOfficesQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
+query {
+  postOffices {
+    id
+    Name
+    Pincode
+    district {
+      Name
+    }
+  }
+}`;
 const UpdateAgentMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
   mutation (
     $id: ID!
@@ -721,8 +732,8 @@ const CustomersQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
       NameOfFather
       NameOfMother
       MarriageDate
-      ContactNumber_1
-      ContactNumber_2
+      Contact_Number_1
+      Contact_Number_2
       MarriageMonth
       kp_caller_assigned {
         email
@@ -767,6 +778,7 @@ const CustomersQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
           Latitude
           Longitude
           GoogleMapURL
+          GoogleMapPlusCode
         }
       }
     }
@@ -777,6 +789,7 @@ const CustomersFilterQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] 
     $is_verified: Boolean
     $kp_caller_assigned_null: Boolean
     $kp_id: ID
+    $added_by_user: ID
     $MarriageMonth_null: Boolean
     $MarriageDate_null: Boolean
   ) {
@@ -787,6 +800,7 @@ const CustomersFilterQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] 
         kp_caller_assigned: $kp_id
         MarriageDate_null: $MarriageDate_null
         MarriageMonth_null: $MarriageMonth_null
+        added_by_user: $added_by_user
       }
     ) {
       id
@@ -795,11 +809,15 @@ const CustomersFilterQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] 
       NameOfFather
       NameOfMother
       MarriageDate
-      ContactNumber_1
-      ContactNumber_2
+      Contact_Number_1
+      Contact_Number_2
       MarriageMonth
       kp_caller_assigned {
         email
+        username
+      }
+      added_by_user {
+        id
         username
       }
       tele_caller_contact {
@@ -841,6 +859,7 @@ const CustomersFilterQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] 
           Latitude
           Longitude
           GoogleMapURL
+          GoogleMapPlusCode
         }
       }
     }
@@ -854,8 +873,8 @@ const CustomerSingleQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
       NameOfBride
       NameOfFather
       NameOfMother
-      ContactNumber_1
-      ContactNumber_2
+      Contact_Number_1
+      Contact_Number_2
       MarriageDate
       MarriageMonth
       tele_caller_contact {
@@ -882,6 +901,17 @@ const CustomerSingleQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
         EnquiriesFromOthers
         AdvancePaidToOtherJewellery
         NumberOfNewMarriageAddress
+        images {
+          name
+          url
+          previewUrl
+        }
+        location{
+          Latitude
+          Longitude
+          GoogleMapURL
+          GoogleMapPlusCode
+        }
       }
       Address {
         id
@@ -901,6 +931,7 @@ const CustomerSingleQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
           Latitude
           Longitude
           GoogleMapURL
+          GoogleMapPlusCode
         }
       }
       TelecallerRemarks {
@@ -921,14 +952,20 @@ const AddCustomerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
     $NameOfBride: String!
     $NameOfFather: String!
     $NameOfMother: String!
-    $ContactNumber_1: String!
-    $ContactNumber_2: String!
+    $Contact_Number_1: String!
+    $Contact_Number_2: String!
     $MarriageDate: Date!
     $MarriageMonth: Int!
     $tele_caller_contact: ID!
     $HouseName: String!
     $Landmark: String!
     $locality: ID!
+    $added_by_user: ID!
+    $post_office: ID
+    $Latitude: Float
+    $Longitude: Float
+    $GoogleMapURL: String
+    $GoogleMapPlusCode: String
   ) {
     createCustomer(
       input: {
@@ -938,13 +975,21 @@ const AddCustomerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
           NameOfMother: $NameOfMother
           MarriageDate: $MarriageDate
           MarriageMonth: $MarriageMonth
-          ContactNumber_1: $ContactNumber_1
-          ContactNumber_2: $ContactNumber_2
+          Contact_Number_1: $Contact_Number_1
+          Contact_Number_2: $Contact_Number_2
           tele_caller_contact: $tele_caller_contact
+          added_by_user: $added_by_user
           Address: {
             HouseName: $HouseName
             Landmark: $Landmark
             locality: $locality
+            post_office: $post_office
+            GeoLocation: {
+              Latitude: $Latitude
+              Longitude: $Longitude
+              GoogleMapURL: $GoogleMapURL
+              GoogleMapPlusCode:$GoogleMapPlusCode
+            }
           }
         }
       }
@@ -956,8 +1001,8 @@ const AddCustomerMutation = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
         NameOfMother
         MarriageDate
         MarriageMonth
-        ContactNumber_1
-        ContactNumber_2
+        Contact_Number_1
+        Contact_Number_2
         tele_caller_contact {
           Name
           id
@@ -1108,37 +1153,40 @@ const AddCustomerEnquiry = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] `
   mutation (
     $Name: String!
     $PhoneNumber: String!
-    $Address: String!
     $isWeddingPurchase: Boolean!
     $MarriageDate: Date!
     $QtyOfGold: Int!
     $OptNoCostEMI: Boolean!
-    $landmark: String
+    $HouseName: String!
+    $Landmark: String!
+    $PostOfficeNumber: Long!
   ) {
-    createEnquiryCustomer(
+    createCustomerEnquiry(
       input: {
         data: {
           Name: $Name
           PhoneNumber: $PhoneNumber
-          Address: $Address
           isWeddingPurchase: $isWeddingPurchase
           MarriageDate: $MarriageDate
           QtyOfGold: $QtyOfGold
           OptNoCostEMI: $OptNoCostEMI
-          landmark: $landmark
+          HouseName: $HouseName
+          Landmark: $Landmark
+          PostOfficeNumber: $PostOfficeNumber
         }
       }
     ) {
-      enquiryCustomer {
+      customerEnquiry {
         id
         Name
         PhoneNumber
-        Address
         isWeddingPurchase
         MarriageDate
         QtyOfGold
         OptNoCostEMI
-        landmark
+        HouseName
+        Landmark
+        PostOfficeNumber
       }
     }
   }
@@ -1248,6 +1296,11 @@ let DataService = class DataService {
             query: localitiesQuery,
         });
     }
+    getPostOffices() {
+        return this.apollo.watchQuery({
+            query: postOfficesQuery,
+        });
+    }
     getCustomers() {
         return this.apollo.watchQuery({
             query: CustomersQuery,
@@ -1284,10 +1337,16 @@ let DataService = class DataService {
                 MarriageMonth: parseInt(Customer.MarriageMonth),
                 tele_caller_contact: Customer.tele_caller_contact,
                 HouseName: Customer.HouseName,
-                ContactNumber_1: Customer.ContactNumber_1,
-                ContactNumber_2: Customer.ContactNumber_2,
+                Contact_Number_1: Customer.Contact_Number_1,
+                Contact_Number_2: Customer.Contact_Number_2,
                 Landmark: Customer.Landmark,
                 locality: Customer.locality,
+                post_office: Customer.Post_office,
+                added_by_user: localStorage.getItem("uid"),
+                Latitude: parseFloat(Customer.Latitude),
+                Longitude: parseFloat(Customer.Longitude),
+                GoogleMapURL: Customer.GoogleMapURL,
+                GoogleMapPlusCode: Customer.GoogleMapPlusCode,
             },
             errorPolicy: "all",
         });
@@ -1342,12 +1401,13 @@ let DataService = class DataService {
             variables: {
                 Name: enquiry.name,
                 PhoneNumber: enquiry.phone,
-                Address: enquiry.address,
                 isWeddingPurchase: enquiry.marriage_purchase == "true" ? true : false,
                 MarriageDate: enquiry.date,
                 QtyOfGold: parseInt(enquiry.pawan),
                 OptNoCostEMI: enquiry.emi == "true" ? true : false,
-                landmark: enquiry.landmark,
+                HouseName: enquiry.HouseName,
+                Landmark: enquiry.Landmark,
+                PostOfficeNumber: enquiry.PostOfficeNumber,
             },
             errorPolicy: "all",
         });
@@ -1682,7 +1742,13 @@ const navItems = [
     {
         name: 'Customers',
         url: '/manager/customers',
-        icon: 'icon-basket-loaded',
+        icon: 'icon-phone',
+        role: "MANAGER"
+    },
+    {
+        name: 'Enquiries',
+        url: '/manager/enquiries',
+        icon: 'icon-phone',
         role: "MANAGER"
     },
 ];
