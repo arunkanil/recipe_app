@@ -6,6 +6,7 @@ import { ButtonsComponent } from './caller_list.component';
 
 // Dropdowns Component
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 // Buttons Routing
 import { KpCallerRoutingModule } from './kpcaller-routing.module';
@@ -18,6 +19,7 @@ import { KPCustomerDetailComponent } from './customerdetail.component';
 @NgModule({
   imports: [
     CommonModule,
+    TabsModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([]),
     KpCallerRoutingModule,

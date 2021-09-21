@@ -11,1243 +11,13 @@
 
   function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["views-telecaller-telecaller-module"], {
-    /***/
-    "2ZVE":
-    /*!************************************************************************!*\
-      !*** ./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js ***!
-      \************************************************************************/
-
-    /*! exports provided: NgTranscludeDirective, TabDirective, TabHeadingDirective, TabsModule, TabsetComponent, TabsetConfig */
-
-    /***/
-    function ZVE(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "NgTranscludeDirective", function () {
-        return NgTranscludeDirective;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "TabDirective", function () {
-        return TabDirective;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "TabHeadingDirective", function () {
-        return TabHeadingDirective;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "TabsModule", function () {
-        return TabsModule;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "TabsetComponent", function () {
-        return TabsetComponent;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "TabsetConfig", function () {
-        return TabsetConfig;
-      });
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @angular/core */
-      "8Y7J");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/common */
-      "SVse");
-      /**
-       * @fileoverview added by tsickle
-       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-       */
-
-
-      function TabsetComponent_li_1_span_4_Template(rf, ctx) {
-        if (rf & 1) {
-          var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 7);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TabsetComponent_li_1_span_4_Template_span_click_0_listener($event) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
-
-            var tabz_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-
-            var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-            $event.preventDefault();
-            return ctx_r4.removeTab(tabz_r1);
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " \u274C");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-      }
-
-      var _c0 = function _c0(a1) {
-        return ["nav-item", a1];
-      };
-
-      function TabsetComponent_li_1_Template(rf, ctx) {
-        if (rf & 1) {
-          var _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keydown", function TabsetComponent_li_1_Template_li_keydown_0_listener($event) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r8);
-
-            var i_r2 = ctx.index;
-
-            var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-            return ctx_r7.keyNavActions($event, i_r2);
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TabsetComponent_li_1_Template_a_click_1_listener() {
-            var tabz_r1 = ctx.$implicit;
-            return tabz_r1.active = true;
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, TabsetComponent_li_1_span_4_Template, 2, 0, "span", 6);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-
-        if (rf & 2) {
-          var tabz_r1 = ctx.$implicit;
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("active", tabz_r1.active)("disabled", tabz_r1.disabled);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](15, _c0, tabz_r1.customClass || ""));
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("active", tabz_r1.active)("disabled", tabz_r1.disabled);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-controls", tabz_r1.id ? tabz_r1.id : "")("aria-selected", !!tabz_r1.active)("id", tabz_r1.id ? tabz_r1.id + "-link" : "");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTransclude", tabz_r1.headingRef);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](tabz_r1.heading);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", tabz_r1.removable);
-        }
-      }
-
-      var _c1 = ["*"];
-
-      var NgTranscludeDirective = /*#__PURE__*/function () {
-        /**
-         * @param {?} viewRef
-         */
-        function NgTranscludeDirective(viewRef) {
-          _classCallCheck(this, NgTranscludeDirective);
-
-          this.viewRef = viewRef;
-        }
-        /**
-         * @param {?} templateRef
-         * @return {?}
-         */
-
-
-        _createClass(NgTranscludeDirective, [{
-          key: "ngTransclude",
-          get:
-          /* tslint:disable-next-line:no-any */
-
-          /**
-           * @return {?}
-           */
-          function get() {
-            return this._ngTransclude;
-          },
-          set: function set(templateRef) {
-            this._ngTransclude = templateRef;
-
-            if (templateRef) {
-              this.viewRef.createEmbeddedView(templateRef);
-            }
-          }
-        }]);
-
-        return NgTranscludeDirective;
-      }();
-
-      NgTranscludeDirective.ɵfac = function NgTranscludeDirective_Factory(t) {
-        return new (t || NgTranscludeDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]));
-      };
-
-      NgTranscludeDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
-        type: NgTranscludeDirective,
-        selectors: [["", "ngTransclude", ""]],
-        inputs: {
-          ngTransclude: "ngTransclude"
-        }
-      });
-      /** @nocollapse */
-
-      NgTranscludeDirective.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]
-        }];
-      };
-
-      NgTranscludeDirective.propDecorators = {
-        ngTransclude: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }]
-      };
-
-      (function () {
-        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](NgTranscludeDirective, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-          args: [{
-            selector: '[ngTransclude]'
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]
-          }];
-        }, {
-          ngTransclude: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }]
-        });
-      })();
-
-      if (false) {}
-      /**
-       * @fileoverview added by tsickle
-       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-       */
-
-
-      var TabsetConfig = function TabsetConfig() {
-        _classCallCheck(this, TabsetConfig);
-
-        /**
-         * provides default navigation context class: 'tabs' or 'pills'
-         */
-        this.type = 'tabs';
-        /**
-         * provides possibility to set keyNavigations enable or disable, by default is enable
-         */
-
-        this.isKeysAllowed = true;
-        /**
-         * aria label for tab list
-         */
-
-        this.ariaLabel = 'Tabs';
-      };
-
-      TabsetConfig.ɵfac = function TabsetConfig_Factory(t) {
-        return new (t || TabsetConfig)();
-      };
-      /** @nocollapse */
-
-
-      TabsetConfig.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
-        factory: function TabsetConfig_Factory() {
-          return new TabsetConfig();
-        },
-        token: TabsetConfig,
-        providedIn: "root"
-      });
-
-      (function () {
-        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TabsetConfig, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [];
-        }, null);
-      })();
-
-      if (false) {}
-      /**
-       * @fileoverview added by tsickle
-       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-       */
-      // todo: add active event to tab
-      // todo: fix? mixing static and dynamic tabs position tabs in order of creation
-
-
-      var TabsetComponent = /*#__PURE__*/function () {
-        /**
-         * @param {?} config
-         * @param {?} renderer
-         * @param {?} elementRef
-         */
-        function TabsetComponent(config, renderer, elementRef) {
-          _classCallCheck(this, TabsetComponent);
-
-          this.renderer = renderer;
-          this.elementRef = elementRef;
-          this.clazz = true;
-          this.tabs = [];
-          this.classMap = {};
-          Object.assign(this, config);
-        }
-        /**
-         * if true tabs will be placed vertically
-         * @return {?}
-         */
-
-
-        _createClass(TabsetComponent, [{
-          key: "vertical",
-          get: function get() {
-            return this._vertical;
-          }
-          /**
-           * @param {?} value
-           * @return {?}
-           */
-          ,
-          set: function set(value) {
-            this._vertical = value;
-            this.setClassMap();
-          }
-          /**
-           * if true tabs fill the container and have a consistent width
-           * @return {?}
-           */
-
-        }, {
-          key: "justified",
-          get: function get() {
-            return this._justified;
-          }
-          /**
-           * @param {?} value
-           * @return {?}
-           */
-          ,
-          set: function set(value) {
-            this._justified = value;
-            this.setClassMap();
-          }
-          /**
-           * navigation context class: 'tabs' or 'pills'
-           * @return {?}
-           */
-
-        }, {
-          key: "type",
-          get: function get() {
-            return this._type;
-          }
-          /**
-           * @param {?} value
-           * @return {?}
-           */
-          ,
-          set: function set(value) {
-            this._type = value;
-            this.setClassMap();
-          }
-          /**
-           * @return {?}
-           */
-
-        }, {
-          key: "isKeysAllowed",
-          get: function get() {
-            return this._isKeysAllowed;
-          }
-          /**
-           * @param {?} value
-           * @return {?}
-           */
-          ,
-          set: function set(value) {
-            this._isKeysAllowed = value;
-          }
-          /**
-           * @return {?}
-           */
-
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.isDestroyed = true;
-          }
-          /**
-           * @param {?} tab
-           * @return {?}
-           */
-
-        }, {
-          key: "addTab",
-          value: function addTab(tab) {
-            this.tabs.push(tab);
-            tab.active = this.tabs.length === 1 && typeof tab.active === 'undefined';
-          }
-          /**
-           * @param {?} tab
-           * @param {?=} options
-           * @return {?}
-           */
-
-        }, {
-          key: "removeTab",
-          value: function removeTab(tab) {
-            var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-              reselect: true,
-              emit: true
-            };
-
-            /** @type {?} */
-            var index = this.tabs.indexOf(tab);
-
-            if (index === -1 || this.isDestroyed) {
-              return;
-            } // Select a new tab if the tab to be removed is selected and not destroyed
-
-
-            if (options.reselect && tab.active && this.hasAvailableTabs(index)) {
-              /** @type {?} */
-              var newActiveIndex = this.getClosestTabIndex(index);
-              this.tabs[newActiveIndex].active = true;
-            }
-
-            if (options.emit) {
-              tab.removed.emit(tab);
-            }
-
-            this.tabs.splice(index, 1);
-
-            if (tab.elementRef.nativeElement.parentNode) {
-              this.renderer.removeChild(tab.elementRef.nativeElement.parentNode, tab.elementRef.nativeElement);
-            }
-          }
-          /* tslint:disable-next-line: cyclomatic-complexity */
-
-          /**
-           * @param {?} event
-           * @param {?} index
-           * @return {?}
-           */
-
-        }, {
-          key: "keyNavActions",
-          value: function keyNavActions(event, index) {
-            if (!this.isKeysAllowed) {
-              return;
-            }
-            /** @type {?} */
-
-
-            var list = Array.from(this.elementRef.nativeElement.querySelectorAll('.nav-link')); // const activeElList = list.filter((el: HTMLElement) => !el.classList.contains('disabled'));
-            // tslint:disable-next-line:deprecation
-
-            if (event.keyCode === 13 || event.key === 'Enter' || event.keyCode === 32 || event.key === 'Space') {
-              event.preventDefault();
-              /** @type {?} */
-
-              var currentTab = list[index % list.length];
-              currentTab.click();
-              return;
-            } // tslint:disable-next-line:deprecation
-
-
-            if (event.keyCode === 39 || event.key === 'RightArrow') {
-              /** @type {?} */
-              var nextTab;
-              /** @type {?} */
-
-              var shift = 1;
-
-              do {
-                nextTab = list[(index + shift) % list.length];
-                shift++;
-              } while (nextTab.classList.contains('disabled'));
-
-              nextTab.focus();
-              return;
-            } // tslint:disable-next-line:deprecation
-
-
-            if (event.keyCode === 37 || event.key === 'LeftArrow') {
-              /** @type {?} */
-              var previousTab;
-              /** @type {?} */
-
-              var _shift = 1;
-              /** @type {?} */
-
-              var i = index;
-
-              do {
-                if (i - _shift < 0) {
-                  i = list.length - 1;
-                  previousTab = list[i];
-                  _shift = 0;
-                } else {
-                  previousTab = list[i - _shift];
-                }
-
-                _shift++;
-              } while (previousTab.classList.contains('disabled'));
-
-              previousTab.focus();
-              return;
-            } // tslint:disable-next-line:deprecation
-
-
-            if (event.keyCode === 36 || event.key === 'Home') {
-              event.preventDefault();
-              /** @type {?} */
-
-              var firstTab;
-              /** @type {?} */
-
-              var _shift2 = 0;
-
-              do {
-                firstTab = list[_shift2 % list.length];
-                _shift2++;
-              } while (firstTab.classList.contains('disabled'));
-
-              firstTab.focus();
-              return;
-            } // tslint:disable-next-line:deprecation
-
-
-            if (event.keyCode === 35 || event.key === 'End') {
-              event.preventDefault();
-              /** @type {?} */
-
-              var lastTab;
-              /** @type {?} */
-
-              var _shift3 = 1;
-              /** @type {?} */
-
-              var _i = index;
-
-              do {
-                if (_i - _shift3 < 0) {
-                  _i = list.length - 1;
-                  lastTab = list[_i];
-                  _shift3 = 0;
-                } else {
-                  lastTab = list[_i - _shift3];
-                }
-
-                _shift3++;
-              } while (lastTab.classList.contains('disabled'));
-
-              lastTab.focus();
-              return;
-            } // tslint:disable-next-line:deprecation
-
-
-            if (event.keyCode === 46 || event.key === 'Delete') {
-              if (this.tabs[index].removable) {
-                this.removeTab(this.tabs[index]);
-
-                if (list[index + 1]) {
-                  list[(index + 1) % list.length].focus();
-                  return;
-                }
-
-                if (list[list.length - 1]) {
-                  list[0].focus();
-                }
-              }
-            }
-          }
-          /**
-           * @protected
-           * @param {?} index
-           * @return {?}
-           */
-
-        }, {
-          key: "getClosestTabIndex",
-          value: function getClosestTabIndex(index) {
-            /** @type {?} */
-            var tabsLength = this.tabs.length;
-
-            if (!tabsLength) {
-              return -1;
-            }
-
-            for (var step = 1; step <= tabsLength; step += 1) {
-              /** @type {?} */
-              var prevIndex = index - step;
-              /** @type {?} */
-
-              var nextIndex = index + step;
-
-              if (this.tabs[prevIndex] && !this.tabs[prevIndex].disabled) {
-                return prevIndex;
-              }
-
-              if (this.tabs[nextIndex] && !this.tabs[nextIndex].disabled) {
-                return nextIndex;
-              }
-            }
-
-            return -1;
-          }
-          /**
-           * @protected
-           * @param {?} index
-           * @return {?}
-           */
-
-        }, {
-          key: "hasAvailableTabs",
-          value: function hasAvailableTabs(index) {
-            /** @type {?} */
-            var tabsLength = this.tabs.length;
-
-            if (!tabsLength) {
-              return false;
-            }
-
-            for (var i = 0; i < tabsLength; i += 1) {
-              if (!this.tabs[i].disabled && i !== index) {
-                return true;
-              }
-            }
-
-            return false;
-          }
-          /**
-           * @protected
-           * @return {?}
-           */
-
-        }, {
-          key: "setClassMap",
-          value: function setClassMap() {
-            this.classMap = _defineProperty({
-              'nav-stacked': this.vertical,
-              'flex-column': this.vertical,
-              'nav-justified': this.justified
-            }, "nav-".concat(this.type), true);
-          }
-        }]);
-
-        return TabsetComponent;
-      }();
-
-      TabsetComponent.ɵfac = function TabsetComponent_Factory(t) {
-        return new (t || TabsetComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](TabsetConfig), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]));
-      };
-
-      TabsetComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-        type: TabsetComponent,
-        selectors: [["tabset"]],
-        hostVars: 2,
-        hostBindings: function TabsetComponent_HostBindings(rf, ctx) {
-          if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("tab-container", ctx.clazz);
-          }
-        },
-        inputs: {
-          vertical: "vertical",
-          justified: "justified",
-          type: "type"
-        },
-        ngContentSelectors: _c1,
-        decls: 4,
-        vars: 3,
-        consts: [["role", "tablist", 1, "nav", 3, "ngClass", "click"], [3, "ngClass", "active", "disabled", "keydown", 4, "ngFor", "ngForOf"], [1, "tab-content"], [3, "ngClass", "keydown"], ["href", "javascript:void(0);", "role", "tab", 1, "nav-link", 3, "click"], [3, "ngTransclude"], ["class", "bs-remove-tab", 3, "click", 4, "ngIf"], [1, "bs-remove-tab", 3, "click"]],
-        template: function TabsetComponent_Template(rf, ctx) {
-          if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ul", 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TabsetComponent_Template_ul_click_0_listener($event) {
-              return $event.preventDefault();
-            });
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, TabsetComponent_li_1_Template, 5, 17, "li", 1);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-          }
-
-          if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx.classMap);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-label", ctx.ariaLabel);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.tabs);
-          }
-        },
-        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"], NgTranscludeDirective, _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"]],
-        styles: ["[_nghost-%COMP%]   .nav-tabs[_ngcontent-%COMP%]   .nav-item.disabled[_ngcontent-%COMP%]   a.disabled[_ngcontent-%COMP%]{cursor:default}"]
-      });
-      /** @nocollapse */
-
-      TabsetComponent.ctorParameters = function () {
-        return [{
-          type: TabsetConfig
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]
-        }];
-      };
-
-      TabsetComponent.propDecorators = {
-        vertical: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        justified: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        type: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        clazz: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-          args: ['class.tab-container']
-        }]
-      };
-
-      (function () {
-        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TabsetComponent, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-          args: [{
-            selector: 'tabset',
-            template: "<ul class=\"nav\" [ngClass]=\"classMap\"\n    (click)=\"$event.preventDefault()\"\n    [attr.aria-label]=\"ariaLabel\"\n    role=\"tablist\">\n  <li *ngFor=\"let tabz of tabs; let i = index\" [ngClass]=\"['nav-item', tabz.customClass || '']\"\n      [class.active]=\"tabz.active\" [class.disabled]=\"tabz.disabled\" (keydown)=\"keyNavActions($event, i)\">\n    <a href=\"javascript:void(0);\" class=\"nav-link\" role=\"tab\"\n       [attr.aria-controls]=\"tabz.id ? tabz.id : ''\"\n       [attr.aria-selected]=\"!!tabz.active\"\n       [attr.id]=\"tabz.id ? tabz.id + '-link' : ''\"\n       [class.active]=\"tabz.active\" [class.disabled]=\"tabz.disabled\"\n       (click)=\"tabz.active = true\">\n      <span [ngTransclude]=\"tabz.headingRef\">{{ tabz.heading }}</span>\n      <span *ngIf=\"tabz.removable\" (click)=\"$event.preventDefault(); removeTab(tabz);\" class=\"bs-remove-tab\"> &#10060;</span>\n    </a>\n  </li>\n</ul>\n<div class=\"tab-content\">\n  <ng-content></ng-content>\n</div>\n",
-            styles: [":host .nav-tabs .nav-item.disabled a.disabled{cursor:default}"]
-          }]
-        }], function () {
-          return [{
-            type: TabsetConfig
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]
-          }];
-        }, {
-          clazz: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-            args: ['class.tab-container']
-          }],
-          vertical: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }],
-          justified: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }],
-          type: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }]
-        });
-      })();
-
-      if (false) {}
-      /**
-       * @fileoverview added by tsickle
-       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-       */
-
-
-      var TabDirective = /*#__PURE__*/function () {
-        /**
-         * @param {?} tabset
-         * @param {?} elementRef
-         * @param {?} renderer
-         */
-        function TabDirective(tabset, elementRef, renderer) {
-          _classCallCheck(this, TabDirective);
-
-          this.elementRef = elementRef;
-          this.renderer = renderer;
-          /**
-           * fired when tab became active, $event:Tab equals to selected instance of Tab component
-           */
-
-          this.selectTab = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-          /**
-           * fired when tab became inactive, $event:Tab equals to deselected instance of Tab component
-           */
-
-          this.deselect = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-          /**
-           * fired before tab will be removed, $event:Tab equals to instance of removed tab
-           */
-
-          this.removed = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-          this.addClass = true;
-          this.role = 'tabpanel';
-          this.tabset = tabset;
-          this.tabset.addTab(this);
-        }
-        /**
-         * if set, will be added to the tab's class attribute. Multiple classes are supported.
-         * @return {?}
-         */
-
-
-        _createClass(TabDirective, [{
-          key: "customClass",
-          get: function get() {
-            return this._customClass;
-          }
-          /**
-           * @param {?} customClass
-           * @return {?}
-           */
-          ,
-          set: function set(customClass) {
-            var _this = this;
-
-            if (this.customClass) {
-              this.customClass.split(' ').forEach(
-              /**
-              * @param {?} cssClass
-              * @return {?}
-              */
-              function (cssClass) {
-                _this.renderer.removeClass(_this.elementRef.nativeElement, cssClass);
-              });
-            }
-
-            this._customClass = customClass ? customClass.trim() : null;
-
-            if (this.customClass) {
-              this.customClass.split(' ').forEach(
-              /**
-              * @param {?} cssClass
-              * @return {?}
-              */
-              function (cssClass) {
-                _this.renderer.addClass(_this.elementRef.nativeElement, cssClass);
-              });
-            }
-          }
-          /**
-           * tab active state toggle
-           * @return {?}
-           */
-
-        }, {
-          key: "active",
-          get: function get() {
-            return this._active;
-          }
-          /**
-           * @param {?} active
-           * @return {?}
-           */
-          ,
-          set: function set(active) {
-            var _this2 = this;
-
-            if (this._active === active) {
-              return;
-            }
-
-            if (this.disabled && active || !active) {
-              if (this._active && !active) {
-                this.deselect.emit(this);
-                this._active = active;
-              }
-
-              return;
-            }
-
-            this._active = active;
-            this.selectTab.emit(this);
-            this.tabset.tabs.forEach(
-            /**
-            * @param {?} tab
-            * @return {?}
-            */
-            function (tab) {
-              if (tab !== _this2) {
-                tab.active = false;
-              }
-            });
-          }
-          /**
-           * @return {?}
-           */
-
-        }, {
-          key: "ariaLabelledby",
-          get: function get() {
-            return this.id ? "".concat(this.id, "-link") : '';
-          }
-          /**
-           * @return {?}
-           */
-
-        }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            this.removable = this.removable;
-          }
-          /**
-           * @return {?}
-           */
-
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.tabset.removeTab(this, {
-              reselect: false,
-              emit: false
-            });
-          }
-        }]);
-
-        return TabDirective;
-      }();
-
-      TabDirective.ɵfac = function TabDirective_Factory(t) {
-        return new (t || TabDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](TabsetComponent), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]));
-      };
-
-      TabDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
-        type: TabDirective,
-        selectors: [["tab"], ["", "tab", ""]],
-        hostVars: 7,
-        hostBindings: function TabDirective_HostBindings(rf, ctx) {
-          if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("role", ctx.role)("aria-labelledby", ctx.ariaLabelledby)("id", ctx.id);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("tab-pane", ctx.addClass)("active", ctx.active);
-          }
-        },
-        inputs: {
-          customClass: "customClass",
-          active: "active",
-          removable: "removable",
-          heading: "heading",
-          id: "id",
-          disabled: "disabled"
-        },
-        outputs: {
-          selectTab: "selectTab",
-          deselect: "deselect",
-          removed: "removed"
-        },
-        exportAs: ["tab"]
-      });
-      /** @nocollapse */
-
-      TabDirective.ctorParameters = function () {
-        return [{
-          type: TabsetComponent
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]
-        }];
-      };
-
-      TabDirective.propDecorators = {
-        heading: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        id: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-          args: ['attr.id']
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        disabled: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        removable: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        customClass: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        active: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-          args: ['class.active']
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }],
-        selectTab: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-        }],
-        deselect: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-        }],
-        removed: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-        }],
-        addClass: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-          args: ['class.tab-pane']
-        }],
-        role: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-          args: ['attr.role']
-        }],
-        ariaLabelledby: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-          args: ['attr.aria-labelledby']
-        }]
-      };
-
-      (function () {
-        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TabDirective, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-          args: [{
-            selector: 'tab, [tab]',
-            exportAs: 'tab'
-          }]
-        }], function () {
-          return [{
-            type: TabsetComponent
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]
-          }];
-        }, {
-          selectTab: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-          }],
-          deselect: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-          }],
-          removed: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-          }],
-          addClass: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-            args: ['class.tab-pane']
-          }],
-          role: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-            args: ['attr.role']
-          }],
-          customClass: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }],
-          active: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-            args: ['class.active']
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }],
-          ariaLabelledby: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-            args: ['attr.aria-labelledby']
-          }],
-          removable: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }],
-          heading: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }],
-          id: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-            args: ['attr.id']
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }],
-          disabled: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }]
-        });
-      })();
-
-      if (false) {}
-      /**
-       * @fileoverview added by tsickle
-       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-       */
-
-      /**
-       * Should be used to mark <ng-template> element as a template for tab heading
-       */
-
-
-      var TabHeadingDirective =
-      /* tslint:disable-next-line:no-any */
-
-      /**
-       * @param {?} templateRef
-       * @param {?} tab
-       */
-      function TabHeadingDirective(templateRef, tab) {
-        _classCallCheck(this, TabHeadingDirective);
-
-        tab.headingRef = templateRef;
-      };
-
-      TabHeadingDirective.ɵfac = function TabHeadingDirective_Factory(t) {
-        return new (t || TabHeadingDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](TabDirective));
-      };
-
-      TabHeadingDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
-        type: TabHeadingDirective,
-        selectors: [["", "tabHeading", ""]]
-      });
-      /** @nocollapse */
-
-      TabHeadingDirective.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]
-        }, {
-          type: TabDirective
-        }];
-      };
-
-      (function () {
-        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TabHeadingDirective, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
-          args: [{
-            selector: '[tabHeading]'
-          }]
-        }], function () {
-          return [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]
-          }, {
-            type: TabDirective
-          }];
-        }, null);
-      })();
-
-      if (false) {}
-      /**
-       * @fileoverview added by tsickle
-       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-       */
-
-
-      var TabsModule = /*#__PURE__*/function () {
-        function TabsModule() {
-          _classCallCheck(this, TabsModule);
-        }
-
-        _createClass(TabsModule, null, [{
-          key: "forRoot",
-          value:
-          /**
-           * @return {?}
-           */
-          function forRoot() {
-            return {
-              ngModule: TabsModule,
-              providers: []
-            };
-          }
-        }]);
-
-        return TabsModule;
-      }();
-
-      TabsModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-        type: TabsModule
-      });
-      TabsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function TabsModule_Factory(t) {
-          return new (t || TabsModule)();
-        },
-        imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]]]
-      });
-
-      (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](TabsModule, {
-          declarations: function declarations() {
-            return [NgTranscludeDirective, TabDirective, TabsetComponent, TabHeadingDirective];
-          },
-          imports: function imports() {
-            return [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]];
-          },
-          exports: function exports() {
-            return [TabDirective, TabsetComponent, TabHeadingDirective, NgTranscludeDirective];
-          }
-        });
-      })();
-
-      (function () {
-        (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TabsModule, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-          args: [{
-            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]],
-            declarations: [NgTranscludeDirective, TabDirective, TabsetComponent, TabHeadingDirective],
-            exports: [TabDirective, TabsetComponent, TabHeadingDirective, NgTranscludeDirective]
-          }]
-        }], null, null);
-      })();
-      /**
-       * @fileoverview added by tsickle
-       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-       */
-
-      /**
-       * @fileoverview added by tsickle
-       * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-       */
-      //# sourceMappingURL=ngx-bootstrap-tabs.js.map
-
-      /***/
-
-    },
-
     /***/
     "38Bd":
     /*!**************************************************************************************!*\
@@ -4146,7 +2916,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this = this;
 
             this._tooltip.listen({
               triggers: this.triggers,
@@ -4155,7 +2925,7 @@
               * @return {?}
               */
               function show() {
-                return _this3.show();
+                return _this.show();
               }
             });
             /* tslint:disable-next-line:no-any */
@@ -4168,7 +2938,7 @@
             */
             function (value) {
               if (!value) {
-                _this3._tooltip.hide();
+                _this._tooltip.hide();
               }
             });
             this.onShown.subscribe(
@@ -4176,14 +2946,14 @@
             * @return {?}
             */
             function () {
-              _this3.setAriaDescribedBy();
+              _this.setAriaDescribedBy();
             });
             this.onHidden.subscribe(
             /**
             * @return {?}
             */
             function () {
-              _this3.setAriaDescribedBy();
+              _this.setAriaDescribedBy();
             });
           }
           /**
@@ -4225,7 +2995,7 @@
         }, {
           key: "show",
           value: function show() {
-            var _this4 = this;
+            var _this2 = this;
 
             this._positionService.setOptions({
               modifiers: {
@@ -4249,17 +3019,17 @@
             * @return {?}
             */
             function showTooltip() {
-              if (_this4._delayTimeoutId) {
-                _this4._delayTimeoutId = undefined;
+              if (_this2._delayTimeoutId) {
+                _this2._delayTimeoutId = undefined;
               }
 
-              _this4._tooltip.attach(TooltipContainerComponent).to(_this4.container).position({
-                attachment: _this4.placement
+              _this2._tooltip.attach(TooltipContainerComponent).to(_this2.container).position({
+                attachment: _this2.placement
               }).show({
-                content: _this4.tooltip,
-                placement: _this4.placement,
-                containerClass: _this4.containerClass,
-                id: "tooltip-".concat(_this4.tooltipId)
+                content: _this2.tooltip,
+                placement: _this2.placement,
+                containerClass: _this2.containerClass,
+                id: "tooltip-".concat(_this2.tooltipId)
               });
             };
             /** @type {?} */
@@ -4270,8 +3040,8 @@
             * @return {?}
             */
             function cancelDelayedTooltipShowing() {
-              if (_this4._tooltipCancelShowFn) {
-                _this4._tooltipCancelShowFn();
+              if (_this2._tooltipCancelShowFn) {
+                _this2._tooltipCancelShowFn();
               }
             };
 
@@ -4296,12 +3066,12 @@
                 * @return {?}
                 */
                 function (trigger) {
-                  _this4._tooltipCancelShowFn = _this4._renderer.listen(_this4._elementRef.nativeElement, trigger.close,
+                  _this2._tooltipCancelShowFn = _this2._renderer.listen(_this2._elementRef.nativeElement, trigger.close,
                   /**
                   * @return {?}
                   */
                   function () {
-                    _this4._delaySubscription.unsubscribe();
+                    _this2._delaySubscription.unsubscribe();
 
                     cancelDelayedTooltipShowing();
                   });
@@ -4320,7 +3090,7 @@
         }, {
           key: "hide",
           value: function hide() {
-            var _this5 = this;
+            var _this3 = this;
 
             if (this._delayTimeoutId) {
               clearTimeout(this._delayTimeoutId);
@@ -4337,7 +3107,7 @@
             * @return {?}
             */
             function () {
-              _this5._tooltip.hide();
+              _this3._tooltip.hide();
             }, this.tooltipFadeDuration);
           }
           /**
@@ -4826,36 +3596,36 @@
         }, {
           key: "getLists",
           value: function getLists() {
-            var _this6 = this;
+            var _this4 = this;
 
             this.loading = true;
             this.dataservice.getGroups().valueChanges.subscribe(function (result) {
               console.log("getGroups", result.data.groups);
-              _this6.groups = result.data.groups;
+              _this4.groups = result.data.groups;
             });
             this.activatedRouter.params.subscribe(function (params) {
-              _this6.id = params["id"];
+              _this4.id = params["id"];
             });
             this.dataservice.getSingleCustomer(this.id).valueChanges.subscribe(function (result) {
               console.log("getSingleCustomer", result.data.customer);
-              _this6.details = result.data.customer;
-              _this6.maplink = "https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=" + result.data.customer.Address.GeoLocation.Latitude.toString() + "," + " " + result.data.customer.Address.GeoLocation.Longitude.toString() + "&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed";
-              console.log(_this6.maplink);
-              _this6.agentForm = _this6.fb.group({
-                name: [_this6.details.Name, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                email: [_this6.details.Email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                phone1: [_this6.details.Contact_Number_1, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                phone2: [_this6.details.Contact_Number_2, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                phone3: [_this6.details.Contact_Number_3, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                group: [_this6.details.group.Name, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
+              _this4.details = result.data.customer;
+              _this4.maplink = "https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=" + result.data.customer.Address.GeoLocation.Latitude.toString() + "," + " " + result.data.customer.Address.GeoLocation.Longitude.toString() + "&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed";
+              console.log(_this4.maplink);
+              _this4.agentForm = _this4.fb.group({
+                name: [_this4.details.Name, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                email: [_this4.details.Email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                phone1: [_this4.details.Contact_Number_1, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                phone2: [_this4.details.Contact_Number_2, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                phone3: [_this4.details.Contact_Number_3, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                group: [_this4.details.group.Name, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
               });
-              _this6.loading = false;
+              _this4.loading = false;
             });
           }
         }, {
           key: "FormSubmit",
           value: function FormSubmit() {
-            var _this7 = this;
+            var _this5 = this;
 
             var resp = {};
             console.log(this.agentForm.value);
@@ -4866,7 +3636,7 @@
               if (result.data.updateTeleCallerContact) {
                 alert("Agent edited successfully!");
 
-                _this7.myModal.hide();
+                _this5.myModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -4875,7 +3645,7 @@
         }, {
           key: "CommentSubmit",
           value: function CommentSubmit() {
-            var _this8 = this;
+            var _this6 = this;
 
             var resp = {};
             console.log(this.commentForm.value);
@@ -4886,7 +3656,7 @@
               if (result.data.updateCustomer) {
                 alert("Comment added successfully!");
 
-                _this8.commentModal.hide();
+                _this6.commentModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -4895,7 +3665,7 @@
         }, {
           key: "deleteAgent",
           value: function deleteAgent() {
-            var _this9 = this;
+            var _this7 = this;
 
             var resp = {};
             this.dataservice.DeleteAgent(this.id).subscribe(function (result) {
@@ -4905,9 +3675,9 @@
               if (result.data.deleteTeleCallerContact) {
                 alert("Agent deleted successfully!");
 
-                _this9.router.navigate(["/telecaller/agents"]);
+                _this7.router.navigate(["/telecaller/agents"]);
 
-                _this9.deleteModal.hide();
+                _this7.deleteModal.hide();
               } else {
                 alert("Failed. Please check again!");
               }
@@ -5396,7 +4166,7 @@
         }, {
           key: "show",
           value: function show() {
-            var _this10 = this;
+            var _this8 = this;
 
             if (this._popover.isShown || !this.popover || this._delayTimeoutId) {
               return;
@@ -5420,29 +4190,29 @@
             * @return {?}
             */
             function showPopover() {
-              if (_this10._delayTimeoutId) {
-                _this10._delayTimeoutId = undefined;
+              if (_this8._delayTimeoutId) {
+                _this8._delayTimeoutId = undefined;
               }
 
-              _this10._popover.attach(PopoverContainerComponent).to(_this10.container).position({
-                attachment: _this10.placement
+              _this8._popover.attach(PopoverContainerComponent).to(_this8.container).position({
+                attachment: _this8.placement
               }).show({
-                content: _this10.popover,
-                context: _this10.popoverContext,
-                placement: _this10.placement,
-                title: _this10.popoverTitle,
-                containerClass: _this10.containerClass
+                content: _this8.popover,
+                context: _this8.popoverContext,
+                placement: _this8.placement,
+                title: _this8.popoverTitle,
+                containerClass: _this8.containerClass
               });
 
-              if (!_this10.adaptivePosition) {
-                _this10._positionService.calcPosition();
+              if (!_this8.adaptivePosition) {
+                _this8._positionService.calcPosition();
 
-                _this10._positionService.deletePositionElement(_this10._popover._componentRef.location);
+                _this8._positionService.deletePositionElement(_this8._popover._componentRef.location);
               }
 
-              _this10.isOpen = true;
+              _this8.isOpen = true;
 
-              _this10.setAriaDescribedBy();
+              _this8.setAriaDescribedBy();
             };
             /** @type {?} */
 
@@ -5452,8 +4222,8 @@
             * @return {?}
             */
             function cancelDelayedTooltipShowing() {
-              if (_this10._popoverCancelShowFn) {
-                _this10._popoverCancelShowFn();
+              if (_this8._popoverCancelShowFn) {
+                _this8._popoverCancelShowFn();
               }
             };
 
@@ -5475,7 +4245,7 @@
                 * @return {?}
                 */
                 function (trigger) {
-                  _this10._popoverCancelShowFn = _this10._renderer.listen(_this10._elementRef.nativeElement, trigger.close,
+                  _this8._popoverCancelShowFn = _this8._renderer.listen(_this8._elementRef.nativeElement, trigger.close,
                   /**
                   * @return {?}
                   */
@@ -5533,7 +4303,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this9 = this;
 
             // fix: seems there are an issue with `routerLinkActive`
             // which result in duplicated call ngOnInit without call to ngOnDestroy
@@ -5552,14 +4322,14 @@
               * @return {?}
               */
               function show() {
-                return _this11.show();
+                return _this9.show();
               },
               hide:
               /**
               * @return {?}
               */
               function hide() {
-                return _this11.hide();
+                return _this9.hide();
               }
             });
           }
@@ -6065,25 +4835,25 @@
         _createClass(AgentDetailComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this12 = this;
+            var _this10 = this;
 
             this.getLists();
             this.activatedRouter.params.subscribe(function (params) {
-              _this12.id = params["id"];
+              _this10.id = params["id"];
             });
             this.dataservice.getSingleAgent(this.id).valueChanges.subscribe(function (result) {
               console.log("getSingleAgent", result.data.teleCallerContact);
-              _this12.details = result.data.teleCallerContact;
-              _this12.agentForm = _this12.fb.group({
-                name: [_this12.details.Name, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                email: [_this12.details.Email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                phone1: [_this12.details.Contact_Number_1, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                phone2: [_this12.details.Contact_Number_2, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                phone3: [_this12.details.Contact_Number_3, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                group: [_this12.details.group.Name, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
+              _this10.details = result.data.teleCallerContact;
+              _this10.agentForm = _this10.fb.group({
+                name: [_this10.details.Name, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                email: [_this10.details.Email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                phone1: [_this10.details.Contact_Number_1, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                phone2: [_this10.details.Contact_Number_2, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                phone3: [_this10.details.Contact_Number_3, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+                group: [_this10.details.group.Name, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
               }); // console.log(new Date(this.details.telecaller_remarks[0].CallHistory.event_date_time))
 
-              _this12.loading = false;
+              _this10.loading = false;
             });
             this.customerForm = this.fb.group({
               NameOfBride: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
@@ -6100,16 +4870,16 @@
         }, {
           key: "getLists",
           value: function getLists() {
-            var _this13 = this;
+            var _this11 = this;
 
             this.loading = true;
             this.dataservice.getGroups().valueChanges.subscribe(function (result) {
               console.log("getGroups", result.data.groups);
-              _this13.groups = result.data.groups;
+              _this11.groups = result.data.groups;
             });
             this.dataservice.getLocalities().valueChanges.subscribe(function (result) {
               console.log("getLocalities", result.data.localities);
-              _this13.localities = result.data.localities;
+              _this11.localities = result.data.localities;
             });
           } // dateConverter(date) {
           //   return new Date(date);
@@ -6118,7 +4888,7 @@
         }, {
           key: "FormSubmit",
           value: function FormSubmit() {
-            var _this14 = this;
+            var _this12 = this;
 
             var resp = {};
             console.log(this.agentForm.value);
@@ -6129,7 +4899,7 @@
               if (result.data.updateTeleCallerContact) {
                 alert("Agent edited successfully!");
 
-                _this14.myModal.hide();
+                _this12.myModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -6138,7 +4908,7 @@
         }, {
           key: "customerSubmit",
           value: function customerSubmit() {
-            var _this15 = this;
+            var _this13 = this;
 
             var resp = {};
             console.log(this.customerForm.value);
@@ -6149,9 +4919,9 @@
               if (result.data.createCustomer) {
                 alert("customer added successfully!");
 
-                _this15.getLists();
+                _this13.getLists();
 
-                _this15.customerModal.hide();
+                _this13.customerModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -6160,7 +4930,7 @@
         }, {
           key: "CommentSubmit",
           value: function CommentSubmit() {
-            var _this16 = this;
+            var _this14 = this;
 
             var resp = {};
             console.log(this.commentForm.value);
@@ -6171,7 +4941,7 @@
               if (result.data.updateTeleCallerContact) {
                 alert("Comment added successfully!");
 
-                _this16.commentModal.hide();
+                _this14.commentModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -6180,7 +4950,7 @@
         }, {
           key: "deleteAgent",
           value: function deleteAgent() {
-            var _this17 = this;
+            var _this15 = this;
 
             var resp = {};
             this.dataservice.DeleteAgent(this.id).subscribe(function (result) {
@@ -6190,9 +4960,9 @@
               if (result.data.deleteTeleCallerContact) {
                 alert("Agent deleted successfully!");
 
-                _this17.router.navigate(["/order/order_processing"]);
+                _this15.router.navigate(["/order/order_processing"]);
 
-                _this17.deleteModal.hide();
+                _this15.deleteModal.hide();
               } else {
                 alert("Failed. Please check again!");
               }
@@ -6446,7 +5216,7 @@
         }, {
           key: "hide",
           value: function hide() {
-            var _this18 = this;
+            var _this16 = this;
 
             this.isCollapsing = true;
             this.isExpanded = false;
@@ -6459,17 +5229,17 @@
             * @return {?}
             */
             function () {
-              _this18._isAnimationDone = true;
+              _this16._isAnimationDone = true;
 
-              if (_this18.collapseNewValue !== _this18.isCollapsed && _this18.isAnimated) {
-                _this18.show();
+              if (_this16.collapseNewValue !== _this16.isCollapsed && _this16.isAnimated) {
+                _this16.show();
 
                 return;
               }
 
-              _this18.collapsed.emit(_this18);
+              _this16.collapsed.emit(_this16);
 
-              _this18._renderer.setStyle(_this18._el.nativeElement, 'display', 'none');
+              _this16._renderer.setStyle(_this16._el.nativeElement, 'display', 'none');
             });
           }
           /**
@@ -6480,7 +5250,7 @@
         }, {
           key: "show",
           value: function show() {
-            var _this19 = this;
+            var _this17 = this;
 
             this._renderer.setStyle(this._el.nativeElement, 'display', this._display);
 
@@ -6495,17 +5265,17 @@
             * @return {?}
             */
             function () {
-              _this19._isAnimationDone = true;
+              _this17._isAnimationDone = true;
 
-              if (_this19.collapseNewValue !== _this19.isCollapsed && _this19.isAnimated) {
-                _this19.hide();
+              if (_this17.collapseNewValue !== _this17.isCollapsed && _this17.isAnimated) {
+                _this17.hide();
 
                 return;
               }
 
-              _this19.expanded.emit(_this19);
+              _this17.expanded.emit(_this17);
 
-              _this19._renderer.removeStyle(_this19._el.nativeElement, 'overflow');
+              _this17._renderer.removeStyle(_this17._el.nativeElement, 'overflow');
             });
           }
           /**
@@ -6517,7 +5287,7 @@
         }, {
           key: "animationRun",
           value: function animationRun(isAnimated, action) {
-            var _this20 = this;
+            var _this18 = this;
 
             if (!isAnimated || !this._stylesLoaded) {
               return (
@@ -6553,7 +5323,7 @@
               * @return {?}
               */
               function (callback) {
-                return _this20._player.onDone(callback);
+                return _this18._player.onDone(callback);
               }
             );
           }
@@ -6974,7 +5744,7 @@
 
       var Touches = /*#__PURE__*/function () {
         function Touches(properties) {
-          var _this21 = this;
+          var _this19 = this;
 
           _classCallCheck(this, Touches);
 
@@ -7009,14 +5779,14 @@
           /* Touchstart */
 
           this.handleTouchstart = function (event) {
-            _this21.elementPosition = _this21.getElementPosition();
-            _this21.touchstartTime = new Date().getTime();
+            _this19.elementPosition = _this19.getElementPosition();
+            _this19.touchstartTime = new Date().getTime();
 
-            if (_this21.eventType === undefined) {
-              _this21.getTouchstartPosition(event);
+            if (_this19.eventType === undefined) {
+              _this19.getTouchstartPosition(event);
             }
 
-            _this21.runHandler("touchstart", event);
+            _this19.runHandler("touchstart", event);
           };
           /* Touchmove */
 
@@ -7024,35 +5794,35 @@
           this.handleTouchmove = function (event) {
             var touches = event.touches; // Pan
 
-            if (_this21.detectPan(touches)) {
-              _this21.runHandler("pan", event);
+            if (_this19.detectPan(touches)) {
+              _this19.runHandler("pan", event);
             } // Pinch
 
 
-            if (_this21.detectPinch(event)) {
-              _this21.runHandler("pinch", event);
+            if (_this19.detectPinch(event)) {
+              _this19.runHandler("pinch", event);
             } // Linear swipe
 
 
-            switch (_this21.detectLinearSwipe(event)) {
+            switch (_this19.detectLinearSwipe(event)) {
               case "horizontal-swipe":
                 event.swipeType = "horizontal-swipe";
 
-                _this21.runHandler("horizontal-swipe", event);
+                _this19.runHandler("horizontal-swipe", event);
 
                 break;
 
               case "vertical-swipe":
                 event.swipeType = "vertical-swipe";
 
-                _this21.runHandler("vertical-swipe", event);
+                _this19.runHandler("vertical-swipe", event);
 
                 break;
             } // Linear swipe
 
 
-            if (_this21.detectLinearSwipe(event) || _this21.eventType === 'horizontal-swipe' || _this21.eventType === 'vertical-swipe') {
-              _this21.handleLinearSwipe(event);
+            if (_this19.detectLinearSwipe(event) || _this19.eventType === 'horizontal-swipe' || _this19.eventType === 'vertical-swipe') {
+              _this19.handleLinearSwipe(event);
             }
           };
           /* Touchend */
@@ -7061,68 +5831,68 @@
           this.handleTouchend = function (event) {
             var touches = event.touches; // Double Tap
 
-            if (_this21.detectDoubleTap()) {
-              _this21.runHandler("double-tap", event);
+            if (_this19.detectDoubleTap()) {
+              _this19.runHandler("double-tap", event);
             } // Tap
 
 
-            _this21.detectTap();
+            _this19.detectTap();
 
-            _this21.runHandler("touchend", event);
+            _this19.runHandler("touchend", event);
 
-            _this21.eventType = 'touchend';
+            _this19.eventType = 'touchend';
 
             if (touches && touches.length === 0) {
-              _this21.eventType = undefined;
-              _this21.i = 0;
+              _this19.eventType = undefined;
+              _this19.i = 0;
             }
           };
           /* Mousedown */
 
 
           this.handleMousedown = function (event) {
-            _this21.isMousedown = true;
-            _this21.elementPosition = _this21.getElementPosition();
-            _this21.touchstartTime = new Date().getTime();
+            _this19.isMousedown = true;
+            _this19.elementPosition = _this19.getElementPosition();
+            _this19.touchstartTime = new Date().getTime();
 
-            if (_this21.eventType === undefined) {
-              _this21.getMousedownPosition(event);
+            if (_this19.eventType === undefined) {
+              _this19.getMousedownPosition(event);
             }
 
-            _this21.runHandler("mousedown", event);
+            _this19.runHandler("mousedown", event);
           };
           /* Mousemove */
 
 
           this.handleMousemove = function (event) {
             //event.preventDefault();
-            if (!_this21.isMousedown) {
+            if (!_this19.isMousedown) {
               return;
             } // Pan
 
 
-            _this21.runHandler("pan", event); // Linear swipe
+            _this19.runHandler("pan", event); // Linear swipe
 
 
-            switch (_this21.detectLinearSwipe(event)) {
+            switch (_this19.detectLinearSwipe(event)) {
               case "horizontal-swipe":
                 event.swipeType = "horizontal-swipe";
 
-                _this21.runHandler("horizontal-swipe", event);
+                _this19.runHandler("horizontal-swipe", event);
 
                 break;
 
               case "vertical-swipe":
                 event.swipeType = "vertical-swipe";
 
-                _this21.runHandler("vertical-swipe", event);
+                _this19.runHandler("vertical-swipe", event);
 
                 break;
             } // Linear swipe
 
 
-            if (_this21.detectLinearSwipe(event) || _this21.eventType === 'horizontal-swipe' || _this21.eventType === 'vertical-swipe') {
-              _this21.handleLinearSwipe(event);
+            if (_this19.detectLinearSwipe(event) || _this19.eventType === 'horizontal-swipe' || _this19.eventType === 'vertical-swipe') {
+              _this19.handleLinearSwipe(event);
             }
           };
           /* Mouseup */
@@ -7130,26 +5900,26 @@
 
           this.handleMouseup = function (event) {
             // Tap
-            _this21.detectTap();
+            _this19.detectTap();
 
-            _this21.isMousedown = false;
+            _this19.isMousedown = false;
 
-            _this21.runHandler("mouseup", event);
+            _this19.runHandler("mouseup", event);
 
-            _this21.eventType = undefined;
-            _this21.i = 0;
+            _this19.eventType = undefined;
+            _this19.i = 0;
           };
           /* Wheel */
 
 
           this.handleWheel = function (event) {
-            _this21.runHandler("wheel", event);
+            _this19.runHandler("wheel", event);
           };
           /* Resize */
 
 
           this.handleResize = function (event) {
-            _this21.runHandler("resize", event);
+            _this19.runHandler("resize", event);
           };
 
           this.properties = properties;
@@ -7272,7 +6042,7 @@
         }, {
           key: "detectDoubleTap",
           value: function detectDoubleTap() {
-            var _this22 = this;
+            var _this20 = this;
 
             if (this.eventType != undefined) {
               return;
@@ -7286,7 +6056,7 @@
               return true;
             } else {
               this.doubleTapTimeout = setTimeout(function () {
-                clearTimeout(_this22.doubleTapTimeout);
+                clearTimeout(_this20.doubleTapTimeout);
               }, this.doubleTapMinTimeout);
             }
 
@@ -7420,7 +6190,7 @@
 
       var Carousel = /*#__PURE__*/function () {
         function Carousel(properties, utils, cells, container, slide) {
-          var _this23 = this;
+          var _this21 = this;
 
           _classCallCheck(this, Carousel);
 
@@ -7437,31 +6207,31 @@
           this.containerPullLimit = 100;
 
           this.handleTouchstart = function (event) {
-            _this23.container.handleTouchstart();
+            _this21.container.handleTouchstart();
 
-            _this23.slide.handleTouchstart(event);
+            _this21.slide.handleTouchstart(event);
           };
 
           this.handleHorizontalSwipe = function (event) {
-            _this23.container.handleHorizontalSwipe();
+            _this21.container.handleHorizontalSwipe();
           };
 
           this.handleTouchend = function (event) {
-            if (_this23.properties.freeScroll) {
-              _this23.container.handleTouchend();
+            if (_this21.properties.freeScroll) {
+              _this21.container.handleTouchend();
             } else {
-              _this23.container.handleTouchend(true);
+              _this21.container.handleTouchend(true);
 
-              _this23.slide.handleTouchend(event);
+              _this21.slide.handleTouchend(event);
             }
           };
 
           this.isNextArrowDisabled = function () {
-            return _this23.slide.isNextArrowDisabled();
+            return _this21.slide.isNextArrowDisabled();
           };
 
           this.isPrevArrowDisabled = function () {
-            return _this23.slide.isPrevArrowDisabled();
+            return _this21.slide.isPrevArrowDisabled();
           };
 
           this.init();
@@ -7604,10 +6374,10 @@
         }, {
           key: "autoplay",
           value: function autoplay() {
-            var _this24 = this;
+            var _this22 = this;
 
             this.autoplayId = setInterval(function () {
-              _this24.next();
+              _this22.next();
             }, this.properties.autoplayInterval);
           }
         }, {
@@ -8826,7 +7596,7 @@
 
       var CarouselComponent = /*#__PURE__*/function () {
         function CarouselComponent(elementRef, ref) {
-          var _this25 = this;
+          var _this23 = this;
 
           _classCallCheck(this, CarouselComponent);
 
@@ -8858,39 +7628,39 @@
 
           this.handleTouchstart = function (event) {
             //event.preventDefault();
-            _this25.touches.addEventListeners("mousemove", "handleMousemove");
+            _this23.touches.addEventListeners("mousemove", "handleMousemove");
 
-            _this25.carousel.handleTouchstart(event);
+            _this23.carousel.handleTouchstart(event);
 
-            _this25.isMoving = true;
+            _this23.isMoving = true;
           };
 
           this.handleHorizontalSwipe = function (event) {
             event.preventDefault();
 
-            _this25.carousel.handleHorizontalSwipe(event);
+            _this23.carousel.handleHorizontalSwipe(event);
           };
 
           this.handleTouchend = function (event) {
             var touches = event.touches;
 
-            _this25.carousel.handleTouchend(event);
+            _this23.carousel.handleTouchend(event);
 
-            _this25.touches.removeEventListeners("mousemove", "handleMousemove");
+            _this23.touches.removeEventListeners("mousemove", "handleMousemove");
 
-            _this25.isMoving = false;
+            _this23.isMoving = false;
           };
 
           this.handleTap = function (event) {
             var outboundEvent = {
               name: 'click'
             };
-            var nodes = Array.prototype.slice.call(_this25.cellsElement.children);
+            var nodes = Array.prototype.slice.call(_this23.cellsElement.children);
             var cellElement = event.srcElement.closest(".carousel-cell");
             var i = nodes.indexOf(cellElement);
             var cellIndex = nodes.indexOf(cellElement);
 
-            if (_this25.images) {//outboundEvent.fileIndex = this.carousel.getFileIndex(i);
+            if (_this23.images) {//outboundEvent.fileIndex = this.carousel.getFileIndex(i);
               //outboundEvent.file = this.carousel.getFile(cellIndex);
             } else {
               outboundEvent.cellIndex = cellIndex;
@@ -9120,10 +7890,10 @@
         }, {
           key: "detectDomChanges",
           value: function detectDomChanges() {
-            var _this26 = this;
+            var _this24 = this;
 
             var observer = new MutationObserver(function (mutations) {
-              _this26.onDomChanges();
+              _this24.onDomChanges();
             });
             var config = {
               attributes: true,
@@ -9773,7 +8543,7 @@
         }, {
           key: "getLists",
           value: function getLists() {
-            var _this27 = this;
+            var _this25 = this;
 
             var filter = {
               added_by_user: localStorage.getItem("uid")
@@ -9781,19 +8551,19 @@
             this.loading = true;
             this.dataservice.getCustomersFilter(filter).valueChanges.subscribe(function (result) {
               console.log("getCustomers", result.data.customers);
-              _this27.rowData = result.data.customers;
+              _this25.rowData = result.data.customers;
             });
             this.dataservice.getLocalities().valueChanges.subscribe(function (result) {
               console.log("getLocalities", result.data.localities);
-              _this27.localities = result.data.localities;
+              _this25.localities = result.data.localities;
             });
             this.dataservice.getPostOffices().valueChanges.subscribe(function (result) {
               console.log("getPostOffices", result.data.postOffices);
-              _this27.postoffices = result.data.postOffices;
+              _this25.postoffices = result.data.postOffices;
             });
             this.dataservice.getAgents().valueChanges.subscribe(function (result) {
               console.log("getAgents", result.data.teleCallerContacts);
-              _this27.agents = result.data.teleCallerContacts;
+              _this25.agents = result.data.teleCallerContacts;
             });
           }
         }, {
@@ -9816,7 +8586,7 @@
         }, {
           key: "FormSubmit",
           value: function FormSubmit() {
-            var _this28 = this;
+            var _this26 = this;
 
             var resp = {};
             console.log(this.customerForm.value);
@@ -9827,9 +8597,9 @@
               if (result.data.createCustomer) {
                 alert("customer added successfully!");
 
-                _this28.getLists();
+                _this26.getLists();
 
-                _this28.myModal.hide();
+                _this26.myModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }
@@ -10170,16 +8940,16 @@
         }, {
           key: "getLists",
           value: function getLists() {
-            var _this29 = this;
+            var _this27 = this;
 
             this.loading = true;
             this.dataservice.getfilteredAgents(localStorage.getItem("uid")).valueChanges.subscribe(function (result) {
               console.log("getAgents", result.data.teleCallerContacts);
-              _this29.rowData = result.data.teleCallerContacts;
+              _this27.rowData = result.data.teleCallerContacts;
             });
             this.dataservice.getGroups().valueChanges.subscribe(function (result) {
               console.log("getGroups", result.data.groups);
-              _this29.groups = result.data.groups;
+              _this27.groups = result.data.groups;
             });
           }
         }, {
@@ -10202,7 +8972,7 @@
         }, {
           key: "FormSubmit",
           value: function FormSubmit() {
-            var _this30 = this;
+            var _this28 = this;
 
             var resp = {};
             console.log(this.agentForm.value);
@@ -10213,9 +8983,9 @@
               if (result.data.createTeleCallerContact) {
                 alert("Agent added successfully!");
 
-                _this30.getLists();
+                _this28.getLists();
 
-                _this30.myModal.hide();
+                _this28.myModal.hide();
               } else {
                 alert("Failed. Please check the fields!");
               }

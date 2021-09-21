@@ -4,12 +4,96 @@
       <h2>{{title}} List</h2>
     </div>
     <div class="card-body">
+      <form [formGroup]="filterForm" class="form-inline" (ngSubmit)="filterSubmit()">
+        <div class="form-group">
+          <label class="visually-hidden" for="year">Year</label>
+          <select class="form-control" id="year" name="year" formControlName="year">
+            <option *ngFor="let item of years" value="{{ item.year }}">
+              {{ item.year }}
+            </option>
+          </select>
+        </div>
+        <div class="ml-3 form-group">
+          <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+      </form>
+
       <div class="row">
         <div class="col-12">
-          <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
-            [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
-            (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
-          </ag-grid-angular>
+          <tabset>
+            <tab heading="January">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="February">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="March">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="April">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="May">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="June">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="July">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="August">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="September">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="October">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="November">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+            <tab heading="December">
+              <ag-grid-angular #agGrid style="width: 100%; height: 500px" id="myGrid" class="ag-theme-alpine"
+                [columnDefs]="columnDefs" [rowData]="rowData" [rowSelection]="rowSelection"
+                (gridReady)="onGridReady($event)" (selectionChanged)="onSelectionChanged($event)" animateRows="true">
+              </ag-grid-angular>
+            </tab>
+          </tabset>
         </div>
       </div>
     </div>

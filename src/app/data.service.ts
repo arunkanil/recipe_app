@@ -276,6 +276,8 @@ const CustomersFilterQuery = gql`
     $added_by_user: ID
     $MarriageMonth_null: Boolean
     $MarriageDate_null: Boolean
+    $MarriageDate_gte: String
+    $MarriageDate_lte: String
   ) {
     customers(
       where: {
@@ -285,6 +287,8 @@ const CustomersFilterQuery = gql`
         MarriageDate_null: $MarriageDate_null
         MarriageMonth_null: $MarriageMonth_null
         added_by_user: $added_by_user
+        MarriageDate_gte: $MarriageDate_gte
+        MarriageDate_lte: $MarriageDate_lte
       }
     ) {
       id

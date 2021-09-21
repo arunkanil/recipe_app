@@ -792,6 +792,8 @@ const CustomersFilterQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] 
     $added_by_user: ID
     $MarriageMonth_null: Boolean
     $MarriageDate_null: Boolean
+    $MarriageDate_gte: String
+    $MarriageDate_lte: String
   ) {
     customers(
       where: {
@@ -801,6 +803,8 @@ const CustomersFilterQuery = apollo_angular__WEBPACK_IMPORTED_MODULE_4__["gql"] 
         MarriageDate_null: $MarriageDate_null
         MarriageMonth_null: $MarriageMonth_null
         added_by_user: $added_by_user
+        MarriageDate_gte: $MarriageDate_gte
+        MarriageDate_lte: $MarriageDate_lte
       }
     ) {
       id
@@ -1649,7 +1653,7 @@ const routes = [
         children: [
             {
                 path: 'telecaller',
-                loadChildren: () => Promise.all(/*! import() | views-telecaller-telecaller-module */[__webpack_require__.e("default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module"), __webpack_require__.e("views-telecaller-telecaller-module")]).then(__webpack_require__.bind(null, /*! ./views/telecaller/telecaller.module */ "ZTOn")).then(m => m.TelecallerModule)
+                loadChildren: () => Promise.all(/*! import() | views-telecaller-telecaller-module */[__webpack_require__.e("default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module"), __webpack_require__.e("default~views-kpcaller-kpcaller-module~views-telecaller-telecaller-module"), __webpack_require__.e("views-telecaller-telecaller-module")]).then(__webpack_require__.bind(null, /*! ./views/telecaller/telecaller.module */ "ZTOn")).then(m => m.TelecallerModule)
             },
             {
                 path: 'manager',
@@ -1657,7 +1661,7 @@ const routes = [
             },
             {
                 path: 'kpcaller',
-                loadChildren: () => Promise.all(/*! import() | views-kpcaller-kpcaller-module */[__webpack_require__.e("default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module"), __webpack_require__.e("views-kpcaller-kpcaller-module")]).then(__webpack_require__.bind(null, /*! ./views/kpcaller/kpcaller.module */ "/oiM")).then(m => m.KpCallerModule)
+                loadChildren: () => Promise.all(/*! import() | views-kpcaller-kpcaller-module */[__webpack_require__.e("default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module"), __webpack_require__.e("default~views-kpcaller-kpcaller-module~views-telecaller-telecaller-module"), __webpack_require__.e("views-kpcaller-kpcaller-module")]).then(__webpack_require__.bind(null, /*! ./views/kpcaller/kpcaller.module */ "/oiM")).then(m => m.KpCallerModule)
             },
             {
                 path: 'dashboard',

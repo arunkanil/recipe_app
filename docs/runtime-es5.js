@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module":"default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module","views-kpcaller-kpcaller-module":"views-kpcaller-kpcaller-module","views-manager-manager-module":"views-manager-manager-module","views-telecaller-telecaller-module":"views-telecaller-telecaller-module","views-dashboard-dashboard-module":"views-dashboard-dashboard-module"}[chunkId]||chunkId) +    "-es5.js"
+/******/ 		return __webpack_require__.p + "" + ({"default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module":"default~views-kpcaller-kpcaller-module~views-manager-manager-module~views-telecaller-telecaller-module","default~views-kpcaller-kpcaller-module~views-telecaller-telecaller-module":"default~views-kpcaller-kpcaller-module~views-telecaller-telecaller-module","views-kpcaller-kpcaller-module":"views-kpcaller-kpcaller-module","views-telecaller-telecaller-module":"views-telecaller-telecaller-module","views-manager-manager-module":"views-manager-manager-module","views-dashboard-dashboard-module":"views-dashboard-dashboard-module"}[chunkId]||chunkId) +    "-es5.js"
 /******/ 	}
 /******/
 /******/ 	// The require function

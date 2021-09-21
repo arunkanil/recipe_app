@@ -16,16 +16,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var _caller_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./caller_list.component */ "K6r/");
 /* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "FE24");
-/* harmony import */ var _kpcaller_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./kpcaller-routing.module */ "0JAA");
-/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ag-grid-angular */ "YFAK");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-bootstrap/modal */ "LqlI");
-/* harmony import */ var _customerdetail_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./customerdetail.component */ "N1zO");
+/* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "2ZVE");
+/* harmony import */ var _kpcaller_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./kpcaller-routing.module */ "0JAA");
+/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ag-grid-angular */ "YFAK");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-bootstrap/modal */ "LqlI");
+/* harmony import */ var _customerdetail_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./customerdetail.component */ "N1zO");
 
 
 
 
 
 // Dropdowns Component
+
 
 // Buttons Routing
 
@@ -39,16 +41,17 @@ KpCallerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+            ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_6__["TabsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-            ag_grid_angular__WEBPACK_IMPORTED_MODULE_7__["AgGridModule"].withComponents([]),
-            _kpcaller_routing_module__WEBPACK_IMPORTED_MODULE_6__["KpCallerRoutingModule"],
+            ag_grid_angular__WEBPACK_IMPORTED_MODULE_8__["AgGridModule"].withComponents([]),
+            _kpcaller_routing_module__WEBPACK_IMPORTED_MODULE_7__["KpCallerRoutingModule"],
             ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_5__["BsDropdownModule"].forRoot(),
-            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_8__["ModalModule"].forRoot(),
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__["ModalModule"].forRoot(),
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
         ],
         declarations: [
             _caller_list_component__WEBPACK_IMPORTED_MODULE_4__["ButtonsComponent"],
-            _customerdetail_component__WEBPACK_IMPORTED_MODULE_9__["KPCustomerDetailComponent"]
+            _customerdetail_component__WEBPACK_IMPORTED_MODULE_10__["KPCustomerDetailComponent"]
         ]
     })
 ], KpCallerModule);
@@ -153,8 +156,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_caller_list_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./caller_list.component.html */ "z2NA");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "iInd");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
-/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "s7LF");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
+/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+
 
 
 
@@ -162,45 +167,59 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ButtonsComponent = class ButtonsComponent {
-    constructor(dataservice, router) {
+    constructor(dataservice, router, fb) {
         this.dataservice = dataservice;
         this.router = router;
+        this.fb = fb;
+        this.filterForm = this.fb.group({
+            year: [new Date().getFullYear(), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
+        });
         this.loading = true;
         this.btnLoading = false;
         this.title = "Verification";
         this.orders = {};
         this.columnDefs = [];
         this.rowData = [];
-        this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_5__["customersColumn"]];
+        this.selectedYear = new Date().getFullYear();
+        this.years = [];
+        this.filter = {};
+        this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__["customersColumn"]];
         this.rowSelection = "single";
     }
     ngOnInit() {
-        this.getLists();
-        console.log(this.router);
-    }
-    getLists() {
         this.loading = true;
-        let filter = {};
         if (this.router.url === "/kpcaller/verification") {
-            filter = {
+            this.filter = {
                 is_verified: false,
             };
             this.title = "Verification";
         }
         else if (this.router.url === "/kpcaller/assigned") {
-            filter = {
+            this.filter = {
                 kp_id: localStorage.getItem("uid"),
             };
             this.title = "Assigned";
         }
         else {
-            filter = {
+            this.filter = {
                 MarriageDate_null: true,
             };
             this.title = "Date Not Fixed";
-            this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_5__["DNFcustomersColumn"]];
+            this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__["DNFcustomersColumn"]];
         }
-        this.dataservice.getCustomersFilter(filter).valueChanges.subscribe((result) => {
+        this.getLists(this.filter);
+        console.log(this.router);
+        let max = new Date().getFullYear() + 10;
+        var min = max - 20;
+        for (var i = max; i >= min; i--) {
+            this.years.push({ year: i });
+        }
+        console.log(this.selectedYear);
+    }
+    getLists(filter) {
+        this.dataservice
+            .getCustomersFilter(filter)
+            .valueChanges.subscribe((result) => {
             console.log("getCustomersFilter", result.data.customers);
             this.rowData = result.data.customers;
         });
@@ -216,17 +235,24 @@ let ButtonsComponent = class ButtonsComponent {
             state: { data: selectedRows },
         });
     }
+    filterSubmit() {
+        this.filter = Object.assign(Object.assign({}, this.filter), { MarriageDate_gte: this.filterForm.value.year + "-01" + "-01", MarriageDate_lte: this.filterForm.value.year + "-12" + "-31" });
+        console.log(this.filterForm.value, this.filter);
+        this.getLists(this.filter);
+    }
 };
 ButtonsComponent.ctorParameters = () => [
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
 ];
 ButtonsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
-        template: _raw_loader_caller_list_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
+        template: _raw_loader_caller_list_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
 ], ButtonsComponent);
 
 
@@ -359,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n      <h2>{{title}} List</h2>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n            [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n            (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n          </ag-grid-angular>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n      <h2>{{title}} List</h2>\n    </div>\n    <div class=\"card-body\">\n      <form [formGroup]=\"filterForm\" class=\"form-inline\" (ngSubmit)=\"filterSubmit()\">\n        <div class=\"form-group\">\n          <label class=\"visually-hidden\" for=\"year\">Year</label>\n          <select class=\"form-control\" id=\"year\" name=\"year\" formControlName=\"year\">\n            <option *ngFor=\"let item of years\" value=\"{{ item.year }}\">\n              {{ item.year }}\n            </option>\n          </select>\n        </div>\n        <div class=\"ml-3 form-group\">\n          <button type=\"submit\" class=\"btn btn-primary\">Filter</button>\n        </div>\n      </form>\n\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <tabset>\n            <tab heading=\"January\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"February\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"March\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"April\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"May\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"June\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"July\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"August\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"September\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"October\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"November\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"December\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n          </tabset>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>");
 
 /***/ })
 
