@@ -1617,8 +1617,9 @@ class ModalModule {
         };
     }
 }
+ModalModule.ɵfac = function ModalModule_Factory(t) { return new (t || ModalModule)(); };
 ModalModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: ModalModule });
-ModalModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function ModalModule_Factory(t) { return new (t || ModalModule)(); } });
+ModalModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({});
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ModalModule, { declarations: [ModalBackdropComponent, ModalDirective, ModalContainerComponent], exports: [ModalBackdropComponent, ModalDirective] }); })();
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ModalModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],

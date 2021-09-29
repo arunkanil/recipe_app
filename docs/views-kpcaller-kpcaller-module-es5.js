@@ -5,7 +5,7 @@
 
   function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-  function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+  function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
   function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -19,15 +19,7 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["views-kpcaller-kpcaller-module"], {
     /***/
-    "/oiM":
-    /*!***************************************************!*\
-      !*** ./src/app/views/kpcaller/kpcaller.module.ts ***!
-      \***************************************************/
-
-    /*! exports provided: KpCallerModule */
-
-    /***/
-    function oiM(module, __webpack_exports__, __webpack_require__) {
+    "/oiM": function oiM(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -119,15 +111,7 @@
     },
 
     /***/
-    "0JAA":
-    /*!***********************************************************!*\
-      !*** ./src/app/views/kpcaller/kpcaller-routing.module.ts ***!
-      \***********************************************************/
-
-    /*! exports provided: KpCallerRoutingModule */
-
-    /***/
-    function JAA(module, __webpack_exports__, __webpack_require__) {
+    "0JAA": function JAA(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -226,15 +210,7 @@
     },
 
     /***/
-    "K6r/":
-    /*!*********************************************************!*\
-      !*** ./src/app/views/kpcaller/caller_list.component.ts ***!
-      \*********************************************************/
-
-    /*! exports provided: ButtonsComponent */
-
-    /***/
-    function K6r(module, __webpack_exports__, __webpack_require__) {
+    "K6r/": function K6r(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -277,23 +253,30 @@
       /* harmony import */
 
 
-      var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ngx-toastr */
+      "5eHb");
+      /* harmony import */
+
+
+      var _data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ../../data.service */
       "R7Hv");
       /* harmony import */
 
 
-      var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ../../constants/columnMetadata */
       "7nfi");
 
       var ButtonsComponent = /*#__PURE__*/function () {
-        function ButtonsComponent(dataservice, router, fb) {
+        function ButtonsComponent(dataservice, router, fb, toastr) {
           _classCallCheck(this, ButtonsComponent);
 
           this.dataservice = dataservice;
           this.router = router;
           this.fb = fb;
+          this.toastr = toastr;
           this.filterForm = this.fb.group({
             year: [new Date().getFullYear(), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
           });
@@ -303,10 +286,22 @@
           this.orders = {};
           this.columnDefs = [];
           this.rowData = [];
+          this.January = [];
+          this.February = [];
+          this.March = [];
+          this.April = [];
+          this.May = [];
+          this.June = [];
+          this.July = [];
+          this.August = [];
+          this.September = [];
+          this.October = [];
+          this.November = [];
+          this.December = [];
           this.selectedYear = new Date().getFullYear();
           this.years = [];
           this.filter = {};
-          this.columnDefs = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__["customersColumn"]);
+          this.columnDefs = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["customersColumn"]);
           this.rowSelection = "single";
         }
 
@@ -330,7 +325,7 @@
                 MarriageDate_null: true
               };
               this.title = "Date Not Fixed";
-              this.columnDefs = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__["DNFcustomersColumn"]);
+              this.columnDefs = _toConsumableArray(_constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["DNFcustomersColumn"]);
             }
 
             this.getLists(this.filter);
@@ -354,6 +349,48 @@
             this.dataservice.getCustomersFilter(filter).valueChanges.subscribe(function (result) {
               console.log("getCustomersFilter", result.data.customers);
               _this.rowData = result.data.customers;
+
+              _this.filterBasedOnMonths();
+            });
+          }
+        }, {
+          key: "filterBasedOnMonths",
+          value: function filterBasedOnMonths() {
+            this.January = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 0;
+            });
+            this.February = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 1;
+            });
+            this.March = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 2;
+            });
+            this.April = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 3;
+            });
+            this.May = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 4;
+            });
+            this.June = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 5;
+            });
+            this.July = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 6;
+            });
+            this.August = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 7;
+            });
+            this.September = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 8;
+            });
+            this.October = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 9;
+            });
+            this.November = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 10;
+            });
+            this.December = this.rowData.filter(function (item) {
+              return new Date(item.MarriageDate).getMonth() == 11;
             });
           }
         }, {
@@ -366,7 +403,7 @@
           key: "onSelectionChanged",
           value: function onSelectionChanged(event) {
             var selectedRows = this.gridApi.getSelectedRows();
-            console.log(selectedRows);
+            console.log(selectedRows, event);
             this.router.navigate(["/kpcaller/kp_customer_details", selectedRows[0].id, this.router.url], {
               state: {
                 data: selectedRows
@@ -390,30 +427,24 @@
 
       ButtonsComponent.ctorParameters = function () {
         return [{
-          type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"]
+          type: _data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }, {
           type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]
+        }, {
+          type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]
         }];
       };
 
       ButtonsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         template: _raw_loader_caller_list_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])], ButtonsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])], ButtonsComponent);
       /***/
     },
 
     /***/
-    "N1zO":
-    /*!************************************************************!*\
-      !*** ./src/app/views/kpcaller/customerdetail.component.ts ***!
-      \************************************************************/
-
-    /*! exports provided: KPCustomerDetailComponent */
-
-    /***/
-    function N1zO(module, __webpack_exports__, __webpack_require__) {
+    "N1zO": function N1zO(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -456,37 +487,44 @@
       /* harmony import */
 
 
-      var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ngx-toastr */
+      "5eHb");
+      /* harmony import */
+
+
+      var _data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ../../data.service */
       "R7Hv");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/forms */
       "s7LF");
       /* harmony import */
 
 
-      var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ../../constants/columnMetadata */
       "7nfi");
 
       var KPCustomerDetailComponent = /*#__PURE__*/function () {
-        function KPCustomerDetailComponent(dataservice, activatedRouter, fb) {
+        function KPCustomerDetailComponent(dataservice, activatedRouter, fb, toastr) {
           _classCallCheck(this, KPCustomerDetailComponent);
 
           this.dataservice = dataservice;
           this.activatedRouter = activatedRouter;
           this.fb = fb;
+          this.toastr = toastr;
           this.from = false;
           this.loading = true;
           this.details = [];
           this.btnLoading = false;
-          this.dateConverter = _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["dateConverter"];
+          this.dateConverter = _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__["dateConverter"];
           this.groups = [];
           this.commentForm = this.fb.group({
-            RemarksText: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            RemarksText: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
             // event_date_time: ["", Validators.required],
             is_verified: [false]
           });
@@ -535,11 +573,11 @@
               console.log("response", result);
 
               if (result.data.updateCustomer) {
-                alert("Comment added successfully!");
+                _this4.toastr.success("Comment added successfully!");
 
                 _this4.commentModal.hide();
               } else {
-                alert("Failed. Please check the fields!");
+                _this4.toastr.error("Failed. Please check the fields!");
               }
             });
           }
@@ -550,11 +588,13 @@
 
       KPCustomerDetailComponent.ctorParameters = function () {
         return [{
-          type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"]
+          type: _data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
         }, {
-          type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]
+          type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]
+        }, {
+          type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]
         }];
       };
 
@@ -566,47 +606,31 @@
       };
       KPCustomerDetailComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         template: _raw_loader_customerdetail_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])], KPCustomerDetailComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])], KPCustomerDetailComponent);
       /***/
     },
 
     /***/
-    "svF1":
-    /*!****************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/kpcaller/customerdetail.component.html ***!
-      \****************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function svF1(module, __webpack_exports__, __webpack_require__) {
+    "svF1": function svF1(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n    <div class=\"card\">\n        <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n            <h2>Customer Details</h2>\n        </div>\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <div class=\"col\">\n                    <div class=\"row\">\n                        <table class=\"table table-striped\">\n                            <tbody>\n                                <tr>\n                                    <td>ID</td>\n                                    <td>{{details?.id}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Bride</td>\n                                    <td>{{details?.NameOfBride}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Father</td>\n                                    <td>{{details?.NameOfFather}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Name Of Mother</td>\n                                    <td>{{ details?.NameOfMother }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Marriage Date</td>\n                                    <td>{{ details?.MarriageDate }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Marriage Month</td>\n                                    <td>{{ details?.MarriageMonth }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Contact number 1</td>\n                                    <td>{{ details?.Contact_Number_1 }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Contact number 2</td>\n                                    <td>{{ details?.Contact_Number_2 }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Agent</td>\n                                    <td>\n                                        <span class=\"badge badge-warning\">{{ details.tele_caller_contact?.Name }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>House Name</td>\n                                    <td>{{ details.Address?.HouseName }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Landmark</td>\n                                    <td>{{ details.Address?.Landmark }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Locality</td>\n                                    <td>{{ details.Address?.locality?.Name }}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <div class=\"row\">\n                        <div style=\"display: flex; justify-content: space-between\">\n                            <h4>Field Report</h4>\n                        </div>\n                        <table *ngIf=\"details.FieldReport\" class=\"table table-striped\">\n                            <tbody>\n                                <tr>\n                                    <td>Financial category</td>\n                                    <td>{{details.FieldReport?.FinancialBackground}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Quantity of intended purchase</td>\n                                    <td>{{details.FieldReport?.QtyOfGold}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Suitable set</td>\n                                    <td>{{details.FieldReport?.PreferredWeddingSet}}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether planning to exchange after marriage?</td>\n                                    <td>{{ details.FieldReport?.PlanningForReplacementAfterWedding }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Quantity of old gold for exchange</td>\n                                    <td>{{ details.FieldReport?.OldGoldExchangeQty }}</td>\n                                </tr>\n                                <tr>\n                                    <td>No cost emi needed?</td>\n                                    <td>{{ details.FieldReport?.NoCostEmiRequired }}</td>\n                                </tr>\n                                <tr>\n                                    <td>EMI tenure</td>\n                                    <td>\n                                        <span class=\"badge badge-warning\">{{ details.FieldReport?.EmiTenure }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>Number of repayments</td>\n                                    <td>\n                                        <span class=\"badge badge-primary\">{{ details.FieldReport?.EmiIntervals\n                                            }}</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td>Token advance</td>\n                                    <td>{{ details.FieldReport?.TokenAdvance }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Rate advance</td>\n                                    <td>{{ details.FieldReport?.RateAdvance }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether approached by other jewelleries?</td>\n                                    <td>{{ details.FieldReport?.EnquiriesFromOthers }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Advance paid to other jewellery</td>\n                                    <td>{{ details.FieldReport?.AdvancePaidToOtherJewellery }}</td>\n                                </tr>\n                                <tr>\n                                    <td>Whether received any fresh leads?</td>\n                                    <td>{{ details.FieldReport?.NumberOfNewMarriageAddress }}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <div *ngIf=\"!details.FieldReport\" class=\"card\">\n                        <div class=\"card-body text-center\">\n                            No field report found\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col\">\n                    <div class=\"card\" *ngFor=\"let item of details.TelecallerRemarks\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">{{dateConverter(item.CallHistory?.event_date_time)}}</h5>\n                            <p class=\"card-text\">{{item.RemarksText}}</p>\n                            <span\n                                class=\"badge badge-primary\">{{item.CallHistory.users_permissions_user?.username}}</span>\n                        </div>\n                    </div>\n                    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"commentModal.show()\">\n                        Add Comment\n                    </button>\n                </div>\n            </div>\n        </div>\n        <div bsModal #commentModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\"\n            aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n            <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                        <h4 class=\"modal-title\">Add Comment</h4>\n                        <button type=\"button\" class=\"close\" (click)=\"commentModal.hide()\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                    </div>\n                    <div class=\"modal-body\">\n                        <form [formGroup]=\"commentForm\" (ngSubmit)=\"CommentSubmit()\">\n                            <div class=\"form-group\">\n                                <label for=\"name\">Remarks</label>\n                                <textarea class=\"form-control\" maxlength=\"250\" id=\"RemarksText\" name=\"RemarksText\"\n                                    formControlName=\"RemarksText\" placeholder=\"Enter remarks\"></textarea>\n                            </div>\n                            <!-- <div class=\"form-group\">\n                                <label for=\"email\">Date</label>\n                                <input type=\"datetime-local\" class=\"form-control\" id=\"event_date_time\"\n                                    name=\"event_date_time\" formControlName=\"event_date_time\" />\n                            </div> -->\n                            <div *ngIf=\"from\" class=\"form-group\">\n                                <!-- <input type=\"checkbox\" class=\"form-control\" id=\"is_verified\" name=\"is_verified\"\n                                    formControlName=\"is_verified\" />\n                                <label for=\"is_verified\">Verification</label> -->\n                                <div class=\"checkbox\">\n                                    <label>\n                                        <input type=\"checkbox\" value=\"true\" id=\"is_verified\" name=\"is_verified\"\n                                            formControlName=\"is_verified\">\n                                        Customer Verified\n                                    </label>\n                                </div>\n                            </div>\n                            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"commentModal.hide()\">\n                                Close\n                            </button>\n                            <button type=\"submit\" class=\"btn btn-primary ml-2\"\n                                [disabled]=\"btnLoading || !commentForm.valid\">\n                                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                    aria-hidden=\"true\"></span>\n                                Save changes\n                            </button>\n                        </form>\n                    </div>\n                </div>\n                <!-- /.modal-content -->\n            </div>\n            <!-- /.modal-dialog -->\n        </div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\r\n    <div class=\"card\">\r\n        <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\r\n            <h2>Customer Details</h2>\r\n        </div>\r\n        <div class=\"card-body\">\r\n            <div class=\"row\">\r\n                <div class=\"col\">\r\n                    <div class=\"row\">\r\n                        <table class=\"table table-striped\">\r\n                            <tbody>\r\n                                <tr>\r\n                                    <td>ID</td>\r\n                                    <td>{{details?.id}}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Name Of Bride</td>\r\n                                    <td>{{details?.NameOfBride}}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Name Of Father</td>\r\n                                    <td>{{details?.NameOfFather}}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Name Of Mother</td>\r\n                                    <td>{{ details?.NameOfMother }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Marriage Date</td>\r\n                                    <td>{{ details?.MarriageDate }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Marriage Month</td>\r\n                                    <td>{{ details?.MarriageMonth }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Contact number 1</td>\r\n                                    <td>{{ details?.Contact_Number_1 }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Contact number 2</td>\r\n                                    <td>{{ details?.Contact_Number_2 }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Agent</td>\r\n                                    <td>\r\n                                        <span class=\"badge badge-warning\">{{ details.tele_caller_contact?.Name }}</span>\r\n                                    </td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>House Name</td>\r\n                                    <td>{{ details.Address?.HouseName }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Landmark</td>\r\n                                    <td>{{ details.Address?.Landmark }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Locality</td>\r\n                                    <td>{{ details.Address?.locality?.Name }}</td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div style=\"display: flex; justify-content: space-between\">\r\n                            <h4>Field Report</h4>\r\n                        </div>\r\n                        <table *ngIf=\"details.FieldReport\" class=\"table table-striped\">\r\n                            <tbody>\r\n                                <tr>\r\n                                    <td>Financial category</td>\r\n                                    <td>{{details.FieldReport?.FinancialBackground}}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Quantity of intended purchase</td>\r\n                                    <td>{{details.FieldReport?.QtyOfGold}}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Suitable set</td>\r\n                                    <td>{{details.FieldReport?.PreferredWeddingSet}}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Whether planning to exchange after marriage?</td>\r\n                                    <td>{{ details.FieldReport?.PlanningForReplacementAfterWedding }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Quantity of old gold for exchange</td>\r\n                                    <td>{{ details.FieldReport?.OldGoldExchangeQty }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>No cost emi needed?</td>\r\n                                    <td>{{ details.FieldReport?.NoCostEmiRequired }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>EMI tenure</td>\r\n                                    <td>\r\n                                        <span class=\"badge badge-warning\">{{ details.FieldReport?.EmiTenure }}</span>\r\n                                    </td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Number of repayments</td>\r\n                                    <td>\r\n                                        <span class=\"badge badge-primary\">{{ details.FieldReport?.EmiIntervals\r\n                                            }}</span>\r\n                                    </td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Token advance</td>\r\n                                    <td>{{ details.FieldReport?.TokenAdvance }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Rate advance</td>\r\n                                    <td>{{ details.FieldReport?.RateAdvance }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Whether approached by other jewelleries?</td>\r\n                                    <td>{{ details.FieldReport?.EnquiriesFromOthers }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Advance paid to other jewellery</td>\r\n                                    <td>{{ details.FieldReport?.AdvancePaidToOtherJewellery }}</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>Whether received any fresh leads?</td>\r\n                                    <td>{{ details.FieldReport?.NumberOfNewMarriageAddress }}</td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                    <div *ngIf=\"!details.FieldReport\" class=\"card\">\r\n                        <div class=\"card-body text-center\">\r\n                            No field report found\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col\">\r\n                    <div class=\"card\" *ngFor=\"let item of details.TelecallerRemarks\">\r\n                        <div class=\"card-body\">\r\n                            <h5 class=\"card-title\">{{dateConverter(item.CallHistory?.event_date_time)}}</h5>\r\n                            <p class=\"card-text\">{{item.RemarksText}}</p>\r\n                            <span\r\n                                class=\"badge badge-primary\">{{item.CallHistory.users_permissions_user?.username}}</span>\r\n                        </div>\r\n                    </div>\r\n                    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"commentModal.show()\">\r\n                        Add Comment\r\n                    </button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div bsModal #commentModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\"\r\n            aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n            <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n                <div class=\"modal-content\">\r\n                    <div class=\"modal-header\">\r\n                        <h4 class=\"modal-title\">Add Comment</h4>\r\n                        <button type=\"button\" class=\"close\" (click)=\"commentModal.hide()\" aria-label=\"Close\">\r\n                            <span aria-hidden=\"true\">&times;</span>\r\n                        </button>\r\n                    </div>\r\n                    <div class=\"modal-body\">\r\n                        <form [formGroup]=\"commentForm\" (ngSubmit)=\"CommentSubmit()\">\r\n                            <div class=\"form-group\">\r\n                                <label for=\"name\">Remarks</label>\r\n                                <textarea class=\"form-control\" maxlength=\"250\" id=\"RemarksText\" name=\"RemarksText\"\r\n                                    formControlName=\"RemarksText\" placeholder=\"Enter remarks\"></textarea>\r\n                            </div>\r\n                            <!-- <div class=\"form-group\">\r\n                                <label for=\"email\">Date</label>\r\n                                <input type=\"datetime-local\" class=\"form-control\" id=\"event_date_time\"\r\n                                    name=\"event_date_time\" formControlName=\"event_date_time\" />\r\n                            </div> -->\r\n                            <div *ngIf=\"from\" class=\"form-group\">\r\n                                <!-- <input type=\"checkbox\" class=\"form-control\" id=\"is_verified\" name=\"is_verified\"\r\n                                    formControlName=\"is_verified\" />\r\n                                <label for=\"is_verified\">Verification</label> -->\r\n                                <div class=\"checkbox\">\r\n                                    <label>\r\n                                        <input type=\"checkbox\" value=\"true\" id=\"is_verified\" name=\"is_verified\"\r\n                                            formControlName=\"is_verified\">\r\n                                        Customer Verified\r\n                                    </label>\r\n                                </div>\r\n                            </div>\r\n                            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"commentModal.hide()\">\r\n                                Close\r\n                            </button>\r\n                            <button type=\"submit\" class=\"btn btn-primary ml-2\"\r\n                                [disabled]=\"btnLoading || !commentForm.valid\">\r\n                                <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\"\r\n                                    aria-hidden=\"true\"></span>\r\n                                Save changes\r\n                            </button>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n                <!-- /.modal-content -->\r\n            </div>\r\n            <!-- /.modal-dialog -->\r\n        </div>\r\n    </div>\r\n</div>";
       /***/
     },
 
     /***/
-    "z2NA":
-    /*!*************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/kpcaller/caller_list.component.html ***!
-      \*************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function z2NA(module, __webpack_exports__, __webpack_require__) {
+    "z2NA": function z2NA(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n      <h2>{{title}} List</h2>\n    </div>\n    <div class=\"card-body\">\n      <form [formGroup]=\"filterForm\" class=\"form-inline\" (ngSubmit)=\"filterSubmit()\">\n        <div class=\"form-group\">\n          <label class=\"visually-hidden\" for=\"year\">Year</label>\n          <select class=\"form-control\" id=\"year\" name=\"year\" formControlName=\"year\">\n            <option *ngFor=\"let item of years\" value=\"{{ item.year }}\">\n              {{ item.year }}\n            </option>\n          </select>\n        </div>\n        <div class=\"ml-3 form-group\">\n          <button type=\"submit\" class=\"btn btn-primary\">Filter</button>\n        </div>\n      </form>\n\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <tabset>\n            <tab heading=\"January\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"February\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"March\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"April\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"May\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"June\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"July\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"August\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"September\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"October\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"November\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n            <tab heading=\"December\">\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n              </ag-grid-angular>\n            </tab>\n          </tabset>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\r\n  <div class=\"card\">\r\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\r\n      <h2>{{title}} List</h2>\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <form [formGroup]=\"filterForm\" class=\"form-inline\" (ngSubmit)=\"filterSubmit()\">\r\n        <div class=\"form-group\">\r\n          <label class=\"visually-hidden\" for=\"year\">Year</label>\r\n          <select class=\"form-control\" id=\"year\" name=\"year\" formControlName=\"year\">\r\n            <option *ngFor=\"let item of years\" value=\"{{ item.year }}\">\r\n              {{ item.year }}\r\n            </option>\r\n          </select>\r\n        </div>\r\n        <div class=\"ml-3 form-group\">\r\n          <button type=\"submit\" class=\"btn btn-primary\">Filter</button>\r\n        </div>\r\n      </form>\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-12\">\r\n          <tabset>\r\n            <tab heading=\"All\">\r\n              <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"January\">\r\n              <ag-grid-angular #agGrid1 style=\"width: 100%; height: 500px\" id=\"myGrid1\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"January\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"February\">\r\n              <ag-grid-angular #agGrid2 style=\"width: 100%; height: 500px\" id=\"myGrid2\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"February\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"March\">\r\n              <ag-grid-angular #agGrid3 style=\"width: 100%; height: 500px\" id=\"myGrid3\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"March\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"April\">\r\n              <ag-grid-angular #agGrid4 style=\"width: 100%; height: 500px\" id=\"myGrid4\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"April\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"May\">\r\n              <ag-grid-angular #agGrid5 style=\"width: 100%; height: 500px\" id=\"myGrid5\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"May\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"June\">\r\n              <ag-grid-angular #agGrid6 style=\"width: 100%; height: 500px\" id=\"myGrid6\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"June\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"July\">\r\n              <ag-grid-angular #agGrid7 style=\"width: 100%; height: 500px\" id=\"myGrid7\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"July\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"August\">\r\n              <ag-grid-angular #agGrid8 style=\"width: 100%; height: 500px\" id=\"myGrid8\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"August\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"September\">\r\n              <ag-grid-angular #agGrid9 style=\"width: 100%; height: 500px\" id=\"myGrid9\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"September\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"October\">\r\n              <ag-grid-angular #agGrid10 style=\"width: 100%; height: 500px\" id=\"myGrid10\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"October\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"November\">\r\n              <ag-grid-angular #agGrid11 style=\"width: 100%; height: 500px\" id=\"myGrid11\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"November\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n            <tab heading=\"December\">\r\n              <ag-grid-angular #agGrid12 style=\"width: 100%; height: 500px\" id=\"myGrid12\" class=\"ag-theme-alpine\"\r\n                [columnDefs]=\"columnDefs\" [rowData]=\"December\" [rowSelection]=\"rowSelection\"\r\n                (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n              </ag-grid-angular>\r\n            </tab>\r\n          </tabset>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>";
       /***/
     }
   }]);

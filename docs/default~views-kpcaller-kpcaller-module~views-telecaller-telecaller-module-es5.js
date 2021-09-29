@@ -9,15 +9,7 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~views-kpcaller-kpcaller-module~views-telecaller-telecaller-module"], {
     /***/
-    "2ZVE":
-    /*!************************************************************************!*\
-      !*** ./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js ***!
-      \************************************************************************/
-
-    /*! exports provided: NgTranscludeDirective, TabDirective, TabHeadingDirective, TabsModule, TabsetComponent, TabsetConfig */
-
-    /***/
-    function ZVE(module, __webpack_exports__, __webpack_require__) {
+    "2ZVE": function ZVE(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1187,13 +1179,14 @@
         return TabsModule;
       }();
 
+      TabsModule.ɵfac = function TabsModule_Factory(t) {
+        return new (t || TabsModule)();
+      };
+
       TabsModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
         type: TabsModule
       });
       TabsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function TabsModule_Factory(t) {
-          return new (t || TabsModule)();
-        },
         imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]]]
       });
 

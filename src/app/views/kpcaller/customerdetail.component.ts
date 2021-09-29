@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ModalDirective } from "ngx-bootstrap/modal";
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
 import { dateConverter } from "../../constants/columnMetadata";
@@ -12,7 +13,8 @@ export class KPCustomerDetailComponent implements OnInit {
   constructor(
     public dataservice: DataService,
     private activatedRouter: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {}
   @ViewChild("commentModal") public commentModal: ModalDirective;
 
@@ -60,10 +62,10 @@ export class KPCustomerDetailComponent implements OnInit {
         resp = result.data;
         console.log("response", result);
         if (result.data.updateCustomer) {
-          alert("Comment added successfully!");
+          this.toastr.success("Comment added successfully!");
           this.commentModal.hide();
         } else {
-          alert("Failed. Please check the fields!");
+          this.toastr.error("Failed. Please check the fields!");
         }
       });
   }

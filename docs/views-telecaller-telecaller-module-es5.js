@@ -5,7 +5,7 @@
 
   function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-  function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+  function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
   function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -19,15 +19,7 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["views-telecaller-telecaller-module"], {
     /***/
-    "38Bd":
-    /*!**************************************************************************************!*\
-      !*** ./node_modules/ngx-bootstrap/progressbar/fesm2015/ngx-bootstrap-progressbar.js ***!
-      \**************************************************************************************/
-
-    /*! exports provided: BarComponent, ProgressbarComponent, ProgressbarConfig, ProgressbarModule */
-
-    /***/
-    function Bd(module, __webpack_exports__, __webpack_require__) {
+    "38Bd": function Bd(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -718,13 +710,14 @@
         return ProgressbarModule;
       }();
 
+      ProgressbarModule.ɵfac = function ProgressbarModule_Factory(t) {
+        return new (t || ProgressbarModule)();
+      };
+
       ProgressbarModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
         type: ProgressbarModule
       });
       ProgressbarModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function ProgressbarModule_Factory(t) {
-          return new (t || ProgressbarModule)();
-        },
         imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]]]
       });
 
@@ -768,15 +761,7 @@
     },
 
     /***/
-    "6No5":
-    /*!************************************************************************************!*\
-      !*** ./node_modules/ngx-bootstrap/pagination/fesm2015/ngx-bootstrap-pagination.js ***!
-      \************************************************************************************/
-
-    /*! exports provided: PagerComponent, PaginationComponent, PaginationConfig, PaginationModule, ɵa, ɵb */
-
-    /***/
-    function No5(module, __webpack_exports__, __webpack_require__) {
+    "6No5": function No5(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1365,12 +1350,7 @@
           key: "getText",
           value: function getText(key) {
             // tslint:disable-next-line:no-any
-            return (
-              /** @type {?} */
-              this["".concat(key, "Text")] ||
-              /** @type {?} */
-              this.config["".concat(key, "Text")]
-            );
+            return this["".concat(key, "Text")] || this.config["".concat(key, "Text")];
           }
           /**
            * @return {?}
@@ -1963,12 +1943,7 @@
           key: "getText",
           value: function getText(key) {
             // tslint:disable-next-line:no-any
-            return (
-              /** @type {?} */
-              this["".concat(key, "Text")] ||
-              /** @type {?} */
-              this.config["".concat(key, "Text")]
-            );
+            return this["".concat(key, "Text")] || this.config["".concat(key, "Text")];
           }
           /**
            * @return {?}
@@ -2408,13 +2383,14 @@
         return PaginationModule;
       }();
 
+      PaginationModule.ɵfac = function PaginationModule_Factory(t) {
+        return new (t || PaginationModule)();
+      };
+
       PaginationModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
         type: PaginationModule
       });
       PaginationModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function PaginationModule_Factory(t) {
-          return new (t || PaginationModule)();
-        },
         imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]]]
       });
 
@@ -2458,15 +2434,7 @@
     },
 
     /***/
-    "978R":
-    /*!******************************************************************************!*\
-      !*** ./node_modules/ngx-bootstrap/tooltip/fesm2015/ngx-bootstrap-tooltip.js ***!
-      \******************************************************************************/
-
-    /*! exports provided: TooltipConfig, TooltipContainerComponent, TooltipDirective, TooltipModule */
-
-    /***/
-    function R(module, __webpack_exports__, __webpack_require__) {
+    "978R": function R(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -3443,13 +3411,14 @@
         return TooltipModule;
       }();
 
+      TooltipModule.ɵfac = function TooltipModule_Factory(t) {
+        return new (t || TooltipModule)();
+      };
+
       TooltipModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
         type: TooltipModule
       });
       TooltipModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function TooltipModule_Factory(t) {
-          return new (t || TooltipModule)();
-        },
         imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_6__["CommonModule"]]]
       });
 
@@ -3494,15 +3463,7 @@
     },
 
     /***/
-    "9sCu":
-    /*!**************************************************************!*\
-      !*** ./src/app/views/telecaller/customerdetail.component.ts ***!
-      \**************************************************************/
-
-    /*! exports provided: CustomerDetailComponent */
-
-    /***/
-    function sCu(module, __webpack_exports__, __webpack_require__) {
+    "9sCu": function sCu(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -3721,55 +3682,31 @@
     },
 
     /***/
-    "AqI/":
-    /*!******************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/telecaller/customerdetail.component.html ***!
-      \******************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function AqI(module, __webpack_exports__, __webpack_require__) {
+    "AqI/": function AqI(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div\n    bsModal\n    #deleteModal=\"bs-modal\"\n    class=\"modal fade\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-dialog-centered modal-sm\">\n      <div class=\"modal-content\">\n        <div class=\"modal-body text-center\">\n          Do you want to delete this agent?\n        </div>\n        <div class=\"modal-footer justify-content-around\">\n          <button\n            type=\"button\"\n            class=\"btn btn-secondary\"\n            (click)=\"deleteModal.hide()\"\n          >\n            No! Cancel.\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"deleteAgent()\">\n            Yes! Delete.\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"card\">\n    <div\n      class=\"card-header\"\n      style=\"display: flex; justify-content: space-between\"\n    >\n      <h2>Customer Details</h2>\n      <span>\n        <!-- <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\n                Edit\n            </button> -->\n        <!-- <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" (click)=\"deleteModal.show()\">\n                Delete\n            </button> -->\n      </span>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"col\">\n          <table class=\"table table-striped\">\n            <tbody>\n              <tr>\n                <td>ID</td>\n                <td>{{ details?.id }}</td>\n              </tr>\n              <tr>\n                <td>Name Of Bride</td>\n                <td>{{ details?.NameOfBride }}</td>\n              </tr>\n              <tr>\n                <td>Name Of Father</td>\n                <td>{{ details?.NameOfFather }}</td>\n              </tr>\n              <tr>\n                <td>Name Of Mother</td>\n                <td>{{ details?.NameOfMother }}</td>\n              </tr>\n              <tr>\n                <td>Marriage Date</td>\n                <td>{{ details?.MarriageDate }}</td>\n              </tr>\n              <tr>\n                <td>Marriage Month</td>\n                <td>{{ details?.MarriageMonth }}</td>\n              </tr>\n              <tr>\n                <td>Contact number 1</td>\n                <td>{{ details?.Contact_Number_1 }}</td>\n              </tr>\n              <tr>\n                <td>Contact number 2</td>\n                <td>{{ details?.Contact_Number_2 }}</td>\n              </tr>\n              <tr>\n                <td>Agent</td>\n                <td>\n                  <span class=\"badge badge-warning\">{{\n                    details.tele_caller_contact?.Name\n                  }}</span>\n                </td>\n              </tr>\n              <tr>\n                <td>House Name</td>\n                <td>{{ details.Address?.HouseName }}</td>\n              </tr>\n              <tr>\n                <td>Landmark</td>\n                <td>{{ details.Address?.Landmark }}</td>\n              </tr>\n              <tr>\n                <td>Locality</td>\n                <td>{{ details.Address?.locality?.Name }}</td>\n              </tr>\n              <tr>\n                <td>Post office</td>\n                <td>{{ details.Address?.post_office?.Name }}</td>\n              </tr>\n              <tr>\n                <td>Latitude</td>\n                <td>{{ details.Address?.GeoLocation?.Latitude }}</td>\n              </tr>\n              <tr>\n                <td>Longitude</td>\n                <td>{{ details.Address?.GeoLocation?.Longitude }}</td>\n              </tr>\n              <tr>\n                <td>Plus code</td>\n                <td>{{ details.Address?.GeoLocation?.GoogleMapPlusCode }}</td>\n              </tr>\n              <tr>\n                <td>Map URL</td>\n                <td>\n                  <a\n                    href=\"https://www.google.com/maps/place/6JXRM9GR%2BMF/@{{\n                      details.Address?.GeoLocation?.Latitude\n                    }},{{\n                      details.Address?.GeoLocation?.Longitude\n                    }},17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d9.6766875!4d76.3911875\"\n                    target=\"_blank\"\n                    >Click here to view location</a\n                  >\n                </td>\n              </tr>\n            </tbody>\n          </table>\n          <!-- <div class=\"mapouter\">\n            <div class=\"gmap_canvas\">\n              <iframe\n                class=\"gmap_iframe\"\n                frameborder=\"0\"\n                scrolling=\"no\"\n                marginheight=\"0\"\n                marginwidth=\"0\"\n                src=\"https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q={{\n                  details.Address.GeoLocation?.Latitude\n                }},{{\n                  details.Address.GeoLocation?.Longitude\n                }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed\"\n              ></iframe\n              ><a href=\"https://www.fnfgo.com/\">Friday Night Funkin Mods</a>\n            </div>\n            <style>\n              .mapouter {\n                position: relative;\n                text-align: right;\n                width: 600px;\n                height: 400px;\n              }\n\n              .gmap_canvas {\n                overflow: hidden;\n                background: none !important;\n                width: 600px;\n                height: 400px;\n              }\n\n              .gmap_iframe {\n                width: 600px !important;\n                height: 400px !important;\n              }\n            </style>\n          </div> -->\n        </div>\n        <div class=\"col\">\n          <div class=\"card\" *ngFor=\"let item of details.TelecallerRemarks\">\n            <div class=\"card-body\">\n              <h5 class=\"card-title\">\n                {{ dateConverter(item.CallHistory?.event_date_time) }}\n              </h5>\n              <p class=\"card-text\">{{ item.RemarksText }}</p>\n              <span class=\"badge badge-primary\">{{\n                item.CallHistory.users_permissions_user.username\n              }}</span>\n            </div>\n          </div>\n          <button\n            type=\"button\"\n            class=\"btn btn-primary\"\n            data-toggle=\"modal\"\n            (click)=\"commentModal.show()\"\n          >\n            Add Comment\n          </button>\n        </div>\n      </div>\n    </div>\n\n    <div\n      bsModal\n      #myModal=\"bs-modal\"\n      class=\"modal fade\"\n      tabindex=\"-1\"\n      role=\"dialog\"\n      aria-labelledby=\"myModalLabel\"\n      aria-hidden=\"true\"\n    >\n      <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h4 class=\"modal-title\">Edit Agent</h4>\n            <button\n              type=\"button\"\n              class=\"close\"\n              (click)=\"myModal.hide()\"\n              aria-label=\"Close\"\n            >\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n          <div class=\"modal-body\">\n            <form [formGroup]=\"agentForm\" (ngSubmit)=\"FormSubmit()\">\n              <div class=\"form-group\">\n                <label for=\"name\">Name</label>\n                <input\n                  type=\"text\"\n                  class=\"form-control\"\n                  id=\"name\"\n                  name=\"name\"\n                  formControlName=\"name\"\n                  placeholder=\"Enter agent name\"\n                />\n              </div>\n              <div class=\"form-group\">\n                <label for=\"email\">E-mail</label>\n                <input\n                  type=\"email\"\n                  class=\"form-control\"\n                  id=\"email\"\n                  name=\"email\"\n                  formControlName=\"email\"\n                  placeholder=\"Enter agent email\"\n                />\n              </div>\n              <div class=\"form-group\">\n                <label for=\"street\">Phone 1</label>\n                <input\n                  type=\"number\"\n                  class=\"form-control\"\n                  id=\"phone1\"\n                  name=\"phone1\"\n                  formControlName=\"phone1\"\n                  placeholder=\"Enter Phone 1\"\n                />\n              </div>\n              <div class=\"form-group\">\n                <label for=\"phone2\">Phone 2</label>\n                <input\n                  type=\"number\"\n                  class=\"form-control\"\n                  id=\"phone2\"\n                  name=\"phone2\"\n                  formControlName=\"phone2\"\n                  placeholder=\"Enter Phone 2\"\n                />\n              </div>\n              <div class=\"form-group\">\n                <label for=\"phone3\">Phone 3</label>\n                <input\n                  type=\"number\"\n                  class=\"form-control\"\n                  id=\"phone3\"\n                  name=\"phone3\"\n                  formControlName=\"phone3\"\n                  placeholder=\"Enter Phone 3\"\n                />\n              </div>\n              <div class=\"form-group\">\n                <label for=\"group\">Group</label>\n                <select\n                  class=\"form-control\"\n                  id=\"group\"\n                  required\n                  ngModel\n                  name=\"group\"\n                  formControlName=\"group\"\n                >\n                  <option value=\"\" disabled selected hidden>Choose...</option>\n                  <option *ngFor=\"let item of groups\" value=\"{{ item.id }}\">\n                    {{ item.Name }}\n                  </option>\n                </select>\n              </div>\n              <button\n                type=\"button\"\n                class=\"btn btn-secondary\"\n                (click)=\"myModal.hide()\"\n              >\n                Close\n              </button>\n              <button\n                type=\"submit\"\n                class=\"btn btn-primary ml-2\"\n                [disabled]=\"btnLoading || !agentForm.valid\"\n              >\n                <span\n                  *ngIf=\"btnLoading\"\n                  class=\"spinner-border spinner-border-sm\"\n                  role=\"status\"\n                  aria-hidden=\"true\"\n                ></span>\n                Save changes\n              </button>\n            </form>\n          </div>\n        </div>\n        <!-- /.modal-content -->\n      </div>\n      <!-- /.modal-dialog -->\n    </div>\n    <div\n      bsModal\n      #commentModal=\"bs-modal\"\n      class=\"modal fade\"\n      tabindex=\"-1\"\n      role=\"dialog\"\n      aria-labelledby=\"myModalLabel\"\n      aria-hidden=\"true\"\n    >\n      <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h4 class=\"modal-title\">Add Comment</h4>\n            <button\n              type=\"button\"\n              class=\"close\"\n              (click)=\"commentModal.hide()\"\n              aria-label=\"Close\"\n            >\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n          <div class=\"modal-body\">\n            <form [formGroup]=\"commentForm\" (ngSubmit)=\"CommentSubmit()\">\n              <div class=\"form-group\">\n                <label for=\"name\">Remarks</label>\n                <textarea\n                  class=\"form-control\"\n                  maxlength=\"250\"\n                  id=\"RemarksText\"\n                  name=\"RemarksText\"\n                  formControlName=\"RemarksText\"\n                  placeholder=\"Enter remarks\"\n                ></textarea>\n              </div>\n              <!-- <div class=\"form-group\">\n                                <label for=\"email\">Date</label>\n                                <input type=\"datetime-local\" class=\"form-control\" id=\"event_date_time\"\n                                    name=\"event_date_time\" formControlName=\"event_date_time\" />\n                            </div> -->\n              <button\n                type=\"button\"\n                class=\"btn btn-secondary\"\n                (click)=\"commentModal.hide()\"\n              >\n                Close\n              </button>\n              <button\n                type=\"submit\"\n                class=\"btn btn-primary ml-2\"\n                [disabled]=\"btnLoading || !commentForm.valid\"\n              >\n                <span\n                  *ngIf=\"btnLoading\"\n                  class=\"spinner-border spinner-border-sm\"\n                  role=\"status\"\n                  aria-hidden=\"true\"\n                ></span>\n                Save changes\n              </button>\n            </form>\n          </div>\n        </div>\n        <!-- /.modal-content -->\n      </div>\n      <!-- /.modal-dialog -->\n    </div>\n  </div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\r\n  <div\r\n    bsModal\r\n    #deleteModal=\"bs-modal\"\r\n    class=\"modal fade\"\r\n    tabindex=\"-1\"\r\n    role=\"dialog\"\r\n    aria-labelledby=\"myModalLabel\"\r\n    aria-hidden=\"true\"\r\n  >\r\n    <div class=\"modal-dialog modal-dialog-centered modal-sm\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-body text-center\">\r\n          Do you want to delete this agent?\r\n        </div>\r\n        <div class=\"modal-footer justify-content-around\">\r\n          <button\r\n            type=\"button\"\r\n            class=\"btn btn-secondary\"\r\n            (click)=\"deleteModal.hide()\"\r\n          >\r\n            No! Cancel.\r\n          </button>\r\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"deleteAgent()\">\r\n            Yes! Delete.\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"card\">\r\n    <div\r\n      class=\"card-header\"\r\n      style=\"display: flex; justify-content: space-between\"\r\n    >\r\n      <h2>Customer Details</h2>\r\n      <span>\r\n        <!-- <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\r\n                Edit\r\n            </button> -->\r\n        <!-- <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" (click)=\"deleteModal.show()\">\r\n                Delete\r\n            </button> -->\r\n      </span>\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <div class=\"row\">\r\n        <div class=\"col\">\r\n          <table class=\"table table-striped\">\r\n            <tbody>\r\n              <tr>\r\n                <td>ID</td>\r\n                <td>{{ details?.id }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Name Of Bride</td>\r\n                <td>{{ details?.NameOfBride }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Name Of Father</td>\r\n                <td>{{ details?.NameOfFather }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Name Of Mother</td>\r\n                <td>{{ details?.NameOfMother }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Marriage Date</td>\r\n                <td>{{ details?.MarriageDate }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Marriage Month</td>\r\n                <td>{{ details?.MarriageMonth }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Contact number 1</td>\r\n                <td>{{ details?.Contact_Number_1 }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Contact number 2</td>\r\n                <td>{{ details?.Contact_Number_2 }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Agent</td>\r\n                <td>\r\n                  <span class=\"badge badge-warning\">{{\r\n                    details.tele_caller_contact?.Name\r\n                  }}</span>\r\n                </td>\r\n              </tr>\r\n              <tr>\r\n                <td>House Name</td>\r\n                <td>{{ details.Address?.HouseName }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Landmark</td>\r\n                <td>{{ details.Address?.Landmark }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Locality</td>\r\n                <td>{{ details.Address?.locality?.Name }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Post office</td>\r\n                <td>{{ details.Address?.post_office?.Name }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Latitude</td>\r\n                <td>{{ details.Address?.GeoLocation?.Latitude }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Longitude</td>\r\n                <td>{{ details.Address?.GeoLocation?.Longitude }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Plus code</td>\r\n                <td>{{ details.Address?.GeoLocation?.GoogleMapPlusCode }}</td>\r\n              </tr>\r\n              <tr>\r\n                <td>Map URL</td>\r\n                <td>\r\n                  <a\r\n                    href=\"https://www.google.com/maps/place/6JXRM9GR%2BMF/@{{\r\n                      details.Address?.GeoLocation?.Latitude\r\n                    }},{{\r\n                      details.Address?.GeoLocation?.Longitude\r\n                    }},17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d9.6766875!4d76.3911875\"\r\n                    target=\"_blank\"\r\n                    >Click here to view location</a\r\n                  >\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n          <!-- <div class=\"mapouter\">\r\n            <div class=\"gmap_canvas\">\r\n              <iframe\r\n                class=\"gmap_iframe\"\r\n                frameborder=\"0\"\r\n                scrolling=\"no\"\r\n                marginheight=\"0\"\r\n                marginwidth=\"0\"\r\n                src=\"https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q={{\r\n                  details.Address.GeoLocation?.Latitude\r\n                }},{{\r\n                  details.Address.GeoLocation?.Longitude\r\n                }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed\"\r\n              ></iframe\r\n              ><a href=\"https://www.fnfgo.com/\">Friday Night Funkin Mods</a>\r\n            </div>\r\n            <style>\r\n              .mapouter {\r\n                position: relative;\r\n                text-align: right;\r\n                width: 600px;\r\n                height: 400px;\r\n              }\r\n\r\n              .gmap_canvas {\r\n                overflow: hidden;\r\n                background: none !important;\r\n                width: 600px;\r\n                height: 400px;\r\n              }\r\n\r\n              .gmap_iframe {\r\n                width: 600px !important;\r\n                height: 400px !important;\r\n              }\r\n            </style>\r\n          </div> -->\r\n        </div>\r\n        <div class=\"col\">\r\n          <div class=\"card\" *ngFor=\"let item of details.TelecallerRemarks\">\r\n            <div class=\"card-body\">\r\n              <h5 class=\"card-title\">\r\n                {{ dateConverter(item.CallHistory?.event_date_time) }}\r\n              </h5>\r\n              <p class=\"card-text\">{{ item.RemarksText }}</p>\r\n              <span class=\"badge badge-primary\">{{\r\n                item.CallHistory.users_permissions_user.username\r\n              }}</span>\r\n            </div>\r\n          </div>\r\n          <button\r\n            type=\"button\"\r\n            class=\"btn btn-primary\"\r\n            data-toggle=\"modal\"\r\n            (click)=\"commentModal.show()\"\r\n          >\r\n            Add Comment\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div\r\n      bsModal\r\n      #myModal=\"bs-modal\"\r\n      class=\"modal fade\"\r\n      tabindex=\"-1\"\r\n      role=\"dialog\"\r\n      aria-labelledby=\"myModalLabel\"\r\n      aria-hidden=\"true\"\r\n    >\r\n      <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Edit Agent</h4>\r\n            <button\r\n              type=\"button\"\r\n              class=\"close\"\r\n              (click)=\"myModal.hide()\"\r\n              aria-label=\"Close\"\r\n            >\r\n              <span aria-hidden=\"true\">&times;</span>\r\n            </button>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n            <form [formGroup]=\"agentForm\" (ngSubmit)=\"FormSubmit()\">\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">Name</label>\r\n                <input\r\n                  type=\"text\"\r\n                  class=\"form-control\"\r\n                  id=\"name\"\r\n                  name=\"name\"\r\n                  formControlName=\"name\"\r\n                  placeholder=\"Enter agent name\"\r\n                />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"email\">E-mail</label>\r\n                <input\r\n                  type=\"email\"\r\n                  class=\"form-control\"\r\n                  id=\"email\"\r\n                  name=\"email\"\r\n                  formControlName=\"email\"\r\n                  placeholder=\"Enter agent email\"\r\n                />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"street\">Phone 1</label>\r\n                <input\r\n                  type=\"number\"\r\n                  class=\"form-control\"\r\n                  id=\"phone1\"\r\n                  name=\"phone1\"\r\n                  formControlName=\"phone1\"\r\n                  placeholder=\"Enter Phone 1\"\r\n                />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"phone2\">Phone 2</label>\r\n                <input\r\n                  type=\"number\"\r\n                  class=\"form-control\"\r\n                  id=\"phone2\"\r\n                  name=\"phone2\"\r\n                  formControlName=\"phone2\"\r\n                  placeholder=\"Enter Phone 2\"\r\n                />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"phone3\">Phone 3</label>\r\n                <input\r\n                  type=\"number\"\r\n                  class=\"form-control\"\r\n                  id=\"phone3\"\r\n                  name=\"phone3\"\r\n                  formControlName=\"phone3\"\r\n                  placeholder=\"Enter Phone 3\"\r\n                />\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label for=\"group\">Group</label>\r\n                <select\r\n                  class=\"form-control\"\r\n                  id=\"group\"\r\n                  required\r\n                  ngModel\r\n                  name=\"group\"\r\n                  formControlName=\"group\"\r\n                >\r\n                  <option value=\"\" disabled selected hidden>Choose...</option>\r\n                  <option *ngFor=\"let item of groups\" value=\"{{ item.id }}\">\r\n                    {{ item.Name }}\r\n                  </option>\r\n                </select>\r\n              </div>\r\n              <button\r\n                type=\"button\"\r\n                class=\"btn btn-secondary\"\r\n                (click)=\"myModal.hide()\"\r\n              >\r\n                Close\r\n              </button>\r\n              <button\r\n                type=\"submit\"\r\n                class=\"btn btn-primary ml-2\"\r\n                [disabled]=\"btnLoading || !agentForm.valid\"\r\n              >\r\n                <span\r\n                  *ngIf=\"btnLoading\"\r\n                  class=\"spinner-border spinner-border-sm\"\r\n                  role=\"status\"\r\n                  aria-hidden=\"true\"\r\n                ></span>\r\n                Save changes\r\n              </button>\r\n            </form>\r\n          </div>\r\n        </div>\r\n        <!-- /.modal-content -->\r\n      </div>\r\n      <!-- /.modal-dialog -->\r\n    </div>\r\n    <div\r\n      bsModal\r\n      #commentModal=\"bs-modal\"\r\n      class=\"modal fade\"\r\n      tabindex=\"-1\"\r\n      role=\"dialog\"\r\n      aria-labelledby=\"myModalLabel\"\r\n      aria-hidden=\"true\"\r\n    >\r\n      <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Add Comment</h4>\r\n            <button\r\n              type=\"button\"\r\n              class=\"close\"\r\n              (click)=\"commentModal.hide()\"\r\n              aria-label=\"Close\"\r\n            >\r\n              <span aria-hidden=\"true\">&times;</span>\r\n            </button>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n            <form [formGroup]=\"commentForm\" (ngSubmit)=\"CommentSubmit()\">\r\n              <div class=\"form-group\">\r\n                <label for=\"name\">Remarks</label>\r\n                <textarea\r\n                  class=\"form-control\"\r\n                  maxlength=\"250\"\r\n                  id=\"RemarksText\"\r\n                  name=\"RemarksText\"\r\n                  formControlName=\"RemarksText\"\r\n                  placeholder=\"Enter remarks\"\r\n                ></textarea>\r\n              </div>\r\n              <!-- <div class=\"form-group\">\r\n                                <label for=\"email\">Date</label>\r\n                                <input type=\"datetime-local\" class=\"form-control\" id=\"event_date_time\"\r\n                                    name=\"event_date_time\" formControlName=\"event_date_time\" />\r\n                            </div> -->\r\n              <button\r\n                type=\"button\"\r\n                class=\"btn btn-secondary\"\r\n                (click)=\"commentModal.hide()\"\r\n              >\r\n                Close\r\n              </button>\r\n              <button\r\n                type=\"submit\"\r\n                class=\"btn btn-primary ml-2\"\r\n                [disabled]=\"btnLoading || !commentForm.valid\"\r\n              >\r\n                <span\r\n                  *ngIf=\"btnLoading\"\r\n                  class=\"spinner-border spinner-border-sm\"\r\n                  role=\"status\"\r\n                  aria-hidden=\"true\"\r\n                ></span>\r\n                Save changes\r\n              </button>\r\n            </form>\r\n          </div>\r\n        </div>\r\n        <!-- /.modal-content -->\r\n      </div>\r\n      <!-- /.modal-dialog -->\r\n    </div>\r\n  </div>\r\n</div>\r\n";
       /***/
     },
 
     /***/
-    "Ee/I":
-    /*!*************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/telecaller/customers.component.html ***!
-      \*************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function EeI(module, __webpack_exports__, __webpack_require__) {
+    "Ee/I": function EeI(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n      <h2>Customers</h2>\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\n        New\n      </button>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\n            [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\n            (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\n          </ag-grid-angular>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Add New Customer</h4>\n          <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form [formGroup]=\"customerForm\" (ngSubmit)=\"FormSubmit()\">\n            <div class=\"row\">\n              <div class=\"col\">\n                <div class=\"form-group\">\n                  <label for=\"name\">Name of Bride</label>\n                  <input type=\"text\" class=\"form-control\" id=\"NameOfBride\" name=\"NameOfBride\"\n                    formControlName=\"NameOfBride\" placeholder=\"Enter bride's name\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Name of Father</label>\n                  <input type=\"text\" class=\"form-control\" id=\"NameOfFather\" name=\"NameOfFather\"\n                    formControlName=\"NameOfFather\" placeholder=\"Enter father's name\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Name of Mother</label>\n                  <input type=\"text\" class=\"form-control\" id=\"NameOfMother\" name=\"NameOfMother\"\n                    formControlName=\"NameOfMother\" placeholder=\"Enter mother's name\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Contact number 1</label>\n                  <input type=\"text\" class=\"form-control\" id=\"Contact_Number_1\" name=\"Contact_Number_1\"\n                    formControlName=\"Contact_Number_1\" placeholder=\"Enter primary contact number\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Contact number 2</label>\n                  <input type=\"text\" class=\"form-control\" id=\"Contact_Number_2\" name=\"Contact_Number_2\"\n                    formControlName=\"Contact_Number_2\" placeholder=\"Enter secondary contact number\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"Post_office\">Post office</label>\n                  <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\n                    placeholder=\"Enter locality\" /> -->\n                  <select class=\"form-control\" id=\"Post_office\" required ngModel name=\"Post_office\"\n                    formControlName=\"Post_office\">\n                    <option value=\"\" disabled selected hidden>Choose...</option>\n                    <option *ngFor=\"let item of postoffices\" value=\"{{ item.id }}\">\n                      {{ item.Name }}\n                    </option>\n                  </select>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Latitude</label>\n                  <input type=\"text\" class=\"form-control\" id=\"Latitude\" name=\"Latitude\"\n                    formControlName=\"Latitude\" placeholder=\"Enter Latitude\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Longitude</label>\n                  <input type=\"text\" class=\"form-control\" id=\"Longitude\" name=\"Longitude\"\n                    formControlName=\"Longitude\" placeholder=\"Enter Longitude\" />\n                </div>\n              </div>\n              <div class=\"col\">\n                <div class=\"form-group\">\n                  <label for=\"email\">Marriage date</label>\n                  <input type=\"date\" class=\"form-control\" id=\"MarriageDate\" name=\"MarriageDate\"\n                    formControlName=\"MarriageDate\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"group\">Marriage month</label>\n                  <select class=\"form-control\" id=\"MarriageMonth\" required ngModel name=\"MarriageMonth\"\n                    formControlName=\"MarriageMonth\">\n                    <option value=\"\" disabled selected hidden>Choose...</option>\n                    <option *ngFor=\"let item of Months\" value=\"{{ item.id }}\">\n                      {{ item.Name }}\n                    </option>\n                  </select>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"group\">Agent</label>\n                  <select class=\"form-control\" id=\"tele_caller_contact\" required ngModel name=\"tele_caller_contact\"\n                    formControlName=\"tele_caller_contact\">\n                    <option value=\"\" disabled selected hidden>Choose...</option>\n                    <option *ngFor=\"let item of agents\" value=\"{{ item.id }}\">\n                      {{ item.Name }}\n                    </option>\n                  </select>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">House Name</label>\n                  <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\" formControlName=\"HouseName\"\n                    placeholder=\"Enter House Name\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Landmark</label>\n                  <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\" formControlName=\"Landmark\"\n                    placeholder=\"Enter Landmark\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"locality\">Name of locality</label>\n                  <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\n                    placeholder=\"Enter locality\" /> -->\n                  <select class=\"form-control\" id=\"locality\" required ngModel name=\"locality\"\n                    formControlName=\"locality\">\n                    <option value=\"\" disabled selected hidden>Choose...</option>\n                    <option *ngFor=\"let item of localities\" value=\"{{ item.id }}\">\n                      {{ item.Name }}\n                    </option>\n                  </select>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Map Plus code</label>\n                  <input type=\"text\" class=\"form-control\" id=\"GoogleMapPlusCode\" name=\"GoogleMapPlusCode\"\n                    formControlName=\"GoogleMapPlusCode\" placeholder=\"Enter Google Map PlusCode\" />\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"name\">Google Map URL</label>\n                  <input type=\"text\" class=\"form-control\" id=\"GoogleMapURL\" name=\"GoogleMapURL\"\n                    formControlName=\"GoogleMapURL\" placeholder=\"Enter Google Map URL\" />\n                </div>\n              </div>\n            </div>\n\n\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\n              Close\n            </button>\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !customerForm.valid\">\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n              Save changes\n            </button>\n          </form>\n        </div>\n      </div>\n      <!-- /.modal-content -->\n    </div>\n    <!-- /.modal-dialog -->\n  </div>\n  <!-- /.modal -->\n</div>";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\r\n  <div class=\"card\">\r\n    <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\r\n      <h2>Customers</h2>\r\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\r\n        New\r\n      </button>\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <div class=\"row\">\r\n        <div class=\"col-12\">\r\n          <ag-grid-angular #agGrid style=\"width: 100%; height: 500px\" id=\"myGrid\" class=\"ag-theme-alpine\"\r\n            [columnDefs]=\"columnDefs\" [rowData]=\"rowData\" [rowSelection]=\"rowSelection\"\r\n            (gridReady)=\"onGridReady($event)\" (selectionChanged)=\"onSelectionChanged($event)\" animateRows=\"true\">\r\n          </ag-grid-angular>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Add New Customer</h4>\r\n          <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form [formGroup]=\"customerForm\" (ngSubmit)=\"FormSubmit()\">\r\n            <div class=\"row\">\r\n              <div class=\"col\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Name of Bride</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"NameOfBride\" name=\"NameOfBride\"\r\n                    formControlName=\"NameOfBride\" placeholder=\"Enter bride's name\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Name of Father</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"NameOfFather\" name=\"NameOfFather\"\r\n                    formControlName=\"NameOfFather\" placeholder=\"Enter father's name\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Name of Mother</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"NameOfMother\" name=\"NameOfMother\"\r\n                    formControlName=\"NameOfMother\" placeholder=\"Enter mother's name\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Contact number 1</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"Contact_Number_1\" name=\"Contact_Number_1\"\r\n                    formControlName=\"Contact_Number_1\" placeholder=\"Enter primary contact number\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Contact number 2</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"Contact_Number_2\" name=\"Contact_Number_2\"\r\n                    formControlName=\"Contact_Number_2\" placeholder=\"Enter secondary contact number\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"Post_office\">Post office</label>\r\n                  <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\r\n                    placeholder=\"Enter locality\" /> -->\r\n                  <select class=\"form-control\" id=\"Post_office\" required ngModel name=\"Post_office\"\r\n                    formControlName=\"Post_office\">\r\n                    <option value=\"\" disabled selected hidden>Choose...</option>\r\n                    <option *ngFor=\"let item of postoffices\" value=\"{{ item.id }}\">\r\n                      {{ item.Name }}\r\n                    </option>\r\n                  </select>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Latitude</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"Latitude\" name=\"Latitude\"\r\n                    formControlName=\"Latitude\" placeholder=\"Enter Latitude\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Longitude</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"Longitude\" name=\"Longitude\"\r\n                    formControlName=\"Longitude\" placeholder=\"Enter Longitude\" />\r\n                </div>\r\n              </div>\r\n              <div class=\"col\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"email\">Marriage date</label>\r\n                  <input type=\"date\" class=\"form-control\" id=\"MarriageDate\" name=\"MarriageDate\"\r\n                    formControlName=\"MarriageDate\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"group\">Marriage month</label>\r\n                  <select class=\"form-control\" id=\"MarriageMonth\" required ngModel name=\"MarriageMonth\"\r\n                    formControlName=\"MarriageMonth\">\r\n                    <option value=\"\" disabled selected hidden>Choose...</option>\r\n                    <option *ngFor=\"let item of Months\" value=\"{{ item.id }}\">\r\n                      {{ item.Name }}\r\n                    </option>\r\n                  </select>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"group\">Agent</label>\r\n                  <select class=\"form-control\" id=\"tele_caller_contact\" required ngModel name=\"tele_caller_contact\"\r\n                    formControlName=\"tele_caller_contact\">\r\n                    <option value=\"\" disabled selected hidden>Choose...</option>\r\n                    <option *ngFor=\"let item of agents\" value=\"{{ item.id }}\">\r\n                      {{ item.Name }}\r\n                    </option>\r\n                  </select>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">House Name</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\" formControlName=\"HouseName\"\r\n                    placeholder=\"Enter House Name\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Landmark</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\" formControlName=\"Landmark\"\r\n                    placeholder=\"Enter Landmark\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"locality\">Name of locality</label>\r\n                  <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\r\n                    placeholder=\"Enter locality\" /> -->\r\n                  <select class=\"form-control\" id=\"locality\" required ngModel name=\"locality\"\r\n                    formControlName=\"locality\">\r\n                    <option value=\"\" disabled selected hidden>Choose...</option>\r\n                    <option *ngFor=\"let item of localities\" value=\"{{ item.id }}\">\r\n                      {{ item.Name }}\r\n                    </option>\r\n                  </select>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Map Plus code</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"GoogleMapPlusCode\" name=\"GoogleMapPlusCode\"\r\n                    formControlName=\"GoogleMapPlusCode\" placeholder=\"Enter Google Map PlusCode\" />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                  <label for=\"name\">Google Map URL</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"GoogleMapURL\" name=\"GoogleMapURL\"\r\n                    formControlName=\"GoogleMapURL\" placeholder=\"Enter Google Map URL\" />\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n\r\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\r\n              Close\r\n            </button>\r\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !customerForm.valid\">\r\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\r\n              Save changes\r\n            </button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n      <!-- /.modal-content -->\r\n    </div>\r\n    <!-- /.modal-dialog -->\r\n  </div>\r\n  <!-- /.modal -->\r\n</div>";
       /***/
     },
 
     /***/
-    "KOzp":
-    /*!******************************************************************************!*\
-      !*** ./node_modules/ngx-bootstrap/popover/fesm2015/ngx-bootstrap-popover.js ***!
-      \******************************************************************************/
-
-    /*! exports provided: PopoverConfig, PopoverContainerComponent, PopoverDirective, PopoverModule */
-
-    /***/
-    function KOzp(module, __webpack_exports__, __webpack_require__) {
+    "KOzp": function KOzp(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -4526,13 +4463,14 @@
         return PopoverModule;
       }();
 
+      PopoverModule.ɵfac = function PopoverModule_Factory(t) {
+        return new (t || PopoverModule)();
+      };
+
       PopoverModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
         type: PopoverModule
       });
       PopoverModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function PopoverModule_Factory(t) {
-          return new (t || PopoverModule)();
-        },
         imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"]]]
       });
 
@@ -4577,15 +4515,7 @@
     },
 
     /***/
-    "L9pn":
-    /*!***************************************************************!*\
-      !*** ./src/app/views/telecaller/telecaller-routing.module.ts ***!
-      \***************************************************************/
-
-    /*! exports provided: TelecallerRoutingModule */
-
-    /***/
-    function L9pn(module, __webpack_exports__, __webpack_require__) {
+    "L9pn": function L9pn(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -4692,15 +4622,7 @@
     },
 
     /***/
-    "MYrn":
-    /*!*****************************************!*\
-      !*** ./src/app/utils/StatusRenderer.ts ***!
-      \*****************************************/
-
-    /*! exports provided: ActionRenderer */
-
-    /***/
-    function MYrn(module, __webpack_exports__, __webpack_require__) {
+    "MYrn": function MYrn(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -4737,15 +4659,7 @@
     },
 
     /***/
-    "RhS/":
-    /*!***********************************************************!*\
-      !*** ./src/app/views/telecaller/agentdetail.component.ts ***!
-      \***********************************************************/
-
-    /*! exports provided: AgentDetailComponent */
-
-    /***/
-    function RhS(module, __webpack_exports__, __webpack_require__) {
+    "RhS/": function RhS(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -5010,15 +4924,7 @@
     },
 
     /***/
-    "St1U":
-    /*!********************************************************************************!*\
-      !*** ./node_modules/ngx-bootstrap/collapse/fesm2015/ngx-bootstrap-collapse.js ***!
-      \********************************************************************************/
-
-    /*! exports provided: CollapseDirective, CollapseModule */
-
-    /***/
-    function St1U(module, __webpack_exports__, __webpack_require__) {
+    "St1U": function St1U(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -5039,7 +4945,7 @@
 
       var _angular_animations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/animations */
-      "GS7A");
+      "R0Ic");
       /* harmony import */
 
 
@@ -5512,14 +5418,14 @@
         return CollapseModule;
       }();
 
+      CollapseModule.ɵfac = function CollapseModule_Factory(t) {
+        return new (t || CollapseModule)();
+      };
+
       CollapseModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
         type: CollapseModule
       });
-      CollapseModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-        factory: function CollapseModule_Factory(t) {
-          return new (t || CollapseModule)();
-        }
-      });
+      CollapseModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({});
 
       (function () {
         (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](CollapseModule, {
@@ -5553,15 +5459,7 @@
     },
 
     /***/
-    "T6vt":
-    /*!******************************************************************************************!*\
-      !*** ./node_modules/angular-responsive-carousel/fesm2015/angular-responsive-carousel.js ***!
-      \******************************************************************************************/
-
-    /*! exports provided: CarouselComponent, IvyCarouselModule */
-
-    /***/
-    function T6vt(module, __webpack_exports__, __webpack_require__) {
+    "T6vt": function T6vt(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -5977,7 +5875,9 @@
 
               } else if (listener === 'mouseup' || listener === "mousemove") {
                 if (action === 'addEventListener') {
-                  document.addEventListener(listener, this[handler], false);
+                  document.addEventListener(listener, this[handler], {
+                    passive: false
+                  });
                 }
 
                 if (action === 'removeEventListener') {
@@ -5997,12 +5897,14 @@
           }
         }, {
           key: "addEventListeners",
-          value: function addEventListeners(listener, handler) {
+          value: function addEventListeners(listener) {
+            var handler = this._mouseListeners[listener];
             window.addEventListener(listener, this[handler], false);
           }
         }, {
           key: "removeEventListeners",
-          value: function removeEventListeners(listener, handler) {
+          value: function removeEventListeners(listener) {
+            var handler = this._mouseListeners[listener];
             window.removeEventListener(listener, this[handler], false);
           }
         }, {
@@ -6061,6 +5963,7 @@
             }
 
             this.lastTap = currentTime;
+            return undefined;
           }
         }, {
           key: "detectTap",
@@ -6100,6 +6003,8 @@
                 return this.getLinearSwipeType(event);
               }
             }
+
+            return undefined;
           }
         }, {
           key: "getLinearSwipeType",
@@ -6199,6 +6104,9 @@
           this.cells = cells;
           this.container = container;
           this.slide = slide;
+          /* The slide length has been limited by the limitSlideLength() method */
+
+          this.isSlideLengthLimited = false;
           this.isContentImages = true;
           this.isLazyLoad = true;
           this.isContainerLocked = true;
@@ -6246,7 +6154,7 @@
           key: "cellLengthInLightDOMMode",
           get: function get() {
             if (this.images) {
-              var cellLength = this.visibleCellsCount + this.overflowCellsLimit * 2;
+              var cellLength = this.numberOfVisibleCells + this.overflowCellsLimit * 2;
 
               if (cellLength > this.images.length) {
                 cellLength = this.images.length;
@@ -6265,22 +6173,19 @@
         }, {
           key: "overflowCellsLimit",
           get: function get() {
-            if (this.images && this.isImagesLessCellLimit) {
-              return Math.floor((this.images.length - this.visibleCellsCount) / 2);
-            } else {
-              return this.properties.overflowCellsLimit;
-            }
-          }
-        }, {
-          key: "isImagesLessCellLimit",
-          get: function get() {
-            return this.properties.overflowCellsLimit * 2 + this.visibleCellsCount > this.images.length;
+            return this.utils.overflowCellsLimit;
           }
         }, {
           key: "cellLimit",
           get: function get() {
             if (this.isLightDOM) {
-              return this.visibleCellsCount + this.overflowCellsLimit * 2;
+              var cellLimit = this.numberOfVisibleCells + this.overflowCellsLimit * 2;
+
+              if (cellLimit < this.numberOfVisibleCells) {
+                cellLimit = this.numberOfVisibleCells;
+              }
+
+              return cellLimit;
             } else {
               return this.properties.images.length;
             }
@@ -6321,9 +6226,9 @@
             return this.properties.cellWidth + this.margin;
           }
         }, {
-          key: "visibleCellsCount",
+          key: "numberOfVisibleCells",
           get: function get() {
-            return Math.ceil(this.visibleWidth / this.fullCellWidth);
+            return this.utils.numberOfVisibleCells;
           }
         }, {
           key: "lapCounter",
@@ -6336,10 +6241,20 @@
             return this.slide.counter;
           }
         }, {
+          key: "updateProperties",
+          value: function updateProperties(properties) {
+            this.properties = properties;
+          }
+        }, {
           key: "init",
           value: function init() {
             this.cellsElement = this.properties.cellsElement;
             this.visibleWidth = this.properties.visibleWidth || this.cellsElement.parentElement.clientWidth;
+          }
+        }, {
+          key: "destroy",
+          value: function destroy() {
+            clearInterval(this.autoplayId);
           }
         }, {
           key: "lineUpCells",
@@ -6404,10 +6319,15 @@
            */
 
           this.newPositionIndex = 0;
+          this.isPositionCorrection = false;
           this.initialPositionX = 0;
           this.initialElementPositionX = 0;
           this.isLocked = true;
           this.pullLimit = 100;
+          this.startTime = 0;
+          this.startX = 0;
+          this.moveX = 0;
+          this.isSwipeInProgress = false;
           this.init();
         }
 
@@ -6442,9 +6362,9 @@
             return this.carouselProperties.cellWidth + this.carouselProperties.margin;
           }
         }, {
-          key: "visibleCellsCount",
+          key: "numberOfVisibleCells",
           get: function get() {
-            return Math.ceil(this.visibleWidth / this.fullCellWidth);
+            return this.utils.numberOfVisibleCells;
           }
         }, {
           key: "transitionDuration",
@@ -6469,7 +6389,7 @@
           key: "cellLengthInLightDOMMode",
           get: function get() {
             if (this.images) {
-              var cellLength = this.visibleCellsCount + this.overflowCellsLimit * 2;
+              var cellLength = this.numberOfVisibleCells + this.overflowCellsLimit * 2;
 
               if (cellLength > this.images.length) {
                 cellLength = this.images.length;
@@ -6483,7 +6403,7 @@
         }, {
           key: "tooFewCells",
           get: function get() {
-            return this.visibleCellsCount > this.cellLength;
+            return this.numberOfVisibleCells > this.cellLength;
           }
         }, {
           key: "disabled",
@@ -6499,6 +6419,11 @@
           key: "isLightDOM",
           get: function get() {
             return this.carouselProperties.lightDOM || this.carouselProperties.loop;
+          }
+        }, {
+          key: "updateProperties",
+          value: function updateProperties(carouselProperties) {
+            this.carouselProperties = carouselProperties;
           }
         }, {
           key: "init",
@@ -6611,6 +6536,8 @@
                 overflowX: Math.abs(currentPositionX - this.getEndPosition())
               };
             }
+
+            return undefined;
           }
         }, {
           key: "slowdownOnPull",
@@ -6618,8 +6545,13 @@
             var distance = Math.abs(this.getDistance());
             var endPosition = this.getEndPosition();
             var isPulled = this.detectPulled();
+
+            if (!isPulled) {
+              return 0;
+            }
+
             var decelerationRatio = 3 + isPulled.overflowX / 50;
-            var positionX;
+            var positionX = 0;
 
             if (isPulled.edge === 'left') {
               if (this.initialElementPositionX < 0) {
@@ -6659,7 +6591,7 @@
           key: "finishMoving",
           value: function finishMoving() {
             var positionX = this.getMovePositionX();
-            var newPositionX;
+            var newPositionX = 0;
 
             if (this.freeScroll) {
               newPositionX = this.getInertia();
@@ -6771,7 +6703,7 @@
         }, {
           key: "clearInitialValues",
           value: function clearInitialValues() {
-            this.startX = this.moveX = undefined;
+            this.startX = this.moveX = 0;
           }
         }, {
           key: "getDirection",
@@ -6785,6 +6717,8 @@
             if (direction === 1) {
               return 'left';
             }
+
+            return undefined;
           }
         }]);
 
@@ -6795,6 +6729,7 @@
         function ImageUtils(element) {
           _classCallCheck(this, ImageUtils);
 
+          this.cellStack = [];
           this.element = element;
         }
 
@@ -6802,19 +6737,6 @@
           key: "getImages",
           value: function getImages() {
             return this.cellStack.filter(this.filter);
-          }
-        }, {
-          key: "comparePositions",
-          value: function comparePositions(a, b) {
-            if (a.positionX < b.positionX) {
-              return -1;
-            }
-
-            if (a.positionX > b.positionX) {
-              return 1;
-            }
-
-            return 0;
           }
         }, {
           key: "filter",
@@ -6845,7 +6767,7 @@
         }, {
           key: "cellLength",
           get: function get() {
-            return this.cells.length;
+            return this.cells ? this.cells.length : 0;
           }
         }, {
           key: "fullCellWidth",
@@ -6856,7 +6778,7 @@
           key: "cellLengthInLightDOMMode",
           get: function get() {
             if (this.images) {
-              var cellLength = this.visibleCellsCount + this.utils.overflowCellsLimit * 2;
+              var cellLength = this.numberOfVisibleCells + this.overflowCellsLimit * 2;
 
               if (cellLength > this.images.length) {
                 cellLength = this.images.length;
@@ -6868,14 +6790,14 @@
             }
           }
         }, {
-          key: "visibleCellsCount",
+          key: "numberOfVisibleCells",
           get: function get() {
-            return Math.ceil(this.visibleWidth / this.fullCellWidth);
+            return this.utils.numberOfVisibleCells;
           }
         }, {
           key: "overflowCellsLimit",
           get: function get() {
-            return this.carouselProperties.overflowCellsLimit;
+            return this.utils.overflowCellsLimit;
           }
         }, {
           key: "isLightDOM",
@@ -6883,9 +6805,14 @@
             return this.carouselProperties.lightDOM || this.carouselProperties.loop;
           }
         }, {
+          key: "updateProperties",
+          value: function updateProperties(carouselProperties) {
+            this.carouselProperties = carouselProperties;
+          }
+        }, {
           key: "lineUp",
           value: function lineUp() {
-            var cells = this.element.children;
+            var cells = this.element ? this.element.children : [];
             this.imageUtils.cellStack = [];
 
             for (var i = 0; i < cells.length; i++) {
@@ -6927,7 +6854,7 @@
             }
 
             var cellLength = this.cellLengthInLightDOMMode;
-            var counter = this.counter - this.carouselProperties.overflowCellsLimit;
+            var counter = this.counter - this.overflowCellsLimit;
 
             if (counter > cellLength) {
               counter = counter % cellLength;
@@ -6969,10 +6896,9 @@
           value: function getImageIndex(cellIndexInDOMTree) {
             var positionIndex = this.getCellIndexInContainer(cellIndexInDOMTree);
             var imageIndex;
-            var overflowCellsLimit = this.carouselProperties.overflowCellsLimit;
 
-            if (this.counter > overflowCellsLimit) {
-              var cellLimitOverflow = this.counter - overflowCellsLimit;
+            if (this.counter > this.overflowCellsLimit) {
+              var cellLimitOverflow = this.counter - this.overflowCellsLimit;
               imageIndex = positionIndex + cellLimitOverflow;
 
               if (this.images && this.carouselProperties.loop) {
@@ -7009,10 +6935,18 @@
           this.utils = utils;
           this.cells = cells;
           this.container = container;
+          this.slideLength = 0;
+          this.isSlideInProgress = false;
           this.counter = 0;
           this._counter = 0;
+          this.distance = 0;
+          this.distanceAbs = 0;
+          this.isNotClickOnArrow = false;
           this.initialPositionX = 0;
           this.currentPositionX = 0;
+          /* The slide length has been limited by the limitSlideLength() method */
+
+          this.isSlideLengthLimited = false;
           this.init();
         }
 
@@ -7032,14 +6966,14 @@
             return this.carouselProperties.minSwipeDistance;
           }
         }, {
-          key: "visibleCellsCount",
+          key: "numberOfVisibleCells",
           get: function get() {
-            return Math.ceil(this.visibleWidth / this.fullCellWidth);
+            return this.utils.numberOfVisibleCells;
           }
         }, {
           key: "visibleCellsOverflowContainer",
           get: function get() {
-            return this.visibleCellsCount * this.fullCellWidth - this.margin > this.visibleWidth;
+            return this.utils.visibleCellsOverflowContainer;
           }
           /* The position to which the container returns after each slide
            * in the light DUM tree mode.
@@ -7053,13 +6987,15 @@
         }, {
           key: "overflowCellsLimit",
           get: function get() {
-            return this.carouselProperties.overflowCellsLimit;
+            return this.utils.overflowCellsLimit;
           }
         }, {
           key: "images",
           get: function get() {
             return this.carouselProperties.images;
           }
+          /* Number of cell elements in the DUM tree */
+
         }, {
           key: "cellLength",
           get: function get() {
@@ -7079,16 +7015,22 @@
             return this.carouselProperties.lightDOM || this.carouselProperties.loop;
           }
         }, {
+          key: "updateProperties",
+          value: function updateProperties(carouselProperties) {
+            this.carouselProperties = carouselProperties;
+            this.setVisibleWidth();
+          }
+        }, {
           key: "init",
           value: function init() {
             this.visibleWidth = this.carouselProperties.visibleWidth || this.carouselProperties.hostElement.clientWidth;
           }
         }, {
           key: "handleTouchstart",
-          value: function handleTouchstart(event) {
+          value: function handleTouchstart() {
             /* Touchstart event is not called for arrow */
             this.isNotClickOnArrow = true;
-            this.isSlideLengthLimited = undefined;
+            this.isSlideLengthLimited = false;
 
             if (!this.isSlideInProgress) {
               this.initialPositionX = this.container.getCurrentPositionX();
@@ -7096,7 +7038,7 @@
           }
         }, {
           key: "handleTouchend",
-          value: function handleTouchend(event) {
+          value: function handleTouchend() {
             if (!this.isNotClickOnArrow) {
               return;
             }
@@ -7105,7 +7047,7 @@
             this.distanceAbs = Math.abs(this.initialPositionX - this.currentPositionX);
             this.distance = this.initialPositionX - this.currentPositionX;
             this.direction = this.getDirection();
-            this.isNotClickOnArrow = undefined;
+            this.isNotClickOnArrow = false;
             this.handleSlide();
           }
         }, {
@@ -7117,11 +7059,6 @@
             if (this.isLightDOM) {
               this.alignContainerFast();
             }
-          }
-        }, {
-          key: "detectClickOnArrow",
-          value: function detectClickOnArrow(event) {
-            return event.target.classList.contains("carousel-arrow");
           }
         }, {
           key: "handleSlide",
@@ -7226,6 +7163,8 @@
             if (this.direction === 'right') {
               return this.counter - this.slideLength;
             }
+
+            return 0;
           }
           /*
            * Limits the length of the slide during calls to the next() and prev()
@@ -7265,7 +7204,7 @@
               var cellsWidth = this.cells.cellLengthInLightDOMMode * this.fullCellWidth;
 
               if (this.visibleWidth < cellsWidth) {
-                correction = -(this.visibleCellsCount * this.fullCellWidth - this.visibleWidth - this.margin);
+                correction = -(this.numberOfVisibleCells * this.fullCellWidth - this.visibleWidth - this.margin);
               }
 
               if (correction >= -this.margin) {
@@ -7313,6 +7252,8 @@
             if (direction === 1) {
               return 'left';
             }
+
+            return undefined;
           }
         }, {
           key: "isSlidesEnd",
@@ -7323,7 +7264,7 @@
             if (this.carouselProperties.loop) {
               return false;
             } else {
-              return imageLength - counter + margin < this.visibleCellsCount;
+              return imageLength - counter + margin < this.numberOfVisibleCells;
             }
           }
         }, {
@@ -7389,7 +7330,7 @@
         }, {
           key: "getPositionWithoutCorrection",
           value: function getPositionWithoutCorrection(value) {
-            var remainder = value % this.fullCellWidth;
+            var remainder = Math.round(value) % this.fullCellWidth;
 
             if (remainder !== 0) {
               return value - (this.fullCellWidth + remainder);
@@ -7400,7 +7341,7 @@
         }, {
           key: "isNextArrowDisabled",
           value: function isNextArrowDisabled() {
-            return this.isLastSlide(this.counter);
+            return this.isLastSlide(this.counter) || !this.visibleCellsOverflowContainer && this.cellLength <= this.numberOfVisibleCells || this.visibleCellsOverflowContainer && this.cellLength < this.numberOfVisibleCells;
           }
         }, {
           key: "isPrevArrowDisabled",
@@ -7456,7 +7397,7 @@
           key: "isLightDOMMode",
           value: function isLightDOMMode(counter) {
             var flag;
-            var remainderOfCells = this.images.length - this.overflowCellsLimit - this.visibleCellsCount;
+            var remainderOfCells = this.images.length - this.overflowCellsLimit - this.numberOfVisibleCells;
 
             if (!this.isLightDOM) {
               return false;
@@ -7484,7 +7425,7 @@
           key: "ifLeftDOMModeAtEnd",
           value: function ifLeftDOMModeAtEnd(counter) {
             var flag;
-            var remainderOfCells = this.images.length - this.overflowCellsLimit - this.visibleCellsCount;
+            var remainderOfCells = this.images.length - this.overflowCellsLimit - this.numberOfVisibleCells;
 
             if (counter >= remainderOfCells) {
               flag = true;
@@ -7511,6 +7452,11 @@
 
             return flag;
           }
+        }, {
+          key: "setVisibleWidth",
+          value: function setVisibleWidth() {
+            this.visibleWidth = this.carouselProperties.visibleWidth || this.carouselProperties.hostElement.clientWidth;
+          }
         }]);
 
         return Slide;
@@ -7529,10 +7475,21 @@
             return this.carouselProperties.images;
           }
         }, {
+          key: "margin",
+          get: function get() {
+            return this.carouselProperties.margin;
+          }
+        }, {
           key: "overflowCellsLimit",
           get: function get() {
             if (this.images && this.isImagesLessCellLimit) {
-              return Math.floor((this.images.length - this.visibleCellsCount) / 2);
+              var overflowCellsLimit = Math.floor((this.images.length - this.numberOfVisibleCells) / 2);
+
+              if (overflowCellsLimit < 0) {
+                overflowCellsLimit = 0;
+              }
+
+              return overflowCellsLimit;
             } else {
               return this.carouselProperties.overflowCellsLimit;
             }
@@ -7540,12 +7497,17 @@
         }, {
           key: "isImagesLessCellLimit",
           get: function get() {
-            return this.carouselProperties.overflowCellsLimit * 2 + this.visibleCellsCount > this.images.length;
+            return this.carouselProperties.overflowCellsLimit * 2 + this.numberOfVisibleCells > this.images.length;
           }
         }, {
-          key: "visibleCellsCount",
+          key: "numberOfVisibleCells",
           get: function get() {
             return Math.ceil(this.visibleWidth / this.fullCellWidth);
+          }
+        }, {
+          key: "visibleCellsOverflowContainer",
+          get: function get() {
+            return this.numberOfVisibleCells * this.fullCellWidth - this.margin > this.visibleWidth;
           }
         }, {
           key: "fullCellWidth",
@@ -7556,6 +7518,11 @@
           key: "visibleWidth",
           get: function get() {
             return this.carouselProperties.visibleWidth || this.carouselProperties.cellsElement.parentElement.clientWidth;
+          }
+        }, {
+          key: "updateProperties",
+          value: function updateProperties(carouselProperties) {
+            this.carouselProperties = carouselProperties;
           }
         }, {
           key: "getStartX",
@@ -7603,9 +7570,13 @@
           this.elementRef = elementRef;
           this.ref = ref;
           this.minTimeout = 30;
+          this.isVideoPlaying = false;
+          this._isCounter = false;
           this._cellWidth = 200;
           this._loop = false;
           this._lightDOM = false;
+          this.isMoving = false;
+          this.isNgContent = false;
           this.events = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
           this.height = 200;
           this.autoplay = false;
@@ -7623,11 +7594,11 @@
           this.cellsToScroll = 1;
           this.freeScroll = false;
           this.arrows = true;
+          this.arrowsOutside = false;
           this.arrowsTheme = 'light';
           this.hostClassCarousel = true;
 
           this.handleTouchstart = function (event) {
-            //event.preventDefault();
             _this23.touches.addEventListeners("mousemove", "handleMousemove");
 
             _this23.carousel.handleTouchstart(event);
@@ -7671,17 +7642,23 @@
         _createClass(CarouselComponent, [{
           key: "isContainerLocked",
           get: function get() {
-            return this.carousel.isContainerLocked;
+            if (this.carousel) {
+              return this.carousel.isContainerLocked;
+            }
           }
         }, {
           key: "slideCounter",
           get: function get() {
-            return this.carousel.slideCounter;
+            if (this.carousel) {
+              return this.carousel.slideCounter;
+            }
           }
         }, {
           key: "lapCounter",
           get: function get() {
-            return this.carousel.lapCounter;
+            if (this.carousel) {
+              return this.carousel.lapCounter;
+            }
           }
         }, {
           key: "isLandscape",
@@ -7743,6 +7720,11 @@
             }
           }
         }, {
+          key: "carouselWidth",
+          get: function get() {
+            return this.elementRef.nativeElement.clientWidth;
+          }
+        }, {
           key: "images",
           get: function get() {
             return this._images;
@@ -7788,10 +7770,9 @@
         }, {
           key: "onWindowResize",
           value: function onWindowResize(event) {
-            this.landscapeMode = this.isLandscape;
-            this.ref.detectChanges();
-            this.initCarousel();
-            this.carousel.lineUpCells();
+            if (this.utils.visibleWidth !== this.savedCarouselWidth) {
+              this.resize();
+            }
           }
         }, {
           key: "onMousemove",
@@ -7831,15 +7812,11 @@
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
             this.initCarousel();
-
-            if (this.autoplay) {
-              this.carousel.autoplay();
-            }
-
             this.cellLength = this.getCellLength();
             this.dotsArr = Array(this.cellLength).fill(1);
             this.ref.detectChanges();
             this.carousel.lineUpCells();
+            this.savedCarouselWidth = this.carouselWidth;
             /* Start detecting changes in the DOM tree */
 
             this.detectDomChanges();
@@ -7862,7 +7839,7 @@
         }, {
           key: "initCarousel",
           value: function initCarousel() {
-            var carouselProperties = {
+            this.carouselProperties = {
               id: this.id,
               cellsElement: this.elementRef.nativeElement.querySelector('.carousel-cells'),
               hostElement: this.elementRef.nativeElement,
@@ -7881,11 +7858,30 @@
               freeScroll: this.freeScroll,
               lightDOM: this.lightDOM
             };
-            this.utils = new Utils(carouselProperties);
-            this.cells = new Cells(carouselProperties, this.utils);
-            this.container = new Container(carouselProperties, this.utils, this.cells);
-            this.slide = new Slide(carouselProperties, this.utils, this.cells, this.container);
-            this.carousel = new Carousel(carouselProperties, this.utils, this.cells, this.container, this.slide);
+            this.utils = new Utils(this.carouselProperties);
+            this.cells = new Cells(this.carouselProperties, this.utils);
+            this.container = new Container(this.carouselProperties, this.utils, this.cells);
+            this.slide = new Slide(this.carouselProperties, this.utils, this.cells, this.container);
+            this.carousel = new Carousel(this.carouselProperties, this.utils, this.cells, this.container, this.slide);
+
+            if (this.autoplay) {
+              this.carousel.autoplay();
+            }
+          }
+        }, {
+          key: "resize",
+          value: function resize() {
+            this.landscapeMode = this.isLandscape;
+            this.savedCarouselWidth = this.carouselWidth;
+            this.carouselProperties.cellWidth = this.getCellWidth();
+            this.cells.updateProperties(this.carouselProperties);
+            this.carousel.updateProperties(this.carouselProperties);
+            this.container.updateProperties(this.carouselProperties);
+            this.slide.updateProperties(this.carouselProperties);
+            this.utils.updateProperties(this.carouselProperties);
+            this.carousel.lineUpCells();
+            this.slide.select(0);
+            this.ref.detectChanges();
           }
         }, {
           key: "detectDomChanges",
@@ -7900,7 +7896,7 @@
               childList: true,
               characterData: true
             };
-            observer.observe(this.elementRef.nativeElement, config);
+            observer.observe(this.cellsElement, config);
           }
         }, {
           key: "onDomChanges",
@@ -7923,31 +7919,14 @@
         }, {
           key: "handleTransitionendCellContainer",
           value: function handleTransitionendCellContainer(event) {
-            this.carousel.handleTransitionend();
-          }
-        }, {
-          key: "toggleVideo",
-          value: function toggleVideo(video) {
-            event.preventDefault();
-
-            if (this.videoProperties.noPlay) {
-              return;
+            if (event.target['className'] === 'carousel-cells') {
+              this.carousel.handleTransitionend();
             }
-
-            if (video.paused) {
-              video.play();
-              this.isVideoPlaying = true;
-            } else {
-              video.pause();
-              this.isVideoPlaying = false;
-            }
-
-            this.ref.detectChanges();
           }
         }, {
           key: "getCellWidth",
           value: function getCellWidth() {
-            var elementWidth = this.elementRef.nativeElement.clientWidth;
+            var elementWidth = this.carouselWidth;
 
             if (this.cellsToShow) {
               var margin = this.cellsToShow > 1 ? this.margin : 0;
@@ -8043,6 +8022,7 @@
           cellsToScroll: "cellsToScroll",
           freeScroll: "freeScroll",
           arrows: "arrows",
+          arrowsOutside: "arrowsOutside",
           arrowsTheme: "arrowsTheme",
           isCounter: ["counter", "isCounter"],
           images: "images",
@@ -8053,8 +8033,7 @@
           width: "width",
           borderRadius: "borderRadius",
           videoProperties: "videoProperties",
-          cellsToShow: "cellsToShow",
-          arrowsOutside: "arrowsOutside"
+          cellsToShow: "cellsToShow"
         },
         outputs: {
           events: "events"
@@ -8112,7 +8091,7 @@
           }
         },
         directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"]],
-        styles: ["[_nghost-%COMP%]{-moz-user-select:none;-webkit-user-select:none;box-sizing:border-box;display:block;height:100%;left:0;position:relative;top:0;transform-origin:top left;user-select:none;width:100%;z-index:10000}[_nghost-%COMP%]   .carousel-container[_ngcontent-%COMP%]{cursor:grab;height:100%;overflow:hidden;width:100%}[_nghost-%COMP%]   .carousel-container.carousel-moving[_ngcontent-%COMP%]{cursor:grabbing}[_nghost-%COMP%]   .carousel-counter[_ngcontent-%COMP%]{background-color:rgba(23,37,68,.3);border-radius:13px;color:#fff;font-size:11px;line-height:normal;padding:5px 7px;position:absolute;right:24px;text-align:right;top:8px;transition:opacity .2s;z-index:30}[_nghost-%COMP%]     .carousel-cells{display:block;height:100%;transition:transform .2s;width:100%;will-change:transform}[_nghost-%COMP%]     .carousel-cells .carousel-cell.swiper-prev-image{transform:translate3d(-100%,0,0)}[_nghost-%COMP%]     .carousel-cells .carousel-cell.swiper-next-image{transform:translate3d(100%,0,0)}[_nghost-%COMP%]     .carousel-cells .carousel-cell{height:100%;overflow:hidden;position:absolute;width:100%}[_nghost-%COMP%]     .carousel-cells .carousel-cell img, [_nghost-%COMP%]     .carousel-cells .carousel-cell video{height:100%;object-fit:contain;position:relative;width:100%}[_nghost-%COMP%]     .carousel-cells .carousel-cell img.swiper-hide{display:none}[_nghost-%COMP%]     .carousel-cells .carousel-cell .carousel-play{bottom:0;left:0;position:absolute;right:0;top:0;z-index:1}[_nghost-%COMP%]   .carousel-arrow[_ngcontent-%COMP%]{background-color:#fff;background-position:50%;background-repeat:no-repeat;background-size:31px;border-radius:100px;box-shadow:0 0 5px rgba(0,0,0,.15);cursor:pointer;height:40px;margin-top:-20px;position:absolute;top:50%;width:40px;z-index:10}[_nghost-%COMP%]   .carousel-arrow-prev[_ngcontent-%COMP%]{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMTUuNDEgMTYuNTlMMTAuODMgMTJsNC41OC00LjU5TDE0IDZsLTYgNiA2IDYgMS40MS0xLjQxeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);left:10px}[_nghost-%COMP%]   .carousel-arrow-next[_ngcontent-%COMP%]{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNOC41OSAxNi41OUwxMy4xNyAxMiA4LjU5IDcuNDEgMTAgNmw2IDYtNiA2LTEuNDEtMS40MXoiLz48cGF0aCBkPSJNMCAwaDI0djI0SDBWMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);right:10px}[_nghost-%COMP%]   .carousel-arrows-outside[_ngcontent-%COMP%]   .carousel-arrow-prev[_ngcontent-%COMP%]{left:-60px}[_nghost-%COMP%]   .carousel-arrows-outside[_ngcontent-%COMP%]   .carousel-arrow-next[_ngcontent-%COMP%]{right:-60px}[_nghost-%COMP%]   .carousel-dark-arrows[_ngcontent-%COMP%]   .carousel-arrow[_ngcontent-%COMP%]{filter:invert(1)}[_nghost-%COMP%]   .carousel-arrow-disabled[_ngcontent-%COMP%]{cursor:default;opacity:.5}[_nghost-%COMP%]   .carousel-dots[_ngcontent-%COMP%]{bottom:0;left:0;position:absolute;right:0;text-align:center;z-index:10}[_nghost-%COMP%]   .carousel-dots[_ngcontent-%COMP%]   .carousel-dot[_ngcontent-%COMP%]{border:2px solid #fff;border-radius:100px;display:inline-block;height:8px;margin:4px;width:8px}[_nghost-%COMP%]   .carousel-dots[_ngcontent-%COMP%]   .carousel-dot-active[_ngcontent-%COMP%]{background-color:#fff}"]
+        styles: ["[_nghost-%COMP%]{position:relative;display:block;top:0;left:0;width:100%;height:100%;-webkit-user-select:none;user-select:none;z-index:10000;transform-origin:top left;box-sizing:border-box}[_nghost-%COMP%]   .carousel-container[_ngcontent-%COMP%]{overflow:hidden;width:100%;height:100%;cursor:grab}[_nghost-%COMP%]   .carousel-container.carousel-moving[_ngcontent-%COMP%]{cursor:grabbing}[_nghost-%COMP%]   .carousel-counter[_ngcontent-%COMP%]{text-align:right;position:absolute;z-index:30;transition:opacity .2s;top:8px;right:24px;border-radius:13px;background-color:rgba(23,37,68,.3);font-size:11px;color:#fff;padding:5px 7px;line-height:normal}[_nghost-%COMP%]     .carousel-cells{transition:transform .2s;width:100%;height:100%;display:block;will-change:transform}[_nghost-%COMP%]     .carousel-cells .carousel-cell.swiper-prev-image{transform:translate3d(-100%,0,0)}[_nghost-%COMP%]     .carousel-cells .carousel-cell.swiper-next-image{transform:translate3d(100%,0,0)}[_nghost-%COMP%]     .carousel-cells .carousel-cell{width:100%;height:100%;position:absolute;overflow:hidden}[_nghost-%COMP%]     .carousel-cells .carousel-cell img, [_nghost-%COMP%]     .carousel-cells .carousel-cell video{width:100%;height:100%;position:relative;object-fit:contain}[_nghost-%COMP%]     .carousel-cells .carousel-cell img.swiper-hide{display:none}[_nghost-%COMP%]     .carousel-cells .carousel-cell .carousel-play{position:absolute;top:0;left:0;bottom:0;right:0;z-index:1}[_nghost-%COMP%]   .carousel-arrow[_ngcontent-%COMP%]{width:40px;height:40px;background-color:#fff;background-repeat:no-repeat;background-size:31px;background-position:50%;border-radius:100px;position:absolute;top:50%;margin-top:-20px;z-index:10;cursor:pointer;box-shadow:0 0 5px rgba(0,0,0,.15)}[_nghost-%COMP%]   .carousel-arrow-prev[_ngcontent-%COMP%]{left:10px;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMTUuNDEgMTYuNTlMMTAuODMgMTJsNC41OC00LjU5TDE0IDZsLTYgNiA2IDYgMS40MS0xLjQxeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==)}[_nghost-%COMP%]   .carousel-arrow-next[_ngcontent-%COMP%]{right:10px;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNOC41OSAxNi41OUwxMy4xNyAxMiA4LjU5IDcuNDEgMTAgNmw2IDYtNiA2LTEuNDEtMS40MXoiLz48cGF0aCBkPSJNMCAwaDI0djI0SDBWMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=)}[_nghost-%COMP%]   .carousel-arrows-outside[_ngcontent-%COMP%]   .carousel-arrow-prev[_ngcontent-%COMP%]{left:-60px}[_nghost-%COMP%]   .carousel-arrows-outside[_ngcontent-%COMP%]   .carousel-arrow-next[_ngcontent-%COMP%]{right:-60px}[_nghost-%COMP%]   .carousel-dark-arrows[_ngcontent-%COMP%]   .carousel-arrow[_ngcontent-%COMP%]{filter:invert(1)}[_nghost-%COMP%]   .carousel-arrow-disabled[_ngcontent-%COMP%]{cursor:default;opacity:.5}[_nghost-%COMP%]   .carousel-dots[_ngcontent-%COMP%]{position:absolute;left:0;right:0;bottom:0;z-index:10;text-align:center}[_nghost-%COMP%]   .carousel-dots[_ngcontent-%COMP%]   .carousel-dot[_ngcontent-%COMP%]{display:inline-block;border:2px solid #fff;border-radius:100px;margin:4px;width:8px;height:8px}[_nghost-%COMP%]   .carousel-dots[_ngcontent-%COMP%]   .carousel-dot-active[_ngcontent-%COMP%]{background-color:#fff}"]
       });
 
       CarouselComponent.ctorParameters = function () {
@@ -8246,8 +8225,8 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
           args: [{
             selector: 'carousel, [carousel]',
-            template: "<div class=\"carousel-counter\" *ngIf=\"isCounter\">{{counter}}</div>\n\n<div class=\"carousel-container\" [class.carousel-moving]=\"isMoving\">\n\t<div class=\"carousel-cells\" #cells (transitionend)=\"handleTransitionendCellContainer($event)\">\n\t\t<ng-content></ng-content>\n\n\t\t<ng-template ngFor let-image [ngForOf]=\"images\" let-i=\"index\">\n\t\t\t<div class=\"carousel-cell\" \n\t\t\t\t[style.width]=\"getCellWidth()+'px'\"\n\t\t\t\t[style.border-radius]=\"borderRadius+'px'\"\n\t\t\t\t*ngIf=\"i < cellLimit\">\n\t\t\t\t<!-- Image -->\n\t\t\t\t<img \n\t\t\t\t\t*ngIf=\"getImage(i) && getImage(i)['image']\" \n\t\t\t\t\t[src]=\"getImage(i)['image']['path']\"\n\t\t\t\t\t[style.object-fit]=\"objectFit\"\n\t\t\t\t\tdraggable=\"false\" />\n\n\t\t\t</div>\n\t\t</ng-template>\n\t</div>\n\n\t<div class=\"carousel-dots\" *ngIf=\"dots\">\n\t\t<div class=\"carousel-dot\" [class.carousel-dot-active]=\"i === activeDotIndex\" *ngFor=\"let dot of dotsArr; index as i\"></div>\n\t</div>\n</div>\n\n<div class=\"carousel-arrows\" \n\t[class.carousel-arrows-outside]=\"arrowsOutside\" \n\t[class.carousel-dark-arrows]=\"arrowsTheme === 'dark'\"\n\t*ngIf=\"isArrows\">\n\t\n\t<div class=\"carousel-arrow carousel-arrow-prev\" [class.carousel-arrow-disabled]=\"isPrevArrowDisabled()\" (click)=\"prev()\"></div>\n\t<div class=\"carousel-arrow carousel-arrow-next\" [class.carousel-arrow-disabled]=\"isNextArrowDisabled()\" (click)=\"next()\"></div>\n</div>",
-            styles: [":host{-moz-user-select:none;-webkit-user-select:none;box-sizing:border-box;display:block;height:100%;left:0;position:relative;top:0;transform-origin:top left;user-select:none;width:100%;z-index:10000}:host .carousel-container{cursor:grab;height:100%;overflow:hidden;width:100%}:host .carousel-container.carousel-moving{cursor:grabbing}:host .carousel-counter{background-color:rgba(23,37,68,.3);border-radius:13px;color:#fff;font-size:11px;line-height:normal;padding:5px 7px;position:absolute;right:24px;text-align:right;top:8px;transition:opacity .2s;z-index:30}:host ::ng-deep .carousel-cells{display:block;height:100%;transition:transform .2s;width:100%;will-change:transform}:host ::ng-deep .carousel-cells .carousel-cell.swiper-prev-image{transform:translate3d(-100%,0,0)}:host ::ng-deep .carousel-cells .carousel-cell.swiper-next-image{transform:translate3d(100%,0,0)}:host ::ng-deep .carousel-cells .carousel-cell{height:100%;overflow:hidden;position:absolute;width:100%}:host ::ng-deep .carousel-cells .carousel-cell img,:host ::ng-deep .carousel-cells .carousel-cell video{height:100%;object-fit:contain;position:relative;width:100%}:host ::ng-deep .carousel-cells .carousel-cell img.swiper-hide{display:none}:host ::ng-deep .carousel-cells .carousel-cell .carousel-play{bottom:0;left:0;position:absolute;right:0;top:0;z-index:1}:host .carousel-arrow{background-color:#fff;background-position:50%;background-repeat:no-repeat;background-size:31px;border-radius:100px;box-shadow:0 0 5px rgba(0,0,0,.15);cursor:pointer;height:40px;margin-top:-20px;position:absolute;top:50%;width:40px;z-index:10}:host .carousel-arrow-prev{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMTUuNDEgMTYuNTlMMTAuODMgMTJsNC41OC00LjU5TDE0IDZsLTYgNiA2IDYgMS40MS0xLjQxeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);left:10px}:host .carousel-arrow-next{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNOC41OSAxNi41OUwxMy4xNyAxMiA4LjU5IDcuNDEgMTAgNmw2IDYtNiA2LTEuNDEtMS40MXoiLz48cGF0aCBkPSJNMCAwaDI0djI0SDBWMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);right:10px}:host .carousel-arrows-outside .carousel-arrow-prev{left:-60px}:host .carousel-arrows-outside .carousel-arrow-next{right:-60px}:host .carousel-dark-arrows .carousel-arrow{filter:invert(1)}:host .carousel-arrow-disabled{cursor:default;opacity:.5}:host .carousel-dots{bottom:0;left:0;position:absolute;right:0;text-align:center;z-index:10}:host .carousel-dots .carousel-dot{border:2px solid #fff;border-radius:100px;display:inline-block;height:8px;margin:4px;width:8px}:host .carousel-dots .carousel-dot-active{background-color:#fff}"]
+            template: "<div class=\"carousel-counter\" *ngIf=\"isCounter\">{{counter}}</div>\r\n\r\n<div class=\"carousel-container\" [class.carousel-moving]=\"isMoving\">\r\n\t<div class=\"carousel-cells\" #cells (transitionend)=\"handleTransitionendCellContainer($event)\">\r\n\t\t<ng-content></ng-content>\r\n\r\n\t\t<ng-template ngFor let-image [ngForOf]=\"images\" let-i=\"index\">\r\n\t\t\t<div class=\"carousel-cell\" \r\n\t\t\t\t[style.width]=\"getCellWidth()+'px'\"\r\n\t\t\t\t[style.border-radius]=\"borderRadius+'px'\"\r\n\t\t\t\t*ngIf=\"i < cellLimit\">\r\n\t\t\t\t<!-- Image -->\r\n\t\t\t\t<img \r\n\t\t\t\t\t*ngIf=\"getImage(i) && getImage(i)['image']\" \r\n\t\t\t\t\t[src]=\"getImage(i)['image']['path']\"\r\n\t\t\t\t\t[style.object-fit]=\"objectFit\"\r\n\t\t\t\t\tdraggable=\"false\" />\r\n\r\n\t\t\t</div>\r\n\t\t</ng-template>\r\n\t</div>\r\n\r\n\t<div class=\"carousel-dots\" *ngIf=\"dots\">\r\n\t\t<div class=\"carousel-dot\" [class.carousel-dot-active]=\"i === activeDotIndex\" *ngFor=\"let dot of dotsArr; index as i\"></div>\r\n\t</div>\r\n</div>\r\n\r\n<div class=\"carousel-arrows\" \r\n\t[class.carousel-arrows-outside]=\"arrowsOutside\" \r\n\t[class.carousel-dark-arrows]=\"arrowsTheme === 'dark'\"\r\n\t*ngIf=\"isArrows\">\r\n\t\r\n\t<div class=\"carousel-arrow carousel-arrow-prev\" [class.carousel-arrow-disabled]=\"isPrevArrowDisabled()\" (click)=\"prev()\"></div>\r\n\t<div class=\"carousel-arrow carousel-arrow-next\" [class.carousel-arrow-disabled]=\"isNextArrowDisabled()\" (click)=\"next()\"></div>\r\n</div>",
+            styles: [":host{position:relative;display:block;top:0;left:0;width:100%;height:100%;-webkit-user-select:none;user-select:none;z-index:10000;transform-origin:top left;box-sizing:border-box}:host .carousel-container{overflow:hidden;width:100%;height:100%;cursor:grab}:host .carousel-container.carousel-moving{cursor:grabbing}:host .carousel-counter{text-align:right;position:absolute;z-index:30;transition:opacity .2s;top:8px;right:24px;border-radius:13px;background-color:rgba(23,37,68,.3);font-size:11px;color:#fff;padding:5px 7px;line-height:normal}:host ::ng-deep .carousel-cells{transition:transform .2s;width:100%;height:100%;display:block;will-change:transform}:host ::ng-deep .carousel-cells .carousel-cell.swiper-prev-image{transform:translate3d(-100%,0,0)}:host ::ng-deep .carousel-cells .carousel-cell.swiper-next-image{transform:translate3d(100%,0,0)}:host ::ng-deep .carousel-cells .carousel-cell{width:100%;height:100%;position:absolute;overflow:hidden}:host ::ng-deep .carousel-cells .carousel-cell img,:host ::ng-deep .carousel-cells .carousel-cell video{width:100%;height:100%;position:relative;object-fit:contain}:host ::ng-deep .carousel-cells .carousel-cell img.swiper-hide{display:none}:host ::ng-deep .carousel-cells .carousel-cell .carousel-play{position:absolute;top:0;left:0;bottom:0;right:0;z-index:1}:host .carousel-arrow{width:40px;height:40px;background-color:#fff;background-repeat:no-repeat;background-size:31px;background-position:50%;border-radius:100px;position:absolute;top:50%;margin-top:-20px;z-index:10;cursor:pointer;box-shadow:0 0 5px rgba(0,0,0,.15)}:host .carousel-arrow-prev{left:10px;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMTUuNDEgMTYuNTlMMTAuODMgMTJsNC41OC00LjU5TDE0IDZsLTYgNiA2IDYgMS40MS0xLjQxeiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==)}:host .carousel-arrow-next{right:10px;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNOC41OSAxNi41OUwxMy4xNyAxMiA4LjU5IDcuNDEgMTAgNmw2IDYtNiA2LTEuNDEtMS40MXoiLz48cGF0aCBkPSJNMCAwaDI0djI0SDBWMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=)}:host .carousel-arrows-outside .carousel-arrow-prev{left:-60px}:host .carousel-arrows-outside .carousel-arrow-next{right:-60px}:host .carousel-dark-arrows .carousel-arrow{filter:invert(1)}:host .carousel-arrow-disabled{cursor:default;opacity:.5}:host .carousel-dots{position:absolute;left:0;right:0;bottom:0;z-index:10;text-align:center}:host .carousel-dots .carousel-dot{display:inline-block;border:2px solid #fff;border-radius:100px;margin:4px;width:8px;height:8px}:host .carousel-dots .carousel-dot-active{background-color:#fff}"]
           }]
         }], function () {
           return [{
@@ -8305,6 +8284,9 @@
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
           }],
           arrows: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+          }],
+          arrowsOutside: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
           }],
           arrowsTheme: [{
@@ -8367,9 +8349,6 @@
           }],
           cellsToShow: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-          }],
-          arrowsOutside: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
           }]
         });
       })();
@@ -8378,13 +8357,14 @@
         _classCallCheck(this, IvyCarouselModule);
       };
 
+      IvyCarouselModule.ɵfac = function IvyCarouselModule_Factory(t) {
+        return new (t || IvyCarouselModule)();
+      };
+
       IvyCarouselModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
         type: IvyCarouselModule
       });
       IvyCarouselModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-        factory: function IvyCarouselModule_Factory(t) {
-          return new (t || IvyCarouselModule)();
-        },
         providers: [],
         imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]]]
       });
@@ -8430,15 +8410,7 @@
     },
 
     /***/
-    "VVPZ":
-    /*!*********************************************************!*\
-      !*** ./src/app/views/telecaller/customers.component.ts ***!
-      \*********************************************************/
-
-    /*! exports provided: CustomersComponent */
-
-    /***/
-    function VVPZ(module, __webpack_exports__, __webpack_require__) {
+    "VVPZ": function VVPZ(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -8633,35 +8605,19 @@
     },
 
     /***/
-    "ZGQF":
-    /*!***************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/telecaller/agentdetail.component.html ***!
-      \***************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function ZGQF(module, __webpack_exports__, __webpack_require__) {
+    "ZGQF": function ZGQF(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div bsModal #deleteModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-dialog-centered modal-sm\">\n      <div class=\"modal-content\">\n        <div class=\"modal-body text-center\">\n          Do you want to delete this agent?\n        </div>\n        <div class=\"modal-footer justify-content-around\">\n          <button type=\"button\" class=\"btn btn-secondary\" (click)=\"deleteModal.hide()\">\n            No! Cancel.\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"deleteAgent()\">\n            Yes! Delete.\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"card\">\n  <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\n    <h2>Agent Details</h2>\n    <span>\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"customerModal.show()\">\n        New Customer\n      </button>\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\n        Edit\n      </button>\n      <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" (click)=\"deleteModal.show()\">\n        Delete\n      </button></span>\n  </div>\n  <div class=\"card-body\">\n    <div class=\"row\">\n      <div class=\"col\">\n        <table class=\"table table-striped\">\n          <tbody>\n            <tr>\n              <td>ID</td>\n              <td>{{details.id}}</td>\n            </tr>\n            <tr>\n              <td>Name</td>\n              <td>{{details.Name}}</td>\n            </tr>\n            <tr>\n              <td>Contact 1</td>\n              <td>{{details.Contact_Number_1}}</td>\n            </tr>\n            <tr>\n              <td>Contact 2</td>\n              <td>{{ details.Contact_Number_2 }}</td>\n            </tr>\n            <tr>\n              <td>Contact 3</td>\n              <td>{{ details.Contact_Number_3 }}</td>\n            </tr>\n            <tr>\n              <td>Email</td>\n              <td>{{ details.Email }}</td>\n            </tr>\n            <tr>\n              <td>Group</td>\n              <td>\n                <span class=\"badge badge-warning\">{{ details.group?.Name }}</span>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n      <div class=\"col\">\n        <div class=\"card\" *ngFor=\"let item of details.telecaller_remarks\">\n          <div class=\"card-body\">\n            <h5 class=\"card-title\">{{dateConverter(item.CallHistory?.event_date_time)}}</h5>\n            <p class=\"card-text\">{{item.RemarksText}}</p>\n            <span class=\"badge badge-primary\">{{item.CallHistory.users_permissions_user?.username}}</span>\n          </div>\n        </div>\n        <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"commentModal.show()\">\n          Add Comment\n        </button>\n      </div>\n    </div>\n\n  </div>\n  <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Edit Agent</h4>\n          <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form [formGroup]=\"agentForm\" (ngSubmit)=\"FormSubmit()\">\n            <div class=\"form-group\">\n              <label for=\"name\">Name</label>\n              <input type=\"text\" class=\"form-control\" id=\"name\" name=\"name\" formControlName=\"name\"\n                placeholder=\"Enter agent name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"email\">E-mail</label>\n              <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" formControlName=\"email\"\n                placeholder=\"Enter agent email\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"street\">Phone 1</label>\n              <input type=\"number\" class=\"form-control\" id=\"phone1\" name=\"phone1\" formControlName=\"phone1\"\n                placeholder=\"Enter Phone 1\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"phone2\">Phone 2</label>\n              <input type=\"number\" class=\"form-control\" id=\"phone2\" name=\"phone2\" formControlName=\"phone2\"\n                placeholder=\"Enter Phone 2\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"phone3\">Phone 3</label>\n              <input type=\"number\" class=\"form-control\" id=\"phone3\" name=\"phone3\" formControlName=\"phone3\"\n                placeholder=\"Enter Phone 3\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"group\">Group</label>\n              <select class=\"form-control\" id=\"group\" required ngModel name=\"group\" formControlName=\"group\">\n                <option value=\"\" disabled selected hidden>Choose...</option>\n                <option *ngFor=\"let item of groups\" value=\"{{ item.id }}\">\n                  {{ item.Name }}\n                </option>\n              </select>\n            </div>\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\n              Close\n            </button>\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !agentForm.valid\">\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n              Save changes\n            </button>\n          </form>\n        </div>\n      </div>\n      <!-- /.modal-content -->\n    </div>\n    <!-- /.modal-dialog -->\n  </div>\n  <div bsModal #commentModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Add Comment</h4>\n          <button type=\"button\" class=\"close\" (click)=\"commentModal.hide()\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form [formGroup]=\"commentForm\" (ngSubmit)=\"CommentSubmit()\">\n            <div class=\"form-group\">\n              <label for=\"name\">Remarks</label>\n              <textarea class=\"form-control\" maxlength=\"250\" id=\"RemarksText\" name=\"RemarksText\"\n                formControlName=\"RemarksText\" placeholder=\"Enter remarks\"></textarea>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label for=\"email\">Date</label>\n              <input type=\"datetime-local\" class=\"form-control\" id=\"event_date_time\" name=\"event_date_time\"\n                formControlName=\"event_date_time\" />\n            </div> -->\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"commentModal.hide()\">\n              Close\n            </button>\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !commentForm.valid\">\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n              Save changes\n            </button>\n          </form>\n        </div>\n      </div>\n      <!-- /.modal-content -->\n    </div>\n    <!-- /.modal-dialog -->\n  </div>\n  <div bsModal #customerModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Add New Customer</h4>\n          <button type=\"button\" class=\"close\" (click)=\"customerModal.hide()\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form [formGroup]=\"customerForm\" (ngSubmit)=\"customerSubmit()\">\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Bride</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfBride\" name=\"NameOfBride\" formControlName=\"NameOfBride\"\n                placeholder=\"Enter bride's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Father</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfFather\" name=\"NameOfFather\"\n                formControlName=\"NameOfFather\" placeholder=\"Enter father's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Name of Mother</label>\n              <input type=\"text\" class=\"form-control\" id=\"NameOfMother\" name=\"NameOfMother\"\n                formControlName=\"NameOfMother\" placeholder=\"Enter mother's name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"email\">Marriage date</label>\n              <input type=\"date\" class=\"form-control\" id=\"MarriageDate\" name=\"MarriageDate\"\n                formControlName=\"MarriageDate\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"group\">Marriage month</label>\n              <select class=\"form-control\" id=\"MarriageMonth\" required ngModel name=\"MarriageMonth\" formControlName=\"MarriageMonth\">\n                <option value=\"\" disabled selected hidden>Choose...</option>\n                <option *ngFor=\"let item of Months\" value=\"{{ item.id }}\">\n                  {{ item.Name }}\n                </option>\n              </select>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label for=\"group\">Agent</label>\n              <select class=\"form-control\" id=\"tele_caller_contact\" required ngModel name=\"tele_caller_contact\" formControlName=\"tele_caller_contact\">\n                <option value=\"\" disabled selected hidden>Choose...</option>\n                <option *ngFor=\"let item of agents\" value=\"{{ item.id }}\">\n                  {{ item.Name }}\n                </option>\n              </select>\n            </div> -->\n            <div class=\"form-group\">\n              <label for=\"name\">House Name</label>\n              <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\"\n                formControlName=\"HouseName\" placeholder=\"Enter House Name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"name\">Landmark</label>\n              <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\"\n                formControlName=\"Landmark\" placeholder=\"Enter Landmark\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"locality\">Name of locality</label>\n              <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\n                placeholder=\"Enter locality\" /> -->\n                <select class=\"form-control\" id=\"locality\" required ngModel name=\"locality\" formControlName=\"locality\">\n                  <option value=\"\" disabled selected hidden>Choose...</option>\n                  <option *ngFor=\"let item of localities\" value=\"{{ item.id }}\">\n                    {{ item.Name }}\n                  </option>\n                </select>\n            </div>\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"customerModal.hide()\" >\n              Close\n            </button>\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !customerForm.valid\">\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n              Save changes\n            </button>\n          </form>\n        </div>\n      </div>\n      <!-- /.modal-content -->\n    </div>\n    <!-- /.modal-dialog -->\n  </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\r\n  <div bsModal #deleteModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-dialog-centered modal-sm\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-body text-center\">\r\n          Do you want to delete this agent?\r\n        </div>\r\n        <div class=\"modal-footer justify-content-around\">\r\n          <button type=\"button\" class=\"btn btn-secondary\" (click)=\"deleteModal.hide()\">\r\n            No! Cancel.\r\n          </button>\r\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"deleteAgent()\">\r\n            Yes! Delete.\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"card\">\r\n  <div class=\"card-header\" style=\"display: flex; justify-content: space-between\">\r\n    <h2>Agent Details</h2>\r\n    <span>\r\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"customerModal.show()\">\r\n        New Customer\r\n      </button>\r\n      <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"myModal.show()\">\r\n        Edit\r\n      </button>\r\n      <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" (click)=\"deleteModal.show()\">\r\n        Delete\r\n      </button></span>\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <div class=\"row\">\r\n      <div class=\"col\">\r\n        <table class=\"table table-striped\">\r\n          <tbody>\r\n            <tr>\r\n              <td>ID</td>\r\n              <td>{{details.id}}</td>\r\n            </tr>\r\n            <tr>\r\n              <td>Name</td>\r\n              <td>{{details.Name}}</td>\r\n            </tr>\r\n            <tr>\r\n              <td>Contact 1</td>\r\n              <td>{{details.Contact_Number_1}}</td>\r\n            </tr>\r\n            <tr>\r\n              <td>Contact 2</td>\r\n              <td>{{ details.Contact_Number_2 }}</td>\r\n            </tr>\r\n            <tr>\r\n              <td>Contact 3</td>\r\n              <td>{{ details.Contact_Number_3 }}</td>\r\n            </tr>\r\n            <tr>\r\n              <td>Email</td>\r\n              <td>{{ details.Email }}</td>\r\n            </tr>\r\n            <tr>\r\n              <td>Group</td>\r\n              <td>\r\n                <span class=\"badge badge-warning\">{{ details.group?.Name }}</span>\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div class=\"col\">\r\n        <div class=\"card\" *ngFor=\"let item of details.telecaller_remarks\">\r\n          <div class=\"card-body\">\r\n            <h5 class=\"card-title\">{{dateConverter(item.CallHistory?.event_date_time)}}</h5>\r\n            <p class=\"card-text\">{{item.RemarksText}}</p>\r\n            <span class=\"badge badge-primary\">{{item.CallHistory.users_permissions_user?.username}}</span>\r\n          </div>\r\n        </div>\r\n        <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"commentModal.show()\">\r\n          Add Comment\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n  <div bsModal #myModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Edit Agent</h4>\r\n          <button type=\"button\" class=\"close\" (click)=\"myModal.hide()\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form [formGroup]=\"agentForm\" (ngSubmit)=\"FormSubmit()\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Name</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"name\" name=\"name\" formControlName=\"name\"\r\n                placeholder=\"Enter agent name\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"email\">E-mail</label>\r\n              <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" formControlName=\"email\"\r\n                placeholder=\"Enter agent email\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"street\">Phone 1</label>\r\n              <input type=\"number\" class=\"form-control\" id=\"phone1\" name=\"phone1\" formControlName=\"phone1\"\r\n                placeholder=\"Enter Phone 1\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"phone2\">Phone 2</label>\r\n              <input type=\"number\" class=\"form-control\" id=\"phone2\" name=\"phone2\" formControlName=\"phone2\"\r\n                placeholder=\"Enter Phone 2\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"phone3\">Phone 3</label>\r\n              <input type=\"number\" class=\"form-control\" id=\"phone3\" name=\"phone3\" formControlName=\"phone3\"\r\n                placeholder=\"Enter Phone 3\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"group\">Group</label>\r\n              <select class=\"form-control\" id=\"group\" required ngModel name=\"group\" formControlName=\"group\">\r\n                <option value=\"\" disabled selected hidden>Choose...</option>\r\n                <option *ngFor=\"let item of groups\" value=\"{{ item.id }}\">\r\n                  {{ item.Name }}\r\n                </option>\r\n              </select>\r\n            </div>\r\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"myModal.hide()\">\r\n              Close\r\n            </button>\r\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !agentForm.valid\">\r\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\r\n              Save changes\r\n            </button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n      <!-- /.modal-content -->\r\n    </div>\r\n    <!-- /.modal-dialog -->\r\n  </div>\r\n  <div bsModal #commentModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Add Comment</h4>\r\n          <button type=\"button\" class=\"close\" (click)=\"commentModal.hide()\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form [formGroup]=\"commentForm\" (ngSubmit)=\"CommentSubmit()\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Remarks</label>\r\n              <textarea class=\"form-control\" maxlength=\"250\" id=\"RemarksText\" name=\"RemarksText\"\r\n                formControlName=\"RemarksText\" placeholder=\"Enter remarks\"></textarea>\r\n            </div>\r\n            <!-- <div class=\"form-group\">\r\n              <label for=\"email\">Date</label>\r\n              <input type=\"datetime-local\" class=\"form-control\" id=\"event_date_time\" name=\"event_date_time\"\r\n                formControlName=\"event_date_time\" />\r\n            </div> -->\r\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"commentModal.hide()\">\r\n              Close\r\n            </button>\r\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !commentForm.valid\">\r\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\r\n              Save changes\r\n            </button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n      <!-- /.modal-content -->\r\n    </div>\r\n    <!-- /.modal-dialog -->\r\n  </div>\r\n  <div bsModal #customerModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n    aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Add New Customer</h4>\r\n          <button type=\"button\" class=\"close\" (click)=\"customerModal.hide()\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form [formGroup]=\"customerForm\" (ngSubmit)=\"customerSubmit()\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Name of Bride</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"NameOfBride\" name=\"NameOfBride\" formControlName=\"NameOfBride\"\r\n                placeholder=\"Enter bride's name\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Name of Father</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"NameOfFather\" name=\"NameOfFather\"\r\n                formControlName=\"NameOfFather\" placeholder=\"Enter father's name\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Name of Mother</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"NameOfMother\" name=\"NameOfMother\"\r\n                formControlName=\"NameOfMother\" placeholder=\"Enter mother's name\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"email\">Marriage date</label>\r\n              <input type=\"date\" class=\"form-control\" id=\"MarriageDate\" name=\"MarriageDate\"\r\n                formControlName=\"MarriageDate\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"group\">Marriage month</label>\r\n              <select class=\"form-control\" id=\"MarriageMonth\" required ngModel name=\"MarriageMonth\" formControlName=\"MarriageMonth\">\r\n                <option value=\"\" disabled selected hidden>Choose...</option>\r\n                <option *ngFor=\"let item of Months\" value=\"{{ item.id }}\">\r\n                  {{ item.Name }}\r\n                </option>\r\n              </select>\r\n            </div>\r\n            <!-- <div class=\"form-group\">\r\n              <label for=\"group\">Agent</label>\r\n              <select class=\"form-control\" id=\"tele_caller_contact\" required ngModel name=\"tele_caller_contact\" formControlName=\"tele_caller_contact\">\r\n                <option value=\"\" disabled selected hidden>Choose...</option>\r\n                <option *ngFor=\"let item of agents\" value=\"{{ item.id }}\">\r\n                  {{ item.Name }}\r\n                </option>\r\n              </select>\r\n            </div> -->\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">House Name</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\"\r\n                formControlName=\"HouseName\" placeholder=\"Enter House Name\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Landmark</label>\r\n              <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\"\r\n                formControlName=\"Landmark\" placeholder=\"Enter Landmark\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"locality\">Name of locality</label>\r\n              <!-- <input type=\"text\" class=\"form-control\" id=\"locality\" name=\"locality\" formControlName=\"locality\"\r\n                placeholder=\"Enter locality\" /> -->\r\n                <select class=\"form-control\" id=\"locality\" required ngModel name=\"locality\" formControlName=\"locality\">\r\n                  <option value=\"\" disabled selected hidden>Choose...</option>\r\n                  <option *ngFor=\"let item of localities\" value=\"{{ item.id }}\">\r\n                    {{ item.Name }}\r\n                  </option>\r\n                </select>\r\n            </div>\r\n            <button type=\"button\" class=\"btn btn-secondary\" (click)=\"customerModal.hide()\" >\r\n              Close\r\n            </button>\r\n            <button type=\"submit\" class=\"btn btn-primary ml-2\" [disabled]=\"btnLoading || !customerForm.valid\">\r\n              <span *ngIf=\"btnLoading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\r\n              Save changes\r\n            </button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n      <!-- /.modal-content -->\r\n    </div>\r\n    <!-- /.modal-dialog -->\r\n  </div>\r\n</div>";
       /***/
     },
 
     /***/
-    "ZTOn":
-    /*!*******************************************************!*\
-      !*** ./src/app/views/telecaller/telecaller.module.ts ***!
-      \*******************************************************/
-
-    /*! exports provided: TelecallerModule */
-
-    /***/
-    function ZTOn(module, __webpack_exports__, __webpack_require__) {
+    "ZTOn": function ZTOn(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -8811,35 +8767,19 @@
     },
 
     /***/
-    "o6nq":
-    /*!**********************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/telecaller/agents.component.html ***!
-      \**********************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function o6nq(module, __webpack_exports__, __webpack_require__) {
+    "o6nq": function o6nq(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"card\">\n    <div\n      class=\"card-header\"\n      style=\"display: flex; justify-content: space-between\"\n    >\n      <h2>Agents</h2>\n      <button\n        type=\"button\"\n        class=\"btn btn-primary\"\n        data-toggle=\"modal\"\n        (click)=\"myModal.show()\"\n      >\n        New\n      </button>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <ag-grid-angular\n            #agGrid\n            style=\"width: 100%; height: 500px\"\n            id=\"myGrid\"\n            class=\"ag-theme-alpine\"\n            [columnDefs]=\"columnDefs\"\n            [rowData]=\"rowData\"\n            [frameworkComponents]=\"frameworkComponents\"\n            [rowSelection]=\"rowSelection\"\n            (gridReady)=\"onGridReady($event)\"\n            (selectionChanged)=\"onSelectionChanged($event)\"\n            animateRows=\"true\"\n          >\n          </ag-grid-angular>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div\n    bsModal\n    #myModal=\"bs-modal\"\n    class=\"modal fade\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"myModalLabel\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Add New Agent</h4>\n          <button\n            type=\"button\"\n            class=\"close\"\n            (click)=\"myModal.hide()\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form [formGroup]=\"agentForm\" (ngSubmit)=\"FormSubmit()\">\n            <div class=\"form-group\">\n              <label for=\"name\">Name</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"name\"\n                name=\"name\"\n                formControlName=\"name\"\n                placeholder=\"Enter agent name\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"email\">E-mail</label>\n              <input\n                type=\"email\"\n                class=\"form-control\"\n                id=\"email\"\n                name=\"email\"\n                formControlName=\"email\"\n                placeholder=\"Enter agent email\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"street\">Phone 1</label>\n              <input\n                type=\"number\"\n                class=\"form-control\"\n                id=\"phone1\"\n                name=\"phone1\"\n                formControlName=\"phone1\"\n                placeholder=\"Enter Phone 1\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"phone2\">Phone 2</label>\n              <input\n                type=\"number\"\n                class=\"form-control\"\n                id=\"phone2\"\n                name=\"phone2\"\n                formControlName=\"phone2\"\n                placeholder=\"Enter Phone 2\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"phone3\">Phone 3</label>\n              <input\n                type=\"number\"\n                class=\"form-control\"\n                id=\"phone3\"\n                name=\"phone3\"\n                formControlName=\"phone3\"\n                placeholder=\"Enter Phone 3\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"group\">Group</label>\n              <select\n                class=\"form-control\"\n                id=\"group\"\n                required\n                ngModel\n                name=\"group\"\n                formControlName=\"group\"\n              >\n                <option value=\"\" disabled selected hidden>Choose...</option>\n                <option *ngFor=\"let item of groups\" value=\"{{ item.id }}\">\n                  {{ item.Name }}\n                </option>\n              </select>\n            </div>\n            <button\n              type=\"button\"\n              class=\"btn btn-secondary\"\n              (click)=\"myModal.hide()\"\n            >\n              Close\n            </button>\n            <button\n              type=\"submit\"\n              class=\"btn btn-primary ml-2\"\n              [disabled]=\"btnLoading || !agentForm.valid\"\n            >\n              <span\n                *ngIf=\"btnLoading\"\n                class=\"spinner-border spinner-border-sm\"\n                role=\"status\"\n                aria-hidden=\"true\"\n              ></span>\n              Save changes\n            </button>\n          </form>\n        </div>\n      </div>\n      <!-- /.modal-content -->\n    </div>\n    <!-- /.modal-dialog -->\n  </div>\n  <!-- /.modal -->\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\r\n  <div class=\"card\">\r\n    <div\r\n      class=\"card-header\"\r\n      style=\"display: flex; justify-content: space-between\"\r\n    >\r\n      <h2>Agents</h2>\r\n      <button\r\n        type=\"button\"\r\n        class=\"btn btn-primary\"\r\n        data-toggle=\"modal\"\r\n        (click)=\"myModal.show()\"\r\n      >\r\n        New\r\n      </button>\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <div class=\"row\">\r\n        <div class=\"col-12\">\r\n          <ag-grid-angular\r\n            #agGrid\r\n            style=\"width: 100%; height: 500px\"\r\n            id=\"myGrid\"\r\n            class=\"ag-theme-alpine\"\r\n            [columnDefs]=\"columnDefs\"\r\n            [rowData]=\"rowData\"\r\n            [frameworkComponents]=\"frameworkComponents\"\r\n            [rowSelection]=\"rowSelection\"\r\n            (gridReady)=\"onGridReady($event)\"\r\n            (selectionChanged)=\"onSelectionChanged($event)\"\r\n            animateRows=\"true\"\r\n          >\r\n          </ag-grid-angular>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div\r\n    bsModal\r\n    #myModal=\"bs-modal\"\r\n    class=\"modal fade\"\r\n    tabindex=\"-1\"\r\n    role=\"dialog\"\r\n    aria-labelledby=\"myModalLabel\"\r\n    aria-hidden=\"true\"\r\n  >\r\n    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Add New Agent</h4>\r\n          <button\r\n            type=\"button\"\r\n            class=\"close\"\r\n            (click)=\"myModal.hide()\"\r\n            aria-label=\"Close\"\r\n          >\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form [formGroup]=\"agentForm\" (ngSubmit)=\"FormSubmit()\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Name</label>\r\n              <input\r\n                type=\"text\"\r\n                class=\"form-control\"\r\n                id=\"name\"\r\n                name=\"name\"\r\n                formControlName=\"name\"\r\n                placeholder=\"Enter agent name\"\r\n              />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"email\">E-mail</label>\r\n              <input\r\n                type=\"email\"\r\n                class=\"form-control\"\r\n                id=\"email\"\r\n                name=\"email\"\r\n                formControlName=\"email\"\r\n                placeholder=\"Enter agent email\"\r\n              />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"street\">Phone 1</label>\r\n              <input\r\n                type=\"number\"\r\n                class=\"form-control\"\r\n                id=\"phone1\"\r\n                name=\"phone1\"\r\n                formControlName=\"phone1\"\r\n                placeholder=\"Enter Phone 1\"\r\n              />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"phone2\">Phone 2</label>\r\n              <input\r\n                type=\"number\"\r\n                class=\"form-control\"\r\n                id=\"phone2\"\r\n                name=\"phone2\"\r\n                formControlName=\"phone2\"\r\n                placeholder=\"Enter Phone 2\"\r\n              />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"phone3\">Phone 3</label>\r\n              <input\r\n                type=\"number\"\r\n                class=\"form-control\"\r\n                id=\"phone3\"\r\n                name=\"phone3\"\r\n                formControlName=\"phone3\"\r\n                placeholder=\"Enter Phone 3\"\r\n              />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"group\">Group</label>\r\n              <select\r\n                class=\"form-control\"\r\n                id=\"group\"\r\n                required\r\n                ngModel\r\n                name=\"group\"\r\n                formControlName=\"group\"\r\n              >\r\n                <option value=\"\" disabled selected hidden>Choose...</option>\r\n                <option *ngFor=\"let item of groups\" value=\"{{ item.id }}\">\r\n                  {{ item.Name }}\r\n                </option>\r\n              </select>\r\n            </div>\r\n            <button\r\n              type=\"button\"\r\n              class=\"btn btn-secondary\"\r\n              (click)=\"myModal.hide()\"\r\n            >\r\n              Close\r\n            </button>\r\n            <button\r\n              type=\"submit\"\r\n              class=\"btn btn-primary ml-2\"\r\n              [disabled]=\"btnLoading || !agentForm.valid\"\r\n            >\r\n              <span\r\n                *ngIf=\"btnLoading\"\r\n                class=\"spinner-border spinner-border-sm\"\r\n                role=\"status\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              Save changes\r\n            </button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n      <!-- /.modal-content -->\r\n    </div>\r\n    <!-- /.modal-dialog -->\r\n  </div>\r\n  <!-- /.modal -->\r\n</div>\r\n";
       /***/
     },
 
     /***/
-    "sbTq":
-    /*!******************************************************!*\
-      !*** ./src/app/views/telecaller/agents.component.ts ***!
-      \******************************************************/
-
-    /*! exports provided: AgentsComponent */
-
-    /***/
-    function sbTq(module, __webpack_exports__, __webpack_require__) {
+    "sbTq": function sbTq(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);

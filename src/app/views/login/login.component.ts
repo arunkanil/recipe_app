@@ -1,9 +1,10 @@
 import { Component, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
+import { first } from "rxjs/operators";
 import { DataService } from "../../data.service";
 import { AuthenticationService } from "./authentication.service";
-import { first } from "rxjs/operators";
 
 @Component({
   selector: "app-dashboard",
@@ -22,7 +23,8 @@ export class LoginComponent {
     public dataservice: DataService,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private toastr: ToastrService
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(["/"]);
@@ -43,13 +45,13 @@ export class LoginComponent {
         (data) => {
           this.loading = false;
           this.router.navigate([this.returnUrl]);
-          alert("Login successful");
+          this.toastr.success("Login successful");
         },
         (error) => {
           this.error = error;
           this.loading = false;
           console.log(error.error.message[0].messages[0].message);
-          alert(error.error.message[0].messages[0].message);
+          this.toastr.error("Error",error.error.message[0].messages[0].message);
         }
       );
   }

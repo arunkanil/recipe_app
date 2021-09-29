@@ -11,31 +11,15 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"], {
     /***/
-    0:
-    /*!***************************!*\
-      !*** multi ./src/main.ts ***!
-      \***************************/
-
-    /*! no static exports found */
-
-    /***/
-    function _(module, exports, __webpack_require__) {
+    0: function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! F:\Projects\jewelv2.0\src\main.ts */
+      /*! F:\Projects\Angular Apps\jewelv3.0\src\main.ts */
       "zUnb");
       /***/
     },
 
     /***/
-    "1BUF":
-    /*!*******************************************************!*\
-      !*** ./src/app/views/login/authentication.service.ts ***!
-      \*******************************************************/
-
-    /*! exports provided: AuthenticationService */
-
-    /***/
-    function BUF(module, __webpack_exports__, __webpack_require__) {
+    "1BUF": function BUF(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -151,15 +135,7 @@
     },
 
     /***/
-    "4KHl":
-    /*!***********************************!*\
-      !*** ./src/app/graphql.module.ts ***!
-      \***********************************/
-
-    /*! exports provided: createApollo, createNamedApollo, GraphQLModule */
-
-    /***/
-    function KHl(module, __webpack_exports__, __webpack_require__) {
+    "4KHl": function KHl(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -283,15 +259,7 @@
     },
 
     /***/
-    "8gg5":
-    /*!**********************************************!*\
-      !*** ./src/app/views/error/404.component.ts ***!
-      \**********************************************/
-
-    /*! exports provided: P404Component */
-
-    /***/
-    function gg5(module, __webpack_exports__, __webpack_require__) {
+    "8gg5": function gg5(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -335,15 +303,7 @@
     },
 
     /***/
-    "AytR":
-    /*!*****************************************!*\
-      !*** ./src/environments/environment.ts ***!
-      \*****************************************/
-
-    /*! exports provided: environment */
-
-    /***/
-    function AytR(module, __webpack_exports__, __webpack_require__) {
+    "AytR": function AytR(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -366,15 +326,7 @@
     },
 
     /***/
-    "DodC":
-    /*!****************************************************!*\
-      !*** ./src/app/containers/default-layout/index.ts ***!
-      \****************************************************/
-
-    /*! exports provided: DefaultLayoutComponent */
-
-    /***/
-    function DodC(module, __webpack_exports__, __webpack_require__) {
+    "DodC": function DodC(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -395,15 +347,7 @@
     },
 
     /***/
-    "G/4p":
-    /*!*************************************!*\
-      !*** ./src/app/containers/index.ts ***!
-      \*************************************/
-
-    /*! exports provided: DefaultLayoutComponent */
-
-    /***/
-    function G4p(module, __webpack_exports__, __webpack_require__) {
+    "G/4p": function G4p(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -424,15 +368,7 @@
     },
 
     /***/
-    "H0P9":
-    /*!**************************************************************!*\
-      !*** ./src/app/views/exposed_form/exposed_form.component.ts ***!
-      \**************************************************************/
-
-    /*! exports provided: ExposedFormComponent */
-
-    /***/
-    function H0P9(module, __webpack_exports__, __webpack_require__) {
+    "H0P9": function H0P9(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -475,23 +411,30 @@
       /* harmony import */
 
 
-      var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ngx-toastr */
+      "5eHb");
+      /* harmony import */
+
+
+      var _data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ../../data.service */
       "R7Hv");
       /* harmony import */
 
 
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! rxjs/operators */
       "kU1M");
 
       var ExposedFormComponent = /*#__PURE__*/function () {
-        function ExposedFormComponent(dataservice, route, router) {
+        function ExposedFormComponent(dataservice, route, router, toastr) {
           _classCallCheck(this, ExposedFormComponent);
 
           this.dataservice = dataservice;
           this.route = route;
           this.router = router;
+          this.toastr = toastr;
           this.loginForm = {};
           this.result = {};
           this.error = "";
@@ -511,14 +454,16 @@
             this.loginForm = this.usForm.value;
             console.log(this.loginForm);
             this.loading = true;
-            this.dataservice.AddEnquiry(this.loginForm).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["first"])()).subscribe(function (data) {
+            this.dataservice.AddEnquiry(this.loginForm).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["first"])()).subscribe(function (data) {
               _this2.loading = false;
-              alert(data.message);
+
+              _this2.toastr.success(data.message);
             }, function (error) {
               _this2.error = error;
               _this2.loading = false;
               console.log(error);
-              alert(error.error.message);
+
+              _this2.toastr.error(error.error.message);
             });
           }
         }]);
@@ -528,11 +473,13 @@
 
       ExposedFormComponent.ctorParameters = function () {
         return [{
-          type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"]
+          type: _data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+        }, {
+          type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]
         }];
       };
 
@@ -545,20 +492,12 @@
       ExposedFormComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: "app-dashboard",
         template: _raw_loader_exposed_form_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])], ExposedFormComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])], ExposedFormComponent);
       /***/
     },
 
     /***/
-    "JPqG":
-    /*!***********************************************************************!*\
-      !*** ./src/app/containers/default-layout/default-layout.component.ts ***!
-      \***********************************************************************/
-
-    /*! exports provided: DefaultLayoutComponent */
-
-    /***/
-    function JPqG(module, __webpack_exports__, __webpack_require__) {
+    "JPqG": function JPqG(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -659,55 +598,31 @@
     },
 
     /***/
-    "Lrxh":
-    /*!**************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/error/500.component.html ***!
-      \**************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function Lrxh(module, __webpack_exports__, __webpack_require__) {
+    "Lrxh": function Lrxh(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-6\">\n        <div class=\"clearfix\">\n          <h1 class=\"float-left display-3 mr-4\">500</h1>\n          <h4 class=\"pt-3\">Houston, we have a problem!</h4>\n          <p class=\"text-muted\">The page you are looking for is temporarily unavailable.</p>\n        </div>\n        <div class=\"input-prepend input-group\">\n          <div class=\"input-group-prepend\">\n            <span class=\"input-group-text\"><i class=\"fa fa-search\"></i></span>\n          </div>\n          <input id=\"prependedInput\" class=\"form-control\" size=\"16\" type=\"text\" placeholder=\"What are you looking for?\">\n          <span class=\"input-group-append\">\n            <button class=\"btn btn-info\" type=\"button\">Search</button>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"app flex-row align-items-center\">\r\n  <div class=\"container\">\r\n    <div class=\"row justify-content-center\">\r\n      <div class=\"col-md-6\">\r\n        <div class=\"clearfix\">\r\n          <h1 class=\"float-left display-3 mr-4\">500</h1>\r\n          <h4 class=\"pt-3\">Houston, we have a problem!</h4>\r\n          <p class=\"text-muted\">The page you are looking for is temporarily unavailable.</p>\r\n        </div>\r\n        <div class=\"input-prepend input-group\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\"><i class=\"fa fa-search\"></i></span>\r\n          </div>\r\n          <input id=\"prependedInput\" class=\"form-control\" size=\"16\" type=\"text\" placeholder=\"What are you looking for?\">\r\n          <span class=\"input-group-append\">\r\n            <button class=\"btn btn-info\" type=\"button\">Search</button>\r\n          </span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
       /***/
     },
 
     /***/
-    "NVwR":
-    /*!******************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/exposed_form/exposed_form.component.html ***!
-      \******************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function NVwR(module, __webpack_exports__, __webpack_require__) {
+    "NVwR": function NVwR(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\n  <div class=\"container\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <h2>WEDDING GOLD PURCHASE SCHEME</h2>\n      </div>\n      <div class=\"card-body\">\n        <form #usForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"shopName\"><strong>Name / പേര്</strong></label>\n              <input type=\"text\" class=\"form-control\" id=\"name\" name=\"name\" required ngModel placeholder=\"Enter your name here\">\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"phone\"><strong>Customer contact number / ഫോൺ നമ്പർ</strong></label>\n              <input type=\"tel\" class=\"form-control\" id=\"phone\" name=\"phone\" ngModel required placeholder=\"Enter your phone number here\">\n            </div>\n          </div>\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"HouseName\"><strong>House Name / വീട്ടുപേര് </strong></label>\n              <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\" required ngModel placeholder=\"Enter your house Name here\">\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"PostOfficeNumber\"><strong>Post Office number / പോസ്റ്റ് ഓഫീസ് നമ്പർ</strong></label>\n              <input type=\"number\" class=\"form-control\" id=\"PostOfficeNumber\" name=\"PostOfficeNumber\" ngModel required placeholder=\"Enter your Post Office Number here\">\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"Landmark\"><strong>Landmark </strong></label>\n            <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\" required ngModel placeholder=\"Enter your nearest landmark here\">\n          </div>\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-4\">\n              <label for=\"marriage_purchase\"><strong>വിവാഹ പർച്ചേസ് ?</strong></label>\n              <select class=\"form-control\" id=\"marriage_purchase\" name=\"marriage_purchase\" required ngModel aria-label=\"Default select example\">\n                <option selected value=\"true\">Yes</option>\n                <option value=\"false\">No</option>\n              </select>\n            </div>\n            <div class=\"form-group col-md-4\">\n              <label for=\"pincode\"><strong>വിവാഹ തീയതി</strong></label>\n              <input type=\"date\" class=\"form-control\" ngModel id=\"date\" name=\"date\">\n            </div>\n            <div class=\"form-group col-md-4\">\n              <label for=\"pawan\"><strong>ആവിശ്യം ഉള്ള പവൻ</strong></label>\n              <select class=\"form-control\" id=\"pawan\" name=\"pawan\" required ngModel aria-label=\"Default select example\">\n                <option value=\"5\">5 പവൻ</option>\n                <option value=\"10\">10 പവൻ</option>\n                <option value=\"15\">15 പവൻ</option>\n                <option value=\"20\">20 പവൻ</option>\n                <option value=\"25\">25 പവൻ</option>\n                <option value=\"30\">30 പവൻ</option>\n                <option value=\">30\">30 പവനിൽ കൂടുതൽ </option>\n              </select>\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"pincode\"><strong>വിവാഹ ആവശ്യത്തിനുള്ള പലിശ രഹിത വായ്‌പ പദ്ധതിയിൽ അംഗം ആകാൻ താല്പര്യം?</strong></label>\n            <select class=\"form-control\" id=\"emi\" name=\"emi\" required ngModel aria-label=\"Default select example\">\n              <option selected value=\"true\">Yes</option>\n              <option value=\"false\">No</option>\n            </select>\n          </div>\n          <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"animated fadeIn\">\r\n  <div class=\"container\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <h2>WEDDING GOLD PURCHASE SCHEME</h2>\r\n      </div>\r\n      <div class=\"card-body\">\r\n        <form #usForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\r\n          <div class=\"form-row\">\r\n            <div class=\"form-group col-md-6\">\r\n              <label for=\"shopName\"><strong>Name / പേര്</strong></label>\r\n              <input type=\"text\" class=\"form-control\" id=\"name\" name=\"name\" required ngModel placeholder=\"Enter your name here\">\r\n            </div>\r\n            <div class=\"form-group col-md-6\">\r\n              <label for=\"phone\"><strong>Customer contact number / ഫോൺ നമ്പർ</strong></label>\r\n              <input type=\"tel\" class=\"form-control\" id=\"phone\" name=\"phone\" ngModel required placeholder=\"Enter your phone number here\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <div class=\"form-group col-md-6\">\r\n              <label for=\"HouseName\"><strong>House Name / വീട്ടുപേര് </strong></label>\r\n              <input type=\"text\" class=\"form-control\" id=\"HouseName\" name=\"HouseName\" required ngModel placeholder=\"Enter your house Name here\">\r\n            </div>\r\n            <div class=\"form-group col-md-6\">\r\n              <label for=\"PostOfficeNumber\"><strong>Post Office number / പോസ്റ്റ് ഓഫീസ് നമ്പർ</strong></label>\r\n              <input type=\"number\" class=\"form-control\" id=\"PostOfficeNumber\" name=\"PostOfficeNumber\" ngModel required placeholder=\"Enter your Post Office Number here\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"Landmark\"><strong>Landmark </strong></label>\r\n            <input type=\"text\" class=\"form-control\" id=\"Landmark\" name=\"Landmark\" required ngModel placeholder=\"Enter your nearest landmark here\">\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <div class=\"form-group col-md-4\">\r\n              <label for=\"marriage_purchase\"><strong>വിവാഹ പർച്ചേസ് ?</strong></label>\r\n              <select class=\"form-control\" id=\"marriage_purchase\" name=\"marriage_purchase\" required ngModel aria-label=\"Default select example\">\r\n                <option selected value=\"true\">Yes</option>\r\n                <option value=\"false\">No</option>\r\n              </select>\r\n            </div>\r\n            <div class=\"form-group col-md-4\">\r\n              <label for=\"pincode\"><strong>വിവാഹ തീയതി</strong></label>\r\n              <input type=\"date\" class=\"form-control\" ngModel id=\"date\" name=\"date\">\r\n            </div>\r\n            <div class=\"form-group col-md-4\">\r\n              <label for=\"pawan\"><strong>ആവിശ്യം ഉള്ള പവൻ</strong></label>\r\n              <select class=\"form-control\" id=\"pawan\" name=\"pawan\" required ngModel aria-label=\"Default select example\">\r\n                <option value=\"5\">5 പവൻ</option>\r\n                <option value=\"10\">10 പവൻ</option>\r\n                <option value=\"15\">15 പവൻ</option>\r\n                <option value=\"20\">20 പവൻ</option>\r\n                <option value=\"25\">25 പവൻ</option>\r\n                <option value=\"30\">30 പവൻ</option>\r\n                <option value=\">30\">30 പവനിൽ കൂടുതൽ </option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"pincode\"><strong>വിവാഹ ആവശ്യത്തിനുള്ള പലിശ രഹിത വായ്‌പ പദ്ധതിയിൽ അംഗം ആകാൻ താല്പര്യം?</strong></label>\r\n            <select class=\"form-control\" id=\"emi\" name=\"emi\" required ngModel aria-label=\"Default select example\">\r\n              <option selected value=\"true\">Yes</option>\r\n              <option value=\"false\">No</option>\r\n            </select>\r\n          </div>\r\n          <button type=\"submit\" class=\"btn btn-primary\">Save</button>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>";
       /***/
     },
 
     /***/
-    "QB/w":
-    /*!************************************************!*\
-      !*** ./src/app/views/login/login.component.ts ***!
-      \************************************************/
-
-    /*! exports provided: LoginComponent */
-
-    /***/
-    function QBW(module, __webpack_exports__, __webpack_require__) {
+    "QB/w": function QBW(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -750,30 +665,37 @@
       /* harmony import */
 
 
-      var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ngx-toastr */
+      "5eHb");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! rxjs/operators */
+      "kU1M");
+      /* harmony import */
+
+
+      var _data_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ../../data.service */
       "R7Hv");
       /* harmony import */
 
 
-      var _authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _authentication_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./authentication.service */
       "1BUF");
-      /* harmony import */
-
-
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! rxjs/operators */
-      "kU1M");
 
       var LoginComponent = /*#__PURE__*/function () {
-        function LoginComponent(dataservice, route, router, authenticationService) {
+        function LoginComponent(dataservice, route, router, authenticationService, toastr) {
           _classCallCheck(this, LoginComponent);
 
           this.dataservice = dataservice;
           this.route = route;
           this.router = router;
           this.authenticationService = authenticationService;
+          this.toastr = toastr;
           this.loginForm = {};
           this.result = {};
           this.error = "";
@@ -797,17 +719,18 @@
             this.loginForm = this.usForm.value;
             console.log(this.loginForm);
             this.loading = true;
-            this.authenticationService.login(this.loginForm).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["first"])()).subscribe(function (data) {
+            this.authenticationService.login(this.loginForm).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["first"])()).subscribe(function (data) {
               _this4.loading = false;
 
               _this4.router.navigate([_this4.returnUrl]);
 
-              alert("Login successful");
+              _this4.toastr.success("Login successful");
             }, function (error) {
               _this4.error = error;
               _this4.loading = false;
               console.log(error.error.message[0].messages[0].message);
-              alert(error.error.message[0].messages[0].message);
+
+              _this4.toastr.error("Error", error.error.message[0].messages[0].message);
             });
           }
         }]);
@@ -817,13 +740,15 @@
 
       LoginComponent.ctorParameters = function () {
         return [{
-          type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"]
+          type: _data_service__WEBPACK_IMPORTED_MODULE_7__["DataService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
         }, {
-          type: _authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]
+          type: _authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"]
+        }, {
+          type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]
         }];
       };
 
@@ -836,20 +761,12 @@
       LoginComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: "app-dashboard",
         template: _raw_loader_login_component_html__WEBPACK_IMPORTED_MODULE_1__["default"]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]])], LoginComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_7__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])], LoginComponent);
       /***/
     },
 
     /***/
-    "R7Hv":
-    /*!*********************************!*\
-      !*** ./src/app/data.service.ts ***!
-      \*********************************/
-
-    /*! exports provided: DataService */
-
-    /***/
-    function R7Hv(module, __webpack_exports__, __webpack_require__) {
+    "R7Hv": function R7Hv(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1200,15 +1117,7 @@
     },
 
     /***/
-    "Sy1n":
-    /*!**********************************!*\
-      !*** ./src/app/app.component.ts ***!
-      \**********************************/
-
-    /*! exports provided: AppComponent */
-
-    /***/
-    function Sy1n(module, __webpack_exports__, __webpack_require__) {
+    "Sy1n": function Sy1n(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1293,15 +1202,7 @@
     },
 
     /***/
-    "ZAI4":
-    /*!*******************************!*\
-      !*** ./src/app/app.module.ts ***!
-      \*******************************/
-
-    /*! exports provided: AppModule */
-
-    /***/
-    function ZAI4(module, __webpack_exports__, __webpack_require__) {
+    "ZAI4": function ZAI4(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1356,61 +1257,67 @@
       /* harmony import */
 
 
-      var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ngx-toastr */
+      "5eHb");
+      /* harmony import */
+
+
+      var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./app.component */
       "Sy1n");
       /* harmony import */
 
 
-      var _containers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _containers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./containers */
       "G/4p");
       /* harmony import */
 
 
-      var _views_error_404_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _views_error_404_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./views/error/404.component */
       "8gg5");
       /* harmony import */
 
 
-      var _views_error_500_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _views_error_500_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./views/error/500.component */
       "dxhq");
       /* harmony import */
 
 
-      var _views_login_login_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _views_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./views/login/login.component */
       "QB/w");
       /* harmony import */
 
 
-      var _coreui_angular__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _coreui_angular__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @coreui/angular */
       "Iluq");
       /* harmony import */
 
 
-      var _app_routing__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _app_routing__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./app.routing */
       "beVS");
       /* harmony import */
 
 
-      var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ngx-bootstrap/dropdown */
       "FE24");
       /* harmony import */
 
 
-      var _graphql_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _graphql_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./graphql.module */
       "4KHl");
       /* harmony import */
 
 
-      var _views_exposed_form_exposed_form_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _views_exposed_form_exposed_form_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! ./views/exposed_form/exposed_form.component */
       "H0P9"); // Import containers
       // const APP_CONTAINERS = [
@@ -1426,27 +1333,19 @@
       };
 
       AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__["AgGridModule"].withComponents([]), _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _app_routing__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppAsideModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppBreadcrumbModule"].forRoot(), _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppFooterModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppHeaderModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_12__["AppSidebarModule"], ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__["BsDropdownModule"].forRoot(), _graphql_module__WEBPACK_IMPORTED_MODULE_15__["GraphQLModule"]],
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _views_error_404_component__WEBPACK_IMPORTED_MODULE_9__["P404Component"], _views_error_500_component__WEBPACK_IMPORTED_MODULE_10__["P500Component"], _views_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"], _views_exposed_form_exposed_form_component__WEBPACK_IMPORTED_MODULE_16__["ExposedFormComponent"], _containers__WEBPACK_IMPORTED_MODULE_8__["DefaultLayoutComponent"]],
+        imports: [ag_grid_angular__WEBPACK_IMPORTED_MODULE_6__["AgGridModule"].withComponents([]), _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _app_routing__WEBPACK_IMPORTED_MODULE_14__["AppRoutingModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppAsideModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppBreadcrumbModule"].forRoot(), ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrModule"].forRoot(), _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppFooterModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppHeaderModule"], _coreui_angular__WEBPACK_IMPORTED_MODULE_13__["AppSidebarModule"], ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__["BsDropdownModule"].forRoot(), _graphql_module__WEBPACK_IMPORTED_MODULE_16__["GraphQLModule"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _views_error_404_component__WEBPACK_IMPORTED_MODULE_10__["P404Component"], _views_error_500_component__WEBPACK_IMPORTED_MODULE_11__["P500Component"], _views_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"], _views_exposed_form_exposed_form_component__WEBPACK_IMPORTED_MODULE_17__["ExposedFormComponent"], _containers__WEBPACK_IMPORTED_MODULE_9__["DefaultLayoutComponent"]],
         providers: [{
           provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["LocationStrategy"],
           useClass: _angular_common__WEBPACK_IMPORTED_MODULE_2__["HashLocationStrategy"]
         }],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
       })], AppModule);
       /***/
     },
 
     /***/
-    "beVS":
-    /*!********************************!*\
-      !*** ./src/app/app.routing.ts ***!
-      \********************************/
-
-    /*! exports provided: routes, AppRoutingModule */
-
-    /***/
-    function beVS(module, __webpack_exports__, __webpack_require__) {
+    "beVS": function beVS(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1617,15 +1516,7 @@
     },
 
     /***/
-    "c2Qq":
-    /*!*************************!*\
-      !*** ./src/app/_nav.ts ***!
-      \*************************/
-
-    /*! exports provided: navItems */
-
-    /***/
-    function c2Qq(module, __webpack_exports__, __webpack_require__) {
+    "c2Qq": function c2Qq(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1691,15 +1582,7 @@
     },
 
     /***/
-    "dxhq":
-    /*!**********************************************!*\
-      !*** ./src/app/views/error/500.component.ts ***!
-      \**********************************************/
-
-    /*! exports provided: P500Component */
-
-    /***/
-    function dxhq(module, __webpack_exports__, __webpack_require__) {
+    "dxhq": function dxhq(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1743,75 +1626,43 @@
     },
 
     /***/
-    "lm8q":
-    /*!***************************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/containers/default-layout/default-layout.component.html ***!
-      \***************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function lm8q(module, __webpack_exports__, __webpack_require__) {
+    "lm8q": function lm8q(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<app-header [navbarBrandRouterLink]=\"['/dashboard']\" [fixed]=\"true\"\n  [navbarBrandFull]=\"{src: 'assets/img/brand/logo.png',width:200,alt: 'CartIntoCar Logo'}\"\n  [navbarBrandMinimized]=\"{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CartIntoCar Logo'}\"\n  [sidebarToggler]=\"'lg'\">\n  <ul class=\"nav navbar-nav ml-auto\">\n    {{userName}}\n    <li class=\"nav-item dropdown\" dropdown placement=\"bottom right\">\n      <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\n        dropdownToggle (click)=\"false\">\n        <img src=\"assets/img/avatars/6.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" />\n      </a>\n      <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\n        <div class=\"dropdown-header text-center\"><strong>Settings</strong></div>\n        <a class=\"dropdown-item\"><i class=\"fa fa-user\"></i>{{userName}}</a>\n        <div class=\"divider\"></div>\n        <a class=\"dropdown-item\" (click)=\"logout()\"><i class=\"fa fa-lock\"></i> Logout</a>\n      </div>\n    </li>\n  </ul>\n</app-header>\n<div class=\"app-body\">\n  <app-sidebar #appSidebar [fixed]=\"true\" [display]=\"'lg'\" [minimized]=\"sidebarMinimized\"\n    (minimizedChange)=\"toggleMinimize($event)\">\n    <app-sidebar-nav [navItems]=\"navItems\"></app-sidebar-nav>\n    <app-sidebar-minimizer></app-sidebar-minimizer>\n  </app-sidebar>\n  <!-- Main content -->\n  <main class=\"main\">\n    <cui-breadcrumb>\n    </cui-breadcrumb>\n    <div class=\"container-fluid\">\n      <router-outlet></router-outlet>\n    </div>\n  </main>\n</div>\n<app-footer>\n  <span><a>Jewel Telecaller</a> &copy; 2021 jewel.</span>\n  <!-- <span class=\"ml-auto\">Powered by <a href=\"https://www.upsquad.in\">upsquad</a></span> -->\n</app-footer>";
+      __webpack_exports__["default"] = "<app-header [navbarBrandRouterLink]=\"['/dashboard']\" [fixed]=\"true\"\r\n  [navbarBrandFull]=\"{src: 'assets/img/brand/logo.png',width:200,alt: 'CartIntoCar Logo'}\"\r\n  [navbarBrandMinimized]=\"{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CartIntoCar Logo'}\"\r\n  [sidebarToggler]=\"'lg'\">\r\n  <ul class=\"nav navbar-nav ml-auto\">\r\n    {{userName}}\r\n    <li class=\"nav-item dropdown\" dropdown placement=\"bottom right\">\r\n      <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n        dropdownToggle (click)=\"false\">\r\n        <img src=\"assets/img/avatars/6.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" />\r\n      </a>\r\n      <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\r\n        <div class=\"dropdown-header text-center\"><strong>Settings</strong></div>\r\n        <a class=\"dropdown-item\"><i class=\"fa fa-user\"></i>{{userName}}</a>\r\n        <div class=\"divider\"></div>\r\n        <a class=\"dropdown-item\" (click)=\"logout()\"><i class=\"fa fa-lock\"></i> Logout</a>\r\n      </div>\r\n    </li>\r\n  </ul>\r\n</app-header>\r\n<div class=\"app-body\">\r\n  <app-sidebar #appSidebar [fixed]=\"true\" [display]=\"'lg'\" [minimized]=\"sidebarMinimized\"\r\n    (minimizedChange)=\"toggleMinimize($event)\">\r\n    <app-sidebar-nav [navItems]=\"navItems\"></app-sidebar-nav>\r\n    <app-sidebar-minimizer></app-sidebar-minimizer>\r\n  </app-sidebar>\r\n  <!-- Main content -->\r\n  <main class=\"main\">\r\n    <cui-breadcrumb>\r\n    </cui-breadcrumb>\r\n    <div class=\"container-fluid\">\r\n      <router-outlet></router-outlet>\r\n    </div>\r\n  </main>\r\n</div>\r\n<app-footer>\r\n  <span><a>Jewel Telecaller</a> &copy; 2021 jewel.</span>\r\n  <!-- <span class=\"ml-auto\">Powered by <a href=\"https://www.upsquad.in\">upsquad</a></span> -->\r\n</app-footer>";
       /***/
     },
 
     /***/
-    "nAJl":
-    /*!**************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/error/404.component.html ***!
-      \**************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function nAJl(module, __webpack_exports__, __webpack_require__) {
+    "nAJl": function nAJl(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-6\">\n        <div class=\"clearfix\">\n          <h1 class=\"float-left display-3 mr-4\">404</h1>\n          <h4 class=\"pt-3\">Oops! You're lost.</h4>\n          <p class=\"text-muted\">The page you are looking for was not found.</p>\n        </div>\n        <div class=\"input-prepend input-group\">\n          <div class=\"input-group-prepend\">\n            <span class=\"input-group-text\"><i class=\"fa fa-search\"></i></span>\n          </div>\n          <input id=\"prependedInput\" class=\"form-control\" size=\"16\" type=\"text\" placeholder=\"What are you looking for?\">\n          <span class=\"input-group-append\">\n            <button class=\"btn btn-info\" type=\"button\">Search</button>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"app flex-row align-items-center\">\r\n  <div class=\"container\">\r\n    <div class=\"row justify-content-center\">\r\n      <div class=\"col-md-6\">\r\n        <div class=\"clearfix\">\r\n          <h1 class=\"float-left display-3 mr-4\">404</h1>\r\n          <h4 class=\"pt-3\">Oops! You're lost.</h4>\r\n          <p class=\"text-muted\">The page you are looking for was not found.</p>\r\n        </div>\r\n        <div class=\"input-prepend input-group\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\"><i class=\"fa fa-search\"></i></span>\r\n          </div>\r\n          <input id=\"prependedInput\" class=\"form-control\" size=\"16\" type=\"text\" placeholder=\"What are you looking for?\">\r\n          <span class=\"input-group-append\">\r\n            <button class=\"btn btn-info\" type=\"button\">Search</button>\r\n          </span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
       /***/
     },
 
     /***/
-    "nSew":
-    /*!****************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/views/login/login.component.html ***!
-      \****************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function nSew(module, __webpack_exports__, __webpack_require__) {
+    "nSew": function nSew(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<!-- <div class=\"app-body bg-image\">\n  <main class=\"main d-flex align-items-center\" style=\"background-color: rgba(0, 0, 0, 0.8);\">\n    <div class=\"login-box\">\n      <div class=\"card p-4\" style=\"width: fit-content;\">\n        <div class=\"card-body\">\n          <form>\n            <h1>Login</h1>\n            <p class=\"text-muted\">Welcome back! Please log in to your account</p>\n            <div class=\"input-group mb-3\">\n              <div class=\"input-group-prepend\">\n                <span class=\"input-group-text\"><i class=\"icon-user\"></i></span>\n              </div>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Username\" autocomplete=\"username\" required>\n            </div>\n            <div class=\"input-group mb-4\">\n              <div class=\"input-group-prepend\">\n                <span class=\"input-group-text\"><i class=\"icon-lock\"></i></span>\n              </div>\n              <input type=\"password\" class=\"form-control\" placeholder=\"Password\" autocomplete=\"current-password\"\n                required>\n            </div>\n            <div class=\"row\">\n              <div class=\"col-6\">\n                <button type=\"button\" class=\"btn btn-primary px-4\">Login</button>\n              </div>\n            </div>\n          </form>\n        </div>\n      </div>\n    </div>\n  </main>\n</div> -->\n<!-- <div class=\"bg-image\"> -->\n<div class=\"d-md-flex h-md-100 align-items-center\">\n  <div class=\"col-md-6 p-0 bg-black h-md-100 login-screen\">\n    <div class=\"text-white d-md-flex align-items-center h-100 text-center justify-content-center\">\n      <div class=\"container-fluid bg-image\" style=\" height: 100vh \">\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-6 p-0 bg-white h-md-100\">\n    <div class=\"d-md-flex align-items-center h-md-100 justify-content-center\">\n      <div class=\"container-fluid fallback-image\" style=\" height: 100vh \">\n        <form class=\"login-box\" #usForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n          <h1>JEWEL</h1>\n          <p class=\"text-muted\">Welcome back! Please log in to your account</p>\n          <div class=\"input-group mb-3\">\n            <div class=\"input-group-prepend\">\n              <span class=\"input-group-text\"><i class=\"icon-user\"></i></span>\n            </div>\n            <input type=\"text\" class=\"form-control\" placeholder=\"Username\" id=\"login\" maxlength=\"80\" size=\"30\" ngModel\n              value=\"\" name=\"identifier\" required>\n          </div>\n          <div class=\"input-group mb-4\">\n            <div class=\"input-group-prepend\">\n              <span class=\"input-group-text\"><i class=\"icon-lock\"></i></span>\n            </div>\n            <input type=\"password\" class=\"form-control\" placeholder=\"Password\" id=\"password\" size=\"30\" ngModel\n              name=\"password\" value=\"\" required>\n          </div>\n          <!-- <div class=\"row\"> -->\n          <!-- <div class=\"col-6\"> -->\n          <button type=\"submit\" class=\"btn btn-lg px-4\" style=\"background-color: #43425D; color: white;\">\n            <span *ngIf=\"loading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\">\n            </span>Login\n          </button>\n          <!-- </div> -->\n          <!-- </div> -->\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- </div> -->";
+      __webpack_exports__["default"] = "<!-- <div class=\"app-body bg-image\">\r\n  <main class=\"main d-flex align-items-center\" style=\"background-color: rgba(0, 0, 0, 0.8);\">\r\n    <div class=\"login-box\">\r\n      <div class=\"card p-4\" style=\"width: fit-content;\">\r\n        <div class=\"card-body\">\r\n          <form>\r\n            <h1>Login</h1>\r\n            <p class=\"text-muted\">Welcome back! Please log in to your account</p>\r\n            <div class=\"input-group mb-3\">\r\n              <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text\"><i class=\"icon-user\"></i></span>\r\n              </div>\r\n              <input type=\"text\" class=\"form-control\" placeholder=\"Username\" autocomplete=\"username\" required>\r\n            </div>\r\n            <div class=\"input-group mb-4\">\r\n              <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text\"><i class=\"icon-lock\"></i></span>\r\n              </div>\r\n              <input type=\"password\" class=\"form-control\" placeholder=\"Password\" autocomplete=\"current-password\"\r\n                required>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-6\">\r\n                <button type=\"button\" class=\"btn btn-primary px-4\">Login</button>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </main>\r\n</div> -->\r\n<!-- <div class=\"bg-image\"> -->\r\n<div class=\"d-md-flex h-md-100 align-items-center\">\r\n  <div class=\"col-md-6 p-0 bg-black h-md-100 login-screen\">\r\n    <div class=\"text-white d-md-flex align-items-center h-100 text-center justify-content-center\">\r\n      <div class=\"container-fluid bg-image\" style=\" height: 100vh \">\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-6 p-0 bg-white h-md-100\">\r\n    <div class=\"d-md-flex align-items-center h-md-100 justify-content-center\">\r\n      <div class=\"container-fluid fallback-image\" style=\" height: 100vh \">\r\n        <form class=\"login-box\" #usForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\r\n          <h1>JEWEL</h1>\r\n          <p class=\"text-muted\">Welcome back! Please log in to your account</p>\r\n          <div class=\"input-group mb-3\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\"><i class=\"icon-user\"></i></span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"Username\" id=\"login\" maxlength=\"80\" size=\"30\" ngModel\r\n              value=\"\" name=\"identifier\" required>\r\n          </div>\r\n          <div class=\"input-group mb-4\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\"><i class=\"icon-lock\"></i></span>\r\n            </div>\r\n            <input type=\"password\" class=\"form-control\" placeholder=\"Password\" id=\"password\" size=\"30\" ngModel\r\n              name=\"password\" value=\"\" required>\r\n          </div>\r\n          <!-- <div class=\"row\"> -->\r\n          <!-- <div class=\"col-6\"> -->\r\n          <button type=\"submit\" class=\"btn btn-lg px-4\" style=\"background-color: #43425D; color: white;\">\r\n            <span *ngIf=\"loading\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\">\r\n            </span>Login\r\n          </button>\r\n          <!-- </div> -->\r\n          <!-- </div> -->\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- </div> -->";
       /***/
     },
 
     /***/
-    "nl+3":
-    /*!*******************************************!*\
-      !*** ./src/app/views/login/auth.guard.ts ***!
-      \*******************************************/
-
-    /*! exports provided: AuthGuard */
-
-    /***/
-    function nl3(module, __webpack_exports__, __webpack_require__) {
+    "nl+3": function nl3(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1902,15 +1753,7 @@
     },
 
     /***/
-    "zUnb":
-    /*!*********************!*\
-      !*** ./src/main.ts ***!
-      \*********************/
-
-    /*! no exports provided */
-
-    /***/
-    function zUnb(module, __webpack_exports__, __webpack_require__) {
+    "zUnb": function zUnb(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -1953,15 +1796,7 @@
     },
 
     /***/
-    "zn8P":
-    /*!******************************************************!*\
-      !*** ./$$_lazy_route_resource lazy namespace object ***!
-      \******************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function zn8P(module, exports) {
+    "zn8P": function zn8P(module, exports) {
       function webpackEmptyAsyncContext(req) {
         // Here Promise.resolve().then() is used instead of new Promise() to prevent
         // uncaught exception popping up in devtools

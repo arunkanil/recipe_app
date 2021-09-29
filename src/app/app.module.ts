@@ -4,6 +4,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 // Import containers
@@ -42,6 +43,7 @@ import { ExposedFormComponent } from './views/exposed_form/exposed_form.componen
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
+    ToastrModule.forRoot(),
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,

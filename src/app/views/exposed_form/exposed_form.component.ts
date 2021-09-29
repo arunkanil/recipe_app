@@ -1,6 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from "../../data.service";
 import { first } from "rxjs/operators";
 
@@ -20,7 +21,8 @@ export class ExposedFormComponent {
   constructor(
     public dataservice: DataService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -36,13 +38,13 @@ export class ExposedFormComponent {
       .subscribe(
         (data:any) => {
           this.loading = false;
-          alert(data.message);
+          this.toastr.success(data.message);
         },
         (error) => {
           this.error = error;
           this.loading = false;
           console.log(error);
-          alert(error.error.message);
+          this.toastr.error(error.error.message);
         }
       );
   }
