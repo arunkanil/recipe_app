@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormBuilder, Validators } from "@angular/forms";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { DataService } from "../../data.service";
 import {
   customersColumn,
@@ -133,15 +133,24 @@ export class ButtonsComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
   }
-  onSelectionChanged(event) {
-    var selectedRows = this.gridApi.getSelectedRows();
-    console.log(selectedRows,event);
+  onRowClicked(event: any) {
+    console.log("row", event.data);
     this.router.navigate(
-      ["/kpcaller/kp_customer_details", selectedRows[0].id, this.router.url],
+      ["/kpcaller/kp_customer_details", event.data.id, this.router.url],
       {
-        state: { data: selectedRows },
+        state: { data: event.data },
       }
     );
+  }
+  onSelectionChanged(event: any) {
+    var selectedRows = this.gridApi.getSelectedRows();
+    console.log(selectedRows, event);
+    // this.router.navigate(
+    //   ["/kpcaller/kp_customer_details", selectedRows[0].id, this.router.url],
+    //   {
+    //     state: { data: selectedRows },
+    //   }
+    // );
   }
   filterSubmit() {
     this.filter = {

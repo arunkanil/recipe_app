@@ -1,5 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from "../../data.service";
 import { AgentsColumn, customersColumn } from "../../constants/columnMetadata";
 import { ModalDirective } from "ngx-bootstrap/modal";
@@ -14,7 +15,8 @@ export class VerifiedListComponent {
     public dataservice: DataService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     if (this.route.snapshot.data.title === "Agents List") {
       this.columnDefs = [...AgentsColumn];
@@ -114,11 +116,11 @@ export class VerifiedListComponent {
           resp = result.data;
           console.log("response", result);
           if (result.data.updateUser) {
-            alert("Assigned successfully!");
+            this.toastr.success("Assigned successfully!");
             this.getLists();
             this.myModal.hide();
           } else {
-            alert("Failed. Please check the fields!");
+            this.toastr.error("Failed. Please check the fields!");
           }
         });
     } else {
@@ -131,11 +133,11 @@ export class VerifiedListComponent {
           resp = result.data;
           console.log("response", result);
           if (result.data.updateUser) {
-            alert("Assigned successfully!");
+            this.toastr.success("Assigned successfully!");
             this.getLists();
             this.myModal.hide();
           } else {
-            alert("Failed. Please check the fields!");
+            this.toastr.error("Failed. Please check the fields!");
           }
         });
     }

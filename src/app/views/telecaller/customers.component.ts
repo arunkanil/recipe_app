@@ -1,5 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 import { ModalDirective } from "ngx-bootstrap/modal";
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
@@ -13,7 +14,8 @@ export class CustomersComponent {
   constructor(
     public dataservice: DataService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.columnDefs = [...customersColumn];
     this.Months = [...Months];
@@ -98,11 +100,11 @@ export class CustomersComponent {
         resp = result.data;
         console.log("response", result);
         if (result.data.createCustomer) {
-          alert("customer added successfully!");
+          this.toastr.success("customer added successfully!");
           this.getLists();
           this.myModal.hide();
         } else {
-          alert("Failed. Please check the fields!");
+          this.toastr.error("Failed. Please check the fields!");
         }
       });
   }

@@ -1,6 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { ModalDirective } from "ngx-bootstrap/modal";
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
 import { AgentsColumn } from "../../constants/columnMetadata";
@@ -14,7 +15,8 @@ export class AgentsComponent {
   constructor(
     public dataservice: DataService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.columnDefs = [...AgentsColumn];
     this.rowSelection = "single";
@@ -76,11 +78,11 @@ export class AgentsComponent {
       resp = result.data;
       console.log("response", result);
       if (result.data.createTeleCallerContact) {
-        alert("Agent added successfully!");
+        this.toastr.success("Agent added successfully!");
         this.getLists();
         this.myModal.hide();
       } else {
-        alert("Failed. Please check the fields!");
+        this.toastr.error("Failed. Please check the fields!");
       }
     });
   }

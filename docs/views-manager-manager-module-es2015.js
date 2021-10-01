@@ -77,10 +77,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_enquiries_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./enquiries.component.html */ "m6yf");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "iInd");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-bootstrap/modal */ "LqlI");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "s7LF");
-/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "5eHb");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-bootstrap/modal */ "LqlI");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "s7LF");
+/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+
 
 
 
@@ -90,22 +92,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let EnquiriesComponent = class EnquiriesComponent {
-    constructor(dataservice, router, fb) {
+    constructor(dataservice, router, fb, toastr) {
         this.dataservice = dataservice;
         this.router = router;
         this.fb = fb;
+        this.toastr = toastr;
         this.customerForm = this.fb.group({
-            NameOfBride: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            NameOfFather: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            NameOfMother: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            MarriageDate: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            Contact_Number_1: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            Contact_Number_2: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            MarriageMonth: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            tele_caller_contact: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            HouseName: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            Landmark: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            locality: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            NameOfBride: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            NameOfFather: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            NameOfMother: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            MarriageDate: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            Contact_Number_1: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            Contact_Number_2: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            MarriageMonth: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            tele_caller_contact: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            HouseName: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            Landmark: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            locality: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
         });
         this.loading = true;
         this.btnLoading = false;
@@ -114,8 +117,8 @@ let EnquiriesComponent = class EnquiriesComponent {
         this.rowData = [];
         this.agents = [];
         this.localities = [];
-        this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["customerColumnsWithKpCaller"]];
-        this.Months = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["Months"]];
+        this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__["customerColumnsWithKpCaller"]];
+        this.Months = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__["Months"]];
         this.rowSelection = "single";
     }
     ngOnInit() {
@@ -154,20 +157,21 @@ let EnquiriesComponent = class EnquiriesComponent {
             resp = result.data;
             console.log("response", result);
             if (result.data.createCustomer) {
-                alert("customer added successfully!");
+                this.toastr.success("customer added successfully!");
                 this.getLists();
                 this.myModal.hide();
             }
             else {
-                alert("Failed. Please check the fields!");
+                this.toastr.error("Failed. Please check the fields!");
             }
         });
     }
 };
 EnquiriesComponent.ctorParameters = () => [
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"] },
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] }
 ];
 EnquiriesComponent.propDecorators = {
     myModal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"], args: ["myModal",] }]
@@ -176,9 +180,10 @@ EnquiriesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         template: _raw_loader_enquiries_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
+        _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"],
+        ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]])
 ], EnquiriesComponent);
 
 
@@ -200,9 +205,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "iInd");
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-bootstrap/modal */ "LqlI");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "s7LF");
-/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "5eHb");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "s7LF");
+/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+
 
 
 
@@ -212,21 +219,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ManagerCustomerDetailComponent = class ManagerCustomerDetailComponent {
-    constructor(dataservice, activatedRouter, router, fb) {
+    constructor(dataservice, activatedRouter, router, fb, toastr) {
         this.dataservice = dataservice;
         this.activatedRouter = activatedRouter;
         this.router = router;
         this.fb = fb;
+        this.toastr = toastr;
         this.loading = true;
         this.details = [];
         this.btnLoading = false;
-        this.dateConverter = _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["dateConverter"];
+        this.dateConverter = _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__["dateConverter"];
         this.users = [];
         this.agentForm = this.fb.group({
-            agent: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            agent: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
         });
         this.commentForm = this.fb.group({
-            RemarksText: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            RemarksText: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
         });
     }
     ngOnInit() {
@@ -260,11 +268,11 @@ let ManagerCustomerDetailComponent = class ManagerCustomerDetailComponent {
             resp = result.data;
             console.log("response", result);
             if (result.data.updateUser) {
-                alert("Field Agent assigned successfully!");
+                this.toastr.success("Field Agent assigned successfully!");
                 this.myModal.hide();
             }
             else {
-                alert("Failed. Please check the fields!");
+                this.toastr.error("Failed. Please check the fields!");
             }
         });
     }
@@ -277,11 +285,11 @@ let ManagerCustomerDetailComponent = class ManagerCustomerDetailComponent {
             resp = result.data;
             console.log("response", result);
             if (result.data.updateCustomer) {
-                alert("Comment added successfully!");
+                this.toastr.success("Comment added successfully!");
                 this.commentModal.hide();
             }
             else {
-                alert("Failed. Please check the fields!");
+                this.toastr.error("Failed. Please check the fields!");
             }
         });
     }
@@ -291,21 +299,22 @@ let ManagerCustomerDetailComponent = class ManagerCustomerDetailComponent {
             resp = result.data;
             console.log("response", result);
             if (result.data.deleteTeleCallerContact) {
-                alert("Agent deleted successfully!");
+                this.toastr.success("Agent deleted successfully!");
                 this.router.navigate(["/order/order_processing"]);
                 this.deleteModal.hide();
             }
             else {
-                alert("Failed. Please check again!");
+                this.toastr.error("Failed. Please check again!");
             }
         });
     }
 };
 ManagerCustomerDetailComponent.ctorParameters = () => [
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"] },
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"] }
 ];
 ManagerCustomerDetailComponent.propDecorators = {
     myModal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"], args: ["myModal",] }],
@@ -316,10 +325,11 @@ ManagerCustomerDetailComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         template: _raw_loader_customerdetail_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
+        _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"],
+        ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
 ], ManagerCustomerDetailComponent);
 
 
@@ -341,9 +351,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "iInd");
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-bootstrap/modal */ "LqlI");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "s7LF");
-/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "5eHb");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "s7LF");
+/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+
 
 
 
@@ -353,22 +365,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ManagerCustomerComponent = class ManagerCustomerComponent {
-    constructor(dataservice, router, fb) {
+    constructor(dataservice, router, fb, toastr) {
         this.dataservice = dataservice;
         this.router = router;
         this.fb = fb;
+        this.toastr = toastr;
         this.customerForm = this.fb.group({
-            NameOfBride: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            NameOfFather: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            NameOfMother: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            MarriageDate: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            Contact_Number_1: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            Contact_Number_2: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            MarriageMonth: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            tele_caller_contact: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            HouseName: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            Landmark: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            locality: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            NameOfBride: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            NameOfFather: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            NameOfMother: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            MarriageDate: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            Contact_Number_1: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            Contact_Number_2: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            MarriageMonth: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            tele_caller_contact: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            HouseName: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            Landmark: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            locality: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
         });
         this.loading = true;
         this.btnLoading = false;
@@ -377,8 +390,8 @@ let ManagerCustomerComponent = class ManagerCustomerComponent {
         this.rowData = [];
         this.agents = [];
         this.localities = [];
-        this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["customerColumnsWithKpCaller"]];
-        this.Months = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_7__["Months"]];
+        this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__["customerColumnsWithKpCaller"]];
+        this.Months = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_8__["Months"]];
         this.rowSelection = "single";
     }
     ngOnInit() {
@@ -417,20 +430,21 @@ let ManagerCustomerComponent = class ManagerCustomerComponent {
             resp = result.data;
             console.log("response", result);
             if (result.data.createCustomer) {
-                alert("customer added successfully!");
+                this.toastr.success("customer added successfully!");
                 this.getLists();
                 this.myModal.hide();
             }
             else {
-                alert("Failed. Please check the fields!");
+                this.toastr.error("Failed. Please check the fields!");
             }
         });
     }
 };
 ManagerCustomerComponent.ctorParameters = () => [
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"] },
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"] }
 ];
 ManagerCustomerComponent.propDecorators = {
     myModal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"], args: ["myModal",] }]
@@ -439,9 +453,10 @@ ManagerCustomerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         template: _raw_loader_customers_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
+        _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"],
+        ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
 ], ManagerCustomerComponent);
 
 
@@ -1777,10 +1792,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_verified_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./verified.component.html */ "cVY+");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "iInd");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
-/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/modal */ "LqlI");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "s7LF");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "5eHb");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../data.service */ "R7Hv");
+/* harmony import */ var _constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../constants/columnMetadata */ "7nfi");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-bootstrap/modal */ "LqlI");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "s7LF");
+
 
 
 
@@ -1790,13 +1807,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VerifiedListComponent = class VerifiedListComponent {
-    constructor(dataservice, route, router, fb) {
+    constructor(dataservice, route, router, fb, toastr) {
         this.dataservice = dataservice;
         this.route = route;
         this.router = router;
         this.fb = fb;
+        this.toastr = toastr;
         this.callerForm = this.fb.group({
-            id: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+            id: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required],
         });
         this.loading = true;
         this.label = "";
@@ -1808,10 +1826,10 @@ let VerifiedListComponent = class VerifiedListComponent {
         this.btnDisabled = true;
         this.routerData = {};
         if (this.route.snapshot.data.title === "Agents List") {
-            this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_5__["AgentsColumn"]];
+            this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__["AgentsColumn"]];
         }
         else {
-            this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_5__["customersColumn"]];
+            this.columnDefs = [..._constants_columnMetadata__WEBPACK_IMPORTED_MODULE_6__["customersColumn"]];
         }
         this.rowSelection = "multiple";
     }
@@ -1885,12 +1903,12 @@ let VerifiedListComponent = class VerifiedListComponent {
                 resp = result.data;
                 console.log("response", result);
                 if (result.data.updateUser) {
-                    alert("Assigned successfully!");
+                    this.toastr.success("Assigned successfully!");
                     this.getLists();
                     this.myModal.hide();
                 }
                 else {
-                    alert("Failed. Please check the fields!");
+                    this.toastr.error("Failed. Please check the fields!");
                 }
             });
         }
@@ -1901,22 +1919,23 @@ let VerifiedListComponent = class VerifiedListComponent {
                 resp = result.data;
                 console.log("response", result);
                 if (result.data.updateUser) {
-                    alert("Assigned successfully!");
+                    this.toastr.success("Assigned successfully!");
                     this.getLists();
                     this.myModal.hide();
                 }
                 else {
-                    alert("Failed. Please check the fields!");
+                    this.toastr.error("Failed. Please check the fields!");
                 }
             });
         }
     }
 };
 VerifiedListComponent.ctorParameters = () => [
-    { type: _data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"] },
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormBuilder"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] }
 ];
 VerifiedListComponent.propDecorators = {
     myModal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"], args: ["myModal",] }]
@@ -1925,10 +1944,11 @@ VerifiedListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         template: _raw_loader_verified_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]])
+        _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormBuilder"],
+        ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]])
 ], VerifiedListComponent);
 
 

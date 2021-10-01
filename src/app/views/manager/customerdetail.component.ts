@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ModalDirective } from "ngx-bootstrap/modal";
+import { ToastrService } from "ngx-toastr";
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
 import { dateConverter } from "../../constants/columnMetadata";
@@ -13,8 +14,9 @@ export class ManagerCustomerDetailComponent implements OnInit {
     public dataservice: DataService,
     private activatedRouter: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private toastr: ToastrService
+    ) {}
   @ViewChild("myModal") public myModal: ModalDirective;
   @ViewChild("deleteModal") public deleteModal: ModalDirective;
   @ViewChild("commentModal") public commentModal: ModalDirective;
@@ -64,10 +66,10 @@ export class ManagerCustomerDetailComponent implements OnInit {
         resp = result.data;
         console.log("response", result);
         if (result.data.updateUser) {
-          alert("Field Agent assigned successfully!");
+          this.toastr.success("Field Agent assigned successfully!");
           this.myModal.hide();
         } else {
-          alert("Failed. Please check the fields!");
+          this.toastr.error("Failed. Please check the fields!");
         }
       });
   }
@@ -80,10 +82,10 @@ export class ManagerCustomerDetailComponent implements OnInit {
         resp = result.data;
         console.log("response", result);
         if (result.data.updateCustomer) {
-          alert("Comment added successfully!");
+          this.toastr.success("Comment added successfully!");
           this.commentModal.hide();
         } else {
-          alert("Failed. Please check the fields!");
+          this.toastr.error("Failed. Please check the fields!");
         }
       });
   }
@@ -93,11 +95,11 @@ export class ManagerCustomerDetailComponent implements OnInit {
       resp = result.data;
       console.log("response", result);
       if (result.data.deleteTeleCallerContact) {
-        alert("Agent deleted successfully!");
+        this.toastr.success("Agent deleted successfully!");
         this.router.navigate(["/order/order_processing"]);
         this.deleteModal.hide();
       } else {
-        alert("Failed. Please check again!");
+        this.toastr.error("Failed. Please check again!");
       }
     });
   }

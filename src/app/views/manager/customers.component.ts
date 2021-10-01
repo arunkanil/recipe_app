@@ -1,6 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { ModalDirective } from "ngx-bootstrap/modal";
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
 import { customerColumnsWithKpCaller,Months } from "../../constants/columnMetadata";
@@ -13,8 +14,9 @@ export class ManagerCustomerComponent {
   constructor(
     public dataservice: DataService,
     private router: Router,
-    private fb: FormBuilder
-  ) {
+    private fb: FormBuilder,
+    private toastr: ToastrService
+    ) {
     this.columnDefs = [...customerColumnsWithKpCaller];
     this.Months = [...Months];
     this.rowSelection = "single";
@@ -81,11 +83,11 @@ export class ManagerCustomerComponent {
       resp = result.data;
       console.log("response", result);
       if (result.data.createCustomer) {
-        alert("customer added successfully!");
+        this.toastr.success("customer added successfully!");
         this.getLists();
         this.myModal.hide();
       } else {
-        alert("Failed. Please check the fields!");
+        this.toastr.error("Failed. Please check the fields!");
       }
     });
   }

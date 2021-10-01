@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 import { ModalDirective } from "ngx-bootstrap/modal";
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
@@ -13,7 +14,8 @@ export class AgentDetailComponent implements OnInit {
     public dataservice: DataService,
     private activatedRouter: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.Months = [...Months];
   }
@@ -100,10 +102,10 @@ export class AgentDetailComponent implements OnInit {
         resp = result.data;
         console.log("response", result);
         if (result.data.updateTeleCallerContact) {
-          alert("Agent edited successfully!");
+          this.toastr.success("Agent edited successfully!");
           this.myModal.hide();
         } else {
-          alert("Failed. Please check the fields!");
+          this.toastr.error("Failed. Please check the fields!");
         }
       });
   }
@@ -116,11 +118,11 @@ export class AgentDetailComponent implements OnInit {
         resp = result.data;
         console.log("response", result);
         if (result.data.createCustomer) {
-          alert("customer added successfully!");
+          this.toastr.success("customer added successfully!");
           this.getLists();
           this.customerModal.hide();
         } else {
-          alert("Failed. Please check the fields!");
+          this.toastr.error("Failed. Please check the fields!");
         }
       });
   }
@@ -134,10 +136,10 @@ export class AgentDetailComponent implements OnInit {
         resp = result.data;
         console.log("response", result);
         if (result.data.updateTeleCallerContact) {
-          alert("Comment added successfully!");
+          this.toastr.success("Comment added successfully!");
           this.commentModal.hide();
         } else {
-          alert("Failed. Please check the fields!");
+          this.toastr.error("Failed. Please check the fields!");
         }
       });
   }
@@ -147,11 +149,11 @@ export class AgentDetailComponent implements OnInit {
       resp = result.data;
       console.log("response", result);
       if (result.data.deleteTeleCallerContact) {
-        alert("Agent deleted successfully!");
+        this.toastr.success("Agent deleted successfully!");
         this.router.navigate(["/order/order_processing"]);
         this.deleteModal.hide();
       } else {
-        alert("Failed. Please check again!");
+        this.toastr.error("Failed. Please check again!");
       }
     });
   }
