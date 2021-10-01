@@ -103,17 +103,18 @@ const localitiesQuery = gql`
     }
   }
 `;
-const postOfficesQuery = gql `
-query {
-  postOffices {
-    id
-    Name
-    Pincode
-    district {
+const postOfficesQuery = gql`
+  query {
+    postOffices {
+      id
       Name
+      Pincode
+      district {
+        Name
+      }
     }
   }
-}`;
+`;
 const UpdateAgentMutation = gql`
   mutation (
     $id: ID!
@@ -276,6 +277,8 @@ const CustomersFilterQuery = gql`
     $added_by_user: ID
     $MarriageMonth_null: Boolean
     $MarriageDate_null: Boolean
+    $MarriageMonthOR_null: Boolean
+    $MarriageDateOR_null: Boolean
     $MarriageDate_gte: String
     $MarriageDate_lte: String
   ) {
@@ -289,6 +292,7 @@ const CustomersFilterQuery = gql`
         added_by_user: $added_by_user
         MarriageDate_gte: $MarriageDate_gte
         MarriageDate_lte: $MarriageDate_lte
+        _or: [{ MarriageDate_null: $MarriageDateOR_null }, { MarriageMonth_null: $MarriageMonthOR_null }]
       }
     ) {
       id
@@ -394,7 +398,7 @@ const CustomerSingleQuery = gql`
           url
           previewUrl
         }
-        location{
+        location {
           Latitude
           Longitude
           GoogleMapURL
@@ -476,7 +480,7 @@ const AddCustomerMutation = gql`
               Latitude: $Latitude
               Longitude: $Longitude
               GoogleMapURL: $GoogleMapURL
-              GoogleMapPlusCode:$GoogleMapPlusCode
+              GoogleMapPlusCode: $GoogleMapPlusCode
             }
           }
         }

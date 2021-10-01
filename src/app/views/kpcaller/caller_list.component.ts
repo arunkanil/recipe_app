@@ -16,7 +16,7 @@ export class ButtonsComponent {
   rowSelection: string;
   constructor(
     public dataservice: DataService,
-    private router: Router,
+    public router: Router,
     private fb: FormBuilder,
     private toastr: ToastrService
   ) {
@@ -63,12 +63,16 @@ export class ButtonsComponent {
       this.title = "Verification";
     } else if (this.router.url === "/kpcaller/assigned") {
       this.filter = {
+        MarriageDateOR_null: false,
+        MarriageMonthOR_null: false,
         kp_id: localStorage.getItem("uid"),
       };
       this.title = "Assigned";
     } else {
       this.filter = {
         MarriageDate_null: true,
+        MarriageMonth_null: true,
+        kp_id: localStorage.getItem("uid"),
       };
       this.title = "Date Not Fixed";
       this.columnDefs = [...DNFcustomersColumn];
@@ -92,41 +96,53 @@ export class ButtonsComponent {
       });
   }
   filterBasedOnMonths() {
-    this.January = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 0
-    );
+    this.January = this.rowData.filter((item) => {
+      new Date(item.MarriageDate).getMonth() == 0 || item.MarriageMonth == 0;
+      console.log(new Date(item.MarriageDate).getMonth());
+    });
     this.February = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 1
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 1 || item.MarriageMonth == 1
     );
     this.March = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 2
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 2 || item.MarriageMonth == 2
     );
     this.April = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 3
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 3 || item.MarriageMonth == 3
     );
     this.May = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 4
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 4 || item.MarriageMonth == 4
     );
     this.June = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 5
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 5 || item.MarriageMonth == 5
     );
     this.July = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 6
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 6 || item.MarriageMonth == 6
     );
     this.August = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 7
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 7 || item.MarriageMonth == 7
     );
     this.September = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 8
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 8 || item.MarriageMonth == 8
     );
     this.October = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 9
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 9 || item.MarriageMonth == 9
     );
     this.November = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 10
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 10 || item.MarriageMonth == 10
     );
     this.December = this.rowData.filter(
-      (item) => new Date(item.MarriageDate).getMonth() == 11
+      (item) =>
+        new Date(item.MarriageDate).getMonth() == 11 || item.MarriageMonth == 11
     );
   }
   onGridReady(params) {
