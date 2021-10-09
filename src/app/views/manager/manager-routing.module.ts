@@ -4,6 +4,7 @@ import { AuthGuard } from '../login/auth.guard';
 import { ManagerCustomerDetailComponent } from './customerdetail.component';
 import { ManagerCustomerComponent } from './customers.component';
 import { EnquiriesComponent } from './enquiries.component';
+import { EnquiryDetailComponent } from './enquirydetails.component';
 
 import { VerifiedListComponent } from './verified.component';
 
@@ -61,6 +62,15 @@ const routes: Routes = [
         data: {
           roles: 'MANAGER',
           title: 'Customer Details'
+        }
+      },
+      {
+        path: 'enquiry_details/:id',
+        canActivate: [AuthGuard],
+        component: EnquiryDetailComponent,
+        data: {
+          roles: 'MANAGER',
+          title: 'Enquiry Details'
         }
       },
     ]

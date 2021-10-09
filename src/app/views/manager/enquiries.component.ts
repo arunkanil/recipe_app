@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ModalDirective } from "ngx-bootstrap/modal";
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
-import { customerColumnsWithKpCaller,Months } from "../../constants/columnMetadata";
+import { enquiriesColumn,Months } from "../../constants/columnMetadata";
 
 @Component({
   templateUrl: "enquiries.component.html",
@@ -17,7 +17,7 @@ export class EnquiriesComponent {
     private fb: FormBuilder,
     private toastr: ToastrService
   ) {
-    this.columnDefs = [...customerColumnsWithKpCaller];
+    this.columnDefs = [...enquiriesColumn];
     this.Months = [...Months];
     this.rowSelection = "single";
   }
@@ -52,9 +52,9 @@ export class EnquiriesComponent {
   }
   getLists() {
     this.loading = true;
-    this.dataservice.getCustomers().valueChanges.subscribe((result: any) => {
-      console.log("getCustomers", result.data.customers);
-      this.rowData = result.data.customers;
+    this.dataservice.getEnquiries().valueChanges.subscribe((result: any) => {
+      console.log("getEnquiries", result.data.customerEnquiries);
+      this.rowData = result.data.customerEnquiries;
     });
     this.dataservice.getLocalities().valueChanges.subscribe((result: any) => {
       console.log("getLocalities", result.data.localities);
@@ -72,7 +72,7 @@ export class EnquiriesComponent {
   onSelectionChanged(event) {
     var selectedRows = this.gridApi.getSelectedRows();
     console.log(selectedRows);
-    this.router.navigate(["/manager/customer_details",selectedRows[0].id], {
+    this.router.navigate(["/manager/enquiry_details",selectedRows[0].id], {
       state: { data: selectedRows },
     });
   }

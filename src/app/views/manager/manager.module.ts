@@ -14,6 +14,7 @@ import { ManagerRoutingModule } from './manager-routing.module';
 import { ManagerCustomerComponent } from './customers.component';
 import { ManagerCustomerDetailComponent } from './customerdetail.component';
 import { EnquiriesComponent } from './enquiries.component';
+import { EnquiryDetailComponent } from './enquirydetails.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { EnquiriesComponent } from './enquiries.component';
     VerifiedListComponent,
     ManagerCustomerComponent,
     ManagerCustomerDetailComponent,
-    EnquiriesComponent
+    EnquiriesComponent,
+    EnquiryDetailComponent
   ]
 })
 export class ManagerModule { }

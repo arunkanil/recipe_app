@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { ModalDirective } from "ngx-bootstrap/modal";
 import { DataService } from "../../data.service";
 import { FormBuilder, Validators } from "@angular/forms";
@@ -30,8 +30,10 @@ export class AgentDetailComponent implements OnInit {
   loading = true;
   details: any = [];
   btnLoading = false;
+  agents: any = [];
   groups: any = [];
   localities: any = [];
+  postoffices: any = [];
   agentForm = this.fb.group({
     name: ["", Validators.required],
     email: ["", Validators.required],
@@ -72,11 +74,18 @@ export class AgentDetailComponent implements OnInit {
       NameOfFather: ["", Validators.required],
       NameOfMother: ["", Validators.required],
       MarriageDate: ["", Validators.required],
+      Contact_Number_1: ["", Validators.required],
+      Contact_Number_2: ["", Validators.required],
       MarriageMonth: ["", Validators.required],
       tele_caller_contact: [this.id, Validators.required],
       HouseName: ["", Validators.required],
       Landmark: ["", Validators.required],
       locality: ["", Validators.required],
+      Post_office: ["", Validators.required],
+      Latitude: [""],
+      Longitude: [""],
+      GoogleMapURL: [""],
+      GoogleMapPlusCode: [""],
     });
   }
   getLists() {
@@ -88,6 +97,14 @@ export class AgentDetailComponent implements OnInit {
     this.dataservice.getLocalities().valueChanges.subscribe((result: any) => {
       console.log("getLocalities", result.data.localities);
       this.localities = result.data.localities;
+    });
+    this.dataservice.getAgents().valueChanges.subscribe((result: any) => {
+      console.log("getAgents", result.data.teleCallerContacts);
+      this.agents = result.data.teleCallerContacts;
+    });
+    this.dataservice.getPostOffices().valueChanges.subscribe((result: any) => {
+      console.log("getPostOffices", result.data.postOffices);
+      this.postoffices = result.data.postOffices;
     });
   }
   // dateConverter(date) {

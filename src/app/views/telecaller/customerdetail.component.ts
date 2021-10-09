@@ -27,7 +27,7 @@ export class CustomerDetailComponent implements OnInit {
   dateConverter = dateConverter;
   btnLoading = false;
   groups: any = [];
-  maplink: any = "https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=9.676709,76.391153&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed";
+  maplink: any = "";
   agentForm = this.fb.group({
     name: ["", Validators.required],
     email: ["", Validators.required],

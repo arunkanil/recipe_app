@@ -17,6 +17,10 @@ const AgentsQuery = gql`
         Description
       }
       Email
+      assigned_telecaller {
+        username
+        email
+      }
     }
   }
 `;
@@ -683,6 +687,47 @@ const AddCustomerEnquiry = gql`
     }
   }
 `;
+const EnquiriesQuery = gql `
+query {
+  customerEnquiries{
+    id
+    Name
+    PhoneNumber
+    HouseName
+    Landmark
+    PostOfficeNumber
+    isWeddingPurchase
+    MarriageDate
+    QtyOfGold
+    OptNoCostEMI
+  }
+}`
+const SingleEnquiryQuery = gql `
+query($id: ID!) {
+  customerEnquiry(id: $id){
+    id
+    Name
+    PhoneNumber
+    HouseName
+    Landmark
+    PostOfficeNumber
+    isWeddingPurchase
+    MarriageDate
+    QtyOfGold
+    OptNoCostEMI
+  }
+}`
+const deleteEnquiry = gql `
+mutation($id: ID!){
+  deleteCustomerEnquiry(input: { where: { id: $id } }){
+    customerEnquiry{
+      Name
+      PhoneNumber
+      HouseName
+      Landmark
+    }
+  }
+}`;
 @Injectable({
   providedIn: "root",
 })
@@ -698,20 +743,22 @@ export class DataService {
     };
     return this.http.post(this.baseURL + `auth/login/`, data, httpOptions1);
   }
-  getOrders() {
-    const httpOptions: Object = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("token")}`,
-      }),
-      observe: "response",
-    };
-    return this.http.get(this.baseURL + "order/1/shop/", httpOptions);
-  }
-
   getAgents() {
     return this.apollo.watchQuery({
       query: AgentsQuery,
+    });
+  }
+  getEnquiries() {
+    return this.apollo.watchQuery({
+      query: EnquiriesQuery,
+    });
+  }
+  getSingleEnquiry(id) {
+    return this.apollo.watchQuery({
+      query: SingleEnquiryQuery,
+      variables: {
+        id: id,
+      },
     });
   }
   getfilteredAgents(id) {
@@ -903,6 +950,15 @@ export class DataService {
         HouseName: enquiry.HouseName,
         Landmark: enquiry.Landmark,
         PostOfficeNumber: enquiry.PostOfficeNumber,
+      },
+      errorPolicy: "all",
+    });
+  }
+  DeleteEnquiry(id) {
+    return this.apollo.mutate({
+      mutation: deleteEnquiry,
+      variables: {
+        id: id,
       },
       errorPolicy: "all",
     });
