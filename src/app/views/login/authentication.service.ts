@@ -24,26 +24,25 @@ export class AuthenticationService {
   }
 
   login(data) {
-    return this.http.post<any>(`${environment.apiUrl}auth/local/`, data).pipe(
+    return this.http.post<any>(`${environment.apiUrl}admin/login/`, data).pipe(
       map((user) => {
         // login successful if there's a jwt token in the response
         console.log(user);
-        if (user.jwt) {
+        if (user.status == 200) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem("token", user.jwt);
-          localStorage.setItem("username", user.user.username);
-          localStorage.setItem("uid", user.user.id);
-          localStorage.setItem("user_type", user.user.UserType);
-          localStorage.setItem("email", user.user.email);
-          // localStorage.setItem('name', user.data.user_data.name);
-          // localStorage.setItem('phone_number', user.data.user_data.phone_number);
-          // localStorage.setItem('shop_name', user.data.shops_details[0]?.shop_name);
-          // localStorage.setItem('shop_id', user.data.shops_details[0]?.shop);
+          localStorage.setItem("token", user.data.token);
+          localStorage.setItem("last_login", user.data.last_login);
+          localStorage.setItem("id", user.data.id);
+          localStorage.setItem("is_superuser", user.data.is_superuser);
+          localStorage.setItem("email", user.data.email);
+          localStorage.setItem('first_name', user.data.first_name);
+          localStorage.setItem('last_name', user.data.last_name);
+          localStorage.setItem('role', user.data.role);
+          localStorage.setItem('is_staff', user.data.is_staff);
 
           localStorage.setItem("currentUser", JSON.stringify(user));
           this.currentUserSubject.next(user);
         }
-
         return user;
       })
     );

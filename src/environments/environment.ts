@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://jewel-core.telemarketing.untanglepro.com/"
+  apiUrl: "http://194.195.209.226:5000/api/v1/"
 };

@@ -19,7 +19,7 @@ export class DefaultLayoutComponent {
     this.authenticationService.currentUser.subscribe(
       (x) => (this.currentUser = x)
     );
-    console.log("constructor",this.currentUser.user.UserType)
+    console.log("constructor",this.currentUser?.user?.UserType)
   }
   public navItems = navItems.filter((item) => item.role == localStorage.getItem("user_type") || item.role == "");;
 

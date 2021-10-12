@@ -741,7 +741,7 @@ export class DataService {
     const httpOptions1: Object = {
       observe: "response",
     };
-    return this.http.post(this.baseURL + `auth/login/`, data, httpOptions1);
+    return this.http.post(this.baseURL + `admin/login/`, data, httpOptions1);
   }
   getAgents() {
     return this.apollo.watchQuery({
